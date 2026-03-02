@@ -1,0 +1,1 @@
+ALTER TABLE public.talepler ADD COLUMN hizmet_tipi text NOT NULL DEFAULT 'satin_alma';
