@@ -42,6 +42,7 @@ const Giris = () => {
     <Helmet>
       <title>Giriş Yap – Hammaddem</title>
       <meta name="robots" content="noindex, nofollow" />
+      <link rel="canonical" href="https://hammaddem.co/giris" />
     </Helmet>
     <div className="min-h-screen bg-off flex items-center justify-center px-3 sm:px-4 py-6">
       <div className="w-full max-w-md">

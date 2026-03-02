@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.svg";
@@ -50,7 +51,12 @@ const SifreSifirla = () => {
 
   if (!isRecovery) {
     return (
-      <div className="min-h-screen bg-off flex items-center justify-center px-3 sm:px-4 py-6">
+      <>
+        <Helmet>
+          <title>Şifre Sıfırla – Hammaddem</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <div className="min-h-screen bg-off flex items-center justify-center px-3 sm:px-4 py-6">
         <div className="w-full max-w-md text-center">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
             <img src={logo} alt="Hammaddem" className="h-8 sm:h-9 w-auto" />
@@ -63,12 +69,18 @@ const SifreSifirla = () => {
             </Link>
           </div>
         </div>
-      </div>
+        </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-off flex items-center justify-center px-3 sm:px-4 py-6">
+    <>
+      <Helmet>
+        <title>Şifre Sıfırla – Hammaddem</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <div className="min-h-screen bg-off flex items-center justify-center px-3 sm:px-4 py-6">
       <div className="w-full max-w-md">
         <div className="text-center mb-5 sm:mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-4 sm:mb-6">
@@ -114,6 +126,7 @@ const SifreSifirla = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

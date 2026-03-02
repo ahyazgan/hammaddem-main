@@ -5,7 +5,7 @@ import logo from "@/assets/logo.svg";
 const Footer = () => {
   return (
     <footer id="footer" className="border-t border-border pt-16">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-8 md:gap-10 pb-12">
+      <div className="max-w-[1100px] mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr] gap-8 md:gap-10 pb-12">
         {/* Brand */}
         <div className="col-span-1 md:col-span-1">
           <Link to="/" className="flex items-center mb-3.5 no-underline">
@@ -44,6 +44,30 @@ const Footer = () => {
           <ul className="list-none flex flex-col gap-2.5">
             <li><Link to="/hizmetler/silobas" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Silobas Yükü</Link></li>
             <li><Link to="/hizmetler/hafriyat-nakliyesi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat &amp; İnşaat</Link></li>
+          </ul>
+        </div>
+
+        {/* Malzemeler */}
+        <div>
+          <h4 className="text-[11px] font-bold tracking-wider uppercase text-txt-3 mb-4">Malzemeler</h4>
+          <ul className="list-none flex flex-col gap-2.5">
+            <li><Link to="/malzeme/cimento" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Çimento</Link></li>
+            <li><Link to="/malzeme/kum" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kum</Link></li>
+            <li><Link to="/malzeme/cakil" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Çakıl</Link></li>
+            <li><Link to="/malzeme/micir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Mıcır</Link></li>
+            <li><Link to="/malzeme/kalsit" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kalsit</Link></li>
+          </ul>
+        </div>
+
+        {/* Hizmet Bölgeleri */}
+        <div>
+          <h4 className="text-[11px] font-bold tracking-wider uppercase text-txt-3 mb-4">Hizmet Bölgeleri</h4>
+          <ul className="list-none flex flex-col gap-2.5">
+            <li><Link to="/hizmet-bolgeleri/istanbul" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">İstanbul</Link></li>
+            <li><Link to="/hizmet-bolgeleri/ankara" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Ankara</Link></li>
+            <li><Link to="/hizmet-bolgeleri/izmir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">İzmir</Link></li>
+            <li><Link to="/hizmet-bolgeleri/bursa" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Bursa</Link></li>
+            <li><Link to="/hizmet-bolgeleri/kocaeli" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kocaeli</Link></li>
           </ul>
         </div>
 

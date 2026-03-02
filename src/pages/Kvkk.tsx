@@ -1,8 +1,15 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 const Kvkk = () => (
   <div className="min-h-screen bg-background">
+    <Helmet>
+      <title>KVKK Aydınlatma Metni – Hammaddem</title>
+      <meta name="description" content="Hammaddem KVKK aydınlatma metni. Kişisel verilerin korunması ve haklarınız." />
+      <link rel="canonical" href="https://hammaddem.co/kvkk" />
+      <meta name="robots" content="noindex, nofollow" />
+    </Helmet>
     <div className="max-w-[720px] mx-auto px-4 md:px-8 py-16 md:py-24">
       <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10 no-underline">
         <ArrowLeft size={16} /> Ana Sayfa
