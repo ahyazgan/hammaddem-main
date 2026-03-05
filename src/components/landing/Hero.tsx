@@ -4,10 +4,10 @@ import HeroBgPattern from "./HeroBgPattern";
 import OrderCard from "./OrderCard";
 
 const defaultStats = [
-  { key: "stat_teslimat", val: "1.240+", label: "Tamamlanan Teslimat", color: "text-primary" },
-  { key: "stat_teklif_suresi", val: "15dk", label: "Ort. Teklif Süresi", color: "text-navy" },
+  { key: "stat_teslimat", val: "250+", label: "Tamamlanan Teslimat", color: "text-primary" },
+  { key: "stat_teklif_suresi", val: "30dk", label: "Ort. Teklif Süresi", color: "text-navy" },
   { key: "stat_il_sayisi", val: "11 İl", label: "Aktif Teslimat Bölgesi", color: "text-foreground" },
-  { key: "stat_zamaninda", val: "%96", label: "Zamanında Teslimat", color: "text-primary" },
+  { key: "stat_zamaninda", val: "%98", label: "Zamanında Teslimat", color: "text-primary" },
 ];
 
 const Hero = () => {

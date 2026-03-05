@@ -1,10 +1,10 @@
 const items = [
-  { icon: "⚡", title: "Hızlı Teklif", desc: "48 saat içinde net fiyat teklifiniz hazır.", stat: "48s", statLabel: "Ort. Süre" },
-  { icon: "🛡️", title: "Güvenilir Hizmet", desc: "Yılların tecrübesiyle kaliteli ve güvenilir hammadde tedariki.", stat: "%96", statLabel: "Memnuniyet" },
-  { icon: "🚛", title: "Geniş Filomuz", desc: "Silobas ve damperli araçlardan oluşan güçlü filo.", stat: "200+", statLabel: "Araç" },
+  { icon: "⚡", title: "Hızlı Teklif", desc: "30 dakika içinde net fiyat teklifiniz hazır.", stat: "30dk", statLabel: "Ort. Süre" },
+  { icon: "🛡️", title: "Güvenilir Hizmet", desc: "Müşteri memnuniyetini her şeyin önünde tutuyoruz.", stat: "%98", statLabel: "Memnuniyet" },
+  { icon: "🚛", title: "Aktif Filomuz", desc: "Silobas ve damperli araçlardan oluşan güçlü filo.", stat: "20+", statLabel: "Araç" },
   { icon: "📍", title: "Türkiye Geneli", desc: "11 ilde aktif teslimat ağımızla her noktaya ulaşım.", stat: "11 İl", statLabel: "Kapsama" },
   { icon: "📱", title: "Dijital Takip", desc: "Siparişinizi her aşamada anlık olarak izleyin.", stat: "7/24", statLabel: "Online" },
-  { icon: "💰", title: "Rekabetçi Fiyat", desc: "Geniş tedarik ağımız sayesinde en uygun fiyatları sunuyoruz.", stat: "1.240+", statLabel: "Teslimat" },
+  { icon: "💰", title: "Tamamlanan Teslimat", desc: "Her geçen gün büyüyen teslimat ağımızla hizmetinizdeyiz.", stat: "250+", statLabel: "Teslimat" },
 ];
 
 const Neden = () => {
