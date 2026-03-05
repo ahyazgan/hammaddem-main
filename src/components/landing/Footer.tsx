@@ -56,6 +56,11 @@ const Footer = () => {
             <li><Link to="/malzeme/cakil" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Çakıl</Link></li>
             <li><Link to="/malzeme/micir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Mıcır</Link></li>
             <li><Link to="/malzeme/kalsit" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kalsit</Link></li>
+            <li><Link to="/malzeme/kirec" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kireç</Link></li>
+            <li><Link to="/malzeme/stabilize" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Stabilize</Link></li>
+            <li><Link to="/malzeme/mermer-tozu" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Mermer Tozu</Link></li>
+            <li><Link to="/malzeme/alci" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Alçı</Link></li>
+            <li><Link to="/malzeme/ucucu-kul" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Uçucu Kül</Link></li>
           </ul>
         </div>
 
@@ -68,6 +73,7 @@ const Footer = () => {
             <li><Link to="/hizmet-bolgeleri/izmir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">İzmir</Link></li>
             <li><Link to="/hizmet-bolgeleri/bursa" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Bursa</Link></li>
             <li><Link to="/hizmet-bolgeleri/kocaeli" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kocaeli</Link></li>
+            <li><Link to="/hizmet-bolgeleri/gaziantep" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Gaziantep</Link></li>
           </ul>
         </div>
 
