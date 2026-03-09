@@ -75,6 +75,18 @@ const NewRequestWizard = () => {
       hizmet_tipi: hizmetTipi,
     });
 
+    if (!error && tekrarli) {
+      // Tekrarlı talep için bildirim: bir ay sonraki tarih hesapla
+      const nextMonth = new Date();
+      nextMonth.setMonth(nextMonth.getMonth() + 1);
+      await supabase.from("bildirimler").insert({
+        user_id: user.id,
+        tip: "sistem",
+        baslik: "Aylık Tekrar Hatırlatıcı",
+        mesaj: `${generatedNo} numaralı talebiniz aylık tekrarlı olarak ayarlandı. Bir ay sonra (${nextMonth.toLocaleDateString("tr-TR", { day: "2-digit", month: "long" })}) size hatırlatma bildirimi göndereceğiz.`,
+      });
+    }
+
     setLoading(false);
 
     if (error) {

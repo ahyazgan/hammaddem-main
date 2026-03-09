@@ -12,6 +12,7 @@ interface Talep {
   teslimat_ili: string | null;
   teslimat_tarihi: string | null;
   not_text: string | null;
+  teklif_fiyat: number | null;
   durum: string;
   hizmet_tipi: string;
   created_at: string;
@@ -24,6 +25,7 @@ const durumConfig: Record<string, { badge: string; badgeClass: string; icon: str
   onaylandi: { badge: "ONAYLANDI", badgeClass: "bg-green-50 text-green-600", icon: "✓", iconBg: "bg-green-50" },
   yolda: { badge: "YOLDA", badgeClass: "bg-primary/10 text-primary", icon: "🚛", iconBg: "bg-primary/10" },
   teslim: { badge: "TESLİM", badgeClass: "bg-green-50 text-green-600", icon: "✓", iconBg: "bg-green-50" },
+  iptal: { badge: "İPTAL", badgeClass: "bg-red-50 text-red-500", icon: "✕", iconBg: "bg-red-50" },
 };
 
 const kategoriLabels: Record<string, string> = {
@@ -33,12 +35,13 @@ const kategoriLabels: Record<string, string> = {
   diger: "Diğer",
 };
 
-const filters = ["Tümü", "Bekliyor", "Aktif", "Tamamlandı"];
+const filters = ["Tümü", "Bekliyor", "Aktif", "Tamamlandı", "İptal"];
 const filterMap: Record<string, string[]> = {
   "Tümü": [],
   "Bekliyor": ["bekliyor", "teklif"],
   "Aktif": ["onaylandi", "yolda"],
   "Tamamlandı": ["teslim"],
+  "İptal": ["iptal"],
 };
 
 function formatDate(dateStr: string): string {
@@ -51,6 +54,17 @@ const SiparislerimView = () => {
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("Tümü");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [iptalLoading, setIptalLoading] = useState(false);
+
+  const iptalTalep = async (id: string) => {
+    if (!user) return;
+    if (!confirm("Bu talebi iptal etmek istediğinizden emin misiniz?")) return;
+    setIptalLoading(true);
+    await supabase.from("talepler").update({ durum: "iptal", updated_at: new Date().toISOString() } as any).eq("id", id).eq("user_id", user.id);
+    setIptalLoading(false);
+    setSelectedId(null);
+    fetchTalepler();
+  };
 
   const fetchTalepler = async () => {
     if (!user) return;
@@ -202,6 +216,13 @@ const SiparislerimView = () => {
                 </div>
               ))}
 
+              {selected.teklif_fiyat && (
+                <div className="px-4 py-3 border-t border-border bg-green-50 dark:bg-green-950/20">
+                  <span className="text-[10px] font-semibold tracking-[.5px] text-green-600 uppercase block mb-1">TEKLİF FİYATI</span>
+                  <p className="text-[18px] font-bold text-green-700">{selected.teklif_fiyat.toLocaleString("tr-TR")} ₺<span className="text-[11px] font-normal text-green-600 ml-1">/ ton</span></p>
+                  <p className="text-[10px] text-green-600 mt-0.5">Toplam tahmini: {(selected.teklif_fiyat * selected.miktar).toLocaleString("tr-TR")} ₺</p>
+                </div>
+              )}
               {selected.not_text && (
                 <div className="mt-2 pt-2 border-t border-border">
                   <span className="text-[10px] font-semibold tracking-[.5px] text-muted-foreground uppercase block mb-1">Not</span>
@@ -221,6 +242,15 @@ const SiparislerimView = () => {
                   <div className="text-[10px] text-muted-foreground font-mono">{formatDate(selected.created_at)}</div>
                 </div>
               </div>
+              {["bekliyor", "teklif"].includes(selected.durum) && (
+                <button
+                  onClick={() => iptalTalep(selected.id)}
+                  disabled={iptalLoading}
+                  className="mt-3 w-full py-1.5 rounded-md border border-red-200 text-red-500 text-[11px] font-medium hover:bg-red-50 disabled:opacity-40 transition-colors"
+                >
+                  {iptalLoading ? "İptal ediliyor..." : "Talebi İptal Et"}
+                </button>
+              )}
             </div>
           </div>
         )}

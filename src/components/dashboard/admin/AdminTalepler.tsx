@@ -57,6 +57,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [updating, setUpdating] = useState(false);
   const [teklifMesaj, setTeklifMesaj] = useState("");
+  const [teklifFiyat, setTeklifFiyat] = useState("");
   const [search, setSearch] = useState("");
   const [filterDurum, setFilterDurum] = useState<string>("all");
   const [filterType, setFilterType] = useState<"all" | "kayitli" | "misafir">("all");
@@ -107,24 +108,29 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
     if (!teklifMesaj.trim() || talep._type !== "kayitli" || !talep.user_id) return;
     setUpdating(true);
     try {
+      const updateData: any = { durum: "teklif", updated_at: new Date().toISOString() };
+      if (teklifFiyat && !isNaN(Number(teklifFiyat))) {
+        updateData.teklif_fiyat = Number(teklifFiyat);
+      }
       await Promise.all([
-        supabase.from("talepler").update({ durum: "teklif", updated_at: new Date().toISOString() }).eq("id", talep.id),
+        supabase.from("talepler").update(updateData).eq("id", talep.id),
         supabase.from("bildirimler").insert({
           user_id: talep.user_id,
           talep_id: talep.id,
           tip: "teklif",
           baslik: `Teklif: #${talep.talep_no}`,
-          mesaj: teklifMesaj,
+          mesaj: teklifFiyat ? `${teklifMesaj} — Teklif Fiyatı: ${Number(teklifFiyat).toLocaleString("tr-TR")} ₺` : teklifMesaj,
         }),
       ]);
       await supabase.functions.invoke("send-teklif-email", {
-        body: { talepId: talep.id, mesaj: teklifMesaj },
+        body: { talepId: talep.id, mesaj: teklifMesaj, fiyat: teklifFiyat || null },
       });
       toast({ title: "Teklif gönderildi", description: "Müşteriye bildirim iletildi." });
     } catch {
       toast({ title: "Hata", description: "Teklif gönderilemedi.", variant: "destructive" });
     } finally {
       setTeklifMesaj("");
+      setTeklifFiyat("");
       setUpdating(false);
       onRefresh();
     }
@@ -293,6 +299,20 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
             {selected._type === "kayitli" && (
               <div className="px-4 py-3">
                 <span className="text-[10px] font-semibold tracking-[.5px] text-[#5a6278] uppercase block mb-2">TEKLİF GÖNDER</span>
+                <div className="flex gap-2 mb-2">
+                  <div className="flex-1">
+                    <input
+                      type="number"
+                      value={teklifFiyat}
+                      onChange={e => setTeklifFiyat(e.target.value)}
+                      placeholder="Fiyat (₺) — opsiyonel"
+                      className="w-full bg-[#111520] border border-[#1c2133] rounded-md px-3 py-2 text-[12px] text-[#e8eaf0] placeholder:text-[#5a6278] focus:outline-none focus:border-[#e8620a] transition-colors"
+                    />
+                  </div>
+                  <div className="flex items-center px-2.5 bg-[#111520] border border-[#1c2133] rounded-md text-[12px] text-[#5a6278] shrink-0">
+                    ₺/ton
+                  </div>
+                </div>
                 <textarea
                   value={teklifMesaj}
                   onChange={e => setTeklifMesaj(e.target.value)}

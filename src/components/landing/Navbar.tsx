@@ -36,6 +36,9 @@ const Navbar = () => {
         <Link to="/tasiyici-olun" className="text-[13px] font-semibold text-foreground no-underline hover:text-primary transition-colors">
           Taşıyıcı Olun
         </Link>
+        <Link to="/talep-takip" className="text-[13px] font-semibold text-foreground no-underline hover:text-primary transition-colors">
+          Talep Takip
+        </Link>
         <Link to="/iletisim" className="text-[13px] font-semibold text-foreground no-underline hover:text-primary transition-colors">
           İletişim
         </Link>
@@ -72,6 +75,9 @@ const Navbar = () => {
 
             <Link to="/tasiyici-olun" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
               Taşıyıcı Olun
+            </Link>
+            <Link to="/talep-takip" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
+              Talep Takip
             </Link>
             <Link to="/iletisim" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
               İletişim
