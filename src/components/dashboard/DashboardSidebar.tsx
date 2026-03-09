@@ -31,7 +31,7 @@ const DashboardSidebar = ({ activeNav, onNavChange, open, onClose, user }: Props
   useEffect(() => {
     const fetchCounts = async () => {
       const [talepRes, notifRes] = await Promise.all([
-        supabase.from("talepler").select("durum"),
+        supabase.from("talepler").select("durum").eq("user_id", user.id),
         supabase.from("bildirimler").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("okundu", false),
       ]);
       const data = talepRes.data;

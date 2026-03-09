@@ -57,6 +57,7 @@ const SiparislerimView = () => {
     const { data } = await supabase
       .from("talepler")
       .select("*")
+      .eq("user_id", user.id)
       .order("created_at", { ascending: false });
     if (data) setTalepler(data as unknown as Talep[]);
     setLoading(false);
@@ -157,7 +158,7 @@ const SiparislerimView = () => {
                     </div>
                   </div>
                   <div className="text-right shrink-0">
-                    <div className="text-[14px] font-bold font-mono text-foreground">{t.miktar}t</div>
+                    <div className="text-[14px] font-bold font-mono text-foreground">{t.miktar} {t.birim}</div>
                   </div>
                 </div>
               );

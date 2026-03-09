@@ -89,7 +89,7 @@ const NewRequestWizard = () => {
   const finalMaterial = (material === "Diğer" ? customMaterial : material) || "—";
 
   return (
-    <div className="px-4 lg:px-6 py-5 border-b border-border shrink-0">
+    <div id="yeni-talep-wizard" className="px-4 lg:px-6 py-5 border-b border-border shrink-0">
       <div className="flex items-center justify-between mb-3.5">
         <div className="text-[13px] font-semibold flex items-center gap-2 text-foreground">
           <div className="w-[22px] h-[22px] rounded-[5px] bg-primary/10 border border-primary/30 flex items-center justify-center text-[11px]">
@@ -251,7 +251,7 @@ const NewRequestWizard = () => {
               </div>
               <div className="flex gap-1.5">
                 <button onClick={() => setStep(0)} className="px-3 h-[30px] rounded-[6px] bg-transparent border border-border text-muted-foreground text-[11px] hover:border-primary hover:text-foreground transition-all">←</button>
-                <button onClick={() => setStep(2)} className="flex-1 h-[30px] rounded-[6px] bg-primary text-primary-foreground text-[11px] font-semibold hover:opacity-90 transition-all shadow-[0_0_16px_rgba(232,98,10,0.15)]">
+                <button onClick={() => setStep(2)} disabled={!material || (material === "Diğer" && !customMaterial) || !city} className="flex-1 h-[30px] rounded-[6px] bg-primary text-primary-foreground text-[11px] font-semibold hover:opacity-90 transition-all shadow-[0_0_16px_rgba(232,98,10,0.15)] disabled:opacity-30 disabled:cursor-not-allowed">
                   Özet →
                 </button>
               </div>

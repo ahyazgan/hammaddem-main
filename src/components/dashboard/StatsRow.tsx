@@ -22,7 +22,7 @@ const StatsRow = () => {
 
   const fetchStats = async () => {
     if (!user) return;
-    const { data } = await supabase.from("talepler").select("durum, miktar");
+    const { data } = await supabase.from("talepler").select("durum, miktar").eq("user_id", user.id);
     if (!data) return;
 
     const aktifSiparis = data.filter((t) => ["bekliyor", "teklif", "onaylandi", "yolda"].includes(t.durum)).length;

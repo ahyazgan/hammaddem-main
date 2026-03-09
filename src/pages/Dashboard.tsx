@@ -34,6 +34,11 @@ const Dashboard = () => {
   const handleNavChange = (nav: string) => {
     if (nav === "yeni-talep") {
       setActiveNav("dashboard");
+      // Scroll to wizard after state update
+      setTimeout(() => {
+        const el = document.getElementById("yeni-talep-wizard");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
     } else {
       setActiveNav(nav);
     }
@@ -49,7 +54,7 @@ const Dashboard = () => {
       <DashboardSidebar activeNav={activeNav} onNavChange={handleNavChange} open={sidebarOpen} onClose={() => setSidebarOpen(false)} user={user} />
 
       <main className="bg-background overflow-y-auto flex flex-col col-span-1">
-        {activeNav === "siparisler" ? (
+        {activeNav === "siparisler" || activeNav === "gecmis" || activeNav === "insaat" || activeNav === "silobas" || activeNav === "sanayi" ? (
           <SiparislerimView />
         ) : activeNav === "profil" ? (
           <ProfilView />
