@@ -488,7 +488,7 @@ const OrderCard = () => {
               colorClass === "orange" ? "bg-accent-light border border-accent-border" : "bg-navy-light border border-navy-border"
             }`}>
               <span className="text-base flex-shrink-0">⏱</span>
-              Talebiniz iletildikten sonra 15 dakika içinde net fiyat teklifiniz hazırlanır ve sizi telefonla arayacağız.
+              Talebiniz iletildikten sonra 30 dakika içinde net fiyat teklifiniz hazırlanır ve sizi telefonla arayacağız.
             </div>
 
             <div className="flex gap-2.5">
@@ -519,7 +519,7 @@ const OrderCard = () => {
             <h3 className="text-lg md:text-xl font-bold tracking-tight mb-2">Talebiniz Alındı!</h3>
             <p className="text-[12px] md:text-[13px] text-txt-2 mb-4 md:mb-[18px] leading-relaxed">
               Ekibimiz en kısa sürede sizi arayacak ve<br />
-              15 dakika içinde net fiyat teklifinizi sunacaktır.
+              30 dakika içinde net fiyat teklifinizi sunacaktır.
             </p>
 
             <div className="bg-off border border-border rounded-[10px] px-3 md:px-4 py-3 flex justify-between items-center mb-3.5">

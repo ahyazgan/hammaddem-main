@@ -11,7 +11,7 @@ const title = "Kocaeli Silobas & Hafriyat Hizmetleri – Hammaddem";
 const description = "Kocaeli ve Gebze'de silobas taşımacılığı, hafriyat tedariği. Dilovası, GOSB bölgesi teslimat. Online teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "15 Dakikada Teklif", desc: "Online talep formunu doldur, dakikalar içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik silobas ve hafriyat araçlarıyla güvenli teslimat." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },

@@ -298,7 +298,7 @@ const NewRequestWizard = () => {
             ✓
           </div>
           <h4 className="text-sm font-semibold mb-1.5 text-foreground">Talep Alındı</h4>
-          <p className="text-[11px] text-muted-foreground mb-3">15 dakika içinde fiyat teklifiniz hazırlanacak.</p>
+          <p className="text-[11px] text-muted-foreground mb-3">30 dakika içinde fiyat teklifiniz hazırlanacak.</p>
           <div className="bg-muted border border-border rounded-[6px] px-3 py-2 flex justify-between items-center font-mono text-[11px] text-muted-foreground mb-2.5">
             <span>Takip No</span>
             <span className="text-primary text-[12px]">{talepNo}</span>

@@ -11,7 +11,7 @@ const title = "Stabilize Malzeme Satış & Teslimat – Hammaddem";
 const description = "Stabilize malzeme (kırmızı toprak) satış ve teslimat. Yol yapımı, zemin güçlendirme için stabilize tedariği. Online teklif alın.";
 
 const avantajlar = [
-  { icon: Clock, title: "15 Dakikada Teklif", desc: "Online talep formunu doldur, dakikalar içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Teslimat", desc: "Damperli araçlarla stabilize malzeme teslimatı, miktar ve kalite garantisi." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },

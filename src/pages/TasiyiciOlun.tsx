@@ -4,6 +4,7 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Truck, TrendingUp, Shield, Clock, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const avantajlar = [
   { icon: TrendingUp, title: "Düzenli İş İmkanı", desc: "Sürekli büyüyen talep havuzumuz sayesinde boş dönüş yapmadan çalışın." },
@@ -16,14 +17,24 @@ const TasiyiciOlun = () => {
   const [form, setForm] = useState({ ad: "", telefon: "", aracTipi: "", plaka: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const { error } = await supabase.from("tasiyici_basvurulari").insert({
+        ad_soyad: form.ad,
+        telefon: form.telefon,
+        arac_tipi: form.aracTipi,
+        plaka: form.plaka,
+      });
+      if (error) throw error;
       toast.success("Başvurunuz alındı! En kısa sürede sizinle iletişime geçeceğiz.");
       setForm({ ad: "", telefon: "", aracTipi: "", plaka: "" });
+    } catch (err: any) {
+      toast.error("Başvuru gönderilemedi, lütfen tekrar deneyin veya bizi arayın.");
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   };
 
   return (

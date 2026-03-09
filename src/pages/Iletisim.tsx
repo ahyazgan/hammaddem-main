@@ -4,19 +4,29 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const Iletisim = () => {
   const [form, setForm] = useState({ ad: "", email: "", mesaj: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const { error } = await supabase.from("iletisim_mesajlari").insert({
+        ad_soyad: form.ad,
+        email: form.email,
+        mesaj: form.mesaj,
+      });
+      if (error) throw error;
       toast.success("Mesajınız alındı, en kısa sürede dönüş yapacağız.");
       setForm({ ad: "", email: "", mesaj: "" });
+    } catch (err: any) {
+      toast.error("Mesaj gönderilemedi, lütfen tekrar deneyin veya bizi arayın.");
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   };
 
   return (

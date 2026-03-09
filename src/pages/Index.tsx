@@ -11,7 +11,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>Çimento, Kum, Çakıl Silobas Taşıma & Hafriyat | Hammaddem</title>
-        <meta name="description" content="Çimento, kalsit, kum, çakıl, mıcır silobas taşıma ve hafriyat tedariği. 11 ilde aynı gün teslimat, 15 dakikada online teklif. Ücretsiz kayıt olun." />
+        <meta name="description" content="Çimento, kalsit, kum, çakıl, mıcır silobas taşıma ve hafriyat tedariği. 11 ilde aynı gün teslimat, 30 dakikada online teklif. Ücretsiz kayıt olun." />
         <link rel="canonical" href="https://hammaddem.co/" />
       </Helmet>
       <div className="min-h-screen bg-dot-pattern">

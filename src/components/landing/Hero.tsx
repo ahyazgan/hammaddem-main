@@ -1,31 +1,14 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import HeroBgPattern from "./HeroBgPattern";
 import OrderCard from "./OrderCard";
 
-const defaultStats = [
-  { key: "stat_teslimat", val: "250+", label: "Tamamlanan Teslimat", color: "text-primary" },
-  { key: "stat_teklif_suresi", val: "30dk", label: "Ort. Teklif Süresi", color: "text-navy" },
-  { key: "stat_il_sayisi", val: "11 İl", label: "Aktif Teslimat Bölgesi", color: "text-foreground" },
-  { key: "stat_zamaninda", val: "%98", label: "Zamanında Teslimat", color: "text-primary" },
+const stats = [
+  { val: "250+", label: "Tamamlanan Teslimat", color: "text-primary" },
+  { val: "30dk", label: "Ort. Teklif Süresi", color: "text-navy" },
+  { val: "11 İl", label: "Aktif Teslimat Bölgesi", color: "text-foreground" },
+  { val: "%98", label: "Zamanında Teslimat", color: "text-primary" },
 ];
 
 const Hero = () => {
-  const [stats, setStats] = useState(defaultStats);
-
-  useEffect(() => {
-    const fetchStats = async () => {
-      const { data } = await supabase.from("site_settings").select("key, value, label").in("key", defaultStats.map(s => s.key));
-      if (data && data.length > 0) {
-        setStats(defaultStats.map(s => {
-          const found = data.find((d: any) => d.key === s.key);
-          return found ? { ...s, val: found.value, label: found.label || s.label } : s;
-        }));
-      }
-    };
-    fetchStats();
-  }, []);
-
   return (
     <section className="relative min-h-screen pt-[60px] flex flex-col items-center justify-center overflow-hidden">
       <HeroBgPattern />
@@ -47,10 +30,10 @@ const Hero = () => {
         {/* Subtitle */}
         <p className="text-[13px] sm:text-sm md:text-base font-normal text-txt-2 leading-[1.65] max-w-[500px] mb-3 px-1 animate-fade-down" style={{ animationDelay: '.1s' }}>
           Silobas yükü mü, hafriyat mı? Fark etmez — 2 dakikada talep oluşturun,
-          15 dakikada teklifiniz hazır, tırınız yolda.
+          30 dakikada teklifiniz hazır, tırınız yolda.
         </p>
 
-        {/* Stats row - 2x2 grid on mobile, inline on desktop */}
+        {/* Stats row */}
         <div className="w-full flex justify-center mb-5 sm:mb-6 md:mb-8 animate-fade-down" style={{ animationDelay: '.14s' }}>
           <div className="grid grid-cols-2 sm:inline-flex sm:flex-row border border-border rounded-xl overflow-hidden shadow-card bg-background">
             {stats.map((stat, i) => (
@@ -72,11 +55,11 @@ const Hero = () => {
         {/* Order Card */}
         <OrderCard />
 
-        {/* Trust strip - 2 rows on small mobile */}
+        {/* Trust strip */}
         <div className="mt-4 sm:mt-5 md:mt-6 grid grid-cols-3 sm:flex sm:flex-row items-center gap-2 sm:gap-3 md:gap-5 justify-center animate-fade-up" style={{ animationDelay: '.3s' }}>
           {[
             { icon: "🚛", label: "Silobas & Hafriyat" },
-            { icon: "⚡", label: "15dk Teklif" },
+            { icon: "⚡", label: "30dk Teklif" },
             { icon: "📋", label: "Dijital İrsaliye" },
             { icon: "🇹🇷", label: "11 İl Teslimat" },
             { icon: "✓", label: "Kayıt Gerekmez" },

@@ -11,7 +11,7 @@ const title = "İnşaat Kumu Satış & Teslimat | Kum Fiyatları – Hammaddem";
 const description = "İnşaat kumu, dere kumu, maden kumu satış ve teslimat. Toptan kum tedariği, 11 ilde aynı gün teslimat. Ücretsiz teklif alın.";
 
 const avantajlar = [
-  { icon: Clock, title: "15 Dakikada Teklif", desc: "Online talep formunu doldur, dakikalar içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Teslimat", desc: "Kapalı veya açık kasa araçlarla kum teslimatı, fire ve kayıp minimumda." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },

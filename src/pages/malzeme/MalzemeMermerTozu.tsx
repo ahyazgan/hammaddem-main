@@ -11,7 +11,7 @@ const title = "Mermer Tozu Silobas Taşıma & Tedariği – Hammaddem";
 const description = "Mermer tozu silobas taşımacılığı. Mikronize mermer tozu tedariği, boya ve plastik sektörü. Online teklif alın.";
 
 const avantajlar = [
-  { icon: Clock, title: "15 Dakikada Teklif", desc: "Online talep formunu doldur, dakikalar içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik silobas ile mermer tozu tozlanma ve fire riski minimuma iner." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },

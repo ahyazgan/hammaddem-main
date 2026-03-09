@@ -11,7 +11,7 @@ const title = "Kireç Silobas Taşıma | Sönmüş & Sönmemiş Kireç – Hamma
 const description = "Kireç silobas taşımacılığı. Sönmüş kireç, sönmemiş kireç, hidrate kireç tedariği. 11 ilde teslimat, online teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "15 Dakikada Teklif", desc: "Online talep formunu doldur, dakikalar içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik silobas ile kireç tozu tozlanma ve nem riski minimuma iner." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },

@@ -11,7 +11,7 @@ const title = "Mıcır Satış & Teslimat | Mıcır Fiyatları – Hammaddem";
 const description = "Kırma taş mıcır satış ve teslimat. 1 numara, 2 numara mıcır, bazalt mıcır. 11 ilde hızlı teslimat, online teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "15 Dakikada Teklif", desc: "Online talep formunu doldur, dakikalar içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Teslimat", desc: "Damperli araçlarla mıcır teslimatı, boyut ve kalite standartlarına uygun." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
