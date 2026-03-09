@@ -64,7 +64,7 @@ const OrderCard = () => {
           miktar,
           birim,
           teslimat_ili: il,
-          adres: not_,
+          adres: il || null,
           yuk_adres: yukAdres || null,
           teslimat_tarihi: tarih || null,
           aciliyet,
@@ -383,6 +383,7 @@ const OrderCard = () => {
                 <input
                   type="date"
                   value={tarih}
+                  min={new Date().toISOString().split("T")[0]}
                   onChange={(e) => setTarih(e.target.value)}
                   className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)]"
                 />

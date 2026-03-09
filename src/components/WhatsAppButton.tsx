@@ -6,7 +6,8 @@ const MESSAGE = "Merhaba, hammadde tedariki hakkında bilgi almak istiyorum.";
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
-  if (pathname !== "/") return null;
+  const hiddenPaths = ["/dashboard", "/giris", "/kayit", "/yazgan", "/sifre-sifirla"];
+  if (hiddenPaths.some(p => pathname.startsWith(p))) return null;
 
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MESSAGE)}`;
 

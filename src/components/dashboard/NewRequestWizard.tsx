@@ -63,7 +63,7 @@ const NewRequestWizard = () => {
       talep_no: generatedNo,
       kategori: selectedCat,
       malzeme: (material === "Diğer" ? customMaterial : material) || null,
-      miktar: Number(quantity) || 0,
+      miktar: Math.max(1, Number(quantity) || 1),
       birim,
       teslimat_ili: city || null,
       adres: adres || null,
@@ -203,7 +203,7 @@ const NewRequestWizard = () => {
 
                 <div>
                   <label className={labelClass}>TARİH</label>
-                  <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className={inputClass} />
+                  <input type="date" value={date} min={new Date().toISOString().split("T")[0]} onChange={(e) => setDate(e.target.value)} className={inputClass} />
                 </div>
 
                 <div className="col-span-2">
