@@ -93,10 +93,14 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
 
   const updateDurum = async (id: string, durum: string, type: "kayitli" | "misafir") => {
     setUpdating(true);
-    const table = type === "misafir" ? "misafir_talepler" : "talepler";
-    await supabase.from(table).update({ durum, updated_at: new Date().toISOString() } as any).eq("id", id);
-    onRefresh();
-    setUpdating(false);
+    try {
+      const table = type === "misafir" ? "misafir_talepler" : "talepler";
+      const { error } = await supabase.from(table).update({ durum, updated_at: new Date().toISOString() } as any).eq("id", id);
+      if (error) toast({ title: "Hata", description: error.message, variant: "destructive" });
+      else onRefresh();
+    } finally {
+      setUpdating(false);
+    }
   };
 
   const sendTeklif = async (talep: typeof allTalepler[0]) => {

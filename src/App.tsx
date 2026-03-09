@@ -39,6 +39,7 @@ import BolgeKocaeli from "./pages/bolge/BolgeKocaeli";
 import BolgeGaziantep from "./pages/bolge/BolgeGaziantep";
 import WhatsAppButton from "./components/WhatsAppButton";
 import NotFound from "./pages/NotFound";
+import { kombinasyonRoutes } from "./pages/kombinasyon/kombinasyonRoutes";
 
 const queryClient = new QueryClient();
 
@@ -83,6 +84,9 @@ const App = () => (
               <Route path="/hizmet-bolgeleri/bursa" element={<BolgeBursa />} />
               <Route path="/hizmet-bolgeleri/kocaeli" element={<BolgeKocaeli />} />
               <Route path="/hizmet-bolgeleri/gaziantep" element={<BolgeGaziantep />} />
+              {kombinasyonRoutes.map((r) => (
+                <Route key={r.path} path={r.path} element={r.element} />
+              ))}
               <Route path="*" element={<NotFound />} />
             </Routes>
             <WhatsAppButton />

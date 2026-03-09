@@ -43,12 +43,15 @@ const BolgeAnkara = () => {
   return (
     <>
       <Helmet>
-        <title>{title}</title>
+        <title>{`Ankara Silobas & Hafriyat Hizmetleri – Hammaddem`}</title>
         <meta name="description" content={description} />
+        <meta name="keywords" content="ankara silobas, ankara hafriyat, ankara çimento, ankara kum, silobas ankara, ankara inşaat malzemeleri" />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={`Ankara Silobas & Hafriyat Hizmetleri – Hammaddem`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
@@ -60,10 +63,14 @@ const BolgeAnkara = () => {
           <div className="max-w-[1100px] mx-auto">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-4">Hizmet Bölgesi</span>
-                <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">Ankara Silobas & Hafriyat</h1>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-4">
+                  Hizmet Bölgesi
+                </span>
+                <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
+                  Ankara Silobas & Hafriyat
+                </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Ankara'da silobas taşımacılığı ve hafriyat malzemesi tedariği ile OSB'ler, şantiyeler ve sanayi tesislerine hızlı teslimat sunuyoruz. Çimento, kalsit, kum, mıcır ve tüm inşaat malzemeleri için talep oluşturarak dakikalar içinde teklif alabilirsiniz.
+                  Ankara'da silobas taşımacılığı ve hafriyat malzemesi tedariği. OSB ve şantiye teslim, hızlı teslimat. Online teklif alın.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/kayit" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
@@ -85,48 +92,61 @@ const BolgeAnkara = () => {
 
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Şehirdeki Hizmetlerimiz</h2>
-            <p className="text-sm text-txt-2 mb-6 max-w-[600px]">
-              Ankara'da OSB'ler, şantiyeler ve sanayi bölgelerine silobas ve hafriyat hizmeti veriyoruz.
-            </p>
-            <div className="grid md:grid-cols-2 gap-5">
-              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                <h3 className="font-bold text-lg mb-2">Silobas Taşımacılığı</h3>
-                <p className="text-sm text-txt-2 leading-relaxed">
-                  Çimento, kalsit, uçucu kül, kireç, mermer tozu, alçı ve tüm toz/granül malzemeleri pnömatik silobas araçlarıyla Ankara genelinde teslim ediyoruz. Beton santralleri ve fabrikalara kapalı sistem boşaltma.
-                </p>
-                <Link to="/hizmetler/silobas" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-3 no-underline hover:underline">
-                  Silobas hizmeti <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                <h3 className="font-bold text-lg mb-2">Hafriyat & İnşaat Malzemesi</h3>
-                <p className="text-sm text-txt-2 leading-relaxed">
-                  Kum, çakıl, mıcır, stabilize malzeme ve hafriyat tedariği. Şantiye ve inşaat sahalarına damperli araçlarla teslimat. OSB ve sanayi bölgelerine hızlı teslimat.
-                </p>
-                <Link to="/hizmetler/hafriyat-nakliyesi" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-3 no-underline hover:underline">
-                  Hafriyat hizmeti <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Ankara&apos;da Hizmetlerimiz</h2>
+            <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
+              <p>Ankara, başkent olarak büyük altyapı ve inşaat projelerinin sürdürüldüğü önemli bir hammadde tedarik merkezidir. Ostim OSB, Sincan OSB, Ankara Sanayi Sitesi ve Polatlı'daki sanayi tesislerine silobas ve hafriyat hizmeti veriyoruz.</p>
+              <p>Hammaddem ile Ankara'da çimento, kalsit, kireç ve diğer toz malzemelerin silobas taşımacılığı; kum, çakıl ve mıcır hafriyat tedariği için online teklif alın. Şantiye, beton santrali ve fabrikalara hızlı teslimat sağlıyoruz.</p>
             </div>
           </div>
         </section>
 
         <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Taşıdığımız Malzemeler</h2>
-            <p className="text-sm text-txt-2 mb-8 max-w-[520px]">Ankara'da tedarik ettiğimiz malzemeler. Detay için malzeme sayfalarına göz atın.</p>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Ankara Hizmet Detayı</h2>
+            <div className="grid md:grid-cols-2 gap-5">
+              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
+                <h3 className="font-bold text-lg mb-2">Silobas Taşımacılığı</h3>
+                <p className="text-sm text-txt-2 leading-relaxed mb-2">
+                  Çimento, kalsit, uçucu kül, kireç, mermer tozu, alçı ve tüm toz/granül malzemeleri pnömatik silobas araçlarıyla Ankara genelinde teslim ediyoruz.
+                </p>
+                <p className="text-xs text-txt-2 leading-relaxed mb-3">
+                  <strong>Hizmet bölgeleri:</strong> Ostim OSB, Sincan OSB, İvedik OSB, Polatlı Sanayi Bölgesi
+                </p>
+                <Link to="/hizmetler/silobas" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
+                  Silobas hizmeti detayı <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
+                <h3 className="font-bold text-lg mb-2">Hafriyat & İnşaat Malzemesi</h3>
+                <p className="text-sm text-txt-2 leading-relaxed mb-2">
+                  Kum, çakıl, mıcır, stabilize malzeme tedariği. Ankara ilçelerinde şantiye ve tesislere damperli araçlarla teslimat.
+                </p>
+                <p className="text-xs text-txt-2 leading-relaxed mb-3">
+                  <strong>İlçeler:</strong> Ostim, Sincan, Etimesgut, Polatlı, Haymana, Gölbaşı
+                </p>
+                <Link to="/hizmetler/hafriyat-nakliyesi" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
+                  Hafriyat hizmeti detayı <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-4 md:px-10 bg-off">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Ankara&apos;da Taşıdığımız Malzemeler</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[520px]">Detay ve fiyat için malzeme sayfasına tıklayın, Ankara&apos;a özel teklif alın.</p>
             <div className="flex flex-wrap gap-2.5">
               {MALZEME_ROUTES.map((m) => (
-                <Link key={m.path} to={m.path} className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">
-                  {m.label}
+                <Link key={m.path} to={`/malzeme/${m.path.split("/").pop()}/ankara`} className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">
+                  Ankara — {m.label}
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -145,17 +165,19 @@ const BolgeAnkara = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-20 px-4 md:px-10">
+        <section className="py-16 md:py-20 px-4 md:px-10 bg-off">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Ankara İçin Teklif Alın</h2>
-            <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">Hesap oluşturun, talep formunu doldurun, dakikalar içinde size özel fiyat teklifi alın.</p>
+            <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
+              Hesap oluşturun, talep formunu doldurun, dakikalar içinde size özel fiyat teklifi alın.
+            </p>
             <Link to="/kayit" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
               Teklif Alın / Kayıt Olun <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </section>
 
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Diğer Hizmet Bölgeleri</h2>
             <p className="text-sm text-txt-2 mb-6">Hizmet verdiğimiz diğer şehir sayfalarına göz atın.</p>

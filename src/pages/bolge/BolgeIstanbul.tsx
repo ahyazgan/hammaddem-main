@@ -43,12 +43,15 @@ const BolgeIstanbul = () => {
   return (
     <>
       <Helmet>
-        <title>{title}</title>
+        <title>{`İstanbul Silobas & Hafriyat Hizmetleri – Hammaddem`}</title>
         <meta name="description" content={description} />
+        <meta name="keywords" content="istanbul silobas, istanbul hafriyat, istanbul çimento, istanbul kum, istanbul çakıl, silobas istanbul" />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={`İstanbul Silobas & Hafriyat Hizmetleri – Hammaddem`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
@@ -67,7 +70,7 @@ const BolgeIstanbul = () => {
                   İstanbul Silobas & Hafriyat
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  İstanbul'da silobas taşımacılığı ve hafriyat malzemesi tedariği ile Avrupa ve Anadolu yakasında hizmetinizdeyiz. Sanayi bölgeleri, OSB'ler ve liman yakınlığındaki tesislere aynı gün veya ertesi gün teslimat imkânı sunuyoruz. Çimento, kalsit, kum, mıcır ve tüm inşaat malzemeleri için online teklif alın.
+                  İstanbul'da silobas taşımacılığı ve hafriyat malzemesi tedariği. Avrupa ve Anadolu yakasında aynı gün teslimat. Online teklif alın.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/kayit" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
@@ -89,50 +92,61 @@ const BolgeIstanbul = () => {
 
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Şehirdeki Hizmetlerimiz</h2>
-            <p className="text-sm text-txt-2 mb-6 max-w-[600px]">
-              İstanbul Avrupa ve Anadolu yakasında, sanayi bölgeleri ve liman yakınlığındaki tesislere silobas ve hafriyat hizmeti veriyoruz.
-            </p>
-            <div className="grid md:grid-cols-2 gap-5">
-              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                <h3 className="font-bold text-lg mb-2">Silobas Taşımacılığı</h3>
-                <p className="text-sm text-txt-2 leading-relaxed">
-                  Çimento, kalsit, uçucu kül, kireç, mermer tozu, alçı ve tüm toz/granül malzemeleri pnömatik silobas araçlarıyla İstanbul genelinde teslim ediyoruz. Beton santralleri, fabrikalar ve depolara kapalı sistem boşaltma.
-                </p>
-                <Link to="/hizmetler/silobas" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-3 no-underline hover:underline">
-                  Silobas hizmeti <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                <h3 className="font-bold text-lg mb-2">Hafriyat & İnşaat Malzemesi</h3>
-                <p className="text-sm text-txt-2 leading-relaxed">
-                  Kum, çakıl, mıcır, stabilize malzeme ve hafriyat tedariği. Şantiye, inşaat sahaları ve tesislere damperli araçlarla teslimat. Avrupa ve Anadolu yakası aynı gün veya ertesi gün teslimat seçenekleri.
-                </p>
-                <Link to="/hizmetler/hafriyat-nakliyesi" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-3 no-underline hover:underline">
-                  Hafriyat hizmeti <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">İstanbul&apos;da Hizmetlerimiz</h2>
+            <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
+              <p>İstanbul, Türkiye'nin en büyük sanayi ve lojistik merkezi olarak silobas ve hafriyat hizmetlerinde en yüksek talep yoğunluğuna sahip ildir. Avrupa yakasında Tuzla OSB, İkitelli OSB, Çerkezköy ve Lüleburgaz; Anadolu yakasında ise Gebze, Çayırova ve Dilovası bölgelerine düzenli teslimat yapıyoruz.</p>
+              <p>Hammaddem ile İstanbul'da çimento, kalsit, kireç, alçı, mermer tozu ve uçucu kül silobas taşımacılığı; kum, çakıl, mıcır ve stabilize malzeme tedariği hizmetlerine dijital platformdan ulaşın. Beton santralleri, fabrikalar ve inşaat sahalarına aynı gün veya ertesi gün teslimat imkânı sunuyoruz.</p>
             </div>
           </div>
         </section>
 
         <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Taşıdığımız Malzemeler</h2>
-            <p className="text-sm text-txt-2 mb-8 max-w-[520px]">
-              İstanbul'da silobas ve hafriyat ile tedarik ettiğimiz malzemeler. Detay için malzeme sayfalarına göz atın.
-            </p>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">İstanbul Hizmet Detayı</h2>
+            <div className="grid md:grid-cols-2 gap-5">
+              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
+                <h3 className="font-bold text-lg mb-2">Silobas Taşımacılığı</h3>
+                <p className="text-sm text-txt-2 leading-relaxed mb-2">
+                  Çimento, kalsit, uçucu kül, kireç, mermer tozu, alçı ve tüm toz/granül malzemeleri pnömatik silobas araçlarıyla İstanbul genelinde teslim ediyoruz.
+                </p>
+                <p className="text-xs text-txt-2 leading-relaxed mb-3">
+                  <strong>Hizmet bölgeleri:</strong> Tuzla OSB, İkitelli OSB, Arnavutköy OSB, Lüleburgaz OSB
+                </p>
+                <Link to="/hizmetler/silobas" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
+                  Silobas hizmeti detayı <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
+                <h3 className="font-bold text-lg mb-2">Hafriyat & İnşaat Malzemesi</h3>
+                <p className="text-sm text-txt-2 leading-relaxed mb-2">
+                  Kum, çakıl, mıcır, stabilize malzeme tedariği. İstanbul ilçelerinde şantiye ve tesislere damperli araçlarla teslimat.
+                </p>
+                <p className="text-xs text-txt-2 leading-relaxed mb-3">
+                  <strong>İlçeler:</strong> Tuzla, Gebze, Dilovası, Çerkezköy, Çayırova, Silivri, Arnavutköy
+                </p>
+                <Link to="/hizmetler/hafriyat-nakliyesi" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
+                  Hafriyat hizmeti detayı <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-4 md:px-10 bg-off">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">İstanbul&apos;da Taşıdığımız Malzemeler</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[520px]">Detay ve fiyat için malzeme sayfasına tıklayın, İstanbul&apos;a özel teklif alın.</p>
             <div className="flex flex-wrap gap-2.5">
               {MALZEME_ROUTES.map((m) => (
-                <Link key={m.path} to={m.path} className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">
-                  {m.label}
+                <Link key={m.path} to={`/malzeme/${m.path.split("/").pop()}/istanbul`} className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">
+                  İstanbul — {m.label}
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -151,7 +165,7 @@ const BolgeIstanbul = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-20 px-4 md:px-10">
+        <section className="py-16 md:py-20 px-4 md:px-10 bg-off">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">İstanbul İçin Teklif Alın</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
@@ -163,7 +177,7 @@ const BolgeIstanbul = () => {
           </div>
         </section>
 
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Diğer Hizmet Bölgeleri</h2>
             <p className="text-sm text-txt-2 mb-6">Hizmet verdiğimiz diğer şehir sayfalarına göz atın.</p>
