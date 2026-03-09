@@ -20,7 +20,7 @@ const quickLinks = [
   { icon: "＋", label: "Yeni Talep Oluştur", desc: "Hızlıca yeni sipariş verin", nav: "yeni-talep" },
   { icon: "📦", label: "Siparişlerim", desc: "Tüm taleplerinizi görün", nav: "siparisler" },
   { icon: "📋", label: "Fiyat Teklifi Al", desc: "Ücretsiz teklif talep edin", nav: "yeni-talep" },
-  { icon: "📞", label: "Destek", desc: "7/24 müşteri desteği", nav: "ayarlar" },
+  { icon: "📞", label: "Destek", desc: "7/24 müşteri desteği", nav: "destek" },
 ];
 
 const RightPanel = ({ onNavChange }: Props) => (

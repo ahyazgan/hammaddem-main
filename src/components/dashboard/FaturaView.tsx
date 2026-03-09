@@ -27,9 +27,24 @@ interface Profile {
 }
 
 const kategoriLabels: Record<string, string> = {
+  insaat: "Insaat", silobas: "Silobas", sanayi: "Sanayi", diger: "Diger",
+  hafriyat: "Hafriyat",
+};
+
+// Display labels (with Turkish chars) - used in UI only
+const kategoriDisplayLabels: Record<string, string> = {
   insaat: "İnşaat", silobas: "Silobas", sanayi: "Sanayi", diger: "Diğer",
   hafriyat: "Hafriyat",
 };
+
+// Sanitize Turkish chars for PDF (helvetica doesn't support them)
+const pdfSafe = (str: string) => str
+  .replace(/ğ/g, "g").replace(/Ğ/g, "G")
+  .replace(/ş/g, "s").replace(/Ş/g, "S")
+  .replace(/ı/g, "i").replace(/İ/g, "I")
+  .replace(/ç/g, "c").replace(/Ç/g, "C")
+  .replace(/ö/g, "o").replace(/Ö/g, "O")
+  .replace(/ü/g, "u").replace(/Ü/g, "U");
 
 const generatePDF = (talep: Talep, profile: Profile | null) => {
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
@@ -79,7 +94,7 @@ const generatePDF = (talep: Talep, profile: Profile | null) => {
   doc.setTextColor(80, 80, 80);
 
   const customerRows = [
-    ["Firma", profile?.firma_adi || "-"],
+    ["Firma", pdfSafe(profile?.firma_adi || "-")],
     ["E-posta", profile?.email || "-"],
     ["Telefon", profile?.telefon || "-"],
   ];
@@ -122,10 +137,10 @@ const generatePDF = (talep: Talep, profile: Profile | null) => {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(30, 30, 30);
   doc.text(talep.hizmet_tipi === "nakliye" ? "Nakliye" : "Satin Alma", cols[0], y);
-  doc.text(kategoriLabels[talep.kategori] || talep.kategori, cols[1], y);
-  doc.text(talep.malzeme || "-", cols[2], y);
+  doc.text(kategoriLabels[talep.kategori] || pdfSafe(talep.kategori), cols[1], y);
+  doc.text(pdfSafe(talep.malzeme || "-"), cols[2], y);
   doc.text(`${talep.miktar} ${talep.birim}`, cols[3], y);
-  doc.text(talep.teslimat_ili || "-", cols[4], y);
+  doc.text(pdfSafe(talep.teslimat_ili || "-"), cols[4], y);
 
   // Additional details
   y += 12;
@@ -136,7 +151,7 @@ const generatePDF = (talep: Talep, profile: Profile | null) => {
   const details = [
     ["Aciliyet", talep.aciliyet === "cok_acil" ? "Cok Acil" : talep.aciliyet === "acil" ? "Acil" : "Normal"],
     ["Teslimat Tarihi", talep.teslimat_tarihi ? new Date(talep.teslimat_tarihi).toLocaleDateString("tr-TR") : "Belirtilmedi"],
-    ["Adres", talep.adres || "-"],
+    ["Adres", pdfSafe(talep.adres || "-")],
   ];
   doc.setTextColor(80, 80, 80);
   details.forEach(([k, v]) => {
