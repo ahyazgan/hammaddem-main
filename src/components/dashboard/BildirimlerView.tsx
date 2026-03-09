@@ -58,7 +58,8 @@ const BildirimlerView = () => {
   };
 
   const markRead = async (id: string) => {
-    await supabase.from("bildirimler").update({ okundu: true }).eq("id", id);
+    if (!user) return;
+    await supabase.from("bildirimler").update({ okundu: true }).eq("id", id).eq("user_id", user.id);
     fetchBildirimler();
   };
 

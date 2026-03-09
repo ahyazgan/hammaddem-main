@@ -52,11 +52,17 @@ const AdminPanel = () => {
 
   const saveSettings = async () => {
     setSavingSettings(true);
+    let hasError = false;
     for (const s of siteSettings) {
-      await supabase.from("site_settings").update({ value: s.value, updated_at: new Date().toISOString() }).eq("key", s.key);
+      const { error } = await supabase.from("site_settings").update({ value: s.value, updated_at: new Date().toISOString() }).eq("key", s.key);
+      if (error) hasError = true;
     }
     setSavingSettings(false);
-    toast({ title: "Kaydedildi", description: "Site ayarları güncellendi." });
+    if (hasError) {
+      toast({ title: "Hata", description: "Bazı ayarlar kaydedilemedi.", variant: "destructive" });
+    } else {
+      toast({ title: "Kaydedildi", description: "Site ayarları güncellendi." });
+    }
   };
 
   useEffect(() => {

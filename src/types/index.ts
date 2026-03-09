@@ -1,5 +1,5 @@
 export type YukTipi = 'silobas' | 'hafriyat'
-export type TalepDurum = 'bekliyor' | 'teklif_verildi' | 'onaylandi' | 'reddedildi' | 'iptal'
+export type TalepDurum = 'bekliyor' | 'teklif' | 'onaylandi' | 'yolda' | 'teslim' | 'reddedildi' | 'iptal'
 export type SiparisDurum = 'hazirlaniyor' | 'yuklendi' | 'yolda' | 'teslim_edildi' | 'iptal'
 
 export interface Profile {
