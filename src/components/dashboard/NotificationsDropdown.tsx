@@ -43,6 +43,7 @@ const NotificationsDropdown = () => {
     const { data } = await supabase
       .from("bildirimler")
       .select("*")
+      .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .limit(20);
     if (data) setBildirimler(data as unknown as Bildirim[]);
@@ -53,6 +54,7 @@ const NotificationsDropdown = () => {
     await supabase
       .from("bildirimler")
       .update({ okundu: true })
+      .eq("user_id", user.id)
       .eq("okundu", false);
     setBildirimler((prev) => prev.map((b) => ({ ...b, okundu: true })));
   };
@@ -61,7 +63,7 @@ const NotificationsDropdown = () => {
     fetchBildirimler();
     const channel = supabase
       .channel("bildirimler-realtime")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "bildirimler" }, (payload) => {
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "bildirimler", filter: `user_id=eq.${user.id}` }, (payload) => {
         setBildirimler((prev) => [payload.new as unknown as Bildirim, ...prev].slice(0, 20));
       })
       .subscribe();

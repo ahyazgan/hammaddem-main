@@ -341,7 +341,7 @@ const OrderCard = () => {
                   <input
                     type="number"
                     value={miktar}
-                    onChange={(e) => setMiktar(Number(e.target.value))}
+                    onChange={(e) => setMiktar(Math.max(1, Number(e.target.value) || 1))}
                     className="flex-1 min-w-0 border-none bg-transparent text-center text-sm font-semibold text-foreground font-mono outline-none"
                   />
                   <button onClick={() => setMiktar(miktar + 5)} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">+</button>
