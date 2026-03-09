@@ -119,10 +119,11 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
       toast({ title: "Teklif gönderildi", description: "Müşteriye bildirim iletildi." });
     } catch {
       toast({ title: "Hata", description: "Teklif gönderilemedi.", variant: "destructive" });
+    } finally {
+      setTeklifMesaj("");
+      setUpdating(false);
+      onRefresh();
     }
-    setTeklifMesaj("");
-    setUpdating(false);
-    onRefresh();
   };
 
   return (

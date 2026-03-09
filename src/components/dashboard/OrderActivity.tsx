@@ -128,7 +128,7 @@ const OrderActivity = () => {
                 </div>
               </div>
               <div className="text-right shrink-0">
-                <div className="text-[12px] font-semibold font-mono text-foreground">{t.miktar}t</div>
+                <div className="text-[12px] font-semibold font-mono text-foreground">{t.miktar} {t.birim}</div>
                 <div className="text-[10px] text-muted-foreground">{timeAgo(t.created_at)}</div>
               </div>
             </div>
