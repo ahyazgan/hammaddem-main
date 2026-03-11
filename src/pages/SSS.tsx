@@ -8,11 +8,11 @@ import { ArrowRight } from "lucide-react";
 const sorular = [
   {
     soru: "Hammaddem nedir ve nasıl çalışır?",
-    cevap: "Hammaddem, hammadde tedarik ve lojistik süreçlerini dijitalleştiren bir platformdur. Ücretsiz hesap oluşturup talep formunu doldurursunuz, dakikalar içinde size özel fiyat teklifi alırsınız. Teklifi onayladığınızda taşıma süreci başlar ve teslimatınızı dijital panelden takip edebilirsiniz.",
+    cevap: "Hammaddem, hammadde tedarik ve lojistik süreçlerini dijitalleştiren bir B2B platformdur. Ücretsiz hesap oluşturup talep formunu doldurursunuz, dakikalar içinde size özel fiyat teklifi alırsınız. Teklifi onayladığınızda taşıma süreci başlar ve teslimatınızı dijital panelden takip edebilirsiniz.",
   },
   {
     soru: "Hangi malzemelerin taşımacılığını yapıyorsunuz?",
-    cevap: "Silobas hizmetimizle çimento, kalsit, uçucu kül, kireç, mermer tozu, alçı ve benzeri toz/granül malzemeleri taşıyoruz. Hafriyat hizmetimizle ise kum, çakıl, mıcır, toprak ve moloz gibi inşaat malzemelerini naklediyoruz.",
+    cevap: "Silobas hizmetimizle çimento (CEM I, CEM II, portland), kalsit, uçucu kül, kireç (sönmüş ve sönmemiş), mermer tozu, alçı ve benzeri toz/granül malzemeleri taşıyoruz. Hafriyat hizmetimizle ise kum, çakıl, mıcır, stabilize ve moloz gibi inşaat malzemelerini naklediyoruz.",
   },
   {
     soru: "Teklif almak ücretli mi?",
@@ -20,11 +20,51 @@ const sorular = [
   },
   {
     soru: "Hangi illerde hizmet veriyorsunuz?",
-    cevap: "Şu anda Türkiye genelinde 11 ilde aktif olarak hizmet vermekteyiz. Hizmet alanımız sürekli genişlemektedir. Detaylı bilgi için bizimle iletişime geçebilirsiniz.",
+    cevap: "İstanbul, Ankara, İzmir, Bursa, Kocaeli ve Gaziantep başta olmak üzere Türkiye genelinde 11 ilde aktif olarak hizmet vermekteyiz. Hizmet alanımız sürekli genişlemektedir. Listelenmemiş bir şehir için bizimle iletişime geçebilirsiniz.",
+  },
+  {
+    soru: "Silobas araçları nedir ve ne işe yarar?",
+    cevap: "Silobas, toz ve granül malzemelerin (çimento, kalsit, uçucu kül, kireç, alçı vb.) kapalı sistem ve pnömatik basınçla taşınmasını sağlayan özel tanker araçlarıdır. Tozlanma ve fire minimuma iner, malzeme kalitesi korunur. Boşaltma silo, depo veya fabrikalara hava basıncıyla aktarılır.",
+  },
+  {
+    soru: "Minimum sipariş miktarı nedir?",
+    cevap: "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz. Silobas araçları 20-28 ton kapasitelidir. Düzenli ve büyük hacimli alımlar için özel fiyat ve sözleşme koşulları oluşturulabilir.",
+  },
+  {
+    soru: "Çimento fiyatları nasıl belirleniyor?",
+    cevap: "Çimento ve diğer hammadde fiyatları; malzeme türü (CEM I, CEM II vb.), miktar (ton), teslimat mesafesi ve tarihi ile piyasa koşullarına göre belirlenir. En güncel ve rekabetçi fiyat için platformdan online teklif almanızı öneririz.",
+  },
+  {
+    soru: "Beton santraline çimento teslimatı yapıyor musunuz?",
+    cevap: "Evet. Beton santralleri, hazır beton tesisleri ve inşaat sahalarına İstanbul, Ankara, İzmir, Bursa, Kocaeli ve Gaziantep başta olmak üzere 11 ilde çimento teslimatı yapıyoruz. Aynı gün ve ertesi gün teslimat seçenekleri mevcuttur.",
+  },
+  {
+    soru: "Hafriyat malzemesi tedariği nasıl işliyor?",
+    cevap: "Kum, çakıl, mıcır, stabilize ve benzeri hafriyat malzemeleri için Hammaddem platformunda talep oluşturun. Damperli araçlarla şantiye veya teslimat adresinize nakliye sağlıyoruz. Miktar ve malzeme türüne göre en uygun araç boyutu planlanır.",
   },
   {
     soru: "Taşıyıcı olarak platforma nasıl katılabilirim?",
-    cevap: "Kamyon, tır veya silobas aracınız varsa 'Taşıyıcı Olun' sayfamızdaki başvuru formunu doldurarak platforma katılabilirsiniz. Başvurunuz değerlendirildikten sonra sizinle iletişime geçilecektir.",
+    cevap: "Kamyon, tır veya silobas aracınız varsa 'Taşıyıcı Olun' sayfamızdaki başvuru formunu doldurarak platforma katılabilirsiniz. Araç tipi, kapasite ve çalıştığınız bölgeyi belirtin. Başvurunuz değerlendirildikten sonra sizinle iletişime geçilecektir.",
+  },
+  {
+    soru: "Teslimatı anlık takip edebilir miyim?",
+    cevap: "Evet. Kayıtlı kullanıcılar, hesap paneli üzerinden siparişlerini anlık olarak takip edebilir. Araç konumu, teslimat durumu ve tahmini varış saati gibi bilgilere dijital panelden ulaşabilirsiniz.",
+  },
+  {
+    soru: "OSB ve sanayi bölgelerine teslimat yapıyor musunuz?",
+    cevap: "Evet. Tuzla OSB, İkitelli OSB, Ostim (Ankara), Gebze OSB, DOSAB (Bursa) ve diğer organize sanayi bölgelerine düzenli teslimat yapıyoruz. Teslimat adresinizi talep formunda belirtmeniz yeterlidir.",
+  },
+  {
+    soru: "Düzenli alım için anlaşma yapabilir miyim?",
+    cevap: "Evet. Aylık veya yıllık düzenli alım yapan firmalar için özel fiyat anlaşmaları oluşturabiliyoruz. Büyük hacimli ve sürekli tedarik ihtiyaçları için satış ekibimizle iletişime geçin.",
+  },
+  {
+    soru: "Uçucu kül nedir ve nerede kullanılır?",
+    cevap: "Uçucu kül (fly ash), termik santrallerde kömür yakılmasıyla elde edilen bir endüstriyel yan üründür. Çimento ve beton üretiminde katkı maddesi, zemin iyileştirme ve yol stabilizasyonu gibi alanlarda kullanılır. Hammaddem ile silobas taşımacılığı yaptırabilirsiniz.",
+  },
+  {
+    soru: "Kalsit ve mermer tozu arasındaki fark nedir?",
+    cevap: "Kalsit (kalsiyum karbonat), doğal kayaçların öğütülmesiyle elde edilen beyaz toz malzemedir; plastik, boya, kağıt ve kimya sektöründe kullanılır. Mermer tozu ise mermer işleme artığı olup inşaat, seramik ve tarım sektöründe kullanılır. Her ikisi de silobas ile taşınır.",
   },
 ];
 
@@ -44,9 +84,14 @@ const faqJsonLd = {
 const SSS = () => (
   <>
     <Helmet>
-      <title>Sıkça Sorulan Sorular – Hammaddem</title>
-      <meta name="description" content="Hammaddem hakkında merak edilen sorular ve yanıtları. Nasıl çalışır, hangi malzemeler taşınır, teklif alma süreci ve daha fazlası." />
+      <title>Sıkça Sorulan Sorular – Silobas, Hafriyat, Hammadde | Hammaddem</title>
+      <meta name="description" content="Silobas taşımacılığı, hafriyat malzeme tedariği, çimento kum çakıl mıcır kalsit fiyatları hakkında sık sorulan sorular. Hammaddem nasıl çalışır, hangi iller?" />
+      <meta name="keywords" content="silobas nedir, hafriyat nedir, çimento fiyatı, kum çakıl fiyat, kalsit taşıma, hammaddem sss" />
       <link rel="canonical" href="https://hammaddem.co/sss" />
+      <meta property="og:title" content="Sıkça Sorulan Sorular – Silobas, Hafriyat, Hammadde | Hammaddem" />
+      <meta property="og:description" content="Silobas taşımacılığı, hafriyat malzeme tedariği, çimento kum çakıl kalsit fiyatları hakkında sık sorulan sorular." />
+      <meta property="og:url" content="https://hammaddem.co/sss" />
+      <meta property="og:type" content="website" />
       <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
     </Helmet>
 
@@ -62,7 +107,7 @@ const SSS = () => (
             Sıkça Sorulan Sorular
           </h1>
           <p className="text-base text-txt-2 leading-[1.7] mb-10 max-w-[540px]">
-            Hammaddem hakkında en çok merak edilen soruların yanıtlarını burada bulabilirsiniz.
+            Silobas taşımacılığı, hafriyat malzeme tedariği, çimento, kum, çakıl, kalsit ve diğer hammaddeler hakkında en çok sorulan soruların yanıtları.
           </p>
 
           <Accordion type="single" collapsible className="space-y-3">

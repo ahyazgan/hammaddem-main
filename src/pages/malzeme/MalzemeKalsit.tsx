@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/kalsit";
 const title = "Kalsit Silobas Taşıma | Kalsit Tozu Tedariği – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["Boya ve vernik üretimi", "Plastik ve polimer dolgu maddesi", "Kağıt üretimi ve kaplama", "Lastik sektörü dolgu maddesi", "Kimya ve ilaç sektörü", "Tarım (toprak pH düzenleyici)"];
 
 const faq = [{"q": "Kalsit hangi mikron değerlerinde tedarik edilir?", "a": "2, 5, 10, 25 ve 90 mikron olmak üzere farklı inceliklerde kalsit tozu tedarik ediyoruz. İhtiyacınıza göre seçim yapabilirsiniz."}, {"q": "Kalsit neden silobas ile taşınır?", "a": "Kalsit tozu nem alımına ve tozlanmaya karşı hassas olduğundan kapalı sistem silobas araçları kullanılır. Bu yöntem ürün kalitesini ve saflığını korur."}, {"q": "Kalsit fiyatları nasıl belirlenir?", "a": "Mikron değeri, saflık oranı, miktar ve mesafeye göre fiyat değişir. Güncel kalsit fiyatı için online teklif alın."}, {"q": "Boya sektörü için hangi kalsit uygundur?", "a": "Boya üretiminde genellikle 2-10 mikron arasında, yüksek beyazlık değerine sahip kalsit tercih edilir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Kalsit Silobas Taşıma", url: "/malzeme/kalsit" },
+]);
 
 const MalzemeKalsit = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/kalsit");
@@ -51,6 +57,7 @@ const MalzemeKalsit = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="kalsit silobas, kalsit tozu, toptan kalsit, kalsit fiyatları, öğütülmüş kalsit, kalsit tedariği" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

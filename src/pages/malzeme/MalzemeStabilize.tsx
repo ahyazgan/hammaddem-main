@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/stabilize";
 const title = "Stabilize Malzeme Satış & Teslimat – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["Yol ve park yeri temel tabakası", "Şantiye içi geçici yol yapımı", "Açık alan zemin düzenlemesi", "Bina temel dolgusu", "Havalimanı ve liman sahaları", "Maden ocağı yolları"];
 
 const faq = [{"q": "Stabilize malzeme ile kırma taş arasındaki fark nedir?", "a": "Stabilize, farklı boyutlarda kırma taş, kil ve ince malzeme karışımıdır; sıkıştırıldığında yüksek mukavemet kazanır. Kırma taş tek granülometride üretilir."}, {"q": "Stabilize hangi granülometrilerde mevcut?", "a": "Genellikle 0-30 mm ve 0-50 mm olmak üzere iki ana granülometride stabilize tedarik ediyoruz."}, {"q": "Yol için kaç ton stabilize gerekir?", "a": "1 m² için sıkıştırılmış 15 cm temel tabakasına yaklaşık 0,25-0,30 ton stabilize gerekir. Hesaplama için bilgilerinizi talepte belirtebilirsiniz."}, {"q": "Stabilize fiyatları nasıl belirlenir?", "a": "Granülometri, miktar ve mesafeye göre fiyat değişir. Güncel fiyat için online teklif alın."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Stabilize Malzeme", url: "/malzeme/stabilize" },
+]);
 
 const MalzemeStabilize = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/stabilize");
@@ -51,6 +57,7 @@ const MalzemeStabilize = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="stabilize malzeme, stabilize fiyatları, yol stabilizesi, temel dolgu, toptan stabilize, stabilize taş" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

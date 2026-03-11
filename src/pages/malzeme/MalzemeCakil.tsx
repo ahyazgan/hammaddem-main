@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/cakil";
 const title = "Çakıl Satış & Teslimat | Çakıl Fiyatları – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["Hazır beton ve beton santrali üretimi", "Drenaj sistemi ve zemin filtrasyonu", "Yol ve altyapı yapımı", "Peyzaj ve bahçe düzenlemesi", "Demiryolu balastı", "Havuz tabanı ve sızma zemin"];
 
 const faq = [{"q": "Hangi çakıl granülometrileri mevcut?", "a": "0-8 mm ince çakıl, 8-16 mm orta çakıl ve 16-32 mm iri çakıl olmak üzere farklı granülometrilerde çakıl tedarik ediyoruz."}, {"q": "Çakıl fiyatları nasıl belirlenir?", "a": "Çakıl fiyatı; granülometri, ton miktarı, mesafe ve teslimat koşullarına göre değişir. Güncel fiyat için online teklif alın."}, {"q": "Drenaj için hangi çakıl uygundur?", "a": "Drenaj uygulamalarında genellikle 8-16 mm veya 16-32 mm yuvarlak çakıl tercih edilir. İhtiyacınıza göre öneri sunabiliriz."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Çakıl yıkanmış mı teslim ediliyor?", "a": "Talebe göre yıkanmış veya doğal çakıl tedarik edebiliyoruz. Talep formunda belirtmeniz yeterlidir."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Çakıl Satış & Teslimat", url: "/malzeme/cakil" },
+]);
 
 const MalzemeCakil = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/cakil");
@@ -51,6 +57,7 @@ const MalzemeCakil = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="çakıl fiyatları, toptan çakıl, dere çakılı, iri çakıl, ince çakıl, çakıl teslimat" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

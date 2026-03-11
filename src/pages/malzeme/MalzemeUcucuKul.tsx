@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/ucucu-kul";
 const title = "Uçucu Kül Silobas Taşıma & Tedariği – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["Beton karışımı puzolanik katkı maddesi", "Çimento üretimi klinker ikamesi", "Zemin iyileştirme ve stabilizasyon", "Hafif yapı malzemesi üretimi (gazbeton)", "Yol altı temel dolgusu", "Madencilik boşluk dolgusu"];
 
 const faq = [{"q": "Uçucu kül nedir ve ne işe yarar?", "a": "Uçucu kül, termik santrallerde kömür yanmasından elde edilen puzolanik bir malzemedir. Betona katıldığında dayanıklılığı artırır, geçirimliliği azaltır ve çimento kullanımını düşürür."}, {"q": "Uçucu kül neden silobas ile taşınır?", "a": "Çok ince taneli ve tozlu yapısından dolayı çevresel etki ve ürün kaybını önlemek için kapalı sistem silobas araçları kullanılır."}, {"q": "Hangi sınıf uçucu kül tedarik ediyorsunuz?", "a": "ASTM C618 Class F ve Class C uçucu kül başta olmak üzere farklı kalite sınıflarında tedarik yapıyoruz."}, {"q": "Uçucu kül beton kalitesini nasıl etkiler?", "a": "Uçucu kül betona katıldığında işlenebilirliği artırır, hidratasyon ısısını düşürür ve uzun vadeli dayanıklılığı iyileştirir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Uçucu Kül Silobas Taşıma", url: "/malzeme/ucucu-kul" },
+]);
 
 const MalzemeUcucuKul = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/ucucu-kul");
@@ -51,6 +57,7 @@ const MalzemeUcucuKul = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="uçucu kül, uçucu kül silobas, toptan uçucu kül, fly ash, uçucu kül fiyatları, beton katkı maddesi" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

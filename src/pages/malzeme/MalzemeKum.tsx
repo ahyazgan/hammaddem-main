@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/kum";
 const title = "İnşaat Kumu Satış & Teslimat | Kum Fiyatları – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["Hazır beton ve beton santrali üretimi", "Şantiye harç ve sıva uygulamaları", "Zemin dolgusu ve tesviye", "Prefabrik eleman üretimi", "Peyzaj ve çevre düzenlemesi", "Yol alt yapısı ve drenaj"];
 
 const faq = [{"q": "Hangi kum türlerini tedarik ediyorsunuz?", "a": "Dere kumu, kırma kum, yıkanmış kum ve beton kumu başta olmak üzere inşaat sektörüne uygun tüm kum türlerini tedarik ediyoruz."}, {"q": "Kum fiyatları nasıl hesaplanır?", "a": "Kum fiyatı; ton başına malzeme bedeli, mesafe ve teslimat koşullarına göre belirlenir. Güncel fiyat için online teklif alın."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz. Düzenli tedarik anlaşmaları için daha küçük miktarlar da değerlendirilebilir."}, {"q": "Aynı gün teslimat mümkün mü?", "a": "Stok durumu ve lokasyona göre aynı gün teslimat yapılabilmektedir. Talebi form üzerinden ilettiğinizde size doğru bilgi veririz."}, {"q": "Kum nemliliği ve granülometri standartlarına uyuyor mu?", "a": "Tedarik ettiğimiz kumlar TS 706 standartlarına uygun niteliktedir. Analiz belgesi talep edebilirsiniz."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Kum Satış & Teslimat", url: "/malzeme/kum" },
+]);
 
 const MalzemeKum = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/kum");
@@ -51,6 +57,7 @@ const MalzemeKum = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="inşaat kumu, kum fiyatları, toptan kum, dere kumu, beton kumu, kum teslimat" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

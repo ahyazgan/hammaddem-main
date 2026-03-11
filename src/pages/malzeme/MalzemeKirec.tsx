@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/kirec";
 const title = "Kireç Silobas Taşıma | Sönmüş & Sönmemiş Kireç – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["İnşaat harç ve sıva uygulamaları", "Atık su ve içme suyu arıtma", "Baca gazı arıtma (desülfürizasyon)", "Tarım arazisi pH düzenleme", "Çelik ve metalurji sektörü", "Kimya ve ilaç üretimi"];
 
 const faq = [{"q": "Sönmüş kireç ile sönmemiş kireç arasındaki fark nedir?", "a": "Sönmemiş kireç (CaO) kireçtaşının pişirilmesiyle elde edilir, suya temas ettiğinde sönmüş kirece (Ca(OH)₂) dönüşür. Her iki türü de tedarik ediyoruz."}, {"q": "Kireç neden silobas ile taşınır?", "a": "Kireç hava nemi ile reaksiyona girdiğinden kapalı sistem silobas zorunludur. Bu sayede ürün kalitesi ve güvenlik korunur."}, {"q": "Atık su arıtma için hangi kireç kullanılır?", "a": "Atık su arıtmada genellikle sönmüş kireç (kalsiyum hidroksit) kullanılır. Doz hesabı için uzmanlarımız destek verebilir."}, {"q": "Kireç fiyatları nasıl belirlenir?", "a": "Kireç türü (sönmüş/sönmemiş), saflık derecesi, miktar ve mesafeye göre fiyat belirlenir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Kireç Silobas Taşıma", url: "/malzeme/kirec" },
+]);
 
 const MalzemeKirec = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/kirec");
@@ -51,6 +57,7 @@ const MalzemeKirec = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="sönmüş kireç, sönmemiş kireç, kireç silobas, toptan kireç, kireç fiyatları, kalsiyum oksit" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

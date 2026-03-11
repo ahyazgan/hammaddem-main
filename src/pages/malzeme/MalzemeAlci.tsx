@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/alci";
 const title = "Alçı Silobas Taşıma & Tedariği – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["İç cephe sıva ve alçı uygulaması", "Alçıpan (drywall) üretimi", "Dekoratif alçı ve stüko", "Tıbbi alçı (ortopedik)", "Çimento retarder katkısı", "Tarım (jips olarak toprak düzenleyici)"];
 
 const faq = [{"q": "İnşaat alçısı ile sanayi alçısı arasındaki fark nedir?", "a": "İnşaat alçısı düşük sertlik ve hızlı priz özelliğiyle iç sıva ve alçı uygulamalarında kullanılır. Sanayi alçısı ise daha yüksek saflık ve özgün priz süreleriyle özel üretim süreçlerinde tercih edilir."}, {"q": "Alçı neden silobas ile taşınır?", "a": "Alçı neme karşı çok hassastır; kapalı sistem silobas ile taşınarak erken hidrasyon ve ürün kaybı önlenir."}, {"q": "Alçı fiyatları nasıl belirlenir?", "a": "Alçı türü (inşaat/sanayi), saflık derecesi, miktar ve mesafeye göre fiyat değişir."}, {"q": "Aynı gün teslimat mümkün mü?", "a": "Stok ve lokasyona bağlı olarak aynı gün teslimat yapılabilmektedir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Alçı Silobas Taşıma", url: "/malzeme/alci" },
+]);
 
 const MalzemeAlci = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/alci");
@@ -51,6 +57,7 @@ const MalzemeAlci = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="alçı silobas, toptan alçı, alçı fiyatları, inşaat alçısı, sanayi alçısı, alçı tedariği" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

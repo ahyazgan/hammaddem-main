@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/mermer-tozu";
 const title = "Mermer Tozu Silobas Taşıma & Tedariği – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["Boya ve vernik dolgu maddesi", "Plastik ve PVC dolgu katkısı", "Seramik ve fayans üretimi", "Yapı kimyasalları (macun, astar)", "Kağıt kaplama ve dolgu", "Tarım (toprak pH düzenleyici)"];
 
 const faq = [{"q": "Mermer tozu hangi mikron değerlerinde tedarik edilir?", "a": "5, 10, 25 ve 90 mikron olmak üzere farklı inceliklerde mermer tozu tedarik ediyoruz."}, {"q": "Mermer tozu ile kalsit arasındaki fark nedir?", "a": "Her ikisi de kalsiyum karbonat (CaCO₃) kaynaklıdır. Mermer tozu mermer işleme atığından veya mermer öğütmeden, kalsit ise kireçtaşının öğütülmesinden elde edilir. Beyazlık ve saflık değerleri farklılık gösterebilir."}, {"q": "Mermer tozu neden silobas ile taşınır?", "a": "Nem alımına ve tozlanmaya karşı hassas olduğundan kapalı sistem silobas kullanılır."}, {"q": "Boya sektörü için hangi mermer tozu uygundur?", "a": "Boya üretiminde yüksek beyazlık değerine (ISO brightness >95) sahip, 5-10 mikron inceliğinde mermer tozu tercih edilir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Mermer Tozu Silobas Taşıma", url: "/malzeme/mermer-tozu" },
+]);
 
 const MalzemeMermerTozu = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/mermer-tozu");
@@ -51,6 +57,7 @@ const MalzemeMermerTozu = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="mermer tozu, mermer tozu silobas, toptan mermer tozu, mermer tozu fiyatları, mermer tozu tedariği" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

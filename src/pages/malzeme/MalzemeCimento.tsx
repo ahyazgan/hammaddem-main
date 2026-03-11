@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/cimento";
 const title = "Çimento Silobas Taşıma | Toptan Çimento Tedariği – Hammaddem";
@@ -20,6 +21,12 @@ const avantajlar = [
 const kullanim = ["Beton santralleri ve hazır beton üretimi", "Prefabrik ve betonarme inşaat", "Yol yapımı ve altyapı projeleri", "Briket, bordür ve parke taşı üretimi", "Sıva ve şap uygulamaları", "Endüstriyel zemin ve betonarme yapılar"];
 
 const faq = [{"q": "Çimento silobas ile nasıl taşınır?", "a": "Çimento, pnömatik basınçlı silobas araçlarıyla toz halinde taşınır. Boşaltma silo veya depoya hava basıncı ile aktarılır; tozlanma ve fire minimumda tutulur."}, {"q": "Hangi çimento türlerini taşıyorsunuz?", "a": "Portland (CEM I), CEM II (kompoze), CEM III (cüruflu), beyaz çimento ve özel çimento türlerini silobas ile taşıyoruz."}, {"q": "Çimento fiyatları nasıl belirlenir?", "a": "Fiyatlar malzeme türü, miktar, mesafe ve teslimat koşullarına göre değişir. En güncel fiyat için online teklif almanızı öneririz."}, {"q": "Beton santraline teslimat yapıyor musunuz?", "a": "Evet. Beton santralleri, hazır beton tesisleri ve inşaat sahalarına 11 ilde çimento teslimatı yapıyoruz."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz. Özel durumlar için bizimle iletişime geçin."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Malzemeler", url: "/malzeme/cimento" },
+  { name: "Çimento Silobas Taşıma", url: "/malzeme/cimento" },
+]);
 
 const MalzemeCimento = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/cimento");
@@ -58,6 +65,7 @@ const MalzemeCimento = () => {
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-dot-pattern">

@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/micir";
 const title = "Mıcır Satış & Teslimat | Mıcır Fiyatları – Hammaddem";
@@ -20,6 +21,11 @@ const avantajlar = [
 const kullanim = ["Asfalt ve yol yapımı", "Hazır beton üretimi", "Temel dolgu ve stabilizasyon", "Demiryolu balastı", "Drenaj sistemleri", "Peyzaj ve çevre düzenlemesi"];
 
 const faq = [{"q": "Hangi mıcır türlerini tedarik ediyorsunuz?", "a": "Bazalt mıcır, kireçtaşı mıcır ve granit mıcır başta olmak üzere 8-16 mm, 16-22 mm ve 22-32 mm granülometrilerde tedarik yapıyoruz."}, {"q": "Mıcır fiyatları nasıl belirlenir?", "a": "Kayaç türü, granülometri, miktar ve mesafeye göre fiyat değişir. Online teklif formundan güncel fiyat alabilirsiniz."}, {"q": "Asfalt mıcırı tedarik ediyor musunuz?", "a": "Evet, asfalt üretimine uygun kırma taş ve mıcır tedariki yapıyoruz."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Mıcır ile çakıl arasındaki fark nedir?", "a": "Çakıl doğal yuvarlak agregadır, mıcır ise kırma işlemiyle elde edilen köşeli agregadır. Beton ve asfalt üretiminde mıcır, drenajda çakıl tercih edilir."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Mıcır Satış & Teslimat", url: "/malzeme/micir" },
+]);
 
 const MalzemeMicir = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/micir");
@@ -51,6 +57,7 @@ const MalzemeMicir = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="mıcır fiyatları, toptan mıcır, kırma taş, bazalt mıcır, mıcır teslimat, inşaat mıcırı" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
