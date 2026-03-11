@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/ucucu-kul";
 const title = "Uçucu Kül Silobas Taşıma & Tedariği – Hammaddem";
@@ -19,7 +20,12 @@ const avantajlar = [
 
 const kullanim = ["Beton karışımı puzolanik katkı maddesi", "Çimento üretimi klinker ikamesi", "Zemin iyileştirme ve stabilizasyon", "Hafif yapı malzemesi üretimi (gazbeton)", "Yol altı temel dolgusu", "Madencilik boşluk dolgusu"];
 
-const faq = [{"q": "Uçucu kül nedir ve ne işe yarar?", "a": "Uçucu kül, termik santrallerde kömür yanmasından elde edilen puzolanik bir malzemedir. Betona katıldığında dayanıklılığı artırır, geçirimliliği azaltır ve çimento kullanımını düşürür."}, {"q": "Uçucu kül neden silobas ile taşınır?", "a": "Çok ince taneli ve tozlu yapısından dolayı çevresel etki ve ürün kaybını önlemek için kapalı sistem silobas araçları kullanılır."}, {"q": "Hangi sınıf uçucu kül tedarik ediyorsunuz?", "a": "ASTM C618 Class F ve Class C uçucu kül başta olmak üzere farklı kalite sınıflarında tedarik yapıyoruz."}, {"q": "Uçucu kül beton kalitesini nasıl etkiler?", "a": "Uçucu kül betona katıldığında işlenebilirliği artırır, hidratasyon ısısını düşürür ve uzun vadeli dayanıklılığı iyileştirir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+const faq = [{"q": "Uçucu kül nedir ve ne işe yarar?", "a": "Uçucu kül, termik santrallerde kömür yanmasından elde edilen puzolanik bir malzemedir. Betona katıldığında dayanıklılığı artırır, geçirimliliği azaltır ve çimento kullanımını düşürür."}, {"q": "Uçucu kül neden silobas ile taşınır?", "a": "Çok ince taneli ve tozlu yapısından dolayı çevresel etki ve ürün kaybını önlemek için kapalı sistem silobas araçları kullanılır."}, {"q": "Hangi sınıf uçucu kül tedarik ediyorsunuz?", "a": "ASTM C618 Class F ve Class C uçucu kül başta olmak üzere farklı kalite sınıflarında tedarik yapıyoruz."}, {"q": "Uçucu kül beton kalitesini nasıl etkiler?", "a": "Uçucu kül betona katıldığında işlenebilirliği artırır, hidratasyon ısısını düşürür ve uzun vadeli dayanıklılığı iyileştirir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Class F ile Class C uçucu kül farkı nedir?", "a": "Class F uçucu kül, bitümlü kömürden elde edilir; düşük kalsiyum içeriği ile yüksek puzolanik aktivite gösterir, kimyasal direnci artırır. Class C uçucu kül, linyit kömüründen elde edilir; yüksek kalsiyum içeriği sayesinde hem puzolanik hem bağlayıcı özellik taşır. Her iki sınıfı da tedarik etmekteyiz."}, {"q": "Uçucu kül beton maliyetini ne kadar düşürür?", "a": "Uçucu kül, beton karışımında çimentonun %15-30 oranında yerine geçebilir. Çimento maliyetinin uçucu külden yüksek olduğu göz önünde bulundurulduğunda, ton başına önemli maliyet tasarrufu sağlanabilir. Ayrıca beton dayanıklılığını artırdığından uzun vadeli bakım maliyetleri de düşer."}, {"q": "Gazbeton (AAC) üretiminde uçucu kül kullanılır mı?", "a": "Evet, hafif yapı malzemesi olan gazbeton (AAC – Autoclaved Aerated Concrete) üretiminde uçucu kül önemli bir hammaddedir. Yüksek silisyum ve alüminyum içeriğiyle reaksiyona girerek gözenekli yapı oluşturur. Class C veya yüksek kalsiyumlu uçucu kül bu amaçla tercih edilir."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Uçucu Kül Silobas Taşıma", url: "/malzeme/ucucu-kul" },
+]);
 
 const MalzemeUcucuKul = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/ucucu-kul");
@@ -51,6 +57,7 @@ const MalzemeUcucuKul = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="uçucu kül, uçucu kül silobas, toptan uçucu kül, fly ash, uçucu kül fiyatları, beton katkı maddesi" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
@@ -104,7 +111,7 @@ const MalzemeUcucuKul = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Uçucu Kül Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Uçucu Kül Nedir? Fly Ash, Class F ve Class C Uçucu Kül</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Uçucu kül (fly ash), termik santrallerde kömürün yakılmasıyla oluşan ve baca gazından elektrostatik filtrelerle toplanan ince taneli bir atık malzemedir. Puzolanik özelliği sayesinde çimento ve beton sektöründe katkı maddesi olarak yaygın kullanılır; beton dayanıklılığını artırır ve çimento tüketimini azaltır.</p>
               <p>Uçucu kül, pnömatik silobas araçlarıyla kapalı sistemde taşınır; bu sayede çevresel etki ve tozlanma en aza indirilir. Hammaddem ile uçucu kül tedariğini dijital platformdan yönetin. Miktar ve teslimat bilgilerinizi belirterek 30 dakika içinde teklif alın.</p>
@@ -113,8 +120,31 @@ const MalzemeUcucuKul = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Uçucu Kül Sınıfları */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Uçucu Kül Sınıfları ve Kullanım Alanları</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Uçucu kül, kömür türüne ve kalite sınıfına göre farklı kategorilere ayrılır.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "Class F Uçucu Kül", desc: "Taş kömüründen elde edilir. Puzolanik özelliği yüksek, kimyasal direnci güçlü." },
+                { title: "Class C Uçucu Kül", desc: "Linyit kömüründen elde edilir. Hem puzolanik hem bağlayıcı özellik taşır." },
+                { title: "Beton Katkısı Fly Ash", desc: "Hazır beton ve beton santrali üretiminde çimento ikamesi olarak kullanılır." },
+                { title: "Çimento Katkısı", desc: "Çimento üretiminde klinker ikamesi. CO₂ emisyonunu ve maliyeti düşürür." },
+                { title: "Zemin Stabilizasyonu", desc: "Zayıf ve killi zeminlerin iyileştirilmesinde kullanılan bağlayıcı katkı." },
+                { title: "Gazbeton (AAC) Katkısı", desc: "Hafif yapı bloğu üretiminde reaktif silisyum kaynağı olarak kullanılır." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Uçucu Kül Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Uçucu Kül hangi sektör ve uygulamalarda kullanılır?</p>
@@ -130,7 +160,7 @@ const MalzemeUcucuKul = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Uçucu Kül Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

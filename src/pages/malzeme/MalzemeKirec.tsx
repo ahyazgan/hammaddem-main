@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/kirec";
 const title = "Kireç Silobas Taşıma | Sönmüş & Sönmemiş Kireç – Hammaddem";
@@ -19,7 +20,12 @@ const avantajlar = [
 
 const kullanim = ["İnşaat harç ve sıva uygulamaları", "Atık su ve içme suyu arıtma", "Baca gazı arıtma (desülfürizasyon)", "Tarım arazisi pH düzenleme", "Çelik ve metalurji sektörü", "Kimya ve ilaç üretimi"];
 
-const faq = [{"q": "Sönmüş kireç ile sönmemiş kireç arasındaki fark nedir?", "a": "Sönmemiş kireç (CaO) kireçtaşının pişirilmesiyle elde edilir, suya temas ettiğinde sönmüş kirece (Ca(OH)₂) dönüşür. Her iki türü de tedarik ediyoruz."}, {"q": "Kireç neden silobas ile taşınır?", "a": "Kireç hava nemi ile reaksiyona girdiğinden kapalı sistem silobas zorunludur. Bu sayede ürün kalitesi ve güvenlik korunur."}, {"q": "Atık su arıtma için hangi kireç kullanılır?", "a": "Atık su arıtmada genellikle sönmüş kireç (kalsiyum hidroksit) kullanılır. Doz hesabı için uzmanlarımız destek verebilir."}, {"q": "Kireç fiyatları nasıl belirlenir?", "a": "Kireç türü (sönmüş/sönmemiş), saflık derecesi, miktar ve mesafeye göre fiyat belirlenir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+const faq = [{"q": "Sönmüş kireç ile sönmemiş kireç arasındaki fark nedir?", "a": "Sönmemiş kireç (CaO) kireçtaşının pişirilmesiyle elde edilir, suya temas ettiğinde sönmüş kirece (Ca(OH)₂) dönüşür. Her iki türü de tedarik ediyoruz."}, {"q": "Kireç neden silobas ile taşınır?", "a": "Kireç hava nemi ile reaksiyona girdiğinden kapalı sistem silobas zorunludur. Bu sayede ürün kalitesi ve güvenlik korunur."}, {"q": "Atık su arıtma için hangi kireç kullanılır?", "a": "Atık su arıtmada genellikle sönmüş kireç (kalsiyum hidroksit) kullanılır. Doz hesabı için uzmanlarımız destek verebilir."}, {"q": "Kireç fiyatları nasıl belirlenir?", "a": "Kireç türü (sönmüş/sönmemiş), saflık derecesi, miktar ve mesafeye göre fiyat belirlenir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Kireç tozu nedir ve sönmüş kireçten farkı nedir?", "a": "Kireç tozu genellikle sönmüş kireç (kalsiyum hidroksit, Ca(OH)₂) için kullanılan yaygın bir tanımlamadır. İnce öğütülmüş hali ile inşaat sıvalarında, çevre uygulamalarında ve atık su arıtmada kullanılır. Sönmemiş kireçten (CaO) farklı olarak su ile reaksiyona girmeden kullanılabilir."}, {"q": "Tarım arazilerinde kireç hangi amaçla kullanılır?", "a": "Tarımda kireç (tarımsal kireç / kalsiyum karbonat veya sönmüş kireç), asitli toprakların pH değerini yükseltmek için kullanılır. Toprak pH'ını 6-7 aralığına getirerek bitki besin alımını iyileştirir, alüminyum ve manganez toksisitesini azaltır. Dönüm başına gereken miktar toprak analizine göre belirlenir."}, {"q": "Baca gazı arıtmada hangi kireç kullanılır?", "a": "Baca gazı desülfürizasyon (FGD) sistemlerinde genellikle sönmüş kireç (Ca(OH)₂) veya kireçtaşı (CaCO₃) kullanılır. Kireç, SO₂ gazıyla reaksiyona girerek alçı (kalsiyum sülfat) oluşturur ve zararlı emisyonları azaltır."}];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Kireç Silobas Taşıma", url: "/malzeme/kirec" },
+]);
 
 const MalzemeKirec = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/kirec");
@@ -51,6 +57,7 @@ const MalzemeKirec = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="sönmüş kireç, sönmemiş kireç, kireç silobas, toptan kireç, kireç fiyatları, kalsiyum oksit" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
@@ -104,7 +111,7 @@ const MalzemeKirec = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Kireç Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Kireç Nedir? Sönmüş Kireç, Sönmemiş Kireç ve Kireç Tozu</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Kireç, kireçtaşının yüksek sıcaklıkta pişirilmesiyle elde edilen ve inşaat, çevre, tarım ve kimya sektörlerinde yaygın kullanılan temel bir endüstriyel üründür. Sönmemiş kireç (CaO, kalsinasyon ürünü) ve sönmüş kireç (Ca(OH)₂, su ile reaksiyona girmişhidrat kireç) olmak üzere iki ana formda bulunur.</p>
               <p>Kireç, nem alımına ve hava temasına karşı son derece reaktif olduğundan kapalı sistem silobas araçlarıyla taşınması zorunludur. Hammaddem ile kireç tedariğinizi güvenle yönetin; sönmüş veya sönmemiş kireç, miktar ve teslimat bilgilerinizi belirterek teklif alın.</p>
@@ -113,8 +120,31 @@ const MalzemeKirec = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Kireç Türleri */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kireç Türleri: Sönmüş, Sönmemiş ve Kireçtaşı</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kullanım amacına göre farklı kireç türleri bulunmaktadır.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "Sönmemiş Kireç (CaO)", desc: "Kalsiyum oksit. Yüksek ısı üretir, çelik ve kimya sektöründe kullanılır." },
+                { title: "Sönmüş Kireç (Ca(OH)₂)", desc: "Kalsiyum hidroksit / kireç tozu. İnşaat, arıtma ve tarımda yaygın kullanım." },
+                { title: "Kireçtaşı (CaCO₃)", desc: "Ham kireç hammaddesi. Baca gazı arıtma ve tarımsal amaçlarda kullanılır." },
+                { title: "Tarımsal Kireç", desc: "Toprak pH düzenleyici. Asit toprakları iyileştirir, bitkisel verimi artırır." },
+                { title: "Sanayi Kireci", desc: "Yüksek saflıkta kireç. Çelik, şeker ve kağıt sektörü üretim prosesleri için." },
+                { title: "Hidrate Kireç", desc: "Hazır sönmüş kireç tozu. İnşaat sıvası ve atık su arıtma için kullanıma hazır." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kireç Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kireç hangi sektör ve uygulamalarda kullanılır?</p>
@@ -130,7 +160,7 @@ const MalzemeKirec = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Kireç Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

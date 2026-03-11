@@ -4,6 +4,7 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { MALZEME_ROUTES } from "@/pages/malzeme/malzemeRoutes";
 import { BOLGE_ROUTES } from "./bolgeRoutes";
+import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
 
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/izmir";
@@ -16,6 +17,12 @@ const avantajlar = [
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
 ];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Hizmet Bölgeleri", url: "/hizmet-bolgeleri/istanbul" },
+  { name: "İzmir Silobas & Hafriyat", url: "/hizmet-bolgeleri/izmir" },
+]);
 
 const BolgeIzmir = () => {
   const digerSehirler = BOLGE_ROUTES.filter((r) => r.path !== "/hizmet-bolgeleri/izmir");
@@ -47,6 +54,7 @@ const BolgeIzmir = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="izmir silobas, izmir hafriyat, izmir çimento, izmir kum, silobas izmir, izmir inşaat malzemeleri" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={`İzmir Silobas & Hafriyat Hizmetleri – Hammaddem`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

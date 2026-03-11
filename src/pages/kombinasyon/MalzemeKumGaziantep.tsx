@@ -3,10 +3,35 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/kum/gaziantep";
 const title = "Gaziantep Kum Satış & Teslimat | Hammaddem";
 const description = "Gaziantep'da kum satış ve teslimat. OSB ve sanayi bölgelerine hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın.";
+
+const comboFaq = [
+  {
+    "q": "Gaziantep'da Kum silobas taşıma nasıl çalışır?",
+    "a": "Hammaddem platformu üzerinden talep oluşturun; Gaziantep bölgesindeki araç filomuz 30 dakika içinde size özel fiyat teklifi sunar. Teklifi onayladığınızda teslimat sürecini dijital panelden takip edebilirsiniz."
+  },
+  {
+    "q": "Gaziantep'da Kum için minimum sipariş miktarı nedir?",
+    "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz. Özel durumlar için bizimle iletişime geçin."
+  },
+  {
+    "q": "Gaziantep'da aynı gün teslimat yapıyor musunuz?",
+    "a": "Evet, Gaziantep bölgesinde araç müsaitliğine göre aynı gün teslimat seçeneği sunulmaktadır. Talep oluştururken teslimat tarihinizi belirtin."
+  }
+];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Kum Taşıma", url: "/malzeme/kum" },
+  { name: "Gaziantep Kum Taşıma", url: "/malzeme/kum/gaziantep" },
+]);
+
+const faqJsonLd = buildFaqJsonLd(comboFaq);
+
 
 const MalzemeKumGaziantep = () => {
   const localBusinessJsonLd = {
@@ -36,6 +61,8 @@ const MalzemeKumGaziantep = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="gaziantep kum, kum gaziantep, gaziantep kum fiyatı, dere kumu, beton kumu" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
@@ -149,6 +176,21 @@ const MalzemeKumGaziantep = () => {
               <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all">
                 <Phone className="w-4 h-4" /> 0539 330 86 17
               </a>
+            </div>
+          </div>
+        </section>
+
+        
+        <section className="py-16 px-4 md:px-10 bg-off">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Gaziantep Kum Taşıma Hakkında Sık Sorulan Sorular</h2>
+            <div className="space-y-4 mt-6">
+              {comboFaq.map((f, i) => (
+                <div key={i} className="border border-border rounded-2xl p-6 bg-background">
+                  <h3 className="font-bold text-sm md:text-base mb-2">{f.q}</h3>
+                  <p className="text-sm text-txt-2 leading-relaxed">{f.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -3,10 +3,35 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/malzeme/kalsit/izmir";
 const title = "İzmir Kalsit Silobas Taşıma | Hammaddem";
 const description = "İzmir'da kalsit silobas taşıma. Aliağa, Torbalı, Kemalpaşa ve Ege bölgesine hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın.";
+
+const comboFaq = [
+  {
+    "q": "İzmir'da Kalsit silobas taşıma nasıl çalışır?",
+    "a": "Hammaddem platformu üzerinden talep oluşturun; İzmir bölgesindeki araç filomuz 30 dakika içinde size özel fiyat teklifi sunar. Teklifi onayladığınızda teslimat sürecini dijital panelden takip edebilirsiniz."
+  },
+  {
+    "q": "İzmir'da Kalsit için minimum sipariş miktarı nedir?",
+    "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz. Özel durumlar için bizimle iletişime geçin."
+  },
+  {
+    "q": "İzmir'da aynı gün teslimat yapıyor musunuz?",
+    "a": "Evet, İzmir bölgesinde araç müsaitliğine göre aynı gün teslimat seçeneği sunulmaktadır. Talep oluştururken teslimat tarihinizi belirtin."
+  }
+];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Ana Sayfa", url: "/" },
+  { name: "Kalsit Taşıma", url: "/malzeme/kalsit" },
+  { name: "İzmir Kalsit Taşıma", url: "/malzeme/kalsit/izmir" },
+]);
+
+const faqJsonLd = buildFaqJsonLd(comboFaq);
+
 
 const MalzemeKalsitIzmir = () => {
   const localBusinessJsonLd = {
@@ -36,6 +61,8 @@ const MalzemeKalsitIzmir = () => {
         <meta name="description" content={description} />
         <meta name="keywords" content="i̇zmir kalsit, kalsit i̇zmir, i̇zmir kalsit fiyatı, kalsit tozu, kalsiyum karbonat" />
         <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
@@ -149,6 +176,21 @@ const MalzemeKalsitIzmir = () => {
               <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all">
                 <Phone className="w-4 h-4" /> 0539 330 86 17
               </a>
+            </div>
+          </div>
+        </section>
+
+        
+        <section className="py-16 px-4 md:px-10 bg-off">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">İzmir Kalsit Taşıma Hakkında Sık Sorulan Sorular</h2>
+            <div className="space-y-4 mt-6">
+              {comboFaq.map((f, i) => (
+                <div key={i} className="border border-border rounded-2xl p-6 bg-background">
+                  <h3 className="font-bold text-sm md:text-base mb-2">{f.q}</h3>
+                  <p className="text-sm text-txt-2 leading-relaxed">{f.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
