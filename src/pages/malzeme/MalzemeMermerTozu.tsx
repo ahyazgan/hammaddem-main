@@ -20,7 +20,7 @@ const avantajlar = [
 
 const kullanim = ["Boya ve vernik dolgu maddesi", "Plastik ve PVC dolgu katkısı", "Seramik ve fayans üretimi", "Yapı kimyasalları (macun, astar)", "Kağıt kaplama ve dolgu", "Tarım (toprak pH düzenleyici)"];
 
-const faq = [{"q": "Mermer tozu hangi mikron değerlerinde tedarik edilir?", "a": "5, 10, 25 ve 90 mikron olmak üzere farklı inceliklerde mermer tozu tedarik ediyoruz."}, {"q": "Mermer tozu ile kalsit arasındaki fark nedir?", "a": "Her ikisi de kalsiyum karbonat (CaCO₃) kaynaklıdır. Mermer tozu mermer işleme atığından veya mermer öğütmeden, kalsit ise kireçtaşının öğütülmesinden elde edilir. Beyazlık ve saflık değerleri farklılık gösterebilir."}, {"q": "Mermer tozu neden silobas ile taşınır?", "a": "Nem alımına ve tozlanmaya karşı hassas olduğundan kapalı sistem silobas kullanılır."}, {"q": "Boya sektörü için hangi mermer tozu uygundur?", "a": "Boya üretiminde yüksek beyazlık değerine (ISO brightness >95) sahip, 5-10 mikron inceliğinde mermer tozu tercih edilir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+const faq = [{"q": "Mermer tozu hangi mikron değerlerinde tedarik edilir?", "a": "5, 10, 25 ve 90 mikron olmak üzere farklı inceliklerde mermer tozu tedarik ediyoruz."}, {"q": "Mermer tozu ile kalsit arasındaki fark nedir?", "a": "Her ikisi de kalsiyum karbonat (CaCO₃) kaynaklıdır. Mermer tozu mermer işleme atığından veya mermer öğütmeden, kalsit ise kireçtaşının öğütülmesinden elde edilir. Beyazlık ve saflık değerleri farklılık gösterebilir."}, {"q": "Mermer tozu neden silobas ile taşınır?", "a": "Nem alımına ve tozlanmaya karşı hassas olduğundan kapalı sistem silobas kullanılır."}, {"q": "Boya sektörü için hangi mermer tozu uygundur?", "a": "Boya üretiminde yüksek beyazlık değerine (ISO brightness >95) sahip, 5-10 mikron inceliğinde mermer tozu tercih edilir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Mermer tozu boya üretiminde nasıl kullanılır?", "a": "Boya üretiminde mermer tozu, hem dolgu hem de fonksiyonel pigment olarak kullanılır. Örtücülüğü artırır, viskoziteyi düzenler ve film kalınlığını iyileştirir. İç cephe boyalarında %20-40, dış cephe boyalarında %15-30 oranında kullanılabilir. 5-10 mikron inceliği ve ISO brightness >95 değeri tercih edilir."}, {"q": "Mermer tozu seramik üretiminde nasıl kullanılır?", "a": "Seramik ve fayans üretiminde mermer tozu, ham madde karışımına katkı malzemesi olarak eklenir. Pişirme sıcaklığını düşürür, yüzey parlaklığını artırır ve kırılma dayanımını iyileştirir. Sır (glazür) formülasyonlarında da kullanılmaktadır."}, {"q": "Beyaz mermer tozu ile gri mermer tozu farkı nedir?", "a": "Beyaz mermer tozu, Marmara veya kalsitten üretilir; ISO brightness değeri 90 üzerindedir ve boya, plastik, kağıt sektöründe tercih edilir. Gri veya renkli mermer tozu ise dekoratif beton, zemin kaplama ve peyzaj uygulamalarında estetik amaçlı kullanılır."}];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -111,7 +111,7 @@ const MalzemeMermerTozu = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Mermer Tozu Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Mermer Tozu Nedir? Beyaz Mermer Tozu, Öğütülmüş Mermer (CaCO₃)</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Mermer tozu, mermer işleme tesislerinde kesme ve parlatma işlemleri sırasında ortaya çıkan veya doğrudan mermer bloklarının öğütülmesiyle üretilen ince granüllü bir kalsiyum karbonat malzemesidir. Yüksek beyazlık derecesi ve homojen tanecik yapısı sayesinde boya, plastik, seramik, kağıt ve yapı kimyasalları sektörlerinde dolgu malzemesi olarak kullanılır.</p>
               <p>Mermer tozu, nem alımına ve tozlanmaya karşı hassas olduğundan pnömatik silobas araçlarıyla kapalı sistemde taşınır. Hammaddem ile mermer tozu tedariğini güvenle yönetin; mikron değeri, beyazlık derecesi ve teslimat bilgilerinizi belirterek teklif alın.</p>
@@ -120,8 +120,31 @@ const MalzemeMermerTozu = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Mermer Tozu Türleri */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Mermer Tozu Çeşitleri: Mikron ve Beyazlık Değerine Göre</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Mermer tozu, mikron inceliği ve beyazlık derecesine göre farklı sektörlere hitap eder.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "5-10 Mikron (Boya Kalitesi)", desc: "ISO brightness >95. Boya, vernik ve iç cephe uygulamaları için." },
+                { title: "10-25 Mikron (Plastik Kalitesi)", desc: "PVC ve plastik dolgu maddesi. Maliyet düşürücü katkı." },
+                { title: "25-90 Mikron (Genel Sanayi)", desc: "Yapıştırıcı, macun ve genel endüstriyel uygulamalar." },
+                { title: "Beyaz Mermer Tozu", desc: "Yüksek beyazlık (>90 ISO). Boya, seramik ve kağıt için." },
+                { title: "Dekoratif Mermer Tozu", desc: "Terazzo zemin, dekoratif beton ve peyzaj uygulamaları." },
+                { title: "Seramik Katkı Tozu", desc: "Fayans ve seramik üretiminde ham madde katkısı." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Mermer Tozu Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Mermer Tozu hangi sektör ve uygulamalarda kullanılır?</p>
@@ -137,7 +160,7 @@ const MalzemeMermerTozu = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Mermer Tozu Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

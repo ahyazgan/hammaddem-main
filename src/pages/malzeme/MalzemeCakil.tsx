@@ -20,7 +20,7 @@ const avantajlar = [
 
 const kullanim = ["Hazır beton ve beton santrali üretimi", "Drenaj sistemi ve zemin filtrasyonu", "Yol ve altyapı yapımı", "Peyzaj ve bahçe düzenlemesi", "Demiryolu balastı", "Havuz tabanı ve sızma zemin"];
 
-const faq = [{"q": "Hangi çakıl granülometrileri mevcut?", "a": "0-8 mm ince çakıl, 8-16 mm orta çakıl ve 16-32 mm iri çakıl olmak üzere farklı granülometrilerde çakıl tedarik ediyoruz."}, {"q": "Çakıl fiyatları nasıl belirlenir?", "a": "Çakıl fiyatı; granülometri, ton miktarı, mesafe ve teslimat koşullarına göre değişir. Güncel fiyat için online teklif alın."}, {"q": "Drenaj için hangi çakıl uygundur?", "a": "Drenaj uygulamalarında genellikle 8-16 mm veya 16-32 mm yuvarlak çakıl tercih edilir. İhtiyacınıza göre öneri sunabiliriz."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Çakıl yıkanmış mı teslim ediliyor?", "a": "Talebe göre yıkanmış veya doğal çakıl tedarik edebiliyoruz. Talep formunda belirtmeniz yeterlidir."}];
+const faq = [{"q": "Hangi çakıl granülometrileri mevcut?", "a": "0-8 mm ince çakıl, 8-16 mm orta çakıl ve 16-32 mm iri çakıl olmak üzere farklı granülometrilerde çakıl tedarik ediyoruz."}, {"q": "Çakıl fiyatları nasıl belirlenir?", "a": "Çakıl fiyatı; granülometri, ton miktarı, mesafe ve teslimat koşullarına göre değişir. Güncel fiyat için online teklif alın."}, {"q": "Drenaj için hangi çakıl uygundur?", "a": "Drenaj uygulamalarında genellikle 8-16 mm veya 16-32 mm yuvarlak çakıl tercih edilir. İhtiyacınıza göre öneri sunabiliriz."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Çakıl yıkanmış mı teslim ediliyor?", "a": "Talebe göre yıkanmış veya doğal çakıl tedarik edebiliyoruz. Talep formunda belirtmeniz yeterlidir."}, {"q": "Dere çakılı nedir, nerelerde kullanılır?", "a": "Dere çakılı, akarsuların taşıdığı ve aşındırdığı yuvarlak, pürüzsüz doğal agregadır. Drenaj sistemleri, peyzaj düzenlemesi, bahçe zemin kaplamaları ve havuz tabanlarında kullanılır. Köşeli kırma çakıldan daha estetik görünüm sağlar."}, {"q": "Bahçe için kaç mm çakıl kullanılır?", "a": "Bahçe ve peyzaj uygulamalarında genellikle 8-16 mm ince çakıl tercih edilir. Yürüme yolları için 8-16 mm, dekoratif kaplama için 16-32 mm iri çakıl uygundur. Zemin örtüsü olarak 5-8 cm kalınlık önerilir."}, {"q": "Çakıl ile mıcır arasındaki fark nedir?", "a": "Çakıl doğal, yuvarlak kenarlı bir agregadır; akarsu veya denizde aşınarak oluşur. Mıcır ise kaya bloklarının kırılmasıyla elde edilen köşeli agregadır. Drenaj ve peyzajda çakıl, beton ve asfalt üretiminde mıcır tercih edilir."}];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -111,7 +111,7 @@ const MalzemeCakil = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Çakıl Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Çakıl Nedir? Dere Çakılı, Bahçe Çakılı ve Beton Çakılı</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Çakıl, beton üretimi, drenaj sistemleri ve yol yapımında yaygın kullanılan doğal bir agrega malzemesidir. İnce çakıl (0-8 mm), orta çakıl (8-16 mm) ve iri çakıl (16-32 mm) olarak sınıflandırılır. Granülometri açısından TS 706 standartlarına uygunluk, yapı kalitesi için büyük önem taşır.</p>
               <p>Hammaddem ile çakıl tedariğini dijital platformdan yönetin. Ton bazında çakıl fiyatları için online teklif oluşturun, 11 ilde güvenilir teslimat alın. Beton santralleri, altyapı projeleri ve peyzaj uygulamaları için düzenli çakıl tedariki sağlıyoruz.</p>
@@ -120,8 +120,31 @@ const MalzemeCakil = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Çakıl Çeşitleri */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Çakıl Çeşitleri</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kullanım amacına göre farklı çakıl türleri bulunmaktadır.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "Dere Çakılı", desc: "Doğal yuvarlak çakıl. Drenaj, peyzaj ve havuz tabanı için idealdir." },
+                { title: "İnce Çakıl (0-8 mm)", desc: "Beton karışımı ve bahçe zemin kaplamasında kullanılır." },
+                { title: "Orta Çakıl (8-16 mm)", desc: "Drenaj sistemleri ve yürüme yolları için tercih edilir." },
+                { title: "İri Çakıl (16-32 mm)", desc: "Yol yapımı, demiryolu balastı ve zemin filtrasyonunda kullanılır." },
+                { title: "Yıkanmış Çakıl", desc: "Kil ve ince malzemelerden arındırılmış, beton üretimine uygun çakıl." },
+                { title: "Bahçe Çakılı", desc: "Dekoratif peyzaj ve bahçe zemin örtüsü için estetik çakıl çeşitleri." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Çakıl Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Çakıl hangi sektör ve uygulamalarda kullanılır?</p>
@@ -137,7 +160,7 @@ const MalzemeCakil = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Çakıl Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

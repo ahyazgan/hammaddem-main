@@ -20,7 +20,7 @@ const avantajlar = [
 
 const kullanim = ["İç cephe sıva ve alçı uygulaması", "Alçıpan (drywall) üretimi", "Dekoratif alçı ve stüko", "Tıbbi alçı (ortopedik)", "Çimento retarder katkısı", "Tarım (jips olarak toprak düzenleyici)"];
 
-const faq = [{"q": "İnşaat alçısı ile sanayi alçısı arasındaki fark nedir?", "a": "İnşaat alçısı düşük sertlik ve hızlı priz özelliğiyle iç sıva ve alçı uygulamalarında kullanılır. Sanayi alçısı ise daha yüksek saflık ve özgün priz süreleriyle özel üretim süreçlerinde tercih edilir."}, {"q": "Alçı neden silobas ile taşınır?", "a": "Alçı neme karşı çok hassastır; kapalı sistem silobas ile taşınarak erken hidrasyon ve ürün kaybı önlenir."}, {"q": "Alçı fiyatları nasıl belirlenir?", "a": "Alçı türü (inşaat/sanayi), saflık derecesi, miktar ve mesafeye göre fiyat değişir."}, {"q": "Aynı gün teslimat mümkün mü?", "a": "Stok ve lokasyona bağlı olarak aynı gün teslimat yapılabilmektedir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+const faq = [{"q": "İnşaat alçısı ile sanayi alçısı arasındaki fark nedir?", "a": "İnşaat alçısı düşük sertlik ve hızlı priz özelliğiyle iç sıva ve alçı uygulamalarında kullanılır. Sanayi alçısı ise daha yüksek saflık ve özgün priz süreleriyle özel üretim süreçlerinde tercih edilir."}, {"q": "Alçı neden silobas ile taşınır?", "a": "Alçı neme karşı çok hassastır; kapalı sistem silobas ile taşınarak erken hidrasyon ve ürün kaybı önlenir."}, {"q": "Alçı fiyatları nasıl belirlenir?", "a": "Alçı türü (inşaat/sanayi), saflık derecesi, miktar ve mesafeye göre fiyat değişir."}, {"q": "Aynı gün teslimat mümkün mü?", "a": "Stok ve lokasyona bağlı olarak aynı gün teslimat yapılabilmektedir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Sıva alçısı ile ince sıva alçısı farkı nedir?", "a": "Sıva alçısı (kaba alçı), duvarlara ilk kat uygulamasında kullanılır; 6-15 mm kalınlıkta sürülür. İnce sıva alçısı ise üst kat bitirme işleminde kullanılır, 1-4 mm kalınlık verir ve daha pürüzsüz yüzey sağlar. Alçıpan üzerinde özel alçı ürünleri tercih edilmelidir."}, {"q": "Alçıpan (drywall) üretiminde hangi alçı kullanılır?", "a": "Alçıpan üretiminde sanayi kalitesinde alçı taşı (jips, CaSO₄·2H₂O) kullanılır. Bu alçı özel priz süreleri ve akışkanlık özellikleri gerektirir. Alçıpan fabrikaları için düzenli ve büyük hacimli silobas teslimatı sağlıyoruz."}, {"q": "Alçı çimento ile karıştırılır mı?", "a": "Genel olarak alçı ve çimento aynı karışımda kullanılmamalıdır; alçı içindeki sülfat, beton içindeki alüminatlı bileşiklerle reaksiyona girerek genleşme ve çatlama yapabilir. Her malzeme kendi uygulamasında ayrı kullanılmalıdır."}];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -111,7 +111,7 @@ const MalzemeAlci = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Alçı Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Alçı Nedir? İnşaat Alçısı, Sıva Alçısı ve Alçıpan Alçısı Çeşitleri</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Alçı (kalsiyum sülfat hemihidrat, CaSO₄·½H₂O), alçıtaşının (jips) pişirilmesiyle elde edilen ve inşaat, dekorasyon ile sanayi sektörlerinde yaygın kullanılan bir bağlayıcı malzemedir. Su ile karıştırıldığında hızla sertleşir ve yüksek yüzey kalitesi sağlar. İnşaat alçısı, sıva alçısı ve sanayi alçısı başlıca kullanım türleridir.</p>
               <p>Alçı tozu, nem alımına karşı son derece hassastır; suyla temas ettiğinde erken priz yapabilir. Bu nedenle kapalı sistem pnömatik silobas araçlarıyla taşınır. Hammaddem ile alçı tedariğini güvenle yönetin; alçı türü, miktar ve teslimat adresinizi belirterek teklif alın.</p>
@@ -120,8 +120,31 @@ const MalzemeAlci = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Alçı Türleri */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Alçı Çeşitleri: İnşaat, Sıva, Sanayi ve Alçıpan Alçısı</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kullanım amacına göre farklı alçı türleri bulunmaktadır.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "İnşaat Alçısı", desc: "Hızlı priz, iç mekan duvar sıvası için. β-alçı olarak da bilinir." },
+                { title: "Sıva Alçısı (Kaba Alçı)", desc: "Duvara ilk kat uygulaması. 6-15 mm kalınlıkta uygulanır." },
+                { title: "İnce Sıva Alçısı", desc: "Üst kat bitirme. Pürüzsüz yüzey için 1-4 mm kalınlıkta." },
+                { title: "Alçıpan (Drywall) Alçısı", desc: "Alçıpan üretiminde kullanılan sanayi kalitesinde alçı tozu." },
+                { title: "Sanayi Alçısı (α-alçı)", desc: "Yüksek dayanım. Medikal alçı, seramik kalıp ve özel uygulamalar." },
+                { title: "Rötar Alçısı", desc: "Çimento üretiminde priz süresini düzenlemek için katkı alçısı." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Alçı Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Alçı hangi sektör ve uygulamalarda kullanılır?</p>
@@ -137,7 +160,7 @@ const MalzemeAlci = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Alçı Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

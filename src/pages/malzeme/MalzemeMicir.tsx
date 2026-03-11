@@ -20,7 +20,7 @@ const avantajlar = [
 
 const kullanim = ["Asfalt ve yol yapımı", "Hazır beton üretimi", "Temel dolgu ve stabilizasyon", "Demiryolu balastı", "Drenaj sistemleri", "Peyzaj ve çevre düzenlemesi"];
 
-const faq = [{"q": "Hangi mıcır türlerini tedarik ediyorsunuz?", "a": "Bazalt mıcır, kireçtaşı mıcır ve granit mıcır başta olmak üzere 8-16 mm, 16-22 mm ve 22-32 mm granülometrilerde tedarik yapıyoruz."}, {"q": "Mıcır fiyatları nasıl belirlenir?", "a": "Kayaç türü, granülometri, miktar ve mesafeye göre fiyat değişir. Online teklif formundan güncel fiyat alabilirsiniz."}, {"q": "Asfalt mıcırı tedarik ediyor musunuz?", "a": "Evet, asfalt üretimine uygun kırma taş ve mıcır tedariki yapıyoruz."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Mıcır ile çakıl arasındaki fark nedir?", "a": "Çakıl doğal yuvarlak agregadır, mıcır ise kırma işlemiyle elde edilen köşeli agregadır. Beton ve asfalt üretiminde mıcır, drenajda çakıl tercih edilir."}];
+const faq = [{"q": "Hangi mıcır türlerini tedarik ediyorsunuz?", "a": "Bazalt mıcır, kireçtaşı mıcır ve granit mıcır başta olmak üzere 8-16 mm, 16-22 mm ve 22-32 mm granülometrilerde tedarik yapıyoruz."}, {"q": "Mıcır fiyatları nasıl belirlenir?", "a": "Kayaç türü, granülometri, miktar ve mesafeye göre fiyat değişir. Online teklif formundan güncel fiyat alabilirsiniz."}, {"q": "Asfalt mıcırı tedarik ediyor musunuz?", "a": "Evet, asfalt üretimine uygun kırma taş ve mıcır tedariki yapıyoruz."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Mıcır ile çakıl arasındaki fark nedir?", "a": "Çakıl doğal yuvarlak agregadır, mıcır ise kırma işlemiyle elde edilen köşeli agregadır. Beton ve asfalt üretiminde mıcır, drenajda çakıl tercih edilir."}, {"q": "Kırma taş ile mıcır aynı şey mi?", "a": "Evet, mıcır ve kırma taş aynı malzemeyi ifade eder. Kaya bloklarının kırılıp elenmesiyle üretilen köşeli agrega, sektörde hem 'mıcır' hem de 'kırma taş' olarak adlandırılır. Bazalt, kireçtaşı ve granit başlıca kırma taş türleridir."}, {"q": "0-5 mm mıcır ile 5-12 mm mıcır farkı nedir?", "a": "0-5 mm ince mıcır (taş unu dahil) beton karışımında ince agrega ve dolgu olarak kullanılır. 5-12 mm mıcır hazır beton ve asfalt üretiminde, 12-25 mm iri mıcır ise temel dolgu ve drenaj sistemlerinde tercih edilir."}, {"q": "Yol yapımında hangi mıcır kullanılır?", "a": "Yol yapımında alt temel için genellikle 0-31,5 mm kırma taş (stabilize mıcır), asfalt binder tabakası için 12-22 mm ve asfalt aşınma tabakası için 8-12 mm mıcır kullanılır. Doğru granülometri için uzmanlarımıza danışabilirsiniz."}];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -111,7 +111,7 @@ const MalzemeMicir = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Mıcır Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Mıcır (Kırma Taş) Nedir? Bazalt, Kireçtaşı ve Granit Mıcır</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Mıcır (kırma taş), kaya bloklarının kırılıp elenmesiyle elde edilen köşeli agrega malzemesidir. Beton karışımında, asfalt üretiminde ve temel dolgu uygulamalarında yaygın kullanılır. Bazalt, kireçtaşı ve granit başta olmak üzere farklı kayaç türlerinden üretilen mıcır, kullanım amacına göre seçilir.</p>
               <p>Hammaddem ile mıcır tedariğini dijital platformdan yönetin. 8-16 mm, 16-22 mm ve 22-32 mm olmak üzere farklı granülometrilerde mıcır tedarik ediyoruz. 11 ilde güvenilir teslimat, ton bazında rekabetçi fiyatlar.</p>
@@ -120,8 +120,31 @@ const MalzemeMicir = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Mıcır Türleri */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Mıcır Türleri ve Boyutları</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kayaç türü ve granülometriye göre farklı mıcır çeşitleri bulunmaktadır.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "Bazalt Mıcır", desc: "Yüksek sertlik ve dayanıklılık. Asfalt ve yol yapımında tercih edilir." },
+                { title: "Kireçtaşı Mıcır", desc: "Beton üretimi ve temel dolgu uygulamalarında kullanılan ekonomik mıcır." },
+                { title: "Granit Mıcır", desc: "Dekoratif peyzaj ve yüksek trafikli yol kaplamalarında kullanılır." },
+                { title: "İnce Mıcır (0-5 mm)", desc: "Beton karışımı ince agrega ve dolgu uygulamaları için." },
+                { title: "Orta Mıcır (8-16 mm)", desc: "Hazır beton ve asfalt üretiminin temel agrega boyutu." },
+                { title: "İri Mıcır (16-32 mm)", desc: "Temel dolgu, drenaj ve demiryolu balastı uygulamaları için." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Mıcır Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Mıcır hangi sektör ve uygulamalarda kullanılır?</p>
@@ -137,7 +160,7 @@ const MalzemeMicir = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Mıcır Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

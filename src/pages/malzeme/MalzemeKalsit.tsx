@@ -20,7 +20,7 @@ const avantajlar = [
 
 const kullanim = ["Boya ve vernik üretimi", "Plastik ve polimer dolgu maddesi", "Kağıt üretimi ve kaplama", "Lastik sektörü dolgu maddesi", "Kimya ve ilaç sektörü", "Tarım (toprak pH düzenleyici)"];
 
-const faq = [{"q": "Kalsit hangi mikron değerlerinde tedarik edilir?", "a": "2, 5, 10, 25 ve 90 mikron olmak üzere farklı inceliklerde kalsit tozu tedarik ediyoruz. İhtiyacınıza göre seçim yapabilirsiniz."}, {"q": "Kalsit neden silobas ile taşınır?", "a": "Kalsit tozu nem alımına ve tozlanmaya karşı hassas olduğundan kapalı sistem silobas araçları kullanılır. Bu yöntem ürün kalitesini ve saflığını korur."}, {"q": "Kalsit fiyatları nasıl belirlenir?", "a": "Mikron değeri, saflık oranı, miktar ve mesafeye göre fiyat değişir. Güncel kalsit fiyatı için online teklif alın."}, {"q": "Boya sektörü için hangi kalsit uygundur?", "a": "Boya üretiminde genellikle 2-10 mikron arasında, yüksek beyazlık değerine sahip kalsit tercih edilir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+const faq = [{"q": "Kalsit hangi mikron değerlerinde tedarik edilir?", "a": "2, 5, 10, 25 ve 90 mikron olmak üzere farklı inceliklerde kalsit tozu tedarik ediyoruz. İhtiyacınıza göre seçim yapabilirsiniz."}, {"q": "Kalsit neden silobas ile taşınır?", "a": "Kalsit tozu nem alımına ve tozlanmaya karşı hassas olduğundan kapalı sistem silobas araçları kullanılır. Bu yöntem ürün kalitesini ve saflığını korur."}, {"q": "Kalsit fiyatları nasıl belirlenir?", "a": "Mikron değeri, saflık oranı, miktar ve mesafeye göre fiyat değişir. Güncel kalsit fiyatı için online teklif alın."}, {"q": "Boya sektörü için hangi kalsit uygundur?", "a": "Boya üretiminde genellikle 2-10 mikron arasında, yüksek beyazlık değerine sahip kalsit tercih edilir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Kalsit ile kalsiyum karbonat aynı şey mi?", "a": "Evet, kalsit ve kalsiyum karbonat (CaCO₃) aynı kimyasal bileşiği ifade eder. Kalsit, kalsiyum karbonatın en yaygın doğal mineral formudur. Sektörde öğütülmüş kalsit, kalsit tozu ve GCC (Ground Calcium Carbonate) olarak da adlandırılır."}, {"q": "Öğütülmüş kalsit ile çökeltilmiş kalsit (PCC) farkı nedir?", "a": "Öğütülmüş kalsit (GCC), doğal kireçtaşının mekanik olarak öğütülmesiyle üretilir ve daha ekonomiktir. Çökeltilmiş kalsit (PCC), kimyasal proses ile üretilir; çok ince mikron değerleri ve yüksek beyazlık sağlar. Boya ve ilaç sektöründe PCC, genel dolgu uygulamalarında GCC tercih edilir."}, {"q": "Plastik sektöründe kalsit dolgu olarak nasıl kullanılır?", "a": "Plastik üretiminde kalsit (kalsiyum karbonat), hem maliyet düşürücü hem de mekanik özellikleri iyileştirici dolgu maddesi olarak kullanılır. PVC, polipropilen ve polietilen ürünlerine %10-40 oranında katılabilir. Sertlik, yüzey parlaklığı ve işlenebilirliği artırır."}];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -111,7 +111,7 @@ const MalzemeKalsit = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Kalsit Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Kalsit Nedir? Öğütülmüş Kalsit Tozu, Kalsiyum Karbonat (CaCO₃)</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Kalsit (kalsiyum karbonat, CaCO₃), boya, plastik, kağıt, lastik ve kimya sektörlerinde dolgu malzemesi olarak yaygın kullanılan endüstriyel bir mineraldir. Beyazlık derecesi ve inceliği (mikron cinsinden) kullanım alanını belirler. 2, 5, 10, 25 ve 90 mikron kalsit başlıca ticari formlarıdır.</p>
               <p>Kalsit tozu, tozlanma ve nem alımına karşı hassas olduğundan pnömatik silobas araçlarıyla taşınır. Kapalı sistem boşaltma ile ürün kalitesi korunur. Hammaddem ile kalsit tedariğini dijital platformdan yönetin; mikron değeri, miktar ve teslimat adresinizi belirterek teklif alın.</p>
@@ -120,8 +120,31 @@ const MalzemeKalsit = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Kalsit Türleri */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kalsit Türleri: Mikron Değerlerine Göre Kalsit Çeşitleri</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kalsit, mikron inceliğine göre farklı sektörlerde kullanılmaktadır.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "2-5 Mikron Kalsit", desc: "Boya, vernik ve ilaç sektörü için ultra ince, yüksek beyazlıklı kalsit." },
+                { title: "10 Mikron Kalsit", desc: "Plastik ve kauçuk dolgu maddesi. Yüzey kalitesini artırır." },
+                { title: "25 Mikron Kalsit", desc: "PVC, polipropilen ve masterbatch üretiminde ekonomik dolgu." },
+                { title: "90 Mikron Kalsit", desc: "Kağıt, yapıştırıcı ve genel endüstriyel uygulamalar için kaba kalsit." },
+                { title: "Öğütülmüş Kalsit (GCC)", desc: "Doğal kireçtaşından mekanik öğütme ile üretilen kalsit tozu." },
+                { title: "Çökeltilmiş Kalsit (PCC)", desc: "Kimyasal proses ile üretilen ultra beyaz, çok ince kalsit." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kalsit Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kalsit hangi sektör ve uygulamalarda kullanılır?</p>
@@ -137,7 +160,7 @@ const MalzemeKalsit = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Kalsit Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

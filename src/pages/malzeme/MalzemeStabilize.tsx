@@ -20,7 +20,7 @@ const avantajlar = [
 
 const kullanim = ["Yol ve park yeri temel tabakası", "Şantiye içi geçici yol yapımı", "Açık alan zemin düzenlemesi", "Bina temel dolgusu", "Havalimanı ve liman sahaları", "Maden ocağı yolları"];
 
-const faq = [{"q": "Stabilize malzeme ile kırma taş arasındaki fark nedir?", "a": "Stabilize, farklı boyutlarda kırma taş, kil ve ince malzeme karışımıdır; sıkıştırıldığında yüksek mukavemet kazanır. Kırma taş tek granülometride üretilir."}, {"q": "Stabilize hangi granülometrilerde mevcut?", "a": "Genellikle 0-30 mm ve 0-50 mm olmak üzere iki ana granülometride stabilize tedarik ediyoruz."}, {"q": "Yol için kaç ton stabilize gerekir?", "a": "1 m² için sıkıştırılmış 15 cm temel tabakasına yaklaşık 0,25-0,30 ton stabilize gerekir. Hesaplama için bilgilerinizi talepte belirtebilirsiniz."}, {"q": "Stabilize fiyatları nasıl belirlenir?", "a": "Granülometri, miktar ve mesafeye göre fiyat değişir. Güncel fiyat için online teklif alın."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}];
+const faq = [{"q": "Stabilize malzeme ile kırma taş arasındaki fark nedir?", "a": "Stabilize, farklı boyutlarda kırma taş, kil ve ince malzeme karışımıdır; sıkıştırıldığında yüksek mukavemet kazanır. Kırma taş tek granülometride üretilir."}, {"q": "Stabilize hangi granülometrilerde mevcut?", "a": "Genellikle 0-30 mm ve 0-50 mm olmak üzere iki ana granülometride stabilize tedarik ediyoruz."}, {"q": "Yol için kaç ton stabilize gerekir?", "a": "1 m² için sıkıştırılmış 15 cm temel tabakasına yaklaşık 0,25-0,30 ton stabilize gerekir. Hesaplama için bilgilerinizi talepte belirtebilirsiniz."}, {"q": "Stabilize fiyatları nasıl belirlenir?", "a": "Granülometri, miktar ve mesafeye göre fiyat değişir. Güncel fiyat için online teklif alın."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Stabilize zemin nasıl yapılır?", "a": "Stabilize zemin yapımında önce zemin temizlenir ve tesviye edilir. Ardından 15-20 cm kalınlığında stabilize serilir, titreşimli silindir ile nem kontrolü yapılarak sıkıştırılır. Gerekirse birden fazla kat uygulanır. Doğru nem oranında sıkıştırma, zemin mukavemeti için kritiktir."}, {"q": "Stabilize ile şose (şosepier) farkı nedir?", "a": "Şose (macadam), büyük boyutlu kırma taşlarla döşenen tarihi yol yapım yöntemidir. Stabilize ise farklı granülometrilerde malzeme karışımı içeren modern zemin iyileştirme malzemesidir. Günümüzde stabilize, şosenin yerini almış daha ekonomik ve hızlı bir çözümdür."}, {"q": "Park yeri ve şantiye yolu için stabilize mi, beton mu tercih edilir?", "a": "Geçici şantiye yolları ve hafif trafikli park alanları için stabilize daha ekonomik ve hızlı bir çözümdür. Yoğun araç trafiği veya kalıcı uygulamalar için asfalt veya beton tercih edilir. Stabilize zemin üzerine ilerleyen süreçte asfalt da dökülebilir."}];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -111,7 +111,7 @@ const MalzemeStabilize = () => {
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Stabilize Malzeme Nedir?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Stabilize Malzeme Nedir? Yol Stabilizesi, Temel Dolgu ve Zemin İyileştirme</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Stabilize, kırma taş, doğal taş ve kil karışımından oluşan, sıkıştırıldığında yüksek mukavemet kazanan bir zemin iyileştirme malzemesidir. Granülometri olarak genellikle 0-30 mm veya 0-50 mm aralığında üretilir. Yol yapımında temel tabakası, şantiye içi ulaşım yolları ve açık alan zemin düzenlemesinde yaygın kullanılır.</p>
               <p>Hammaddem ile stabilize malzeme tedariğini dijital platformdan yönetin. Granülometri, miktar ve teslimat adresinizi belirterek 30 dakika içinde fiyat teklifi alın. 11 ilde damperli araçlarla güvenilir teslimat sağlıyoruz.</p>
@@ -120,8 +120,31 @@ const MalzemeStabilize = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
+        {/* Stabilize Türleri */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Stabilize Malzeme Türleri: 0-30 mm ve 0-50 mm Stabilize</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kullanım amacına ve yük taşıma ihtiyacına göre farklı stabilize malzeme boyutları bulunmaktadır.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "0-30 mm Stabilize", desc: "En yaygın kullanılan stabilize boyutu. Yol temel tabakası ve park alanları için." },
+                { title: "0-50 mm Stabilize", desc: "Ağır taşıt trafiği için. Fabrika sahaları ve lojistik depo zemini." },
+                { title: "Yol Stabilizesi", desc: "Karayolu alt temel tabakası. Asfalt öncesi zemin hazırlığı için." },
+                { title: "Şantiye Yol Stabilizesi", desc: "Geçici inşaat yolları için hızlı ve ekonomik zemin çözümü." },
+                { title: "Temel Dolgu Stabilizesi", desc: "Bina ve yapı temellerinde dolgu ve zemin iyileştirme amaçlı." },
+                { title: "Havalimanı ve Liman Stabilizesi", desc: "Yüksek yük kapasitesi gerektiren özel saha zemini malzemesi." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kullanım Alanları */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Stabilize Malzeme Kullanım Alanları</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Stabilize Malzeme hangi sektör ve uygulamalarda kullanılır?</p>
@@ -137,7 +160,7 @@ const MalzemeStabilize = () => {
         </section>
 
         {/* Neden Hammaddem */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Stabilize Malzeme Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
