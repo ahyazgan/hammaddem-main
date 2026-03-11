@@ -36,7 +36,6 @@ import BolgeAnkara from "./pages/bolge/BolgeAnkara";
 import BolgeIzmir from "./pages/bolge/BolgeIzmir";
 import BolgeBursa from "./pages/bolge/BolgeBursa";
 import BolgeKocaeli from "./pages/bolge/BolgeKocaeli";
-import BolgeGaziantep from "./pages/bolge/BolgeGaziantep";
 import WhatsAppButton from "./components/WhatsAppButton";
 import NotFound from "./pages/NotFound";
 import { kombinasyonRoutes } from "./pages/kombinasyon/kombinasyonRoutes";
@@ -84,7 +83,6 @@ const App = () => (
               <Route path="/hizmet-bolgeleri/izmir" element={<BolgeIzmir />} />
               <Route path="/hizmet-bolgeleri/bursa" element={<BolgeBursa />} />
               <Route path="/hizmet-bolgeleri/kocaeli" element={<BolgeKocaeli />} />
-              <Route path="/hizmet-bolgeleri/gaziantep" element={<BolgeGaziantep />} />
               <Route path="/talep-takip" element={<TalepTakip />} />
               {kombinasyonRoutes.map((r) => (
                 <Route key={r.path} path={r.path} element={r.element} />
