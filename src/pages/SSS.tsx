@@ -20,7 +20,7 @@ const sorular = [
   },
   {
     soru: "Hangi illerde hizmet veriyorsunuz?",
-    cevap: "İstanbul, Ankara, İzmir, Bursa, Kocaeli ve Gaziantep başta olmak üzere Türkiye genelinde 11 ilde aktif olarak hizmet vermekteyiz. Hizmet alanımız sürekli genişlemektedir. Listelenmemiş bir şehir için bizimle iletişime geçebilirsiniz.",
+    cevap: "İstanbul, Ankara, İzmir, Bursa ve Kocaeli başta olmak üzere Türkiye genelinde aktif olarak hizmet vermekteyiz. Hizmet alanımız sürekli genişlemektedir. Listelenmemiş bir şehir için bizimle iletişime geçebilirsiniz.",
   },
   {
     soru: "Silobas araçları nedir ve ne işe yarar?",
@@ -36,7 +36,7 @@ const sorular = [
   },
   {
     soru: "Beton santraline çimento teslimatı yapıyor musunuz?",
-    cevap: "Evet. Beton santralleri, hazır beton tesisleri ve inşaat sahalarına İstanbul, Ankara, İzmir, Bursa, Kocaeli ve Gaziantep başta olmak üzere 11 ilde çimento teslimatı yapıyoruz. Aynı gün ve ertesi gün teslimat seçenekleri mevcuttur.",
+    cevap: "Evet. Beton santralleri, hazır beton tesisleri ve inşaat sahalarına İstanbul, Ankara, İzmir, Bursa ve Kocaeli başta olmak üzere hizmet bölgelerimizde çimento teslimatı yapıyoruz. Aynı gün ve ertesi gün teslimat seçenekleri mevcuttur.",
   },
   {
     soru: "Hafriyat malzemesi tedariği nasıl işliyor?",

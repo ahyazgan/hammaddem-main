@@ -73,7 +73,6 @@ const Footer = () => {
             <li><Link to="/hizmet-bolgeleri/izmir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">İzmir</Link></li>
             <li><Link to="/hizmet-bolgeleri/bursa" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Bursa</Link></li>
             <li><Link to="/hizmet-bolgeleri/kocaeli" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kocaeli</Link></li>
-            <li><Link to="/hizmet-bolgeleri/gaziantep" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Gaziantep</Link></li>
           </ul>
         </div>
 
