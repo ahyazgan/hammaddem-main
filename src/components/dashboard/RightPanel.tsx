@@ -1,20 +1,7 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/contexts/AuthContext";
+import { useTalepler } from "@/contexts/TaleplerContext";
 
 interface Props {
   onNavChange?: (nav: string) => void;
-}
-
-interface SonTalep {
-  id: string;
-  talep_no: string;
-  malzeme: string | null;
-  kategori: string;
-  durum: string;
-  miktar: number;
-  birim: string;
-  created_at: string;
 }
 
 const durumTimeline: Record<string, { steps: { title: string; status: "done" | "active" | "pending" }[] }> = {
@@ -34,37 +21,14 @@ const quickLinks = [
 ];
 
 const RightPanel = ({ onNavChange }: Props) => {
-  const { user } = useAuth();
-  const [sonTalep, setSonTalep] = useState<SonTalep | null>(null);
-  const [ozet, setOzet] = useState({ toplamTon: 0, teslimat: 0, aktif: 0, basari: 0 });
-  const [loading, setLoading] = useState(true);
+  const { talepler, loading } = useTalepler();
 
-  useEffect(() => {
-    if (!user) return;
-    const fetch = async () => {
-      const { data } = await supabase
-        .from("talepler")
-        .select("id, talep_no, malzeme, kategori, durum, miktar, birim, created_at")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false });
-
-      if (data && data.length > 0) {
-        const aktifler = (data as any[]).filter(t => !["teslim", "iptal"].includes(t.durum));
-        setSonTalep((aktifler[0] || data[0]) as unknown as SonTalep);
-        const toplamTon = (data as any[]).reduce((s, t) => s + (t.miktar || 0), 0);
-        const teslimat = (data as any[]).filter(t => t.durum === "teslim").length;
-        const aktif = (data as any[]).filter(t => ["bekliyor", "teklif", "onaylandi", "yolda"].includes(t.durum)).length;
-        const basari = data.length > 0 ? Math.round((teslimat / data.length) * 100) : 0;
-        setOzet({ toplamTon, teslimat, aktif, basari });
-      }
-      setLoading(false);
-    };
-    fetch();
-    const ch = supabase.channel("rightpanel-data")
-      .on("postgres_changes", { event: "*", schema: "public", table: "talepler" }, fetch)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
-  }, [user]);
+  const aktifler = talepler.filter(t => !["teslim", "iptal"].includes(t.durum));
+  const sonTalep = aktifler[0] || talepler[0] || null;
+  const toplamTon = talepler.reduce((s, t) => s + (t.miktar || 0), 0);
+  const teslimat = talepler.filter(t => t.durum === "teslim").length;
+  const aktif = talepler.filter(t => ["bekliyor", "teklif", "onaylandi", "yolda"].includes(t.durum)).length;
+  const basari = talepler.length > 0 ? Math.round((teslimat / talepler.length) * 100) : 0;
 
   const timeline = sonTalep ? (durumTimeline[sonTalep.durum] || durumTimeline.bekliyor) : null;
 
@@ -126,10 +90,10 @@ const RightPanel = ({ onNavChange }: Props) => {
         <div className="text-[11px] font-semibold text-muted-foreground mb-3">GENEL ÖZET</div>
         <div className="grid grid-cols-2 gap-1.5">
           {[
-            { label: "Toplam Ton", value: `${ozet.toplamTon}t`, color: "text-primary" },
-            { label: "Teslimat", value: String(ozet.teslimat), color: "" },
-            { label: "Aktif Talep", value: String(ozet.aktif), color: "" },
-            { label: "Başarı", value: `%${ozet.basari}`, color: "text-green-600" },
+            { label: "Toplam Ton", value: `${toplamTon}t`, color: "text-primary" },
+            { label: "Teslimat", value: String(teslimat), color: "" },
+            { label: "Aktif Talep", value: String(aktif), color: "" },
+            { label: "Başarı", value: `%${basari}`, color: "text-green-600" },
           ].map((s, i) => (
             <div key={i} className="bg-muted border border-border rounded-[7px] p-2.5">
               <div className="text-[10px] text-muted-foreground mb-1">{s.label}</div>

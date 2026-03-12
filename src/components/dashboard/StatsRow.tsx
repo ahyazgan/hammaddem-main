@@ -1,13 +1,4 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/contexts/AuthContext";
-
-interface Stats {
-  aktifSiparis: number;
-  teslimat: number;
-  bekleyenTeklif: number;
-  toplamTon: number;
-}
+import { useTalepler } from "@/contexts/TaleplerContext";
 
 const colorMap: Record<string, string> = {
   accent: "hsl(var(--primary))",
@@ -17,36 +8,18 @@ const colorMap: Record<string, string> = {
 };
 
 const StatsRow = () => {
-  const { user } = useAuth();
-  const [stats, setStats] = useState<Stats>({ aktifSiparis: 0, teslimat: 0, bekleyenTeklif: 0, toplamTon: 0 });
+  const { talepler } = useTalepler();
 
-  const fetchStats = async () => {
-    if (!user) return;
-    const { data } = await supabase.from("talepler").select("durum, miktar").eq("user_id", user.id);
-    if (!data) return;
-
-    const aktifSiparis = data.filter((t) => ["bekliyor", "teklif", "onaylandi", "yolda"].includes(t.durum)).length;
-    const teslimat = data.filter((t) => t.durum === "teslim").length;
-    const bekleyenTeklif = data.filter((t) => t.durum === "teklif").length;
-    const toplamTon = data.reduce((sum, t) => sum + (t.miktar || 0), 0);
-
-    setStats({ aktifSiparis, teslimat, bekleyenTeklif, toplamTon });
-  };
-
-  useEffect(() => {
-    fetchStats();
-    const channel = supabase
-      .channel("stats-changes")
-      .on("postgres_changes", { event: "*", schema: "public", table: "talepler" }, () => fetchStats())
-      .subscribe();
-    return () => { supabase.removeChannel(channel); };
-  }, [user]);
+  const aktifSiparis = talepler.filter((t) => ["bekliyor", "teklif", "onaylandi", "yolda"].includes(t.durum)).length;
+  const teslimat = talepler.filter((t) => t.durum === "teslim").length;
+  const bekleyenTeklif = talepler.filter((t) => t.durum === "teklif").length;
+  const toplamTon = talepler.reduce((sum, t) => sum + (t.miktar || 0), 0);
 
   const items = [
-    { label: "AKTİF SİPARİŞ", value: String(stats.aktifSiparis), sub: "Devam eden siparişler", color: "accent" },
-    { label: "TESLİMAT", value: String(stats.teslimat), sub: "Tamamlanan teslimatlar", color: "green" },
-    { label: "BEKLEYEN TEKLİF", value: String(stats.bekleyenTeklif), sub: "Onayın bekleniyor", color: "blue" },
-    { label: "TOPLAM TAŞIMA", value: `${stats.toplamTon}t`, sub: "Toplam ton", color: "yellow" },
+    { label: "AKTİF SİPARİŞ", value: String(aktifSiparis), sub: "Devam eden siparişler", color: "accent" },
+    { label: "TESLİMAT", value: String(teslimat), sub: "Tamamlanan teslimatlar", color: "green" },
+    { label: "BEKLEYEN TEKLİF", value: String(bekleyenTeklif), sub: "Onayın bekleniyor", color: "blue" },
+    { label: "TOPLAM TAŞIMA", value: `${toplamTon}t`, sub: "Toplam ton", color: "yellow" },
   ];
 
   return (

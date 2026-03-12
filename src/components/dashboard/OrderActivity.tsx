@@ -1,18 +1,5 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/contexts/AuthContext";
-
-interface Talep {
-  id: string;
-  talep_no: string;
-  kategori: string;
-  malzeme: string | null;
-  miktar: number;
-  birim: string;
-  teslimat_ili: string | null;
-  durum: string;
-  created_at: string;
-}
+import { useState } from "react";
+import { useTalepler } from "@/contexts/TaleplerContext";
 
 const durumConfig: Record<string, { badge: string; badgeClass: string; icon: string; iconBg: string }> = {
   bekliyor: { badge: "BEKLİYOR", badgeClass: "bg-yellow-50 text-yellow-600", icon: "⏳", iconBg: "bg-yellow-50" },
@@ -42,35 +29,8 @@ function timeAgo(dateStr: string): string {
 }
 
 const OrderActivity = () => {
-  const { user } = useAuth();
+  const { talepler, loading } = useTalepler();
   const [activeFilter, setActiveFilter] = useState("Tümü");
-  const [talepler, setTalepler] = useState<Talep[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchTalepler = async () => {
-    if (!user) return;
-    const { data, error } = await supabase
-      .from("talepler")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false });
-
-    if (!error && data) {
-      setTalepler(data as unknown as Talep[]);
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchTalepler();
-    const channel = supabase
-      .channel("talepler-changes")
-      .on("postgres_changes", { event: "*", schema: "public", table: "talepler" }, () => {
-        fetchTalepler();
-      })
-      .subscribe();
-    return () => { supabase.removeChannel(channel); };
-  }, [user]);
 
   const filtered = activeFilter === "Tümü"
     ? talepler

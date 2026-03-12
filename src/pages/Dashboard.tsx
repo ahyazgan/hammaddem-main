@@ -13,6 +13,7 @@ import ProfilView from "@/components/dashboard/ProfilView";
 import BildirimlerView from "@/components/dashboard/BildirimlerView";
 import FaturaView from "@/components/dashboard/FaturaView";
 import DestekView from "@/components/dashboard/DestekView";
+import { TaleplerProvider } from "@/contexts/TaleplerContext";
 
 const Dashboard = () => {
   const { user, loading } = useAuth();
@@ -50,6 +51,7 @@ const Dashboard = () => {
     <Helmet>
       <meta name="robots" content="noindex, nofollow" />
     </Helmet>
+    <TaleplerProvider>
     <div className="h-screen overflow-hidden bg-background bg-dot-pattern text-foreground font-sans text-[13px] grid grid-cols-1 md:grid-cols-[220px_1fr] grid-rows-[48px_1fr]">
       <DashboardTopbar user={user} onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
       <DashboardSidebar activeNav={activeNav} onNavChange={handleNavChange} open={sidebarOpen} onClose={() => setSidebarOpen(false)} user={user} />
@@ -84,6 +86,7 @@ const Dashboard = () => {
         )}
       </main>
     </div>
+    </TaleplerProvider>
     </>
   );
 };

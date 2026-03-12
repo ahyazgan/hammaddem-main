@@ -4,6 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useTalepler } from "@/contexts/TaleplerContext";
 
 interface Props {
   activeNav: string;
@@ -25,39 +26,39 @@ const DashboardSidebar = ({ activeNav, onNavChange, open, onClose, user }: Props
   const initials = (user.user_metadata?.firma_adi || user.email || "U").substring(0, 2).toUpperCase();
   const displayName = user.user_metadata?.firma_adi || user.email || "Kullanıcı";
 
-  const [counts, setCounts] = useState({ aktif: 0, gecmis: 0, unreadNotif: 0 });
+  const { talepler } = useTalepler();
+  const [unreadNotif, setUnreadNotif] = useState(0);
 
   useEffect(() => {
-    const fetchCounts = async () => {
-      const [talepRes, notifRes] = await Promise.all([
-        supabase.from("talepler").select("durum").eq("user_id", user.id),
-        supabase.from("bildirimler").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("okundu", false),
-      ]);
-      const data = talepRes.data;
-      const aktif = data ? data.filter(t => ["bekliyor", "teklif", "onaylandi", "yolda"].includes(t.durum)).length : 0;
-      const gecmis = data ? data.filter(t => t.durum === "teslim").length : 0;
-      const unreadNotif = notifRes.count ?? 0;
-      setCounts({ aktif, gecmis, unreadNotif });
+    const fetchNotif = async () => {
+      const { count } = await supabase
+        .from("bildirimler")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id)
+        .eq("okundu", false);
+      setUnreadNotif(count ?? 0);
     };
-    fetchCounts();
+    fetchNotif();
     const channel = supabase
-      .channel("sidebar-counts")
-      .on("postgres_changes", { event: "*", schema: "public", table: "talepler" }, () => fetchCounts())
-      .on("postgres_changes", { event: "*", schema: "public", table: "bildirimler" }, () => fetchCounts())
+      .channel("sidebar-notif")
+      .on("postgres_changes", { event: "*", schema: "public", table: "bildirimler" }, fetchNotif)
       .subscribe();
     return () => { supabase.removeChannel(channel); };
   }, [user]);
 
+  const aktif = talepler.filter(t => ["bekliyor", "teklif", "onaylandi", "yolda"].includes(t.durum)).length;
+  const gecmis = talepler.filter(t => t.durum === "teslim").length;
+
   const navItems = [
     { id: "dashboard", icon: "▦", label: "Dashboard" },
     { id: "yeni-talep", icon: "＋", label: "Yeni Talep" },
-    { id: "siparisler", icon: "◎", label: "Siparişlerim", pill: counts.aktif > 0 ? String(counts.aktif) : undefined },
-    { id: "gecmis", icon: "↻", label: "Geçmiş", pill: counts.gecmis > 0 ? String(counts.gecmis) : undefined },
+    { id: "siparisler", icon: "◎", label: "Siparişlerim", pill: aktif > 0 ? String(aktif) : undefined },
+    { id: "gecmis", icon: "↻", label: "Geçmiş", pill: gecmis > 0 ? String(gecmis) : undefined },
   ];
 
   const hesapItems = [
     { id: "profil", icon: "👤", label: "Profil & Ayarlar" },
-    { id: "bildirimler", icon: "🔔", label: "Bildirimler", pill: counts.unreadNotif > 0 ? String(counts.unreadNotif) : undefined, pillOrange: true },
+    { id: "bildirimler", icon: "🔔", label: "Bildirimler", pill: unreadNotif > 0 ? String(unreadNotif) : undefined, pillOrange: true },
     { id: "fatura", icon: "📄", label: "Fatura & İrsaliye" },
     { id: "destek", icon: "💬", label: "Destek" },
   ];
