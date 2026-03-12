@@ -2,43 +2,75 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import HafriyatIcon from "@/components/HafriyatIcon";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Mountain } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone } from "lucide-react";
 
 const malzemeler = [
-  "Kum", "Çakıl", "Mıcır", "Kırma Taş", "Stabilize",
-  "Balast", "Toprak", "Dolgu Malzemesi", "Asfalt Agregası", "Filler",
+  "Kum", "Çakıl", "Mıcır", "Stabilize", "Toprak",
+  "Moloz", "İnşaat Atığı", "Hafriyat Toprağı",
 ];
 
 const avantajlar = [
-  { icon: Clock, title: "Hızlı Tedarik", desc: "Bölgenizdeki en yakın ocak ve tedarikçiden hızlı teslimat organizasyonu." },
-  { icon: Mountain, title: "Geniş Ürün Yelpazesi", desc: "Kum, çakıl, mıcır, stabilize ve tüm hafriyat malzemelerinde tek durak çözüm." },
-  { icon: Truck, title: "Toplu Sipariş Avantajı", desc: "Büyük projeleriniz için özel fiyatlandırma ve öncelikli teslimat." },
-  { icon: Shield, title: "Kalite Garantisi", desc: "Tedarikçi ağımızdaki tüm malzemeler kalite standartlarına uygun." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Shield, title: "Güvenli Taşıma", desc: "Damperli araçlarımız ile güvenli ve hızlı hafriyat malzemesi taşımacılığı." },
+  { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
+  { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
 ];
 
 const nasılCalısır = [
-  { step: "01", title: "Malzeme Seçin", desc: "İhtiyacınız olan hafriyat malzemesini ve miktarı belirleyin." },
-  { step: "02", title: "Teklif Alın", desc: "Bölgenize uygun en iyi fiyat teklifini alın." },
-  { step: "03", title: "Onaylayın", desc: "Teklifi onaylayın, teslimat planını belirleyin." },
-  { step: "04", title: "Teslimat", desc: "Damperli araçlarla şantiyenize güvenli teslimat." },
-];
-
-const kullanımAlanları = [
-  "Konut İnşaatları", "Yol Yapım Projeleri", "Alt Yapı Çalışmaları",
-  "Beton Santralleri", "Peyzaj & Çevre Düzenlemesi", "Sanayi Tesisleri",
+  { step: "01", title: "Talep Oluştur", desc: "Malzeme türü, miktar ve teslimat adresini girin." },
+  { step: "02", title: "Teklif Alın", desc: "En uygun fiyat teklifini dakikalar içinde alın." },
+  { step: "03", title: "Onaylayın", desc: "Teklifi onaylayın, taşıma planlanır." },
+  { step: "04", title: "Teslimat", desc: "Damperli araç ile güvenli teslimat yapılır." },
 ];
 
 const HizmetHafriyat = () => {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://hammaddem.co/" },
+      { "@type": "ListItem", position: 2, name: "Hizmetler", item: "https://hammaddem.co/hizmetler" },
+      { "@type": "ListItem", position: 3, name: "Hafriyat Malzemeleri", item: "https://hammaddem.co/hizmetler/hafriyat-nakliyesi" },
+    ],
+  };
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Hafriyat Malzemeleri Taşımacılığı",
+    description: "Hafriyat, kum, çakıl, mıcır ve inşaat malzemeleri taşımacılığı. 11 ilde hızlı teslimat, online teklif.",
+    provider: {
+      "@type": "Organization",
+      name: "Hammaddem",
+      url: "https://hammaddem.co",
+      telephone: "+905393308617",
+      email: "info@hammaddem.co",
+    },
+    areaServed: "TR",
+    serviceType: "Logistics",
+    url: "https://hammaddem.co/hizmetler/hafriyat-nakliyesi",
+    availableLanguage: "tr",
+  };
+
   return (
     <>
       <Helmet>
-        <title>Hafriyat & İnşaat Malzemeleri – Kum, Çakıl, Mıcır | Hammaddem</title>
-        <meta name="description" content="Kum, çakıl, mıcır, stabilize ve tüm hafriyat malzemeleri tedariği. 11 ilde hızlı teslimat, toplu sipariş avantajı. Hammaddem ile projenize güç katın." />
+        <title>Hafriyat Malzemeleri Taşımacılığı – Kum, Çakıl, Mıcır | Hammaddem</title>
+        <meta name="description" content="Hafriyat, kum, çakıl, mıcır ve inşaat malzemeleri taşımacılığı. Damperli araçlarla 11 ilde hızlı teslimat. Online teklif alın, ton başına rekabetçi fiyatlar." />
+        <meta name="keywords" content="hafriyat taşımacılığı, kum taşıma, çakıl taşıma, mıcır taşıma, inşaat malzemeleri, hafriyat nakliyesi, damper araç, moloz taşıma" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://hammaddem.co/hizmetler/hafriyat-nakliyesi" />
-        <meta property="og:title" content="Hafriyat & İnşaat Malzemeleri – Hammaddem" />
-        <meta property="og:description" content="Kum, çakıl, mıcır ve tüm hafriyat malzemeleri tedariği. Online teklif al, 11 ilde teslimat." />
+        <meta property="og:title" content="Hafriyat Malzemeleri Taşımacılığı – Hammaddem" />
+        <meta property="og:description" content="Hafriyat, kum, çakıl taşımacılığı. 11 ilde hızlı teslimat, online teklif." />
         <meta property="og:url" content="https://hammaddem.co/hizmetler/hafriyat-nakliyesi" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hafriyat Malzemeleri Taşımacılığı – Hammaddem" />
+        <meta name="twitter:description" content="Hafriyat, kum, çakıl taşımacılığı. 11 ilde hızlı teslimat." />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-dot-pattern">
@@ -49,16 +81,16 @@ const HizmetHafriyat = () => {
           <div className="max-w-[1100px] mx-auto">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-navy-light text-navy border border-navy-border mb-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-4">
                   Hafriyat Hizmeti
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Hafriyat & İnşaat Malzemeleri
+                  Hafriyat Malzemeleri Taşımacılığı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Kum, çakıl, mıcır, stabilize ve her türlü hafriyat malzemesini
-                  projenizin ihtiyacına göre tedarik ediyoruz. Türkiye genelinde 11 ilde
-                  hızlı teslimat ve rekabetçi fiyatlarla yanınızdayız.
+                  Kum, çakıl, mıcır, stabilize ve tüm hafriyat malzemelerinizi
+                  damperli araçlarımızla güvenle taşıyoruz. Türkiye genelinde 11 ilde
+                  hızlı teslimat ve rekabetçi fiyatlarla hizmetinizdeyiz.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
@@ -78,8 +110,8 @@ const HizmetHafriyat = () => {
 
               {/* Visual */}
               <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-navy-light border-2 border-navy-border flex items-center justify-center">
-                  <HafriyatIcon className="w-32 h-32 text-navy" />
+                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
+                  <Truck className="w-32 h-32 text-primary" />
                 </div>
               </div>
             </div>
@@ -89,15 +121,15 @@ const HizmetHafriyat = () => {
         {/* Malzemeler */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Tedarik Ettiğimiz Malzemeler</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Taşıdığımız Hafriyat Malzemeleri</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[520px]">
-              İnşaat ve altyapı projeleriniz için ihtiyaç duyduğunuz tüm hafriyat malzemelerini tedarik ediyoruz.
+              İnşaat ve altyapı projelerine ihtiyaç duyulan tüm hafriyat malzemelerini damperli araçlarımızla taşıyoruz.
             </p>
             <div className="flex flex-wrap gap-2.5">
               {malzemeler.map((m) => (
                 <span
                   key={m}
-                  className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-navy-border hover:text-navy transition-colors"
+                  className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors"
                 >
                   {m}
                 </span>
@@ -111,12 +143,12 @@ const HizmetHafriyat = () => {
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Nasıl Çalışır?</h2>
             <p className="text-sm text-txt-2 mb-10 max-w-[500px]">
-              4 adımda hafriyat malzemesi tedarik sürecinizi başlatın.
+              4 adımda hafriyat malzemeleri taşımacılığı talebinizi oluşturun ve teslim alın.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {nasılCalısır.map((s) => (
-                <div key={s.step} className="border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-navy-light text-navy font-mono font-bold text-sm flex items-center justify-center mb-4">
+                <div key={s.step} className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border hover:-translate-y-1 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-accent-light text-primary font-mono font-bold text-sm flex items-center justify-center mb-4">
                     {s.step}
                   </div>
                   <h3 className="font-bold text-base mb-2">{s.title}</h3>
@@ -127,30 +159,15 @@ const HizmetHafriyat = () => {
           </div>
         </section>
 
-        {/* Kullanım Alanları */}
-        <section className="py-16 px-4 md:px-10 bg-off">
-          <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">Kullanım Alanları</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {kullanımAlanları.map((a) => (
-                <div key={a} className="flex items-center gap-3 border border-border rounded-xl p-4 bg-background">
-                  <CheckCircle className="w-5 h-5 text-green shrink-0" />
-                  <span className="text-sm font-medium">{a}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Avantajlar */}
-        <section className="py-16 md:py-24 px-4 md:px-10">
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {avantajlar.map((a) => (
-                <div key={a.title} className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background hover:border-navy-border transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center shrink-0">
-                    <a.icon className="w-5 h-5 text-navy" />
+                <div key={a.title} className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
+                    <a.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-bold text-base mb-1">{a.title}</h3>
@@ -166,10 +183,10 @@ const HizmetHafriyat = () => {
         <section className="py-16 md:py-20 px-4 md:px-10">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">
-              Hafriyat Malzemesi İçin Teklif Alın
+              Hafriyat Malzemeleri İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Hesap oluşturun, ihtiyacınızı belirtin, dakikalar içinde size özel fiyat teklifi alın.
+              Hesap oluşturun, talep formunu doldurun, dakikalar içinde size özel fiyat teklifi alın.
             </p>
             <Link
               to="/kayit"
