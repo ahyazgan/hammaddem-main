@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("kalsit")!;
 const canonical = "https://hammaddem.co/malzeme/kalsit";
-const title = "Kalsit Silobas Taşıma | Kalsit Tozu Tedariği – Hammaddem";
+const title = "Kalsit Fiyatları & Silobas Taşıma | Kalsit Tozu Tedariği – Hammaddem";
 const description = "Kalsit tozu ve öğütülmüş kalsit silobas taşımacılığı. Boya, plastik, kağıt sektörü için toptan kalsit tedariği. 11 ilde hızlı teslimat, online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeKalsit = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
