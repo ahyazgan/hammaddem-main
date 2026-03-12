@@ -35,7 +35,7 @@ const GizlilikPolitikasi = () => (
         <p>Platformumuz oturum yönetimi ve analiz amacıyla çerez kullanır. Detaylı bilgi için <Link to="/cerez-politikasi" className="text-primary hover:underline">Çerez Politikası</Link> sayfamızı inceleyebilirsiniz.</p>
 
         <h2>6. Haklarınız</h2>
-        <p>KVKK kapsamındaki haklarınız için <Link to="/kvkk" className="text-primary hover:underline">KVKK sayfamızı</Link> ziyaret edebilir veya info@hammaddem.com adresine başvurabilirsiniz.</p>
+        <p>KVKK kapsamındaki haklarınız için <Link to="/kvkk" className="text-primary hover:underline">KVKK sayfamızı</Link> ziyaret edebilir veya hammaddem@outlook.com adresine başvurabilirsiniz.</p>
       </div>
     </div>
   </div>

@@ -18,8 +18,8 @@ const Footer = () => {
             <a href="tel:+905393308617" className="flex items-center gap-2 text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">
               📞 +90 (539) 330 8617
             </a>
-            <a href="mailto:info@hammaddem.com" className="flex items-center gap-2 text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">
-              ✉️ info@hammaddem.com
+            <a href="mailto:hammaddem@outlook.com" className="flex items-center gap-2 text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">
+              ✉️ hammaddem@outlook.com
             </a>
             <span className="flex items-center gap-2 text-[13px] text-txt-2">
               📍 İstanbul, Türkiye

@@ -24,8 +24,8 @@ const DestekView = () => {
               <div className="text-lg mb-2">📧</div>
               <h3 className="text-[13px] font-semibold mb-1 text-foreground">E-posta</h3>
               <p className="text-[12px] text-muted-foreground mb-2">24 saat içinde yanıt</p>
-              <a href="mailto:info@hammaddem.com" className="text-[13px] font-semibold text-primary hover:underline">
-                info@hammaddem.com
+              <a href="mailto:hammaddem@outlook.com" className="text-[13px] font-semibold text-primary hover:underline">
+                hammaddem@outlook.com
               </a>
             </div>
           </div>

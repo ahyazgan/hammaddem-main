@@ -70,7 +70,7 @@ const Iletisim = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-base mb-1">E-posta</h3>
-                    <a href="mailto:info@hammaddem.com" className="text-sm text-txt-2 no-underline hover:text-primary transition-colors">info@hammaddem.com</a>
+                    <a href="mailto:hammaddem@outlook.com" className="text-sm text-txt-2 no-underline hover:text-primary transition-colors">hammaddem@outlook.com</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background">

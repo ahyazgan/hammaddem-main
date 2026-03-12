@@ -22,7 +22,7 @@ const Kvkk = () => (
         <p>6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, Hammaddem olarak veri sorumlusu sıfatıyla kişisel verilerinizi aşağıda açıklanan çerçevede işlemekteyiz.</p>
 
         <h2>1. Veri Sorumlusu</h2>
-        <p>Hammaddem — İstanbul, Türkiye<br />İletişim: info@hammaddem.com</p>
+        <p>Hammaddem — İstanbul, Türkiye<br />İletişim: hammaddem@outlook.com</p>
 
         <h2>2. İşlenen Kişisel Veriler</h2>
         <p>Kimlik bilgileri (ad, soyad), iletişim bilgileri (e-posta, telefon, adres), firma bilgileri, işlem güvenliği bilgileri (IP adresi, oturum bilgileri) ve hizmet kullanım bilgileri (talep detayları, teslimat bilgileri) işlenmektedir.</p>
@@ -40,7 +40,7 @@ const Kvkk = () => (
         <p>KVKK madde 11 uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini isteme, KVKK madde 7 kapsamında silinmesini veya yok edilmesini isteme, düzeltme/silme işlemlerinin aktarılan üçüncü kişilere bildirilmesini isteme, aleyhine bir sonuç çıkmasına itiraz etme ve kanuna aykırı işleme sebebiyle zararın giderilmesini talep etme haklarına sahipsiniz.</p>
 
         <h2>7. Başvuru</h2>
-        <p>Haklarınızı kullanmak için info@hammaddem.com adresine kimliğinizi tespit edici bilgilerle birlikte yazılı başvuruda bulunabilirsiniz. Başvurularınız en geç 30 gün içinde yanıtlanacaktır.</p>
+        <p>Haklarınızı kullanmak için hammaddem@outlook.com adresine kimliğinizi tespit edici bilgilerle birlikte yazılı başvuruda bulunabilirsiniz. Başvurularınız en geç 30 gün içinde yanıtlanacaktır.</p>
       </div>
     </div>
   </div>
