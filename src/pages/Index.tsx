@@ -4,6 +4,7 @@ import Hero from "@/components/landing/Hero";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Hizmetler from "@/components/landing/Hizmetler";
 import Neden from "@/components/landing/Neden";
+import MusteriYorumlari from "@/components/landing/MusteriYorumlari";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -49,6 +50,7 @@ const Index = () => {
         <HowItWorks />
         <Hizmetler />
         <Neden />
+        <MusteriYorumlari />
         <Footer />
       </div>
     </>

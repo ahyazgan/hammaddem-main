@@ -44,6 +44,8 @@ const Footer = () => {
           <ul className="list-none flex flex-col gap-2.5">
             <li><Link to="/hizmetler/silobas" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Silobas Yükü</Link></li>
             <li><Link to="/hizmetler/hafriyat-nakliyesi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat &amp; İnşaat</Link></li>
+            <li><Link to="/hammadde" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hammadde Tedarik</Link></li>
+            <li><Link to="/fiyatlar" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Fiyat Listesi</Link></li>
           </ul>
         </div>
 

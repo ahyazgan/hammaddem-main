@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("kum")!;
 const canonical = "https://hammaddem.co/malzeme/kum";
-const title = "İnşaat Kumu Satış & Teslimat | Kum Fiyatları – Hammaddem";
+const title = "Kum Fiyatları 2026 | İnşaat Kumu Satış & Teslimat – Hammaddem";
 const description = "Toptan inşaat kumu satış ve teslimatı. Dere kumu, deniz kumu, beton kumu çeşitleri. 11 ilde aynı gün teslimat, ton bazında kum fiyatı için online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeKum = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">

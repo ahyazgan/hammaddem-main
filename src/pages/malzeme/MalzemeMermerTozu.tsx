@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("mermer-tozu")!;
 const canonical = "https://hammaddem.co/malzeme/mermer-tozu";
-const title = "Mermer Tozu Silobas Taşıma & Tedariği – Hammaddem";
+const title = "Mermer Tozu Fiyatları & Silobas Taşıma – Hammaddem";
 const description = "Mermer tozu silobas taşımacılığı ve toptan tedariği. Boya, plastik, seramik sektörü için mermer tozu. 11 ilde hızlı teslimat, online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeMermerTozu = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">

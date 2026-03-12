@@ -22,6 +22,7 @@ import Iletisim from "./pages/Iletisim";
 import TasiyiciOlun from "./pages/TasiyiciOlun";
 import SSS from "./pages/SSS";
 import Hammadde from "./pages/Hammadde";
+import Fiyatlar from "./pages/Fiyatlar";
 import MalzemeCimento from "./pages/malzeme/MalzemeCimento";
 import MalzemeKum from "./pages/malzeme/MalzemeKum";
 import MalzemeCakil from "./pages/malzeme/MalzemeCakil";
@@ -70,6 +71,7 @@ const App = () => (
               <Route path="/tasiyici-olun" element={<TasiyiciOlun />} />
               <Route path="/sss" element={<SSS />} />
               <Route path="/hammadde" element={<Hammadde />} />
+              <Route path="/fiyatlar" element={<Fiyatlar />} />
               <Route path="/malzeme/cimento" element={<MalzemeCimento />} />
               <Route path="/malzeme/kum" element={<MalzemeKum />} />
               <Route path="/malzeme/cakil" element={<MalzemeCakil />} />

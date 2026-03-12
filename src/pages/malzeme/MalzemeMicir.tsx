@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("micir")!;
 const canonical = "https://hammaddem.co/malzeme/micir";
-const title = "Mıcır Satış & Teslimat | Mıcır Fiyatları – Hammaddem";
+const title = "Mıcır Fiyatları 2026 | Mıcır Satış & Teslimat – Hammaddem";
 const description = "Toptan mıcır satış ve teslimatı. Kırma taş, bazalt mıcır, kireçtaşı mıcır çeşitleri. 11 ilde hızlı teslimat, ton bazında mıcır fiyatı için online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeMicir = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">

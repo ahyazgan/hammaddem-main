@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("kirec")!;
 const canonical = "https://hammaddem.co/malzeme/kirec";
-const title = "Kireç Silobas Taşıma | Sönmüş & Sönmemiş Kireç – Hammaddem";
+const title = "Kireç Fiyatları & Silobas Taşıma | Sönmüş & Sönmemiş Kireç – Hammaddem";
 const description = "Sönmüş kireç ve sönmemiş kireç silobas taşımacılığı ve toptan tedariği. İnşaat, çevre ve sanayi uygulamaları için 11 ilde hızlı teslimat. Online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeKirec = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">

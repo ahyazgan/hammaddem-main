@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("cimento")!;
 const canonical = "https://hammaddem.co/malzeme/cimento";
-const title = "Çimento Silobas Taşıma | Toptan Çimento Tedariği – Hammaddem";
+const title = "Çimento Fiyatları & Silobas Taşıma | Toptan Çimento Tedariği – Hammaddem";
 const description = "Çimento silobas taşımacılığı ve toptan çimento tedariği. Portland, CEM I, CEM II çimento türlerinde 11 ilde hızlı teslimat. Ton bazında rekabetçi fiyat, online teklif alın.";
 
 const avantajlar = [
@@ -108,6 +111,9 @@ const MalzemeCimento = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">

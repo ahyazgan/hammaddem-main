@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("stabilize")!;
 const canonical = "https://hammaddem.co/malzeme/stabilize";
-const title = "Stabilize Malzeme Satış & Teslimat – Hammaddem";
+const title = "Stabilize Fiyatları 2026 | Stabilize Malzeme Satış & Teslimat – Hammaddem";
 const description = "Toptan stabilize malzeme satış ve teslimatı. Yol stabilizesi, temel dolgu stabilizesi. 11 ilde hızlı teslimat, ton bazında stabilize fiyatı için online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeStabilize = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
