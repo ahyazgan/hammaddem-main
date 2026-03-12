@@ -16,7 +16,6 @@ interface Props {
 const hizmetItems = [
   { id: "insaat", icon: "🏗", label: "İnşaat Mal." },
   { id: "silobas", icon: "⊙", label: "Silobas / Toz" },
-  { id: "sanayi", icon: "⚙", label: "Sanayi" },
 ];
 
 

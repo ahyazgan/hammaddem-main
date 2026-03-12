@@ -48,11 +48,16 @@ function formatDate(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
 }
 
-const SiparislerimView = () => {
+interface SiparislerimViewProps {
+  kategoriFilter?: string;
+  initialFilter?: string;
+}
+
+const SiparislerimView = ({ kategoriFilter, initialFilter }: SiparislerimViewProps) => {
   const { user } = useAuth();
   const [talepler, setTalepler] = useState<Talep[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState("Tümü");
+  const [activeFilter, setActiveFilter] = useState(initialFilter || "Tümü");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [iptalLoading, setIptalLoading] = useState(false);
 
@@ -86,9 +91,13 @@ const SiparislerimView = () => {
     return () => { supabase.removeChannel(channel); };
   }, [user]);
 
+  const byKategori = kategoriFilter
+    ? talepler.filter((t) => t.kategori === kategoriFilter)
+    : talepler;
+
   const filtered = activeFilter === "Tümü"
-    ? talepler
-    : talepler.filter((t) => filterMap[activeFilter]?.includes(t.durum));
+    ? byKategori
+    : byKategori.filter((t) => filterMap[activeFilter]?.includes(t.durum));
 
   const selected = talepler.find((t) => t.id === selectedId);
 
@@ -98,9 +107,10 @@ const SiparislerimView = () => {
       <div className="px-4 lg:px-6 py-4 border-b border-border shrink-0">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[15px] font-semibold flex items-center gap-2 text-foreground">
-            <span className="text-[18px]">◎</span> Siparişlerim
+            <span className="text-[18px]">◎</span>
+            {kategoriFilter ? `${kategoriLabels[kategoriFilter] || kategoriFilter} Siparişleri` : "Siparişlerim"}
             <span className="text-[11px] font-mono text-muted-foreground font-normal ml-1">
-              ({talepler.length} talep)
+              ({byKategori.length} talep)
             </span>
           </h2>
         </div>
@@ -117,7 +127,7 @@ const SiparislerimView = () => {
             >
               {f}
               <span className="ml-1 text-[10px] font-mono opacity-60">
-                {f === "Tümü" ? talepler.length : talepler.filter((t) => filterMap[f]?.includes(t.durum)).length}
+                {f === "Tümü" ? byKategori.length : byKategori.filter((t) => filterMap[f]?.includes(t.durum)).length}
               </span>
             </button>
           ))}
