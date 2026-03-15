@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("alci")!;
 const canonical = "https://hammaddem.co/malzeme/alci";
-const title = "Alçı Silobas Taşıma & Tedariği – Hammaddem";
+const title = "Alçı Fiyatları & Silobas Taşıma – Hammaddem";
 const description = "Alçı silobas taşımacılığı ve toptan alçı tedariği. İnşaat alçısı, sanayi alçısı çeşitleri. 11 ilde hızlı teslimat, ton bazında alçı fiyatı için online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeAlci = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">

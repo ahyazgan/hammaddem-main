@@ -9,7 +9,7 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lu
 
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/bursa";
 const title = "Bursa Silobas & Hafriyat Hizmetleri – Hammaddem";
-const description = "Bursa'da silobas taşımacılığı ve hafriyat tedariği. DOSAB, NOSAB, Nilüfer OSB teslimat. Online teklif alın.";
+const description = "Bursa'da çimento, kalsit, kum, çakıl silobas taşımacılığı ve hafriyat malzemesi tedariği. DOSAB, NOSAB, Nilüfer OSB bölgelerine aynı gün teslimat. Online teklif alın.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },

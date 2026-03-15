@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("cakil")!;
 const canonical = "https://hammaddem.co/malzeme/cakil";
-const title = "Çakıl Satış & Teslimat | Çakıl Fiyatları – Hammaddem";
+const title = "Çakıl Fiyatları 2026 | Çakıl Satış & Teslimat – Hammaddem";
 const description = "Toptan çakıl satış ve teslimatı. İnce çakıl, iri çakıl, dere çakılı çeşitleri. 11 ilde hızlı teslimat, ton bazında çakıl fiyatı için online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeCakil = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">

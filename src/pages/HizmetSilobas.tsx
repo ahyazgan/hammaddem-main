@@ -25,15 +25,53 @@ const nasılCalısır = [
 ];
 
 const HizmetSilobas = () => {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://hammaddem.co/" },
+      { "@type": "ListItem", position: 2, name: "Hizmetler", item: "https://hammaddem.co/hizmetler" },
+      { "@type": "ListItem", position: 3, name: "Silobas Taşımacılığı", item: "https://hammaddem.co/hizmetler/silobas" },
+    ],
+  };
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Silobas Taşımacılığı",
+    description: "Silobas ile çimento, kalsit, kül, kireç ve tüm toz/granül hammadde taşımacılığı. 11 ilde hızlı teslimat, online teklif.",
+    provider: {
+      "@type": "Organization",
+      name: "Hammaddem",
+      url: "https://hammaddem.co",
+      telephone: "+905393308617",
+      email: "info@hammaddem.co",
+    },
+    areaServed: "TR",
+    serviceType: "Logistics",
+    url: "https://hammaddem.co/hizmetler/silobas",
+    availableLanguage: "tr",
+  };
+
   return (
     <>
       <Helmet>
         <title>Silobas Taşımacılığı – Çimento, Kalsit, Kül | Hammaddem</title>
         <meta name="description" content="Silobas ile çimento, kalsit, kül, kireç ve tüm toz/granül hammadde taşımacılığı. 11 ilde hızlı teslimat, online teklif. Hammaddem ile güvenle taşıyın." />
+        <meta name="keywords" content="silobas taşımacılığı, silobas hizmeti, çimento taşıma, kalsit taşıma, toz malzeme taşıma, pnömatik silobas, hammadde taşıma, nakliye" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://hammaddem.co/hizmetler/silobas" />
         <meta property="og:title" content="Silobas Taşımacılığı – Hammaddem" />
         <meta property="og:description" content="Çimento, kalsit, kül ve tüm toz hammadde taşımacılığı. Online teklif al, 11 ilde teslimat." />
         <meta property="og:url" content="https://hammaddem.co/hizmetler/silobas" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Silobas Taşımacılığı – Hammaddem" />
+        <meta name="twitter:description" content="Silobas ile çimento, kalsit, kül taşımacılığı. 11 ilde hızlı teslimat." />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-dot-pattern">

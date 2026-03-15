@@ -6,9 +6,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
+const fiyat = getFiyatBySlug("ucucu-kul")!;
 const canonical = "https://hammaddem.co/malzeme/ucucu-kul";
-const title = "Uçucu Kül Silobas Taşıma & Tedariği – Hammaddem";
+const title = "Uçucu Kül Fiyatları & Silobas Taşıma – Hammaddem";
 const description = "Termik santral uçucu külü silobas taşımacılığı ve toptan tedariği. Çimento, beton ve zemin iyileştirme uygulamaları için 11 ilde teslimat. Online teklif alın.";
 
 const avantajlar = [
@@ -107,6 +110,9 @@ const MalzemeUcucuKul = () => {
             </div>
           </div>
         </section>
+
+        {/* Fiyat Banner */}
+        <FiyatBanner fiyat={fiyat} />
 
         {/* Bu malzeme nedir? */}
         <section className="py-16 px-4 md:px-10 bg-off">
