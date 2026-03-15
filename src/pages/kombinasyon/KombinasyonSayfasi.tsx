@@ -2,64 +2,92 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin, Building2 } from "lucide-react";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
+import { getKomboIcerik } from "@/data/kombinasyonData";
 
-const canonical = "https://hammaddem.co/malzeme/kirec/gaziantep";
-const title = "Gaziantep Kireç Silobas Taşıma | Hammaddem";
-const description = "Gaziantep'da kireç silobas taşıma. OSB ve sanayi bölgelerine hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın.";
+const MALZEME_ETIKET: Record<string, string> = {
+  cimento: "Çimento",
+  kum: "Kum",
+  cakil: "Çakıl",
+  micir: "Mıcır",
+  kalsit: "Kalsit",
+  kirec: "Kireç",
+  alci: "Alçı",
+  "mermer-tozu": "Mermer Tozu",
+  "ucucu-kul": "Uçucu Kül",
+  stabilize: "Stabilize",
+};
 
-const comboFaq = [
-  {
-    "q": "Gaziantep'da Kireç silobas taşıma nasıl çalışır?",
-    "a": "Hammaddem platformu üzerinden talep oluşturun; Gaziantep bölgesindeki araç filomuz 30 dakika içinde size özel fiyat teklifi sunar. Teklifi onayladığınızda teslimat sürecini dijital panelden takip edebilirsiniz."
-  },
-  {
-    "q": "Gaziantep'da Kireç için minimum sipariş miktarı nedir?",
-    "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz. Özel durumlar için bizimle iletişime geçin."
-  },
-  {
-    "q": "Gaziantep'da aynı gün teslimat yapıyor musunuz?",
-    "a": "Evet, Gaziantep bölgesinde araç müsaitliğine göre aynı gün teslimat seçeneği sunulmaktadır. Talep oluştururken teslimat tarihinizi belirtin."
-  }
-];
+const TUM_SEHIRLER = ["istanbul", "ankara", "izmir", "bursa", "kocaeli"];
+const TUM_MALZEMELER = ["cimento", "kum", "cakil", "micir", "kalsit", "kirec", "alci", "mermer-tozu", "ucucu-kul", "stabilize"];
 
-const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-  { name: "Ana Sayfa", url: "/" },
-  { name: "Kireç Taşıma", url: "/malzeme/kirec" },
-  { name: "Gaziantep Kireç Taşıma", url: "/malzeme/kirec/gaziantep" },
-]);
+const SEHIR_ETIKET: Record<string, string> = {
+  istanbul: "İstanbul",
+  ankara: "Ankara",
+  izmir: "İzmir",
+  bursa: "Bursa",
+  kocaeli: "Kocaeli",
+};
 
-const faqJsonLd = buildFaqJsonLd(comboFaq);
+interface Props {
+  malzemeSlug: string;
+  sehirSlug: string;
+  title: string;
+  description: string;
+  canonical: string;
+  keywords: string;
+}
 
+const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canonical, keywords }: Props) => {
+  const kombo = getKomboIcerik(malzemeSlug, sehirSlug);
+  const malzemeAdi = MALZEME_ETIKET[malzemeSlug] ?? malzemeSlug;
+  const sehirAdi = SEHIR_ETIKET[sehirSlug] ?? sehirSlug;
 
-const MalzemeKirecGaziantep = () => {
+  const faqSorular = kombo?.faq ?? [
+    {
+      q: `${sehirAdi}'da ${malzemeAdi} silobas taşıma nasıl çalışır?`,
+      a: `Hammaddem platformu üzerinden talep oluşturun; ${sehirAdi} bölgesindeki araç filomuz 30 dakika içinde size özel fiyat teklifi sunar.`,
+    },
+  ];
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Ana Sayfa", url: "/" },
+    { name: `${malzemeAdi} Taşıma`, url: `/malzeme/${malzemeSlug}` },
+    { name: `${sehirAdi} ${malzemeAdi} Taşıma`, url: canonical.replace("https://hammaddem.co", "") },
+  ]);
+
+  const faqJsonLd = buildFaqJsonLd(faqSorular);
+
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Hammaddem – Gaziantep Kireç Tedariği",
+    name: `Hammaddem – ${sehirAdi} ${malzemeAdi} Tedariği`,
     description,
     url: canonical,
     telephone: "+905393308617",
-    areaServed: { "@type": "City", name: "Gaziantep", containedInPlace: { "@type": "Country", name: "Türkiye" } },
+    areaServed: { "@type": "City", name: sehirAdi, containedInPlace: { "@type": "Country", name: "Türkiye" } },
   };
 
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Gaziantep Kireç Silobas Taşıma",
+    name: `${sehirAdi} ${malzemeAdi} Silobas Taşıma`,
     description,
     provider: { "@type": "Organization", name: "Hammaddem", url: "https://hammaddem.co" },
-    areaServed: { "@type": "City", name: "Gaziantep" },
+    areaServed: { "@type": "City", name: sehirAdi },
     url: canonical,
   };
+
+  const digerSehirler = TUM_SEHIRLER.filter((s) => s !== sehirSlug);
+  const digerMalzemeler = TUM_MALZEMELER.filter((m) => m !== malzemeSlug).slice(0, 6);
 
   return (
     <>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="gaziantep kireç, kireç gaziantep, gaziantep kirec fiyatı, sönmüş kireç, sönmemiş kireç" />
+        <meta name="keywords" content={keywords} />
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
@@ -75,23 +103,24 @@ const MalzemeKirecGaziantep = () => {
       <div className="min-h-screen bg-dot-pattern">
         <Navbar />
 
+        {/* Hero */}
         <section className="pt-[120px] pb-16 md:pb-24 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border">
-                    Gaziantep
+                    {sehirAdi}
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-muted border border-border text-txt-2">
-                    Kireç
+                    {malzemeAdi}
                   </span>
                 </div>
                 <h1 className="text-[clamp(28px,4vw,46px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Gaziantep&apos;da Kireç Silobas Taşıma
+                  {sehirAdi}&apos;da {malzemeAdi} Silobas Taşıma
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Gaziantep'da kireç silobas taşıma için Hammaddem'i tercih edin. OSB ve sanayi bölgelerine kireç teslimatı yapıyoruz. Ton bazında rekabetçi fiyat için 30 dakika içinde teklif alın.
+                  {description}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/kayit" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
@@ -111,40 +140,65 @@ const MalzemeKirecGaziantep = () => {
           </div>
         </section>
 
-        <section className="py-16 px-4 md:px-10 bg-off">
+        {/* Benzersiz tanıtım */}
+        {kombo && (
+          <section className="py-16 px-4 md:px-10 bg-off">
+            <div className="max-w-[1100px] mx-auto">
+              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
+                {sehirAdi}&apos;da {malzemeAdi} Tedariği Hakkında
+              </h2>
+              <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
+                <p>{kombo.aciklama}</p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Nasıl Çalışır - benzersiz */}
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
-              Gaziantep&apos;da Kireç Silobas Taşıma Nasıl Çalışır?
+              {sehirAdi}&apos;da {malzemeAdi} Silobas Taşıma Nasıl Çalışır?
             </h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
-              <p>
-                Gaziantep&apos;da kireç silobas taşıma için Hammaddem platformunu kullanın.
-                OSB ve sanayi bölgelerine kireç teslimatı gerçekleştiriyoruz.
-                Online talep formunu doldurarak 30 dakika içinde size özel fiyat teklifi alabilirsiniz.
-              </p>
-              <p>
-                Kireç silobas taşıma sürecinde araç planlaması, teslimat zamanlaması ve
-                takip işlemlerini Hammaddem platformu üzerinden dijital olarak yönetin.
-                Gaziantep genelinde aktif araç filomuzla aynı gün veya ertesi gün teslimat seçenekleri sunuyoruz.
-              </p>
-              <p>
-                Ton bazında rekabetçi kireç fiyatları için hemen kayıt olun ve teklif alın.
-                Düzenli tedarik ihtiyaçlarınız için özel sözleşme koşulları oluşturulabilir.
-              </p>
+              <p>{kombo?.hizmetDetay ?? `${sehirAdi}'da ${malzemeAdi} silobas taşıma için Hammaddem platformunu kullanın. Online talep formunu doldurarak 30 dakika içinde size özel fiyat teklifi alabilirsiniz.`}</p>
             </div>
           </div>
         </section>
 
+        {/* Şehre özel yerel bilgi */}
+        {kombo && (
+          <section className="py-16 px-4 md:px-10 bg-off">
+            <div className="max-w-[1100px] mx-auto">
+              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
+                <Building2 className="inline mr-2 w-7 h-7 text-primary" />
+                {sehirAdi} Hizmet Bölgeleri ve Sanayi Alanları
+              </h2>
+              <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
+                <p>{kombo.yerelBilgi}</p>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {kombo.sehir.osblar.map((osb) => (
+                  <span key={osb} className="px-3 py-1.5 rounded-full text-xs font-medium bg-accent-light border border-accent-border text-primary">
+                    {osb}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Neden Hammaddem */}
         <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">
-              Gaziantep&apos;da Kireç İçin Neden Hammaddem?
+              {sehirAdi}&apos;da {malzemeAdi} İçin Neden Hammaddem?
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { icon: Clock, title: "30 Dk'da Teklif", desc: "Online talepten 30 dakika içinde fiyat teklifi." },
                 { icon: Shield, title: "Güvenli Teslimat", desc: "Pnömatik silobas, kapalı sistem taşıma." },
-                { icon: Truck, title: "Gaziantep Hizmet", desc: "OSB ve sanayi bölgelerine hızlı teslimat." },
+                { icon: Truck, title: `${sehirAdi} Hizmet`, desc: `${kombo?.sehir.lojistik ?? `${sehirAdi} genelinde aktif araç filomuzla hızlı teslimat.`}` },
                 { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişi panelden anlık takip edin." },
               ].map((a) => (
                 <div key={a.title} className="flex flex-col gap-3 border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
@@ -161,13 +215,14 @@ const MalzemeKirecGaziantep = () => {
           </div>
         </section>
 
+        {/* CTA */}
         <section className="py-16 md:py-20 px-4 md:px-10 bg-off">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">
-              Gaziantep Kireç İçin Teklif Alın
+              {sehirAdi} {malzemeAdi} İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Kayıt olun, talep formunu doldurun, 30 dakika içinde Gaziantep&apos;a özel fiyat teklifi alın.
+              Kayıt olun, talep formunu doldurun, 30 dakika içinde {sehirAdi}&apos;a özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/kayit" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
@@ -180,12 +235,14 @@ const MalzemeKirecGaziantep = () => {
           </div>
         </section>
 
-        
+        {/* FAQ - benzersiz, şehir+malzeme özel */}
         <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Gaziantep Kireç Taşıma Hakkında Sık Sorulan Sorular</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">
+              {sehirAdi} {malzemeAdi} Taşıma Hakkında Sık Sorulan Sorular
+            </h2>
             <div className="space-y-4 mt-6">
-              {comboFaq.map((f, i) => (
+              {faqSorular.map((f, i) => (
                 <div key={i} className="border border-border rounded-2xl p-6 bg-background">
                   <h3 className="font-bold text-sm md:text-base mb-2">{f.q}</h3>
                   <p className="text-sm text-txt-2 leading-relaxed">{f.a}</p>
@@ -195,27 +252,28 @@ const MalzemeKirecGaziantep = () => {
           </div>
         </section>
 
+        {/* İç linkler */}
         <section className="py-10 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xs font-semibold text-txt-2 uppercase tracking-wider mb-3">Kireç — Diğer Şehirler</h3>
+                <h3 className="text-xs font-semibold text-txt-2 uppercase tracking-wider mb-3">{malzemeAdi} — Diğer Şehirler</h3>
                 <div className="flex flex-wrap gap-2">
-                  <a key="istanbul" href="/malzeme/kirec/istanbul" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">İstanbul</a>
-                  <a key="ankara" href="/malzeme/kirec/ankara" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Ankara</a>
-                  <a key="izmir" href="/malzeme/kirec/izmir" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">İzmir</a>
-                  <a key="bursa" href="/malzeme/kirec/bursa" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Bursa</a>
-                  <a key="kocaeli" href="/malzeme/kirec/kocaeli" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Kocaeli</a>
+                  {digerSehirler.map((s) => (
+                    <a key={s} href={`/malzeme/${malzemeSlug}/${s}`} className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">
+                      {SEHIR_ETIKET[s]}
+                    </a>
+                  ))}
                 </div>
               </div>
               <div>
-                <h3 className="text-xs font-semibold text-txt-2 uppercase tracking-wider mb-3">Gaziantep — Diğer Malzemeler</h3>
+                <h3 className="text-xs font-semibold text-txt-2 uppercase tracking-wider mb-3">{sehirAdi} — Diğer Malzemeler</h3>
                 <div className="flex flex-wrap gap-2">
-                  <a key="cimento" href="/malzeme/cimento/gaziantep" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Çimento</a>
-                  <a key="kalsit" href="/malzeme/kalsit/gaziantep" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Kalsit</a>
-                  <a key="alci" href="/malzeme/alci/gaziantep" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Alçı</a>
-                  <a key="mermer-tozu" href="/malzeme/mermer-tozu/gaziantep" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Mermer Tozu</a>
-                  <a key="ucucu-kul" href="/malzeme/ucucu-kul/gaziantep" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Uçucu Kül</a>
+                  {digerMalzemeler.map((m) => (
+                    <a key={m} href={`/malzeme/${m}/${sehirSlug}`} className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">
+                      {MALZEME_ETIKET[m]}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -228,4 +286,4 @@ const MalzemeKirecGaziantep = () => {
   );
 };
 
-export default MalzemeKirecGaziantep;
+export default KombinasyonSayfasi;

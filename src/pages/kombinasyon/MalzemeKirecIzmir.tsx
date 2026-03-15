@@ -205,7 +205,6 @@ const MalzemeKirecIzmir = () => {
                   <a key="ankara" href="/malzeme/kirec/ankara" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Ankara</a>
                   <a key="bursa" href="/malzeme/kirec/bursa" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Bursa</a>
                   <a key="kocaeli" href="/malzeme/kirec/kocaeli" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Kocaeli</a>
-                  <a key="gaziantep" href="/malzeme/kirec/gaziantep" className="px-3 py-1.5 rounded-full text-xs font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors no-underline">Gaziantep</a>
                 </div>
               </div>
               <div>
