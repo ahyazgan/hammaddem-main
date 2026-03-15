@@ -9,7 +9,7 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lu
 
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/izmir";
 const title = "İzmir Silobas & Hafriyat Hizmetleri – Hammaddem";
-const description = "İzmir'de silobas taşımacılığı ve hafriyat malzemesi tedariği. Aliağa, Torbalı, Kemalpaşa bölgesinde hızlı teslimat.";
+const description = "İzmir'de çimento, kalsit, kum, çakıl silobas taşımacılığı ve hafriyat malzemesi tedariği. Aliağa, Torbalı, Kemalpaşa OSB bölgelerinde aynı gün teslimat. Online teklif alın.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
