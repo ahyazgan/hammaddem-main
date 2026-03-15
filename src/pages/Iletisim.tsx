@@ -33,7 +33,7 @@ const Iletisim = () => {
     <>
       <Helmet>
         <title>İletişim – Hammaddem | Bize Ulaşın</title>
-        <meta name="description" content="Hammaddem ile iletişime geçin. Hammadde tedarik ve lojistik konularında sorularınız için bize yazın veya arayın." />
+        <meta name="description" content="Hammaddem ile iletişime geçin. Çimento, kum, çakıl, kalsit silobas taşımacılığı ve hafriyat tedariği konularında teklif almak veya soru sormak için bize ulaşın." />
         <link rel="canonical" href="https://hammaddem.co/iletisim" />
       </Helmet>
 

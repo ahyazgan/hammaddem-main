@@ -9,7 +9,7 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lu
 
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/kocaeli";
 const title = "Kocaeli Silobas & Hafriyat Hizmetleri – Hammaddem";
-const description = "Kocaeli ve Gebze'de silobas taşımacılığı, hafriyat tedariği. Dilovası, GOSB bölgesi teslimat. Online teklif.";
+const description = "Kocaeli ve Gebze'de çimento, kalsit, kum, çakıl silobas taşımacılığı ve hafriyat malzemesi tedariği. Dilovası, GOSB, İzmit OSB bölgelerine hızlı teslimat. Online teklif alın.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },

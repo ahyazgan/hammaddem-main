@@ -9,7 +9,7 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lu
 
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/ankara";
 const title = "Ankara Silobas & Hafriyat Hizmetleri – Hammaddem";
-const description = "Ankara'da silobas taşımacılığı ve hafriyat malzemesi tedariği. OSB ve şantiye teslim, hızlı teslimat. Online teklif alın.";
+const description = "Ankara'da çimento, kalsit, kum, çakıl silobas taşımacılığı ve hafriyat malzemesi tedariği. OSTİM, Sincan, İvedik OSB ve şantiyelere hızlı teslimat. Online teklif alın.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
