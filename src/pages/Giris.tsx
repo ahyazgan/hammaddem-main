@@ -127,8 +127,12 @@ const Giris = () => {
 
         {/* Forgot Password Modal */}
         {showForgot && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-            <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-elevated w-full max-w-sm">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+            onClick={(e) => { if (e.target === e.currentTarget) setShowForgot(false); }}
+            onKeyDown={(e) => { if (e.key === "Escape") setShowForgot(false); }}
+          >
+            <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-elevated w-full max-w-sm" onClick={(e) => e.stopPropagation()}>
               <h3 className="text-base font-bold text-foreground mb-1">Şifre Sıfırlama</h3>
               <p className="text-xs text-muted-foreground mb-4">E-posta adresinize şifre sıfırlama bağlantısı göndereceğiz.</p>
               <input

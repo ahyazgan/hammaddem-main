@@ -152,7 +152,7 @@ export function buildEnhancedServiceJsonLd(opts: {
       name: "Hammaddem",
       url: BASE_URL,
       telephone: "+905393308617",
-      email: "info@hammaddem.co",
+      email: "hammaddem@outlook.com",
     },
     ...(opts.city && {
       areaServed: {

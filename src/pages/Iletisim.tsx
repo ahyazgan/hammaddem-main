@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -125,7 +125,7 @@ const Iletisim = () => {
                   disabled={loading}
                   className="w-full px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover transition-all disabled:opacity-60 flex items-center justify-center gap-2"
                 >
-                  <Send className="w-4 h-4" /> {loading ? "Gönderiliyor..." : "Gönder"}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />} {loading ? "Gönderiliyor..." : "Gönder"}
                 </button>
               </form>
             </div>

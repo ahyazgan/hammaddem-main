@@ -498,7 +498,7 @@ const OrderCard = () => {
               </button>
               <button
                 onClick={handleSubmit}
-                disabled={loading}
+                disabled={loading || Object.keys(errors).length > 0}
                 className={`flex-1 py-3 rounded-[10px] text-primary-foreground text-[13px] font-bold border-none cursor-pointer transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed ${
                   colorClass === "orange"
                     ? "bg-primary shadow-[0_4px_16px_rgba(232,98,10,.28)] hover:bg-accent-hover hover:-translate-y-px"

@@ -35,11 +35,11 @@ const CookieConsent = () => {
             <Cookie className="w-5 h-5 text-primary" />
           </div>
           <div className="flex-1">
-            <h3 className="text-sm font-bold text-foreground mb-1">Cerez Kullanimi</h3>
+            <h3 className="text-sm font-bold text-foreground mb-1">Çerez Kullanımı</h3>
             <p className="text-xs text-txt-2 leading-relaxed mb-4">
-              Web sitemizde deneyiminizi iyilestirmek icin cerezler kullaniyoruz.{" "}
+              Web sitemizde deneyiminizi iyileştirmek için çerezler kullanıyoruz.{" "}
               <Link to="/cerez-politikasi" className="text-primary hover:underline">
-                Cerez Politikamizi
+                Çerez Politikamızı
               </Link>{" "}
               inceleyebilirsiniz.
             </p>

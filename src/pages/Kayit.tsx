@@ -14,10 +14,10 @@ const getPasswordStrength = (pw: string): { level: number; label: string; color:
   if (/[A-Z]/.test(pw)) score++;
   if (/[0-9]/.test(pw)) score++;
   if (/[^A-Za-z0-9]/.test(pw)) score++;
-  if (score <= 1) return { level: 1, label: "Zayif", color: "bg-red-500" };
+  if (score <= 1) return { level: 1, label: "Zayıf", color: "bg-red-500" };
   if (score <= 2) return { level: 2, label: "Orta", color: "bg-yellow-500" };
-  if (score <= 3) return { level: 3, label: "Iyi", color: "bg-blue-500" };
-  return { level: 4, label: "Guclu", color: "bg-green-500" };
+  if (score <= 3) return { level: 3, label: "İyi", color: "bg-blue-500" };
+  return { level: 4, label: "Güçlü", color: "bg-green-500" };
 };
 
 const Kayit = () => {
@@ -147,8 +147,8 @@ const Kayit = () => {
                 required
               />
               <label htmlFor="terms" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
-                <Link to="/kullanim-kosullari" className="text-primary hover:underline" target="_blank">Kullanim Kosullari</Link>'ni ve{" "}
-                <Link to="/gizlilik-politikasi" className="text-primary hover:underline" target="_blank">Gizlilik Politikasi</Link>'ni okudum, kabul ediyorum.
+                <Link to="/kullanim-kosullari" className="text-primary hover:underline" target="_blank">Kullanım Koşulları</Link>'nı ve{" "}
+                <Link to="/gizlilik-politikasi" className="text-primary hover:underline" target="_blank">Gizlilik Politikası</Link>'nı okudum, kabul ediyorum.
               </label>
             </div>
             <button

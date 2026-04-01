@@ -44,7 +44,7 @@ const HizmetHafriyat = () => {
       name: "Hammaddem",
       url: "https://hammaddem.co",
       telephone: "+905393308617",
-      email: "info@hammaddem.co",
+      email: "hammaddem@outlook.com",
     },
     areaServed: "TR",
     serviceType: "Logistics",

@@ -1,7 +1,7 @@
 User-agent: Googlebot
 Allow: /
 Disallow: /dashboard
-Disallow: /yazgan
+Disallow: /admin
 Disallow: /giris
 Disallow: /kayit
 Disallow: /sifre-sifirla
@@ -9,7 +9,7 @@ Disallow: /sifre-sifirla
 User-agent: Bingbot
 Allow: /
 Disallow: /dashboard
-Disallow: /yazgan
+Disallow: /admin
 Disallow: /giris
 Disallow: /kayit
 Disallow: /sifre-sifirla
@@ -23,7 +23,7 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /dashboard
-Disallow: /yazgan
+Disallow: /admin
 Disallow: /giris
 Disallow: /kayit
 Disallow: /sifre-sifirla

@@ -2,9 +2,10 @@ import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import { Truck, TrendingUp, Shield, Clock, ArrowRight } from "lucide-react";
+import { Truck, TrendingUp, Shield, Clock, ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { formatPhone, isValidPhone, cleanPhone } from "@/utils/phone";
 
 const avantajlar = [
   { icon: TrendingUp, title: "Düzenli İş İmkanı", desc: "Sürekli büyüyen talep havuzumuz sayesinde boş dönüş yapmadan çalışın." },
@@ -13,17 +14,35 @@ const avantajlar = [
   { icon: Truck, title: "Dijital Takip", desc: "Tüm iş süreçlerinizi dijital panelden takip edin, evrak karmaşasından kurtulun." },
 ];
 
+const plakaRegex = /^\d{2}\s?[A-Za-z]{1,3}\s?\d{2,4}$/;
+
 const TasiyiciOlun = () => {
   const [form, setForm] = useState({ ad: "", telefon: "", aracTipi: "", plaka: "" });
   const [loading, setLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
+  const [plakaError, setPlakaError] = useState("");
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value);
+    setForm({ ...form, telefon: formatted });
+    if (phoneError) setPhoneError("");
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isValidPhone(form.telefon)) {
+      setPhoneError("Geçerli bir telefon numarası girin (05XX XXX XXXX)");
+      return;
+    }
+    if (!plakaRegex.test(form.plaka.trim())) {
+      setPlakaError("Geçerli bir plaka girin (örn: 34 ABC 123)");
+      return;
+    }
     setLoading(true);
     try {
       const { error } = await supabase.from("tasiyici_basvurulari").insert({
         ad_soyad: form.ad,
-        telefon: form.telefon,
+        telefon: cleanPhone(form.telefon),
         arac_tipi: form.aracTipi,
         plaka: form.plaka,
       });
@@ -91,9 +110,10 @@ const TasiyiciOlun = () => {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">Telefon</label>
-                  <input type="tel" required value={form.telefon} onChange={(e) => setForm({ ...form, telefon: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                  <input type="tel" required value={form.telefon} onChange={handlePhoneChange} maxLength={13}
+                    className={`w-full px-4 py-2.5 rounded-xl border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${phoneError ? "border-destructive" : "border-border"}`}
                     placeholder="05XX XXX XX XX" />
+                  {phoneError && <p className="text-[11px] text-destructive mt-1">{phoneError}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">Araç Tipi</label>
@@ -108,13 +128,14 @@ const TasiyiciOlun = () => {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">Plaka</label>
-                  <input type="text" required value={form.plaka} onChange={(e) => setForm({ ...form, plaka: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                  <input type="text" required value={form.plaka} onChange={(e) => { setForm({ ...form, plaka: e.target.value.toUpperCase() }); if (plakaError) setPlakaError(""); }}
+                    className={`w-full px-4 py-2.5 rounded-xl border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${plakaError ? "border-destructive" : "border-border"}`}
                     placeholder="34 ABC 123" />
+                  {plakaError && <p className="text-[11px] text-destructive mt-1">{plakaError}</p>}
                 </div>
                 <button type="submit" disabled={loading}
                   className="w-full px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-2">
-                  <ArrowRight className="w-4 h-4" /> {loading ? "Gönderiliyor..." : "Başvur"}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />} {loading ? "Gönderiliyor..." : "Başvur"}
                 </button>
               </form>
             </div>

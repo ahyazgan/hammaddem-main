@@ -22,9 +22,10 @@ const ProfilView = () => {
     const fetch = async () => {
       const { data } = await supabase.from("profiles").select("*").eq("user_id", user.id).single();
       if (data) {
-        setFirmaAdi((data as any).firma_adi || "");
-        setTelefon((data as any).telefon || "");
-        setEmail((data as any).email || user.email || "");
+        const profile = data as unknown as { firma_adi: string | null; telefon: string | null; email: string | null };
+        setFirmaAdi(profile.firma_adi || "");
+        setTelefon(profile.telefon || "");
+        setEmail(profile.email || user.email || "");
       }
       setLoading(false);
     };

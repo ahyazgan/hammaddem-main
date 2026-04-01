@@ -36,7 +36,7 @@ const Index = () => {
           "url": "https://hammaddem.co",
           "logo": "https://hammaddem.co/favicon.png",
           "telephone": "+905393308617",
-          "email": "info@hammaddem.co",
+          "email": "hammaddem@outlook.com",
           "areaServed": "TR",
           "sameAs": [],
           "description": "Türkiye'nin dijital B2B hammadde tedarik platformu. Çimento, kalsit, kum, çakıl ve diğer hammaddelerin silobas taşıma ve hafriyat tedariği.",
