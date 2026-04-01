@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,44 +7,54 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import Index from "./pages/Index";
-import Giris from "./pages/Giris";
-import Kayit from "./pages/Kayit";
-import Dashboard from "./pages/Dashboard";
-import Admin from "./pages/Admin";
-import SifreSifirla from "./pages/SifreSifirla";
-import KullanimKosullari from "./pages/KullanimKosullari";
-import GizlilikPolitikasi from "./pages/GizlilikPolitikasi";
-import Kvkk from "./pages/Kvkk";
-import CerezPolitikasi from "./pages/CerezPolitikasi";
-import HizmetSilobas from "./pages/HizmetSilobas";
-import HizmetHafriyat from "./pages/HizmetHafriyat";
-import Hakkimizda from "./pages/Hakkimizda";
-import Iletisim from "./pages/Iletisim";
-import TasiyiciOlun from "./pages/TasiyiciOlun";
-import SSS from "./pages/SSS";
-import Hammadde from "./pages/Hammadde";
-import Fiyatlar from "./pages/Fiyatlar";
-import MalzemeCimento from "./pages/malzeme/MalzemeCimento";
-import MalzemeKum from "./pages/malzeme/MalzemeKum";
-import MalzemeCakil from "./pages/malzeme/MalzemeCakil";
-import MalzemeMicir from "./pages/malzeme/MalzemeMicir";
-import MalzemeKalsit from "./pages/malzeme/MalzemeKalsit";
-import MalzemeKirec from "./pages/malzeme/MalzemeKirec";
-import MalzemeUcucuKul from "./pages/malzeme/MalzemeUcucuKul";
-import MalzemeStabilize from "./pages/malzeme/MalzemeStabilize";
-import MalzemeMermerTozu from "./pages/malzeme/MalzemeMermerTozu";
-import MalzemeAlci from "./pages/malzeme/MalzemeAlci";
-import BolgeIstanbul from "./pages/bolge/BolgeIstanbul";
-import BolgeAnkara from "./pages/bolge/BolgeAnkara";
-import BolgeIzmir from "./pages/bolge/BolgeIzmir";
-import BolgeBursa from "./pages/bolge/BolgeBursa";
-import BolgeKocaeli from "./pages/bolge/BolgeKocaeli";
 import WhatsAppButton from "./components/WhatsAppButton";
 import CookieConsent from "./components/CookieConsent";
-import NotFound from "./pages/NotFound";
 import { kombinasyonRoutes } from "./pages/kombinasyon/kombinasyonRoutes";
-import TalepTakip from "./pages/TalepTakip";
+
+// Eager: ana sayfa hemen yüklenmeli
+import Index from "./pages/Index";
+
+// Lazy: diğer sayfalar ihtiyaç halinde yüklensin
+const Giris = lazy(() => import("./pages/Giris"));
+const Kayit = lazy(() => import("./pages/Kayit"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Admin = lazy(() => import("./pages/Admin"));
+const SifreSifirla = lazy(() => import("./pages/SifreSifirla"));
+const KullanimKosullari = lazy(() => import("./pages/KullanimKosullari"));
+const GizlilikPolitikasi = lazy(() => import("./pages/GizlilikPolitikasi"));
+const Kvkk = lazy(() => import("./pages/Kvkk"));
+const CerezPolitikasi = lazy(() => import("./pages/CerezPolitikasi"));
+const HizmetSilobas = lazy(() => import("./pages/HizmetSilobas"));
+const HizmetHafriyat = lazy(() => import("./pages/HizmetHafriyat"));
+const Hakkimizda = lazy(() => import("./pages/Hakkimizda"));
+const Iletisim = lazy(() => import("./pages/Iletisim"));
+const TasiyiciOlun = lazy(() => import("./pages/TasiyiciOlun"));
+const SSS = lazy(() => import("./pages/SSS"));
+const Hammadde = lazy(() => import("./pages/Hammadde"));
+const Fiyatlar = lazy(() => import("./pages/Fiyatlar"));
+const MalzemeCimento = lazy(() => import("./pages/malzeme/MalzemeCimento"));
+const MalzemeKum = lazy(() => import("./pages/malzeme/MalzemeKum"));
+const MalzemeCakil = lazy(() => import("./pages/malzeme/MalzemeCakil"));
+const MalzemeMicir = lazy(() => import("./pages/malzeme/MalzemeMicir"));
+const MalzemeKalsit = lazy(() => import("./pages/malzeme/MalzemeKalsit"));
+const MalzemeKirec = lazy(() => import("./pages/malzeme/MalzemeKirec"));
+const MalzemeUcucuKul = lazy(() => import("./pages/malzeme/MalzemeUcucuKul"));
+const MalzemeStabilize = lazy(() => import("./pages/malzeme/MalzemeStabilize"));
+const MalzemeMermerTozu = lazy(() => import("./pages/malzeme/MalzemeMermerTozu"));
+const MalzemeAlci = lazy(() => import("./pages/malzeme/MalzemeAlci"));
+const BolgeIstanbul = lazy(() => import("./pages/bolge/BolgeIstanbul"));
+const BolgeAnkara = lazy(() => import("./pages/bolge/BolgeAnkara"));
+const BolgeIzmir = lazy(() => import("./pages/bolge/BolgeIzmir"));
+const BolgeBursa = lazy(() => import("./pages/bolge/BolgeBursa"));
+const BolgeKocaeli = lazy(() => import("./pages/bolge/BolgeKocaeli"));
+const TalepTakip = lazy(() => import("./pages/TalepTakip"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const queryClient = new QueryClient();
 
@@ -97,6 +107,7 @@ const App = () => (
             <ScrollToTop />
             <GoogleAnalytics />
             <AuthProvider>
+              <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/giris" element={<Giris />} />
@@ -137,6 +148,7 @@ const App = () => (
                 ))}
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              </Suspense>
               <WhatsAppButton />
               <CookieConsent />
             </AuthProvider>

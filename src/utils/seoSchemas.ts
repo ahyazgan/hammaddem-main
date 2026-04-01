@@ -62,6 +62,7 @@ export function buildFaqJsonLd(faqItems: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    answerCount: faqItems.length,
     mainEntity: faqItems.map((f) => ({
       "@type": "Question",
       name: f.q,

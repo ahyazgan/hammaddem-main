@@ -15,7 +15,7 @@ const Hero = () => {
 
       <div className="relative z-[3] w-full max-w-[880px] px-3 sm:px-4 md:px-6 pt-6 md:pt-9 pb-8 md:pb-14 flex flex-col items-center text-center">
         {/* Eyebrow */}
-        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-[5px] rounded-full bg-accent-light border border-accent-border text-[9px] sm:text-[10px] md:text-[11px] font-semibold text-primary tracking-wider uppercase mb-3 sm:mb-4 md:mb-5 animate-fade-down">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-[5px] rounded-full bg-accent-light border border-accent-border text-[10px] sm:text-[11px] md:text-[11px] font-semibold text-primary tracking-wider uppercase mb-3 sm:mb-4 md:mb-5 animate-fade-down">
           <span className="w-1.5 h-1.5 rounded-full bg-primary" style={{ animation: 'pls 2s infinite' }} />
           <span className="hidden xs:inline">Türkiye geneli · </span>Silobas & Hafriyat Platformu
         </div>
@@ -46,7 +46,7 @@ const Hero = () => {
                 `}
               >
                 <span className={`font-mono text-[15px] sm:text-base md:text-lg font-bold leading-none ${stat.color}`}>{stat.val}</span>
-                <span className="text-[8px] sm:text-[9px] md:text-[10px] text-txt-3 font-medium whitespace-nowrap">{stat.label}</span>
+                <span className="text-[10px] sm:text-[10px] md:text-[11px] text-txt-3 font-medium whitespace-nowrap">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -66,10 +66,10 @@ const Hero = () => {
           ].map((item, i) => (
             <div key={item.label} className="flex items-center gap-1 sm:gap-1.5 justify-center">
               {i > 0 && <div className="hidden sm:block w-px h-3.5 bg-border2 mr-1 md:mr-3" />}
-              <div className="w-[18px] sm:w-5 md:w-[22px] h-[18px] sm:h-5 md:h-[22px] rounded flex items-center justify-center text-[9px] sm:text-[10px] md:text-[11px] bg-off2 border border-border">
+              <div className="w-[18px] sm:w-5 md:w-[22px] h-[18px] sm:h-5 md:h-[22px] rounded flex items-center justify-center text-[10px] sm:text-[11px] md:text-[11px] bg-off2 border border-border" aria-hidden="true">
                 {item.icon}
               </div>
-              <span className="text-[9px] sm:text-[10px] md:text-xs text-txt-2 font-medium whitespace-nowrap">{item.label}</span>
+              <span className="text-[10px] sm:text-[11px] md:text-xs text-txt-2 font-medium whitespace-nowrap">{item.label}</span>
             </div>
           ))}
         </div>
