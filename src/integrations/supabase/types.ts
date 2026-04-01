@@ -55,6 +55,33 @@ export type Database = {
           },
         ]
       }
+      iletisim_mesajlari: {
+        Row: {
+          id: string
+          ad_soyad: string
+          email: string
+          mesaj: string
+          okundu: boolean
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          ad_soyad: string
+          email: string
+          mesaj: string
+          okundu?: boolean
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          ad_soyad?: string
+          email?: string
+          mesaj?: string
+          okundu?: boolean
+          created_at?: string
+        }
+        Relationships: []
+      }
       misafir_talepler: {
         Row: {
           aciliyet: string
@@ -172,6 +199,36 @@ export type Database = {
         }
         Relationships: []
       }
+      tasiyici_basvurulari: {
+        Row: {
+          id: string
+          ad_soyad: string
+          telefon: string
+          arac_tipi: string
+          plaka: string
+          durum: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          ad_soyad: string
+          telefon: string
+          arac_tipi: string
+          plaka: string
+          durum?: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          ad_soyad?: string
+          telefon?: string
+          arac_tipi?: string
+          plaka?: string
+          durum?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
       talepler: {
         Row: {
           aciliyet: string
@@ -186,6 +243,7 @@ export type Database = {
           miktar: number
           not_text: string | null
           talep_no: string
+          teklif_fiyat: number | null
           tekrarli: boolean
           teslimat_ili: string | null
           teslimat_tarihi: string | null
@@ -205,6 +263,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no: string
+          teklif_fiyat?: number | null
           tekrarli?: boolean
           teslimat_ili?: string | null
           teslimat_tarihi?: string | null
@@ -224,6 +283,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no?: string
+          teklif_fiyat?: number | null
           tekrarli?: boolean
           teslimat_ili?: string | null
           teslimat_tarihi?: string | null
