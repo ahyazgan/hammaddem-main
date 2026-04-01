@@ -5,9 +5,19 @@ import logo from "@/assets/logo.svg";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleDropdownKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setDropdownOpen((prev) => !prev);
+    } else if (e.key === "Escape") {
+      setDropdownOpen(false);
+    }
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] h-[70px] flex items-center justify-between px-4 md:px-10 bg-background/[.93] backdrop-blur-[20px] border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-[100] h-[70px] flex items-center justify-between px-4 md:px-10 bg-background/[.93] backdrop-blur-[20px] border-b border-border" role="navigation" aria-label="Ana navigasyon">
       {/* Logo */}
       <Link to="/" className="flex items-center no-underline">
         <img src={logo} alt="Hammaddem" className="h-[80px] md:h-[80px] w-auto" />
@@ -19,15 +29,28 @@ const Navbar = () => {
       {/* Desktop Right */}
       <div className="hidden md:flex items-center gap-4">
         {/* Hizmetler dropdown */}
-        <div className="relative group">
-          <button className="flex items-center gap-1 text-[13px] font-semibold text-foreground bg-transparent border-none cursor-pointer py-2">
-            Hizmetlerimiz <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
+        <div
+          className="relative group"
+          onMouseEnter={() => setDropdownOpen(true)}
+          onMouseLeave={() => setDropdownOpen(false)}
+        >
+          <button
+            className="flex items-center gap-1 text-[13px] font-semibold text-foreground bg-transparent border-none cursor-pointer py-2"
+            aria-expanded={dropdownOpen}
+            aria-haspopup="true"
+            onKeyDown={handleDropdownKeyDown}
+            onClick={() => setDropdownOpen((prev) => !prev)}
+          >
+            Hizmetlerimiz <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
           </button>
-          <div className="absolute top-full right-0 mt-1 w-52 bg-background border border-border rounded-xl shadow-elevated opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1.5">
-            <Link to="/hizmetler/silobas" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
+          <div
+            className={`absolute top-full right-0 mt-1 w-52 bg-background border border-border rounded-xl shadow-elevated transition-all duration-200 py-1.5 ${dropdownOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+            role="menu"
+          >
+            <Link to="/hizmetler/silobas" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
               Silobas Taşımacılığı
             </Link>
-            <Link to="/hizmetler/hafriyat-nakliyesi" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
+            <Link to="/hizmetler/hafriyat-nakliyesi" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
               Hafriyat Malzemeleri
             </Link>
           </div>
@@ -55,7 +78,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile toggle */}
-      <button onClick={() => setOpen(!open)} className="md:hidden text-foreground bg-transparent border-none cursor-pointer">
+      <button onClick={() => setOpen(!open)} aria-label={open ? "Menuyu kapat" : "Menuyu ac"} aria-expanded={open} className="md:hidden text-foreground bg-transparent border-none cursor-pointer">
         {open ? <X size={24} /> : <Menu size={24} />}
       </button>
 

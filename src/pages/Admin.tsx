@@ -2,6 +2,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import AdminPanel from "@/components/dashboard/AdminPanel";
 import { ShieldX, Loader2 } from "lucide-react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Admin = () => {
   const { user, loading, isAdmin, signOut } = useAuth();
@@ -40,6 +41,11 @@ const Admin = () => {
   }
 
   return (
+    <>
+    <Helmet>
+      <title>Admin Panel – Hammaddem</title>
+      <meta name="robots" content="noindex, nofollow" />
+    </Helmet>
     <div className="h-screen overflow-hidden bg-[#080a0f] text-[#e8eaf0] font-sans text-[13px] flex flex-col">
       <div className="h-12 border-b border-[#1c2133] flex items-center px-4 lg:px-6 justify-between shrink-0">
         <span className="text-[14px] font-semibold flex items-center gap-2">⚡ Hammaddem Admin</span>
@@ -52,6 +58,7 @@ const Admin = () => {
       </div>
       <AdminPanel />
     </div>
+    </>
   );
 };
 

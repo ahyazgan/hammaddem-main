@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import Index from "./pages/Index";
 import Giris from "./pages/Giris";
 import Kayit from "./pages/Kayit";
@@ -40,11 +41,14 @@ import BolgeIzmir from "./pages/bolge/BolgeIzmir";
 import BolgeBursa from "./pages/bolge/BolgeBursa";
 import BolgeKocaeli from "./pages/bolge/BolgeKocaeli";
 import WhatsAppButton from "./components/WhatsAppButton";
+import CookieConsent from "./components/CookieConsent";
 import NotFound from "./pages/NotFound";
 import { kombinasyonRoutes } from "./pages/kombinasyon/kombinasyonRoutes";
 import TalepTakip from "./pages/TalepTakip";
 
 const queryClient = new QueryClient();
+
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -52,59 +56,93 @@ const ScrollToTop = () => {
   return null;
 };
 
+const GoogleAnalytics = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (!GA_MEASUREMENT_ID) return;
+
+    const existingScript = document.querySelector(`script[src*="googletagmanager.com/gtag"]`);
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      script.async = true;
+      document.head.appendChild(script);
+
+      window.gtag = function () {
+        // eslint-disable-next-line prefer-rest-params
+        (window.dataLayer = window.dataLayer || []).push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", GA_MEASUREMENT_ID);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!GA_MEASUREMENT_ID || !window.gtag) return;
+    window.gtag("config", GA_MEASUREMENT_ID, { page_path: pathname });
+  }, [pathname]);
+
+  return null;
+};
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <AuthProvider>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/giris" element={<Giris />} />
-              <Route path="/kayit" element={<Kayit />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/yazgan" element={<Admin />} />
-              <Route path="/sifre-sifirla" element={<SifreSifirla />} />
-              <Route path="/kullanim-kosullari" element={<KullanimKosullari />} />
-              <Route path="/gizlilik-politikasi" element={<GizlilikPolitikasi />} />
-              <Route path="/kvkk" element={<Kvkk />} />
-              <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
-              <Route path="/hizmetler/silobas" element={<HizmetSilobas />} />
-              <Route path="/hizmetler/hafriyat-nakliyesi" element={<HizmetHafriyat />} />
-              <Route path="/hakkimizda" element={<Hakkimizda />} />
-              <Route path="/iletisim" element={<Iletisim />} />
-              <Route path="/tasiyici-olun" element={<TasiyiciOlun />} />
-              <Route path="/sss" element={<SSS />} />
-              <Route path="/hammadde" element={<Hammadde />} />
-              <Route path="/fiyatlar" element={<Fiyatlar />} />
-              <Route path="/malzeme/cimento" element={<MalzemeCimento />} />
-              <Route path="/malzeme/kum" element={<MalzemeKum />} />
-              <Route path="/malzeme/cakil" element={<MalzemeCakil />} />
-              <Route path="/malzeme/micir" element={<MalzemeMicir />} />
-              <Route path="/malzeme/kalsit" element={<MalzemeKalsit />} />
-              <Route path="/malzeme/kirec" element={<MalzemeKirec />} />
-              <Route path="/malzeme/ucucu-kul" element={<MalzemeUcucuKul />} />
-              <Route path="/malzeme/stabilize" element={<MalzemeStabilize />} />
-              <Route path="/malzeme/mermer-tozu" element={<MalzemeMermerTozu />} />
-              <Route path="/malzeme/alci" element={<MalzemeAlci />} />
-              <Route path="/hizmet-bolgeleri/istanbul" element={<BolgeIstanbul />} />
-              <Route path="/hizmet-bolgeleri/ankara" element={<BolgeAnkara />} />
-              <Route path="/hizmet-bolgeleri/izmir" element={<BolgeIzmir />} />
-              <Route path="/hizmet-bolgeleri/bursa" element={<BolgeBursa />} />
-              <Route path="/hizmet-bolgeleri/kocaeli" element={<BolgeKocaeli />} />
-              <Route path="/talep-takip" element={<TalepTakip />} />
-              {kombinasyonRoutes.map((r) => (
-                <Route key={r.path} path={r.path} element={r.element} />
-              ))}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <WhatsAppButton />
-          </AuthProvider>
-        </BrowserRouter>
-      </TooltipProvider>
+      <ErrorBoundary>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <GoogleAnalytics />
+            <AuthProvider>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/giris" element={<Giris />} />
+                <Route path="/kayit" element={<Kayit />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/sifre-sifirla" element={<SifreSifirla />} />
+                <Route path="/kullanim-kosullari" element={<KullanimKosullari />} />
+                <Route path="/gizlilik-politikasi" element={<GizlilikPolitikasi />} />
+                <Route path="/kvkk" element={<Kvkk />} />
+                <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
+                <Route path="/hizmetler/silobas" element={<HizmetSilobas />} />
+                <Route path="/hizmetler/hafriyat-nakliyesi" element={<HizmetHafriyat />} />
+                <Route path="/hakkimizda" element={<Hakkimizda />} />
+                <Route path="/iletisim" element={<Iletisim />} />
+                <Route path="/tasiyici-olun" element={<TasiyiciOlun />} />
+                <Route path="/sss" element={<SSS />} />
+                <Route path="/hammadde" element={<Hammadde />} />
+                <Route path="/fiyatlar" element={<Fiyatlar />} />
+                <Route path="/malzeme/cimento" element={<MalzemeCimento />} />
+                <Route path="/malzeme/kum" element={<MalzemeKum />} />
+                <Route path="/malzeme/cakil" element={<MalzemeCakil />} />
+                <Route path="/malzeme/micir" element={<MalzemeMicir />} />
+                <Route path="/malzeme/kalsit" element={<MalzemeKalsit />} />
+                <Route path="/malzeme/kirec" element={<MalzemeKirec />} />
+                <Route path="/malzeme/ucucu-kul" element={<MalzemeUcucuKul />} />
+                <Route path="/malzeme/stabilize" element={<MalzemeStabilize />} />
+                <Route path="/malzeme/mermer-tozu" element={<MalzemeMermerTozu />} />
+                <Route path="/malzeme/alci" element={<MalzemeAlci />} />
+                <Route path="/hizmet-bolgeleri/istanbul" element={<BolgeIstanbul />} />
+                <Route path="/hizmet-bolgeleri/ankara" element={<BolgeAnkara />} />
+                <Route path="/hizmet-bolgeleri/izmir" element={<BolgeIzmir />} />
+                <Route path="/hizmet-bolgeleri/bursa" element={<BolgeBursa />} />
+                <Route path="/hizmet-bolgeleri/kocaeli" element={<BolgeKocaeli />} />
+                <Route path="/talep-takip" element={<TalepTakip />} />
+                {kombinasyonRoutes.map((r) => (
+                  <Route key={r.path} path={r.path} element={r.element} />
+                ))}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <WhatsAppButton />
+              <CookieConsent />
+            </AuthProvider>
+          </BrowserRouter>
+        </TooltipProvider>
+      </ErrorBoundary>
     </QueryClientProvider>
   </HelmetProvider>
 );

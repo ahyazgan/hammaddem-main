@@ -6,6 +6,20 @@ import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.svg";
 import { formatPhone, isValidPhone, cleanPhone } from "@/utils/phone";
 
+const getPasswordStrength = (pw: string): { level: number; label: string; color: string } => {
+  if (!pw) return { level: 0, label: "", color: "" };
+  let score = 0;
+  if (pw.length >= 6) score++;
+  if (pw.length >= 10) score++;
+  if (/[A-Z]/.test(pw)) score++;
+  if (/[0-9]/.test(pw)) score++;
+  if (/[^A-Za-z0-9]/.test(pw)) score++;
+  if (score <= 1) return { level: 1, label: "Zayif", color: "bg-red-500" };
+  if (score <= 2) return { level: 2, label: "Orta", color: "bg-yellow-500" };
+  if (score <= 3) return { level: 3, label: "Iyi", color: "bg-blue-500" };
+  return { level: 4, label: "Guclu", color: "bg-green-500" };
+};
+
 const Kayit = () => {
   const [firmaAdi, setFirmaAdi] = useState("");
   const [email, setEmail] = useState("");
@@ -13,6 +27,7 @@ const Kayit = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [phoneError, setPhoneError] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const { signUp } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -106,6 +121,35 @@ const Kayit = () => {
                 minLength={6}
                 className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               />
+              {password && (() => {
+                const strength = getPasswordStrength(password);
+                return (
+                  <div className="mt-2">
+                    <div className="flex gap-1">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className={`h-1 flex-1 rounded-full transition-colors ${i <= strength.level ? strength.color : "bg-muted"}`} />
+                      ))}
+                    </div>
+                    <p className={`text-[11px] mt-1 ${strength.level <= 1 ? "text-red-500" : strength.level <= 2 ? "text-yellow-500" : strength.level <= 3 ? "text-blue-500" : "text-green-500"}`}>
+                      {strength.label}
+                    </p>
+                  </div>
+                );
+              })()}
+            </div>
+            <div className="flex items-start gap-2">
+              <input
+                type="checkbox"
+                id="terms"
+                checked={termsAccepted}
+                onChange={(e) => setTermsAccepted(e.target.checked)}
+                className="mt-1 h-4 w-4 rounded border-input accent-primary cursor-pointer"
+                required
+              />
+              <label htmlFor="terms" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                <Link to="/kullanim-kosullari" className="text-primary hover:underline" target="_blank">Kullanim Kosullari</Link>'ni ve{" "}
+                <Link to="/gizlilik-politikasi" className="text-primary hover:underline" target="_blank">Gizlilik Politikasi</Link>'ni okudum, kabul ediyorum.
+              </label>
             </div>
             <button
               type="submit"
