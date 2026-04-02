@@ -47,6 +47,12 @@ const BolgeAnkara = lazy(() => import("./pages/bolge/BolgeAnkara"));
 const BolgeIzmir = lazy(() => import("./pages/bolge/BolgeIzmir"));
 const BolgeBursa = lazy(() => import("./pages/bolge/BolgeBursa"));
 const BolgeKocaeli = lazy(() => import("./pages/bolge/BolgeKocaeli"));
+const BolgeTekirdag = lazy(() => import("./pages/bolge/BolgeTekirdag"));
+const BolgeSakarya = lazy(() => import("./pages/bolge/BolgeSakarya"));
+const BolgeYalova = lazy(() => import("./pages/bolge/BolgeYalova"));
+const BolgeBalikesir = lazy(() => import("./pages/bolge/BolgeBalikesir"));
+const BolgeCanakkale = lazy(() => import("./pages/bolge/BolgeCanakkale"));
+const BolgeEdirne = lazy(() => import("./pages/bolge/BolgeEdirne"));
 const TalepTakip = lazy(() => import("./pages/TalepTakip"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -142,6 +148,12 @@ const App = () => (
                 <Route path="/hizmet-bolgeleri/izmir" element={<BolgeIzmir />} />
                 <Route path="/hizmet-bolgeleri/bursa" element={<BolgeBursa />} />
                 <Route path="/hizmet-bolgeleri/kocaeli" element={<BolgeKocaeli />} />
+                <Route path="/hizmet-bolgeleri/tekirdag" element={<BolgeTekirdag />} />
+                <Route path="/hizmet-bolgeleri/sakarya" element={<BolgeSakarya />} />
+                <Route path="/hizmet-bolgeleri/yalova" element={<BolgeYalova />} />
+                <Route path="/hizmet-bolgeleri/balikesir" element={<BolgeBalikesir />} />
+                <Route path="/hizmet-bolgeleri/canakkale" element={<BolgeCanakkale />} />
+                <Route path="/hizmet-bolgeleri/edirne" element={<BolgeEdirne />} />
                 <Route path="/talep-takip" element={<TalepTakip />} />
                 {kombinasyonRoutes.map((r) => (
                   <Route key={r.path} path={r.path} element={r.element} />
