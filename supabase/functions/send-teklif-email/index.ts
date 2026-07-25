@@ -10,6 +10,13 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const escapeHtml = (v: unknown): string =>
+  String(v ?? "—")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
 serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -24,6 +31,8 @@ serve(async (req: Request) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+
+    const token = authHeader.slice("Bearer ".length).trim();
 
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -106,17 +115,17 @@ serve(async (req: Request) => {
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
           <h2 style="color: #e8620a; margin-bottom: 4px;">Yeni Teklif</h2>
-          <p style="color: #666; font-size: 14px;">Merhaba ${profile.firma_adi || ""},</p>
+          <p style="color: #666; font-size: 14px;">Merhaba ${escapeHtml(profile.firma_adi || "")},</p>
           <p style="font-size: 14px; color: #333;">
-            <strong>#${talep.talep_no}</strong> numaralı talebiniz için teklif hazırlandı:
+            <strong>#${escapeHtml(talep.talep_no)}</strong> numaralı talebiniz için teklif hazırlandı:
           </p>
           <div style="background: #f8f8f8; border-left: 3px solid #e8620a; padding: 16px; margin: 16px 0; border-radius: 4px;">
-            <p style="margin: 0; font-size: 14px; color: #333;">${mesaj}</p>
+            <p style="margin: 0; font-size: 14px; color: #333;">${escapeHtml(mesaj).replace(/\n/g, "<br>")}</p>
           </div>
           <table style="width: 100%; font-size: 13px; color: #555; margin: 16px 0;">
-            <tr><td style="padding: 4px 0;"><strong>Malzeme:</strong></td><td>${talep.malzeme || talep.kategori}</td></tr>
-            <tr><td style="padding: 4px 0;"><strong>Miktar:</strong></td><td>${talep.miktar} ${talep.birim}</td></tr>
-            <tr><td style="padding: 4px 0;"><strong>Teslimat İli:</strong></td><td>${talep.teslimat_ili || "—"}</td></tr>
+            <tr><td style="padding: 4px 0;"><strong>Malzeme:</strong></td><td>${escapeHtml(talep.malzeme || talep.kategori)}</td></tr>
+            <tr><td style="padding: 4px 0;"><strong>Miktar:</strong></td><td>${escapeHtml(talep.miktar)} ${escapeHtml(talep.birim)}</td></tr>
+            <tr><td style="padding: 4px 0;"><strong>Teslimat İli:</strong></td><td>${escapeHtml(talep.teslimat_ili)}</td></tr>
           </table>
           <p style="font-size: 13px; color: #999;">Detaylar için panele giriş yapabilirsiniz.</p>
         </div>

@@ -18,10 +18,12 @@ create policy "Herkes mesaj gonderebilir"
 -- Sadece admin okuyabilir
 create policy "Sadece admin okuyabilir"
   on public.iletisim_mesajlari for select
-  using (exists (
-    select 1 from public.profiles
-    where profiles.id = auth.uid() and profiles.role = 'admin'
-  ));
+  using (public.has_role(auth.uid(), 'admin'));
+
+-- Admin okundu bilgisini güncelleyebilir
+create policy "Admin mesaj guncelleyebilir"
+  on public.iletisim_mesajlari for update
+  using (public.has_role(auth.uid(), 'admin'));
 
 -- Taşıyıcı başvuruları tablosu
 create table if not exists public.tasiyici_basvurulari (
@@ -44,7 +46,9 @@ create policy "Herkes basvuru yapabilir"
 -- Sadece admin okuyabilir
 create policy "Sadece admin basvurulari gorebilir"
   on public.tasiyici_basvurulari for select
-  using (exists (
-    select 1 from public.profiles
-    where profiles.id = auth.uid() and profiles.role = 'admin'
-  ));
+  using (public.has_role(auth.uid(), 'admin'));
+
+-- Admin başvuru durumunu güncelleyebilir
+create policy "Admin basvuru guncelleyebilir"
+  on public.tasiyici_basvurulari for update
+  using (public.has_role(auth.uid(), 'admin'));

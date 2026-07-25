@@ -1,1 +1,10 @@
-project_id = "beuapftmvmetqmsupqsg"
+project_id = "vcoogvrudvzsxfmrodov"
+
+# Misafir teklif formu oturum açmadan çağrılır ama istemci publishable key'i
+# Authorization header'ında gönderdiği için JWT doğrulaması açık kalabilir.
+[functions.misafir-talep]
+verify_jwt = true
+
+# Teklif maili yalnızca admin panelinden tetiklenir; JWT + admin rolü kontrolü şart.
+[functions.send-teklif-email]
+verify_jwt = true
