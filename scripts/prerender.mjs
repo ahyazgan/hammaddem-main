@@ -1,0 +1,113 @@
+/**
+ * Prerender script — sitemap'teki her rota için statik HTML üretir.
+ *
+ * Akış (package.json "build"):
+ *   1. vite build                    → dist/           (istemci)
+ *   2. vite build --ssr ...          → dist-server/    (render fonksiyonu)
+ *   3. node scripts/prerender.mjs    → dist/<rota>/index.html dosyaları
+ *
+ * Google botları böylece JavaScript çalıştırmadan tam içeriği görür;
+ * kullanıcı tarafında React normal SPA olarak devralır.
+ */
+
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, "..");
+const DIST = path.join(ROOT, "dist");
+const SERVER_ENTRY = path.join(ROOT, "dist-server", "entry-server.js");
+const SITEMAP = path.join(ROOT, "public", "sitemap.xml");
+
+const SEO_BLOCK_RE = /<!-- SEO:START[\s\S]*?SEO:END -->/;
+const ROOT_DIV = '<div id="root"></div>';
+
+function readRoutesFromSitemap() {
+  const xml = fs.readFileSync(SITEMAP, "utf-8");
+  const routes = [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+    .map((m) => new URL(m[1]).pathname)
+    .map((p) => (p !== "/" && p.endsWith("/") ? p.slice(0, -1) : p));
+  return [...new Set(routes)];
+}
+
+function buildHeadBlock(helmet) {
+  if (!helmet) return "";
+  return [
+    "<!-- SEO:START -->",
+    helmet.title.toString(),
+    helmet.meta.toString(),
+    helmet.link.toString(),
+    helmet.script.toString(),
+    "<!-- SEO:END -->",
+  ]
+    .filter(Boolean)
+    .join("\n    ");
+}
+
+// Host konvansiyonları değişir: kimi /rota → rota/index.html, kimi rota.html arar.
+// İkisini de üretiyoruz ki hangi CDN olursa olsun bot statik HTML alsın.
+function outputPathsFor(route) {
+  if (route === "/") return [path.join(DIST, "index.html")];
+  const parts = route.split("/").filter(Boolean);
+  return [
+    path.join(DIST, ...parts, "index.html"),
+    path.join(DIST, ...parts.slice(0, -1), `${parts[parts.length - 1]}.html`),
+  ];
+}
+
+async function main() {
+  if (!fs.existsSync(SERVER_ENTRY)) {
+    console.error(`✗ SSR bundle bulunamadı: ${SERVER_ENTRY}`);
+    console.error("  Önce: vite build --ssr src/entry-server.tsx --outDir dist-server");
+    process.exit(1);
+  }
+
+  const template = fs.readFileSync(path.join(DIST, "index.html"), "utf-8");
+  if (!SEO_BLOCK_RE.test(template) || !template.includes(ROOT_DIV)) {
+    console.error("✗ dist/index.html içinde SEO:START/SEO:END işaretleri veya #root bulunamadı.");
+    process.exit(1);
+  }
+
+  const { render } = await import(pathToFileURL(SERVER_ENTRY).href);
+  const routes = readRoutesFromSitemap();
+
+  let ok = 0;
+  const failed = [];
+
+  for (const route of routes) {
+    try {
+      const result = await Promise.race([
+        render(route),
+        new Promise((_, rej) => setTimeout(() => rej(new Error("timeout (30s)")), 30_000)),
+      ]);
+
+      const headBlock = buildHeadBlock(result.helmet);
+      let html = template;
+      if (headBlock) html = html.replace(SEO_BLOCK_RE, headBlock);
+      html = html.replace(ROOT_DIV, `<div id="root">${result.html}</div>`);
+
+      for (const outFile of outputPathsFor(route)) {
+        fs.mkdirSync(path.dirname(outFile), { recursive: true });
+        fs.writeFileSync(outFile, html, "utf-8");
+      }
+      ok++;
+    } catch (err) {
+      failed.push(route);
+      console.error(`✗ ${route}: ${err?.message ?? err}`);
+    }
+  }
+
+  console.log(`✓ Prerender tamamlandı: ${ok}/${routes.length} sayfa`);
+  if (failed.length) {
+    console.error(`✗ Başarısız rotalar (SPA kabuğuna düşer): ${failed.join(", ")}`);
+  }
+
+  // SSR bundle'ı deploy paketine dahil etme
+  fs.rmSync(path.join(ROOT, "dist-server"), { recursive: true, force: true });
+}
+
+main().then(() => process.exit(0)).catch((err) => {
+  console.error("✗ Prerender hatası:", err);
+  process.exit(1);
+});

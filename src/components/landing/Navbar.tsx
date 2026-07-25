@@ -47,6 +47,9 @@ const Navbar = () => {
             className={`absolute top-full right-0 mt-1 w-52 bg-background border border-border rounded-xl shadow-elevated transition-all duration-200 py-1.5 ${dropdownOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
             role="menu"
           >
+            <Link to="/hafriyat" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
+              Hafriyat İşleri
+            </Link>
             <Link to="/hizmetler/silobas" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
               Silobas Taşımacılığı
             </Link>
@@ -56,6 +59,9 @@ const Navbar = () => {
           </div>
         </div>
 
+        <Link to="/hafriyat" className="text-[13px] font-semibold text-foreground no-underline hover:text-primary transition-colors">
+          Hafriyat
+        </Link>
         <Link to="/tasiyici-olun" className="text-[13px] font-semibold text-foreground no-underline hover:text-primary transition-colors">
           Taşıyıcı Olun
         </Link>
@@ -71,9 +77,9 @@ const Navbar = () => {
           Giriş Yap
         </Link>
         <Link
-          to="/kayit"
+          to="/teklif-al"
           className="px-5 py-2 rounded-lg text-[13px] font-semibold text-primary-foreground bg-primary border-none no-underline transition-all shadow-[0_2px_8px_rgba(232,98,10,.28)] hover:bg-accent-hover hover:-translate-y-px">
-          Hesap Oluştur ↗
+          Üyeliksiz Teklif Al ↗
         </Link>
       </div>
 
@@ -87,6 +93,9 @@ const Navbar = () => {
         <div className="md:hidden absolute top-[70px] left-0 right-0 bg-background border-b border-border px-6 pb-5 animate-fade-down">
           <div className="flex flex-col gap-1 pt-3">
             <p className="text-[11px] font-semibold tracking-wider uppercase text-txt-2 mt-2 mb-1 px-1">Hizmetlerimiz</p>
+            <Link to="/hafriyat" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
+              Hafriyat İşleri
+            </Link>
             <Link to="/hizmetler/silobas" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
               Silobas Taşımacılığı
             </Link>
@@ -108,11 +117,16 @@ const Navbar = () => {
 
             <div className="border-t border-border my-2" />
 
-            <Link to="/giris" onClick={() => setOpen(false)} className="text-[13px] text-txt-2 py-2 px-1 no-underline">
-              Giriş Yap
-            </Link>
-            <Link to="/kayit" onClick={() => setOpen(false)} className="bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-[13px] font-semibold text-center no-underline mt-1">
-              Hesap Oluştur ↗
+            <div className="flex items-center gap-4">
+              <Link to="/giris" onClick={() => setOpen(false)} className="text-[13px] text-txt-2 py-2 px-1 no-underline">
+                Giriş Yap
+              </Link>
+              <Link to="/kayit" onClick={() => setOpen(false)} className="text-[13px] text-txt-2 py-2 px-1 no-underline">
+                Hesap Oluştur
+              </Link>
+            </div>
+            <Link to="/teklif-al" onClick={() => setOpen(false)} className="bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-[13px] font-semibold text-center no-underline mt-1">
+              Üyeliksiz Teklif Al ↗
             </Link>
           </div>
         </div>

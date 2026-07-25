@@ -89,7 +89,7 @@ const MalzemeStabilize = () => {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
-                    to="/kayit"
+                    to="/teklif-al"
                     className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all"
                   >
                     Hemen Teklif Al <ArrowRight className="inline ml-1 w-4 h-4" />
@@ -212,11 +212,11 @@ const MalzemeStabilize = () => {
               Stabilize Malzeme İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Hesap oluşturun, talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
-                to="/kayit"
+                to="/teklif-al"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all"
               >
                 Ücretsiz Teklif Al <ArrowRight className="w-4 h-4" />

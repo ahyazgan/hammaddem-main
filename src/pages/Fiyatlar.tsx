@@ -136,7 +136,7 @@ const Fiyatlar = () => {
                       <td className="px-6 py-4 text-right text-xs text-txt-3 whitespace-nowrap">{f.guncelleme}</td>
                       <td className="px-6 py-4 text-right">
                         <Link
-                          to="/kayit"
+                          to="/teklif-al"
                           className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-primary bg-accent-light border border-accent-border hover:bg-primary hover:text-white transition-colors no-underline"
                         >
                           Teklif Al <ArrowRight className="w-3 h-3" />
@@ -166,7 +166,7 @@ const Fiyatlar = () => {
                   </div>
                   <p className="text-[11px] text-txt-3 mb-3">{f.not}</p>
                   <Link
-                    to="/kayit"
+                    to="/teklif-al"
                     className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-primary bg-accent-light border border-accent-border no-underline"
                   >
                     Teklif Al <ArrowRight className="w-3 h-3" />
@@ -207,7 +207,7 @@ const Fiyatlar = () => {
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
-                to="/kayit"
+                to="/teklif-al"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-colors no-underline"
               >
                 Ücretsiz Teklif Al <ArrowRight className="w-4 h-4" />

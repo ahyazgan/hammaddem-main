@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HeroBgPattern from "./HeroBgPattern";
 import OrderCard from "./OrderCard";
 
@@ -22,15 +23,18 @@ const Hero = () => {
 
         {/* Title */}
         <h1 className="text-[26px] sm:text-[32px] md:text-[clamp(36px,5.2vw,62px)] font-extrabold leading-[1.12] sm:leading-[1.1] tracking-[-0.5px] sm:tracking-[-1px] md:tracking-[-1.5px] text-foreground mb-2.5 sm:mb-3 animate-fade-down" style={{ animationDelay: '.06s' }}>
-          Hammaddenize <span className="italic font-light text-txt-2">platform</span>
+          Hafriyat <span className="italic font-light text-txt-2">ve</span> hammadde işleriniz
           <br />
-          <span className="text-primary">gücüyle</span> ulaşın.
+          <span className="text-primary">tek platformda.</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-[13px] sm:text-sm md:text-base font-normal text-txt-2 leading-[1.65] max-w-[500px] mb-3 px-1 animate-fade-down" style={{ animationDelay: '.1s' }}>
-          Silobas yükü mü, hafriyat mı? Fark etmez — 2 dakikada talep oluşturun,
-          30 dakikada teklifiniz hazır, tırınız yolda.
+        <p className="text-[13px] sm:text-sm md:text-base font-normal text-txt-2 leading-[1.65] max-w-[520px] mb-3 px-1 animate-fade-down" style={{ animationDelay: '.1s' }}>
+          Temel kazısı, hafriyat taşıma, moloz ya da silobas yükü — 2 dakikada
+          talep oluşturun, 30 dakikada net fiyat teklifiniz hazır.{" "}
+          <Link to="/hafriyat" className="font-semibold text-navy hover:underline">
+            Hafriyat işleri sayfası →
+          </Link>
         </p>
 
         {/* Stats row */}

@@ -81,7 +81,7 @@ const BolgeKocaeli = () => {
                   Kocaeli ve Gebze'de silobas taşımacılığı, hafriyat tedariği. Dilovası, GOSB bölgesi teslimat. Online teklif.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Link to="/kayit" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
+                  <Link to="/teklif-al" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
                     Hemen Teklif Al <ArrowRight className="inline ml-1 w-4 h-4" />
                   </Link>
                   <a href="tel:+905393308617" className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all">
@@ -177,10 +177,10 @@ const BolgeKocaeli = () => {
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kocaeli İçin Teklif Alın</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Hesap oluşturun, talep formunu doldurun, dakikalar içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, dakikalar içinde size özel fiyat teklifi alın.
             </p>
-            <Link to="/kayit" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
-              Teklif Alın / Kayıt Olun <ArrowRight className="w-4 h-4" />
+            <Link to="/teklif-al" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
+              Üyeliksiz Teklif Al <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </section>

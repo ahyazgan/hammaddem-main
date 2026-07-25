@@ -10,17 +10,24 @@ const BASE_URL = 'https://hammaddem.co';
 const ROUTES = [
   // Ana sayfalar
   { path: '/', priority: '1.0', changefreq: 'weekly' },
-  
+  { path: '/hammadde', priority: '0.9', changefreq: 'monthly' },
+  { path: '/fiyatlar', priority: '0.9', changefreq: 'weekly' },
+
+  // Teklif ve hafriyat sayfaları
+  { path: '/teklif-al', priority: '0.9', changefreq: 'weekly' },
+  { path: '/hafriyat', priority: '0.9', changefreq: 'weekly' },
+
   // Hizmet sayfaları
   { path: '/hizmetler/silobas', priority: '0.8', changefreq: 'monthly' },
   { path: '/hizmetler/hafriyat-nakliyesi', priority: '0.8', changefreq: 'monthly' },
-  
+
   // Kurumsal sayfalar
   { path: '/hakkimizda', priority: '0.7', changefreq: 'monthly' },
   { path: '/iletisim', priority: '0.7', changefreq: 'monthly' },
   { path: '/tasiyici-olun', priority: '0.7', changefreq: 'monthly' },
   { path: '/sss', priority: '0.6', changefreq: 'monthly' },
-  
+  { path: '/talep-takip', priority: '0.6', changefreq: 'monthly' },
+
   // Yasal sayfalar
   { path: '/kullanim-kosullari', priority: '0.3', changefreq: 'yearly' },
   { path: '/gizlilik-politikasi', priority: '0.3', changefreq: 'yearly' },
@@ -45,7 +52,25 @@ const ROUTES = [
   { path: '/hizmet-bolgeleri/izmir', priority: '0.8', changefreq: 'monthly' },
   { path: '/hizmet-bolgeleri/bursa', priority: '0.8', changefreq: 'monthly' },
   { path: '/hizmet-bolgeleri/kocaeli', priority: '0.8', changefreq: 'monthly' },
+  { path: '/hizmet-bolgeleri/tekirdag', priority: '0.8', changefreq: 'monthly' },
+  { path: '/hizmet-bolgeleri/sakarya', priority: '0.8', changefreq: 'monthly' },
+  { path: '/hizmet-bolgeleri/yalova', priority: '0.8', changefreq: 'monthly' },
+  { path: '/hizmet-bolgeleri/balikesir', priority: '0.8', changefreq: 'monthly' },
+  { path: '/hizmet-bolgeleri/canakkale', priority: '0.8', changefreq: 'monthly' },
+  { path: '/hizmet-bolgeleri/edirne', priority: '0.8', changefreq: 'monthly' },
 ];
+
+// Hafriyat il sayfaları (src/data/hafriyatData.ts ile eşleşmeli)
+const HAFRIYAT_ILLER = ['istanbul', 'kocaeli', 'bursa', 'tekirdag', 'sakarya', 'yalova', 'balikesir', 'canakkale', 'edirne', 'ankara', 'izmir'];
+// Hafriyat İstanbul ilçe sayfaları
+const HAFRIYAT_ISTANBUL_ILCELER = ['esenyurt', 'basaksehir', 'arnavutkoy', 'tuzla', 'pendik', 'sancaktepe', 'beylikduzu', 'umraniye'];
+
+HAFRIYAT_ILLER.forEach(il => {
+  ROUTES.push({ path: `/hafriyat/${il}`, priority: '0.8', changefreq: 'weekly' });
+});
+HAFRIYAT_ISTANBUL_ILCELER.forEach(ilce => {
+  ROUTES.push({ path: `/hafriyat/istanbul/${ilce}`, priority: '0.7', changefreq: 'weekly' });
+});
 
 // Malzeme ve şehir kombinasyonları
 const MALZEMELER = ['cimento', 'kalsit', 'kirec', 'alci', 'mermer-tozu', 'ucucu-kul', 'kum', 'cakil', 'micir', 'stabilize'];

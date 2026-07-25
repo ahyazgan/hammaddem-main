@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 const sorular = [
   {
     soru: "Hammaddem nedir ve nasıl çalışır?",
-    cevap: "Hammaddem, hammadde tedarik ve lojistik süreçlerini dijitalleştiren bir B2B platformdur. Ücretsiz hesap oluşturup talep formunu doldurursunuz, dakikalar içinde size özel fiyat teklifi alırsınız. Teklifi onayladığınızda taşıma süreci başlar ve teslimatınızı dijital panelden takip edebilirsiniz.",
+    cevap: "Hammaddem, hafriyat işleri ile hammadde tedarik ve lojistik süreçlerini dijitalleştiren bir platformdur. Üye olmadan misafir olarak talep formunu doldurursunuz, dakikalar içinde size özel fiyat teklifi alırsınız. Dilerseniz ücretsiz hesap oluşturarak teslimatlarınızı dijital panelden de takip edebilirsiniz.",
   },
   {
     soru: "Hangi malzemelerin taşımacılığını yapıyorsunuz?",
@@ -16,7 +16,7 @@ const sorular = [
   },
   {
     soru: "Teklif almak ücretli mi?",
-    cevap: "Hayır, teklif almak tamamen ücretsizdir. Hesap oluşturup talebinizi iletmeniz yeterlidir. Size en uygun fiyatı sunmak için çalışıyoruz.",
+    cevap: "Hayır, teklif almak tamamen ücretsizdir ve üyelik gerektirmez. Talep formunu misafir olarak doldurmanız yeterlidir; size en uygun fiyatı sunmak için çalışıyoruz.",
   },
   {
     soru: "Hangi illerde hizmet veriyorsunuz?",

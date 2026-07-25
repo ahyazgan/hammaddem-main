@@ -64,10 +64,10 @@ const Hakkimizda = () => (
             Hammadde tedarik süreçlerinizi dijitalleştirin, zamandan ve maliyetten tasarruf edin.
           </p>
           <Link
-            to="/kayit"
+            to="/teklif-al"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all"
           >
-            Ücretsiz Hesap Oluştur <ArrowRight className="w-4 h-4" />
+            Üyeliksiz Teklif Al <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

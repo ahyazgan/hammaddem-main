@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Truck, Mountain, Package, MapPin, FileText, CheckCircle } from "lucide-react";
 
 const hizmetler = [
@@ -7,13 +8,17 @@ const hizmetler = [
     desc: "Çimento, kül, kalsit ve tüm toz/granül sanayi malzemeleri için silobas hizmeti.",
     products: ["Çimento", "Alçı", "Kireç", "Kalsit", "Mermer Tozu", "Kül", "Curuf"],
     color: "orange" as const,
+    href: "#siparis-formu",
+    linkLabel: "Teklif Al →",
   },
   {
     icon: Mountain,
-    title: "Hafriyat Malzemeleri",
-    desc: "Kum, çakıl, mıcır, stabilize ve her türlü hafriyat malzemesi tedariği.",
-    products: ["Kum", "Çakıl", "Mıcır", "Kırma Taş", "Toprak", "Stabilize", "Balast"],
+    title: "Hafriyat İşleri & Malzemeleri",
+    desc: "Temel kazısı, hafriyat toprağı taşıma, moloz kaldırma ve kum, çakıl, mıcır, stabilize tedariği.",
+    products: ["Temel Kazısı", "Moloz", "Kum", "Çakıl", "Mıcır", "Stabilize", "Dolgu"],
     color: "navy" as const,
+    href: "/hafriyat",
+    linkLabel: "Hafriyat Sayfası →",
   },
 ];
 
@@ -77,9 +82,15 @@ const Hizmetler = () => {
                   </div>
                   <span className="text-xs text-txt-2 font-medium">11 İl</span>
                 </div>
-                <a href="#siparis-formu" className={`text-xs font-semibold no-underline ${h.color === "orange" ? "text-primary" : "text-navy"}`}>
-                  Teklif Al →
-                </a>
+                {h.href.startsWith("#") ? (
+                  <a href={h.href} className={`text-xs font-semibold no-underline ${h.color === "orange" ? "text-primary" : "text-navy"}`}>
+                    {h.linkLabel}
+                  </a>
+                ) : (
+                  <Link to={h.href} className={`text-xs font-semibold no-underline ${h.color === "orange" ? "text-primary" : "text-navy"}`}>
+                    {h.linkLabel}
+                  </Link>
+                )}
               </div>
             </div>
           ))}

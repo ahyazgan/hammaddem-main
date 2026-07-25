@@ -10,11 +10,14 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import WhatsAppButton from "./components/WhatsAppButton";
 import CookieConsent from "./components/CookieConsent";
 import { kombinasyonRoutes } from "./pages/kombinasyon/kombinasyonRoutes";
+import { hafriyatRoutes } from "./pages/hafriyat/hafriyatRoutes";
 
 // Eager: ana sayfa hemen yüklenmeli
 import Index from "./pages/Index";
 
 // Lazy: diğer sayfalar ihtiyaç halinde yüklensin
+const HafriyatHub = lazy(() => import("./pages/hafriyat/HafriyatHub"));
+const TeklifAl = lazy(() => import("./pages/TeklifAl"));
 const Giris = lazy(() => import("./pages/Giris"));
 const Kayit = lazy(() => import("./pages/Kayit"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -102,19 +105,17 @@ const GoogleAnalytics = () => {
   return null;
 };
 
-const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <ErrorBoundary>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <GoogleAnalytics />
-            <AuthProvider>
-              <Suspense fallback={<PageLoader />}>
-              <Routes>
+// Router hariç tüm uygulama ağacı — prerender (SSR) girişi de bunu kullanır.
+export const AppRoutes = () => (
+  <ErrorBoundary>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <ScrollToTop />
+      <GoogleAnalytics />
+      <AuthProvider>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/giris" element={<Giris />} />
                 <Route path="/kayit" element={<Kayit />} />
@@ -127,6 +128,11 @@ const App = () => (
                 <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
                 <Route path="/hizmetler/silobas" element={<HizmetSilobas />} />
                 <Route path="/hizmetler/hafriyat-nakliyesi" element={<HizmetHafriyat />} />
+                <Route path="/teklif-al" element={<TeklifAl />} />
+                <Route path="/hafriyat" element={<HafriyatHub />} />
+                {hafriyatRoutes.map((r) => (
+                  <Route key={r.path} path={r.path} element={r.element} />
+                ))}
                 <Route path="/hakkimizda" element={<Hakkimizda />} />
                 <Route path="/iletisim" element={<Iletisim />} />
                 <Route path="/tasiyici-olun" element={<TasiyiciOlun />} />
@@ -159,14 +165,21 @@ const App = () => (
                   <Route key={r.path} path={r.path} element={r.element} />
                 ))}
                 <Route path="*" element={<NotFound />} />
-              </Routes>
-              </Suspense>
-              <WhatsAppButton />
-              <CookieConsent />
-            </AuthProvider>
-          </BrowserRouter>
-        </TooltipProvider>
-      </ErrorBoundary>
+          </Routes>
+        </Suspense>
+        <WhatsAppButton />
+        <CookieConsent />
+      </AuthProvider>
+    </TooltipProvider>
+  </ErrorBoundary>
+);
+
+const App = () => (
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </QueryClientProvider>
   </HelmetProvider>
 );

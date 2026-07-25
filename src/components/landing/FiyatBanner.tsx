@@ -30,7 +30,7 @@ const FiyatBanner = ({ fiyat }: FiyatBannerProps) => {
             </div>
           </div>
           <Link
-            to="/kayit"
+            to="/teklif-al"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all whitespace-nowrap"
           >
             Güncel Fiyat Teklifi Al <ArrowRight className="w-4 h-4" />

@@ -117,7 +117,7 @@ const Hammadde = () => {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
-                  to="/kayit"
+                  to="/teklif-al"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
                 >
                   Ücretsiz Teklif Al <ArrowRight className="w-4 h-4" />
@@ -255,7 +255,7 @@ const Hammadde = () => {
               30 dakika içinde fiyat teklifi alın, ihtiyaç duyduğunuz hammaddeyi en uygun koşullarda tedarik edin.
             </p>
             <Link
-              to="/kayit"
+              to="/teklif-al"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-colors"
             >
               Ücretsiz Teklif Al <ArrowRight className="w-4 h-4" />

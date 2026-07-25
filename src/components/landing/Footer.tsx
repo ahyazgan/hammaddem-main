@@ -42,6 +42,8 @@ const Footer = () => {
         <div>
           <h4 className="text-[11px] font-bold tracking-wider uppercase text-txt-3 mb-4">Hizmetlerimiz</h4>
           <ul className="list-none flex flex-col gap-2.5">
+            <li><Link to="/teklif-al" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Üyeliksiz Teklif Al</Link></li>
+            <li><Link to="/hafriyat" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat İşleri</Link></li>
             <li><Link to="/hizmetler/silobas" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Silobas Yükü</Link></li>
             <li><Link to="/hizmetler/hafriyat-nakliyesi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat &amp; İnşaat</Link></li>
             <li><Link to="/hammadde" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hammadde Tedarik</Link></li>
@@ -75,6 +77,9 @@ const Footer = () => {
             <li><Link to="/hizmet-bolgeleri/izmir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">İzmir</Link></li>
             <li><Link to="/hizmet-bolgeleri/bursa" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Bursa</Link></li>
             <li><Link to="/hizmet-bolgeleri/kocaeli" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kocaeli</Link></li>
+            <li><Link to="/hafriyat/istanbul" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">İstanbul Hafriyat</Link></li>
+            <li><Link to="/hafriyat/kocaeli" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kocaeli Hafriyat</Link></li>
+            <li><Link to="/hafriyat/bursa" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Bursa Hafriyat</Link></li>
           </ul>
         </div>
 

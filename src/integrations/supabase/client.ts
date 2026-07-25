@@ -8,10 +8,13 @@ const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
+// Prerender (Node) ortamında localStorage bulunmaz; tarayıcıda normal davranış korunur.
+const hasLocalStorage = typeof localStorage !== "undefined";
+
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
-    storage: localStorage,
-    persistSession: true,
-    autoRefreshToken: true,
+    storage: hasLocalStorage ? localStorage : undefined,
+    persistSession: hasLocalStorage,
+    autoRefreshToken: hasLocalStorage,
   }
 });

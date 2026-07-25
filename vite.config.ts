@@ -16,4 +16,8 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  ssr: {
+    // CJS paketler prerender'da named-export hatası vermesin diye bundle'a alınır
+    noExternal: ["react-helmet-async"],
+  },
 }));
