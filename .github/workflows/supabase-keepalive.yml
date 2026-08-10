@@ -1,0 +1,53 @@
+# Supabase free tier, 7 gün istek almayan projeleri otomatik olarak duraklatır.
+# Site canlı olsa da DB'ye trafik gitmediği sürece bu tetiklenir; bu workflow
+# iki günde bir salt-okunur bir sorgu atarak projeyi uyanık tutar.
+#
+# Gerekli repo secret'ları (Settings → Secrets and variables → Actions):
+#   SUPABASE_URL       → https://vcoogvrudvzsxfmrodov.supabase.co
+#   SUPABASE_ANON_KEY  → publishable/anon key (istemci paketinde zaten public)
+#
+# NOT: GitHub, 60 gün hiç aktivite görmeyen repolarda zamanlanmış workflow'ları
+# devre dışı bırakır ve uyarı maili gönderir. O mail gelirse Actions sekmesinden
+# workflow'u tek tıkla yeniden etkinleştir.
+
+name: Supabase Keepalive
+
+on:
+  schedule:
+    # İki günde bir 06:00 UTC. GitHub cron'u yoğunlukta geciktirebilir,
+    # 7 günlük eşiğe karşı bu aralık fazlasıyla güvenli.
+    - cron: "0 6 */2 * *"
+  workflow_dispatch: # Elle tetikleme
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Supabase'e salt-okunur sorgu at
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_URL}" ] || [ -z "${SUPABASE_ANON_KEY}" ]; then
+            echo "::error::SUPABASE_URL ve SUPABASE_ANON_KEY secret'ları tanımlı değil."
+            exit 1
+          fi
+
+          # site_settings herkese açık SELECT politikasına sahip; limit=1 ile
+          # tek satır okunur, hiçbir veri değiştirilmez.
+          status=$(curl -sS -o /tmp/response.txt -w "%{http_code}" \
+            "${SUPABASE_URL}/rest/v1/site_settings?select=id&limit=1" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}")
+
+          echo "HTTP ${status}"
+          cat /tmp/response.txt
+
+          if [ "${status}" != "200" ]; then
+            echo "::error::Supabase beklenmeyen yanıt verdi (HTTP ${status}). Proje duraklatılmış veya key geçersiz olabilir."
+            exit 1
+          fi
+
+          echo "✓ Supabase uyanık."

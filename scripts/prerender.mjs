@@ -1,5 +1,5 @@
 /**
- * Prerender script — sitemap'teki her rota için statik HTML üretir.
+ * Prerender script — generate-sitemap.cjs'teki her rota için statik HTML üretir.
  *
  * Akış (package.json "build"):
  *   1. vite build                    → dist/           (istemci)
@@ -12,22 +12,26 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { createRequire } from "node:module";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 const SERVER_ENTRY = path.join(ROOT, "dist-server", "entry-server.js");
-const SITEMAP = path.join(ROOT, "public", "sitemap.xml");
 
 const SEO_BLOCK_RE = /<!-- SEO:START[\s\S]*?SEO:END -->/;
 const ROOT_DIV = '<div id="root"></div>';
 
-function readRoutesFromSitemap() {
-  const xml = fs.readFileSync(SITEMAP, "utf-8");
-  const routes = [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
-    .map((m) => new URL(m[1]).pathname)
-    .map((p) => (p !== "/" && p.endsWith("/") ? p.slice(0, -1) : p));
+// Rota listesi sitemap'ten değil generate-sitemap.cjs'ten gelir: sitemap dışı
+// bırakılan (noindex) sayfalar da statik HTML almalı, yoksa SPA kabuğuna düşüp
+// ana sayfanın title/canonical/robots etiketleriyle servis edilirler.
+function readRoutes() {
+  const require = createRequire(import.meta.url);
+  const { ROUTES } = require("./generate-sitemap.cjs");
+  const routes = ROUTES.map((r) => r.path).map((p) =>
+    p !== "/" && p.endsWith("/") ? p.slice(0, -1) : p
+  );
   return [...new Set(routes)];
 }
 
@@ -70,7 +74,7 @@ async function main() {
   }
 
   const { render } = await import(pathToFileURL(SERVER_ENTRY).href);
-  const routes = readRoutesFromSitemap();
+  const routes = readRoutes();
 
   let ok = 0;
   const failed = [];

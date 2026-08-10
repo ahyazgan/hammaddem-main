@@ -8,7 +8,7 @@ const CerezPolitikasi = () => (
       <title>Çerez Politikası – Hammaddem</title>
       <meta name="description" content="Hammaddem çerez politikası. Sitede kullanılan çerezler, türleri ve yönetimi." />
       <link rel="canonical" href="https://hammaddem.co/cerez-politikasi" />
-      <meta name="robots" content="noindex, nofollow" />
+      <meta name="robots" content="index, follow" />
     </Helmet>
     <div className="max-w-[720px] mx-auto px-4 md:px-8 py-16 md:py-24">
       <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10 no-underline">

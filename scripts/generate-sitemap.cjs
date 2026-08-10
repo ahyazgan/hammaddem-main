@@ -1,6 +1,11 @@
 /**
  * Sitemap Generator Script
- * Dinamik olarak sitemap.xml dosyası oluşturur
+ * Dinamik olarak sitemap.xml dosyası oluşturur.
+ *
+ * ROUTES listesi aynı zamanda prerender.mjs'in kaynağıdır (module.exports).
+ * `sitemap: false` işaretli rotalar prerender EDİLİR ama sitemap'e YAZILMAZ —
+ * noindex sayfalar için: sitemap ile robots etiketi çelişmesin, ama sayfa yine
+ * de kendi statik HTML'ini alsın (aksi halde ana sayfa kabuğuna düşerdi).
  */
 
 const fs = require('fs');
@@ -26,7 +31,8 @@ const ROUTES = [
   { path: '/iletisim', priority: '0.7', changefreq: 'monthly' },
   { path: '/tasiyici-olun', priority: '0.7', changefreq: 'monthly' },
   { path: '/sss', priority: '0.6', changefreq: 'monthly' },
-  { path: '/talep-takip', priority: '0.6', changefreq: 'monthly' },
+  // noindex: kullanıcının kendi talebini sorguladığı araç sayfası, arama sonucu değeri yok
+  { path: '/talep-takip', priority: '0.6', changefreq: 'monthly', sitemap: false },
 
   // Yasal sayfalar
   { path: '/kullanim-kosullari', priority: '0.3', changefreq: 'yearly' },
@@ -87,13 +93,16 @@ MALZEMELER.forEach(malzeme => {
   });
 });
 
+// Sitemap'e girecek rotalar (prerender listesi ROUTES'un tamamıdır)
+const SITEMAP_ROUTES = ROUTES.filter(route => route.sitemap !== false);
+
 function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];
-  
+
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-  
-  ROUTES.forEach(route => {
+
+  SITEMAP_ROUTES.forEach(route => {
     xml += '  <url>\n';
     xml += `    <loc>${BASE_URL}${route.path}</loc>\n`;
     xml += `    <lastmod>${today}</lastmod>\n`;
@@ -107,10 +116,13 @@ function generateSitemap() {
   return xml;
 }
 
-// Sitemap dosyasını oluştur
-const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
-const sitemapContent = generateSitemap();
+// prerender.mjs bu listeyi doğrudan okur — sitemap ile prerender kapsamı ayrışabilsin diye
+module.exports = { ROUTES, SITEMAP_ROUTES };
 
-fs.writeFileSync(sitemapPath, sitemapContent, 'utf-8');
-console.log(`✓ Sitemap başarıyla oluşturuldu: ${sitemapPath}`);
-console.log(`✓ Toplam URL sayısı: ${ROUTES.length}`);
+// Doğrudan çalıştırıldığında sitemap dosyasını yaz
+if (require.main === module) {
+  const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
+  fs.writeFileSync(sitemapPath, generateSitemap(), 'utf-8');
+  console.log(`✓ Sitemap başarıyla oluşturuldu: ${sitemapPath}`);
+  console.log(`✓ Sitemap URL sayısı: ${SITEMAP_ROUTES.length} (prerender: ${ROUTES.length})`);
+}
