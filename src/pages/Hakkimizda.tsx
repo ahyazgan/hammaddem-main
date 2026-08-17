@@ -36,9 +36,14 @@ const Hakkimizda = () => (
             Amacımız; üreticiler, tedarikçiler ve taşıyıcılar arasındaki bağlantıyı hızlandırmak,
             maliyetleri düşürmek ve süreçleri şeffaf hale getirmektir.
           </p>
-          <p className="text-base text-txt-2 leading-[1.7] mb-12 max-w-[640px]">
+          <p className="text-base text-txt-2 leading-[1.7] mb-6 max-w-[640px]">
             İstanbul merkezli ekibimiz, sektördeki yıllara dayanan deneyimini teknoloji ile birleştirerek
             hem alıcılara hem de taşıyıcılara değer yaratan bir ekosistem inşa etmektedir.
+          </p>
+          <p className="text-base text-txt-2 leading-[1.7] mb-12 max-w-[640px]">
+            Hammaddem bir <strong>Yazgan Nakliyat</strong> kuruluşudur: masa başı bir aracı değil,
+            nakliye sektörünün içinden gelen bir işletmeyiz. Taşımalar kendi araç kapasitemiz ve
+            anlaşmalı taşıyıcı ağımızla yürütülür; işi hem ekrandan hem sahadan biliriz.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

@@ -80,6 +80,7 @@ const Iletisim = () => {
                   <div>
                     <h3 className="font-bold text-base mb-1">Adres</h3>
                     <p className="text-sm text-txt-2">İstanbul, Türkiye</p>
+                    <p className="text-xs text-txt-3 mt-1.5">İşletme: Hammaddem — Yazgan Nakliyat</p>
                   </div>
                 </div>
               </div>

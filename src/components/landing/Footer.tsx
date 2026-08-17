@@ -13,6 +13,7 @@ const Footer = () => {
           </Link>
           <p className="text-[13px] text-txt-2 leading-[1.75] mb-5">
             Türkiye genelinde hammadde tedarik ve lojistik çözümleri sunan dijital platform.
+            Hammaddem, bir <strong className="text-txt-2 font-semibold">Yazgan Nakliyat</strong> kuruluşudur.
           </p>
           <div className="flex flex-col gap-2">
             <a href="tel:+905393308617" className="flex items-center gap-2 text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">
@@ -107,7 +108,7 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="max-w-[1100px] mx-auto px-4 md:px-10 border-t border-border py-5 flex items-center justify-between flex-wrap gap-3">
-        <span className="text-xs text-txt-3">© 2026 Hammaddem. Tüm hakları saklıdır.</span>
+        <span className="text-xs text-txt-3">© 2026 Hammaddem — Yazgan Nakliyat. Tüm hakları saklıdır.</span>
         <div className="flex items-center gap-4">
           <Link to="/cerez-politikasi" className="text-xs text-txt-3 no-underline hover:text-txt-2 transition-colors">Çerez Politikası</Link>
           <span className="inline-flex items-center gap-[5px] px-2.5 py-[3px] rounded-full bg-success-light border border-success-border text-[10px] font-semibold text-success font-mono">
