@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin, Building2 } from "lucide-react";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildProductOfferJsonLd } from "@/utils/seoSchemas";
 import { getKomboIcerik } from "@/data/kombinasyonData";
+import FiyatBanner from "@/components/landing/FiyatBanner";
+import { getFiyatBySlug } from "@/data/fiyatData";
 
 const MALZEME_ETIKET: Record<string, string> = {
   cimento: "Çimento",
@@ -30,6 +32,16 @@ const SEHIR_ETIKET: Record<string, string> = {
   kocaeli: "Kocaeli",
 };
 
+// Şehir adının doğru çekim ekleri — şablonla "'da/'a" basmak
+// İzmir'de ve Kocaeli'nde için yanlış sonuç veriyordu.
+const SEHIR_EK: Record<string, { bulunma: string; yonelme: string }> = {
+  istanbul: { bulunma: "İstanbul'da", yonelme: "İstanbul'a" },
+  ankara: { bulunma: "Ankara'da", yonelme: "Ankara'ya" },
+  izmir: { bulunma: "İzmir'de", yonelme: "İzmir'e" },
+  bursa: { bulunma: "Bursa'da", yonelme: "Bursa'ya" },
+  kocaeli: { bulunma: "Kocaeli'nde", yonelme: "Kocaeli'ne" },
+};
+
 interface Props {
   malzemeSlug: string;
   sehirSlug: string;
@@ -43,10 +55,13 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
   const kombo = getKomboIcerik(malzemeSlug, sehirSlug);
   const malzemeAdi = MALZEME_ETIKET[malzemeSlug] ?? malzemeSlug;
   const sehirAdi = SEHIR_ETIKET[sehirSlug] ?? sehirSlug;
+  const sehirDe = SEHIR_EK[sehirSlug]?.bulunma ?? `${sehirAdi}'da`;
+  const sehirE = SEHIR_EK[sehirSlug]?.yonelme ?? `${sehirAdi}'a`;
+  const fiyat = getFiyatBySlug(malzemeSlug);
 
   const faqSorular = kombo?.faq ?? [
     {
-      q: `${sehirAdi}'da ${malzemeAdi} silobas taşıma nasıl çalışır?`,
+      q: `${sehirDe} ${malzemeAdi} silobas taşıma nasıl çalışır?`,
       a: `Hammaddem platformu üzerinden talep oluşturun; ${sehirAdi} bölgesindeki araç filomuz 30 dakika içinde size özel fiyat teklifi sunar.`,
     },
   ];
@@ -59,25 +74,25 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
 
   const faqJsonLd = buildFaqJsonLd(faqSorular);
 
-  const localBusinessJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: `Hammaddem – ${sehirAdi} ${malzemeAdi} Tedariği`,
-    description,
-    url: canonical,
-    telephone: "+905393308617",
-    areaServed: { "@type": "City", name: sehirAdi, containedInPlace: { "@type": "Country", name: "Türkiye" } },
-  };
-
+  // Not: fiziksel şube olmayan şehirlerde adressiz LocalBusiness basmak
+  // spam sinyali riski taşır — şehir sayfalarında Service şeması kullanılır.
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `${sehirAdi} ${malzemeAdi} Silobas Taşıma`,
     description,
-    provider: { "@type": "Organization", name: "Hammaddem", url: "https://hammaddem.co" },
-    areaServed: { "@type": "City", name: sehirAdi },
+    provider: { "@type": "Organization", name: "Hammaddem", url: "https://hammaddem.co", telephone: "+905393308617" },
+    areaServed: { "@type": "City", name: sehirAdi, containedInPlace: { "@type": "Country", name: "Türkiye" } },
     url: canonical,
   };
+
+  const productJsonLd = fiyat
+    ? buildProductOfferJsonLd(fiyat, {
+        name: `${sehirAdi} ${malzemeAdi}`,
+        description,
+        url: canonical,
+      })
+    : null;
 
   const digerSehirler = TUM_SEHIRLER.filter((s) => s !== sehirSlug);
   const digerMalzemeler = TUM_MALZEMELER.filter((m) => m !== malzemeSlug).slice(0, 6);
@@ -96,8 +111,8 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
-        <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+        {productJsonLd && <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>}
       </Helmet>
 
       <div className="min-h-screen bg-dot-pattern">
@@ -117,7 +132,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
                   </span>
                 </div>
                 <h1 className="text-[clamp(28px,4vw,46px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  {sehirAdi}&apos;da {malzemeAdi} Silobas Taşıma
+                  {sehirDe} {malzemeAdi} Silobas Taşıma
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   {description}
@@ -140,12 +155,15 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
           </div>
         </section>
 
+        {/* Fiyat Banner — gerçek fiyat aralığı şehir sayfalarında da görünür */}
+        {fiyat && <FiyatBanner fiyat={fiyat} />}
+
         {/* Benzersiz tanıtım */}
         {kombo && (
           <section className="py-16 px-4 md:px-10 bg-off">
             <div className="max-w-[1100px] mx-auto">
               <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
-                {sehirAdi}&apos;da {malzemeAdi} Tedariği Hakkında
+                {sehirDe} {malzemeAdi} Tedariği Hakkında
               </h2>
               <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
                 <p>{kombo.aciklama}</p>
@@ -158,10 +176,10 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
         <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
-              {sehirAdi}&apos;da {malzemeAdi} Silobas Taşıma Nasıl Çalışır?
+              {sehirDe} {malzemeAdi} Silobas Taşıma Nasıl Çalışır?
             </h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
-              <p>{kombo?.hizmetDetay ?? `${sehirAdi}'da ${malzemeAdi} silobas taşıma için Hammaddem platformunu kullanın. Online talep formunu doldurarak 30 dakika içinde size özel fiyat teklifi alabilirsiniz.`}</p>
+              <p>{kombo?.hizmetDetay ?? `${sehirDe} ${malzemeAdi} silobas taşıma için Hammaddem platformunu kullanın. Online talep formunu doldurarak 30 dakika içinde size özel fiyat teklifi alabilirsiniz.`}</p>
             </div>
           </div>
         </section>
@@ -192,7 +210,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
         <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">
-              {sehirAdi}&apos;da {malzemeAdi} İçin Neden Hammaddem?
+              {sehirDe} {malzemeAdi} İçin Neden Hammaddem?
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
@@ -222,7 +240,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
               {sehirAdi} {malzemeAdi} İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde {sehirAdi}&apos;a özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde {sehirE} özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/teklif-al" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">

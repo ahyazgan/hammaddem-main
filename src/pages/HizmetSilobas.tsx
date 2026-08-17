@@ -24,15 +24,32 @@ const nasılCalısır = [
   { step: "04", title: "Teslimat", desc: "Silobas aracı ile güvenli teslimat yapılır." },
 ];
 
+const faq = [
+  { q: "Silobas taşımacılığı yapan firmalar nasıl seçilir?", a: "Silobas taşımacılığı yapan firmalar arasında seçim yaparken; araç filosunun pnömatik boşaltma donanımı, gıda/kimyasal uyumluluğu, sigorta kapsamı ve düzenli sefer kapasitesine bakılmalıdır. Hammaddem, 11 ilde çalışan silobas firmalarının kapasitesini tek platformda birleştirir." },
+  { q: "Silobas kiralama nasıl çalışır, ücreti nedir?", a: "Silobas kiralama; sefer bazlı, günlük veya aylık sözleşmeyle yapılabilir. Ücret; mesafe, malzeme türü, sefer sayısı ve bekleme süresine göre belirlenir. Düzenli sevkiyatlarda sefer başı maliyet belirgin şekilde düşer — ihtiyacınızı iletin, aynı gün kiralama teklifi alın." },
+  { q: "Hangi yükler silobas ile taşınır?", a: "Silobas yalnızca toz ve ince granül dökme yükler için uygundur: çimento, uçucu kül, kireç, kalsit, alçı, mermer tozu, silis kumu, talk, barit gibi. Kum, çakıl ve mıcır gibi iri agregalar silobasla değil damperli araçla taşınır." },
+  { q: "Silobas aracı nasıl boşaltma yapar?", a: "Silobas, kompresör yardımıyla ürünü basınçlı hava ile alıcı silosuna aktarır (pnömatik boşaltma). Boşaltma süresi yükün türüne göre 30-90 dakika arasındadır ve ürün hava ile temas etmeden aktarılır." },
+];
+
 const HizmetSilobas = () => {
+  // Not: /hizmetler diye bir rota yok — breadcrumb var olmayan URL'e işaret etmemeli.
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://hammaddem.co/" },
-      { "@type": "ListItem", position: 2, name: "Hizmetler", item: "https://hammaddem.co/hizmetler" },
-      { "@type": "ListItem", position: 3, name: "Silobas Taşımacılığı", item: "https://hammaddem.co/hizmetler/silobas" },
+      { "@type": "ListItem", position: 2, name: "Silobas Taşımacılığı", item: "https://hammaddem.co/hizmetler/silobas" },
     ],
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
   };
 
   const serviceJsonLd = {
@@ -56,9 +73,9 @@ const HizmetSilobas = () => {
   return (
     <>
       <Helmet>
-        <title>Silobas Taşımacılığı – Çimento, Kalsit, Kül | Hammaddem</title>
-        <meta name="description" content="Silobas ile çimento, kalsit, kül, kireç ve tüm toz/granül hammadde taşımacılığı. 11 ilde hızlı teslimat, online teklif. Hammaddem ile güvenle taşıyın." />
-        <meta name="keywords" content="silobas taşımacılığı, silobas hizmeti, çimento taşıma, kalsit taşıma, toz malzeme taşıma, pnömatik silobas, hammadde taşıma, nakliye" />
+        <title>Silobas Taşımacılığı & Silobas Kiralama | Hammaddem</title>
+        <meta name="description" content="Silobas taşımacılığı yapan firma mı arıyorsunuz? Çimento, kalsit, kül, kireç taşıma ve sefer bazlı silobas kiralama. 11 ilde teslimat, 30 dakikada teklif." />
+        <meta name="keywords" content="silobas taşımacılığı, silobas kiralama, silobas taşımacılığı yapan firmalar, silobas firmaları, çimento taşıma, kalsit taşıma, pnömatik silobas, toz malzeme taşıma" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://hammaddem.co/hizmetler/silobas" />
@@ -72,6 +89,7 @@ const HizmetSilobas = () => {
         <meta name="twitter:description" content="Silobas ile çimento, kalsit, kül taşımacılığı. 11 ilde hızlı teslimat." />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-dot-pattern">
@@ -86,12 +104,12 @@ const HizmetSilobas = () => {
                   Silobas Hizmeti
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Silobas Taşımacılığı
+                  Silobas Taşımacılığı & Kiralama
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Çimento, kalsit, uçucu kül ve tüm toz/granül sanayi malzemelerinizi
-                  pnömatik silobas araçlarıyla güvenle taşıyoruz. Türkiye genelinde 11 ilde
-                  hızlı teslimat ve rekabetçi fiyatlarla hizmetinizdeyiz.
+                  pnömatik silobas araçlarıyla güvenle taşıyoruz. Sefer bazlı taşıma veya
+                  silobas kiralama — 11 ilde hızlı teslimat, rekabetçi fiyat.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
@@ -104,7 +122,7 @@ const HizmetSilobas = () => {
                     href="tel:+905393308617"
                     className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all"
                   >
-                    <Phone className="inline mr-1.5 w-4 h-4" /> Bizi Arayın
+                    <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
               </div>
@@ -160,8 +178,19 @@ const HizmetSilobas = () => {
           </div>
         </section>
 
-        {/* Avantajlar */}
+        {/* Silobas Kiralama */}
         <section className="py-16 px-4 md:px-10 bg-off">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Silobas Kiralama</h2>
+            <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
+              <p>Tek seferlik taşımanın yanında <strong>silobas kiralama</strong> hizmeti de sunuyoruz: düzenli sevkiyatı olan beton santralleri, çimento bayileri ve sanayi tesisleri için günlük veya aylık silobas kiralama sözleşmesi yapılır; araç ve şoför belirlenen program dahilinde tesise tahsis edilir. Sefer bazlı çalışmaya göre ton başı maliyet belirgin şekilde düşer.</p>
+              <p>Silobas taşımacılığı yapan firmalar arasından kapasite, güzergâh ve fiyat karşılaştırması yapmakla vakit kaybetmeyin — ihtiyacınızı tek formla iletin, 11 ildeki filo kapasitemizden aynı gün kiralama teklifi alın.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Avantajlar */}
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -174,6 +203,21 @@ const HizmetSilobas = () => {
                     <h3 className="font-bold text-base mb-1">{a.title}</h3>
                     <p className="text-sm text-txt-2 leading-relaxed">{a.desc}</p>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SSS */}
+        <section className="py-16 px-4 md:px-10 bg-off">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Silobas Taşımacılığı Hakkında Sık Sorulan Sorular</h2>
+            <div className="space-y-4 mt-6">
+              {faq.map((f, i) => (
+                <div key={i} className="border border-border rounded-2xl p-6 bg-background">
+                  <h3 className="font-bold text-sm md:text-base mb-2">{f.q}</h3>
+                  <p className="text-sm text-txt-2 leading-relaxed">{f.a}</p>
                 </div>
               ))}
             </div>

@@ -16,7 +16,7 @@ const ROUTES = [
   // Ana sayfalar
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/hammadde', priority: '0.9', changefreq: 'monthly' },
-  { path: '/fiyatlar', priority: '0.9', changefreq: 'weekly' },
+  { path: '/fiyatlar', priority: '0.9', changefreq: 'weekly', lastmod: '2026-08-17' },
 
   // Teklif ve hafriyat sayfaları
   { path: '/teklif-al', priority: '0.9', changefreq: 'weekly' },
@@ -97,15 +97,15 @@ MALZEMELER.forEach(malzeme => {
 const SITEMAP_ROUTES = ROUTES.filter(route => route.sitemap !== false);
 
 function generateSitemap() {
-  const today = new Date().toISOString().split('T')[0];
-
+  // lastmod her build'de "bugün" yazılırsa Google sinyale güvenmeyi bırakır;
+  // yalnızca rotada açıkça lastmod tanımlıysa yazılır (örn. fiyat güncellemesi).
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
   SITEMAP_ROUTES.forEach(route => {
     xml += '  <url>\n';
     xml += `    <loc>${BASE_URL}${route.path}</loc>\n`;
-    xml += `    <lastmod>${today}</lastmod>\n`;
+    if (route.lastmod) xml += `    <lastmod>${route.lastmod}</lastmod>\n`;
     xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
     xml += `    <priority>${route.priority}</priority>\n`;
     xml += '  </url>\n';

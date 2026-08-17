@@ -27,10 +27,10 @@ const HizmetHafriyat = () => {
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    // Not: /hizmetler diye bir rota yok — breadcrumb var olmayan URL'e işaret etmemeli.
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://hammaddem.co/" },
-      { "@type": "ListItem", position: 2, name: "Hizmetler", item: "https://hammaddem.co/hizmetler" },
-      { "@type": "ListItem", position: 3, name: "Hafriyat Malzemeleri", item: "https://hammaddem.co/hizmetler/hafriyat-nakliyesi" },
+      { "@type": "ListItem", position: 2, name: "Hafriyat Malzemeleri", item: "https://hammaddem.co/hizmetler/hafriyat-nakliyesi" },
     ],
   };
 
@@ -103,7 +103,7 @@ const HizmetHafriyat = () => {
                     href="tel:+905393308617"
                     className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all"
                   >
-                    <Phone className="inline mr-1.5 w-4 h-4" /> Bizi Arayın
+                    <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
               </div>

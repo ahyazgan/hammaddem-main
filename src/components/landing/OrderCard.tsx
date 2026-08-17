@@ -81,7 +81,7 @@ const OrderCard = () => {
       setStep(4);
       toast({ title: "Talep alındı!", description: `${data.talep_no} numaralı talebiniz kaydedildi.` });
     } catch (err: any) {
-      toast({ title: "Hata", description: err?.message || "Talep gönderilemedi.", variant: "destructive" });
+      toast({ title: "Hata", description: `${err?.message || "Talep gönderilemedi."} Dilerseniz bizi arayın: 0539 330 86 17`, variant: "destructive" });
     } finally {
       setLoading(false);
     }

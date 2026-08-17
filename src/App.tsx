@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import WhatsAppButton from "./components/WhatsAppButton";
+import CallBar from "./components/CallBar";
 import CookieConsent from "./components/CookieConsent";
 import { kombinasyonRoutes } from "./pages/kombinasyon/kombinasyonRoutes";
 import { hafriyatRoutes } from "./pages/hafriyat/hafriyatRoutes";
@@ -169,6 +170,7 @@ export const AppRoutes = () => (
           </Routes>
         </Suspense>
         <WhatsAppButton />
+        <CallBar />
         <CookieConsent />
       </AuthProvider>
     </TooltipProvider>

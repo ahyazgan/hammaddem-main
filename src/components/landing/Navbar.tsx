@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import logo from "@/assets/logo.svg";
 
 const Navbar = () => {
@@ -71,6 +71,11 @@ const Navbar = () => {
         <Link to="/iletisim" className="text-[13px] font-semibold text-foreground no-underline hover:text-primary transition-colors">
           İletişim
         </Link>
+        <a
+          href="tel:+905393308617"
+          className="flex items-center gap-1.5 text-[13px] font-bold text-foreground no-underline hover:text-primary transition-colors whitespace-nowrap">
+          <Phone className="w-4 h-4 text-primary" /> 0539 330 86 17
+        </a>
         <Link
           to="/giris"
           className="px-[18px] py-2 rounded-lg text-[13px] font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline transition-all hover:border-primary hover:text-primary">
@@ -83,10 +88,19 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Mobile toggle */}
-      <button onClick={() => setOpen(!open)} aria-label={open ? "Menuyu kapat" : "Menuyu ac"} aria-expanded={open} className="md:hidden text-foreground bg-transparent border-none cursor-pointer">
-        {open ? <X size={24} /> : <Menu size={24} />}
-      </button>
+      {/* Mobile: telefon + menü toggle */}
+      <div className="md:hidden flex items-center gap-3">
+        <a
+          href="tel:+905393308617"
+          aria-label="Hemen ara: 0539 330 86 17"
+          className="w-9 h-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center shadow-[0_2px_8px_rgba(232,98,10,.28)]"
+        >
+          <Phone size={17} />
+        </a>
+        <button onClick={() => setOpen(!open)} aria-label={open ? "Menuyu kapat" : "Menuyu ac"} aria-expanded={open} className="text-foreground bg-transparent border-none cursor-pointer">
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
       {/* Mobile menu */}
       {open && (
@@ -116,6 +130,10 @@ const Navbar = () => {
             </Link>
 
             <div className="border-t border-border my-2" />
+
+            <a href="tel:+905393308617" onClick={() => setOpen(false)} className="flex items-center gap-2 text-[14px] font-bold text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
+              <Phone className="w-4 h-4 text-primary" /> 0539 330 86 17
+            </a>
 
             <div className="flex items-center gap-4">
               <Link to="/giris" onClick={() => setOpen(false)} className="text-[13px] text-txt-2 py-2 px-1 no-underline">

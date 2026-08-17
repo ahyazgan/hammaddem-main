@@ -15,7 +15,7 @@ const FiyatBanner = ({ fiyat }: FiyatBannerProps) => {
             <div className="flex items-center gap-2 mb-2">
               <TrendingUp className="w-5 h-5 text-primary" />
               <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-foreground">
-                {fiyat.label} Güncel Fiyat Aralığı
+                {fiyat.label} Fiyatları 2026 – Güncel Aralık
               </h2>
             </div>
             <div className="flex items-baseline gap-1.5 mb-2">

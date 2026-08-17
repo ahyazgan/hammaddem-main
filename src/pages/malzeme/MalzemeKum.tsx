@@ -5,14 +5,14 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
-import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import { buildBreadcrumbJsonLd, buildProductOfferJsonLd } from "@/utils/seoSchemas";
 import FiyatBanner from "@/components/landing/FiyatBanner";
 import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("kum")!;
 const canonical = "https://hammaddem.co/malzeme/kum";
-const title = "Kum Fiyatları 2026 | İnşaat Kumu Satış & Teslimat – Hammaddem";
-const description = "Toptan inşaat kumu satış ve teslimatı. Dere kumu, deniz kumu, beton kumu çeşitleri. 11 ilde aynı gün teslimat, ton bazında kum fiyatı için online teklif alın.";
+const title = "İnşaat Kumu Fiyatları 2026 | Ton Fiyatı 250–600 TL";
+const description = "İnşaat kumu ton fiyatı 250–600 TL (2026). Dere kumu, kırma ve yıkanmış kum; şantiye ve beton santrallerine 11 ilde aynı gün teslimat. 30 dakikada teklif alın.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -33,6 +33,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const MalzemeKum = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/kum");
 
+  const productJsonLd = buildProductOfferJsonLd(fiyat, { description, url: canonical });
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -67,6 +68,7 @@ const MalzemeKum = () => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
@@ -98,7 +100,7 @@ const MalzemeKum = () => {
                     href="tel:+905393308617"
                     className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all"
                   >
-                    <Phone className="inline mr-1.5 w-4 h-4" /> Bizi Arayın
+                    <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
               </div>

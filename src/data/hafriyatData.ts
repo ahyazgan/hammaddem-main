@@ -71,7 +71,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     slug: "kocaeli",
     ad: "Kocaeli",
     path: "/hafriyat/kocaeli",
-    title: "Kocaeli Hafriyat İşleri – Gebze, İzmit Kazı & Moloz | Hammaddem",
+    title: "Kocaeli Hafriyat Firması – Gebze, İzmit Kazı & Moloz | Hammaddem",
     description:
       "Kocaeli'de hafriyat: Gebze, İzmit, Çayırova ve Dilovası'nda temel kazısı, hafriyat taşıma, dolgu. Sanayi tesisleri ve konut projeleri için hızlı teklif.",
     keywords:
@@ -129,7 +129,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     slug: "tekirdag",
     ad: "Tekirdağ",
     path: "/hafriyat/tekirdag",
-    title: "Tekirdağ Hafriyat – Çorlu, Çerkezköy Kazı İşleri | Hammaddem",
+    title: "Tekirdağ Hafriyat Firması – Çorlu, Çerkezköy Kazı | Hammaddem",
     description:
       "Tekirdağ'da hafriyat: Çorlu, Çerkezköy, Kapaklı sanayi bölgelerinde temel kazısı, hafriyat taşıma, dolgu. Hızlı ve lisanslı hizmet.",
     keywords:
@@ -158,7 +158,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     slug: "sakarya",
     ad: "Sakarya",
     path: "/hafriyat/sakarya",
-    title: "Sakarya Hafriyat İşleri – Adapazarı Kazı & Dolgu | Hammaddem",
+    title: "Sakarya Hafriyat Firması – Adapazarı Kazı & Dolgu | Hammaddem",
     description:
       "Sakarya'da hafriyat: Adapazarı, Serdivan, Hendek'te temel kazısı, hafriyat toprağı taşıma, dolgu malzemesi. 30 dakikada teklif alın.",
     keywords:
@@ -187,7 +187,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     slug: "yalova",
     ad: "Yalova",
     path: "/hafriyat/yalova",
-    title: "Yalova Hafriyat – Kazı, Moloz Taşıma, Dolgu İşleri | Hammaddem",
+    title: "Yalova Hafriyat Firması – Kazı, Moloz, Dolgu İşleri | Hammaddem",
     description:
       "Yalova'da hafriyat işleri: Çiftlikköy, Çınarcık ve merkez ilçede temel kazısı, moloz taşıma, dolgu. Hızlı fiyat teklifi için formu doldurun.",
     keywords:
@@ -216,7 +216,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     slug: "balikesir",
     ad: "Balıkesir",
     path: "/hafriyat/balikesir",
-    title: "Balıkesir Hafriyat – Bandırma, Edremit Kazı İşleri | Hammaddem",
+    title: "Balıkesir Hafriyat Firması – Bandırma, Edremit Kazı | Hammaddem",
     description:
       "Balıkesir'de hafriyat: Bandırma, Edremit, Altıeylül'de temel kazısı, hafriyat taşıma, dolgu malzemesi. Online formla hızlı fiyat teklifi.",
     keywords:
@@ -245,7 +245,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     slug: "canakkale",
     ad: "Çanakkale",
     path: "/hafriyat/canakkale",
-    title: "Çanakkale Hafriyat – Kazı, Moloz, Dolgu İşleri | Hammaddem",
+    title: "Çanakkale Hafriyat Firması – Kazı, Moloz, Dolgu | Hammaddem",
     description:
       "Çanakkale'de hafriyat işleri: merkez, Biga ve Çan'da temel kazısı, hafriyat toprağı taşıma, dolgu. 30 dakikada fiyat teklifi alın.",
     keywords:
@@ -274,7 +274,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     slug: "edirne",
     ad: "Edirne",
     path: "/hafriyat/edirne",
-    title: "Edirne Hafriyat – Kazı, Moloz Taşıma, Dolgu | Hammaddem",
+    title: "Edirne Hafriyat Firması – Kazı, Moloz, Dolgu | Hammaddem",
     description:
       "Edirne'de hafriyat işleri: merkez, Keşan ve Uzunköprü'de temel kazısı, hafriyat taşıma, dolgu malzemesi. Online formla hızlı teklif.",
     keywords:

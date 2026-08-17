@@ -5,14 +5,14 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
-import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import { buildBreadcrumbJsonLd, buildProductOfferJsonLd } from "@/utils/seoSchemas";
 import FiyatBanner from "@/components/landing/FiyatBanner";
 import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("kirec")!;
 const canonical = "https://hammaddem.co/malzeme/kirec";
-const title = "Kireç Fiyatları & Silobas Taşıma | Sönmüş & Sönmemiş Kireç – Hammaddem";
-const description = "Sönmüş kireç ve sönmemiş kireç silobas taşımacılığı ve toptan tedariği. İnşaat, çevre ve sanayi uygulamaları için 11 ilde hızlı teslimat. Online teklif alın.";
+const title = "Kireç Tedarikçisi | Sönmemiş & Sönmüş Kireç Fiyatları 2026";
+const description = "Sönmemiş, sönmüş ve mikronize kireç tedarikçisi. Kireç fiyatları 2026: 2.000–5.000 TL/ton. Dökme silobas, big-bag veya torbalı teslimat, 11 ilde. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -23,16 +23,17 @@ const avantajlar = [
 
 const kullanim = ["İnşaat harç ve sıva uygulamaları", "Atık su ve içme suyu arıtma", "Baca gazı arıtma (desülfürizasyon)", "Tarım arazisi pH düzenleme", "Çelik ve metalurji sektörü", "Kimya ve ilaç üretimi"];
 
-const faq = [{"q": "Sönmüş kireç ile sönmemiş kireç arasındaki fark nedir?", "a": "Sönmemiş kireç (CaO) kireçtaşının pişirilmesiyle elde edilir, suya temas ettiğinde sönmüş kirece (Ca(OH)₂) dönüşür. Her iki türü de tedarik ediyoruz."}, {"q": "Kireç neden silobas ile taşınır?", "a": "Kireç hava nemi ile reaksiyona girdiğinden kapalı sistem silobas zorunludur. Bu sayede ürün kalitesi ve güvenlik korunur."}, {"q": "Atık su arıtma için hangi kireç kullanılır?", "a": "Atık su arıtmada genellikle sönmüş kireç (kalsiyum hidroksit) kullanılır. Doz hesabı için uzmanlarımız destek verebilir."}, {"q": "Kireç fiyatları nasıl belirlenir?", "a": "Kireç türü (sönmüş/sönmemiş), saflık derecesi, miktar ve mesafeye göre fiyat belirlenir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Kireç tozu nedir ve sönmüş kireçten farkı nedir?", "a": "Kireç tozu genellikle sönmüş kireç (kalsiyum hidroksit, Ca(OH)₂) için kullanılan yaygın bir tanımlamadır. İnce öğütülmüş hali ile inşaat sıvalarında, çevre uygulamalarında ve atık su arıtmada kullanılır. Sönmemiş kireçten (CaO) farklı olarak su ile reaksiyona girmeden kullanılabilir."}, {"q": "Tarım arazilerinde kireç hangi amaçla kullanılır?", "a": "Tarımda kireç (tarımsal kireç / kalsiyum karbonat veya sönmüş kireç), asitli toprakların pH değerini yükseltmek için kullanılır. Toprak pH'ını 6-7 aralığına getirerek bitki besin alımını iyileştirir, alüminyum ve manganez toksisitesini azaltır. Dönüm başına gereken miktar toprak analizine göre belirlenir."}, {"q": "Baca gazı arıtmada hangi kireç kullanılır?", "a": "Baca gazı desülfürizasyon (FGD) sistemlerinde genellikle sönmüş kireç (Ca(OH)₂) veya kireçtaşı (CaCO₃) kullanılır. Kireç, SO₂ gazıyla reaksiyona girerek alçı (kalsiyum sülfat) oluşturur ve zararlı emisyonları azaltır."}];
+const faq = [{"q": "Sönmüş kireç ile sönmemiş kireç arasındaki fark nedir?", "a": "Sönmemiş kireç (CaO) kireçtaşının pişirilmesiyle elde edilir, suya temas ettiğinde sönmüş kirece (Ca(OH)₂) dönüşür. Her iki türü de tedarik ediyoruz."}, {"q": "Kireç neden silobas ile taşınır?", "a": "Kireç hava nemi ile reaksiyona girdiğinden kapalı sistem silobas zorunludur. Bu sayede ürün kalitesi ve güvenlik korunur."}, {"q": "Atık su arıtma için hangi kireç kullanılır?", "a": "Atık su arıtmada genellikle sönmüş kireç (kalsiyum hidroksit) kullanılır. Doz hesabı için uzmanlarımız destek verebilir."}, {"q": "Kireç ton fiyatı ne kadar? (2026)", "a": `2026 itibarıyla kireç ton fiyatı ${fiyat.minFiyat.toLocaleString("tr-TR")} – ${fiyat.maxFiyat.toLocaleString("tr-TR")} TL aralığındadır. Sönmemiş kireç (CaO) saflığa göre üst banda, sönmüş kireç alt-orta banda yakındır. Kesin fiyat için teklif alın.`}, {"q": "Kireç fiyatları nasıl belirlenir?", "a": "Kireç türü (sönmüş/sönmemiş), saflık derecesi, miktar ve mesafeye göre fiyat belirlenir."}, {"q": "Minimum sipariş miktarı nedir?", "a": "Genellikle 10 ton ve üzeri siparişleri kabul ediyoruz."}, {"q": "Mikronize kireç nedir, satışı nasıl yapılır?", "a": "Mikronize kireç, mikron boyutuna öğütülmüş sönmüş veya sönmemiş kireçtir; boya, plastik, yem katkısı ve su arıtmada kullanılır. 10 ton üzeri siparişlerde dökme silobas, küçük hacimlerde big-bag veya torbalı ambalaj ile mikronize kireç satışı ve teslimatı yapıyoruz."}, {"q": "Kireç hangi ambalajlarla teslim edilir?", "a": "Kireç ambalajlama seçeneği sipariş miktarına göre belirlenir: 10 ton üzeri dökme silobas ile pnömatik boşaltma, 1-1,5 tonluk big-bag veya palet üzerinde 25 kg torbalı teslimat yapıyoruz."}, {"q": "Sönmemiş kireç tedarikçisi nasıl seçilir?", "a": "İyi bir kireç tedarikçisi; saflık oranını belgeleyebilmeli, kapalı sistem silobas lojistiği sunabilmeli ve düzenli sevkiyat kapasitesine sahip olmalıdır. Hammaddem, çalıştığı kireç üreticilerinin analiz sertifikalarıyla birlikte tedarik hizmeti sunar."}, {"q": "Kireç tozu nedir ve sönmüş kireçten farkı nedir?", "a": "Kireç tozu genellikle sönmüş kireç (kalsiyum hidroksit, Ca(OH)₂) için kullanılan yaygın bir tanımlamadır. İnce öğütülmüş hali ile inşaat sıvalarında, çevre uygulamalarında ve atık su arıtmada kullanılır. Sönmemiş kireçten (CaO) farklı olarak su ile reaksiyona girmeden kullanılabilir."}, {"q": "Tarım arazilerinde kireç hangi amaçla kullanılır?", "a": "Tarımda kireç (tarımsal kireç / kalsiyum karbonat veya sönmüş kireç), asitli toprakların pH değerini yükseltmek için kullanılır. Toprak pH'ını 6-7 aralığına getirerek bitki besin alımını iyileştirir, alüminyum ve manganez toksisitesini azaltır. Dönüm başına gereken miktar toprak analizine göre belirlenir."}, {"q": "Baca gazı arıtmada hangi kireç kullanılır?", "a": "Baca gazı desülfürizasyon (FGD) sistemlerinde genellikle sönmüş kireç (Ca(OH)₂) veya kireçtaşı (CaCO₃) kullanılır. Kireç, SO₂ gazıyla reaksiyona girerek alçı (kalsiyum sülfat) oluşturur ve zararlı emisyonları azaltır."}];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
-  { name: "Kireç Silobas Taşıma", url: "/malzeme/kirec" },
+  { name: "Kireç Tedariki & Fiyatları", url: "/malzeme/kirec" },
 ]);
 
 const MalzemeKirec = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/kirec");
 
+  const productJsonLd = buildProductOfferJsonLd(fiyat, { description, url: canonical });
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -58,7 +59,7 @@ const MalzemeKirec = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="sönmüş kireç, sönmemiş kireç, kireç silobas, toptan kireç, kireç fiyatları, kalsiyum oksit" />
+        <meta name="keywords" content="kireç tedarikçisi, sönmüş kireç, sönmemiş kireç, mikronize kireç, kireç silobas, toptan kireç, kireç fiyatları 2026, kireç ambalajlama, kalsiyum oksit" />
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
@@ -67,6 +68,7 @@ const MalzemeKirec = () => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
@@ -82,10 +84,10 @@ const MalzemeKirec = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Kireç Taşıma & Toptan Tedarik
+                  Sönmemiş & Sönmüş Kireç Tedarikçisi
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Sönmüş kireç ve sönmemiş kireç silobas taşımacılığı ve toptan tedariği. İnşaat, çevre ve sanayi uygulamaları için 11 ilde hızlı teslimat. Online teklif alın.
+                  Sönmemiş kireç (CaO), sönmüş kireç (Ca(OH)₂) ve mikronize kireç tedarik hizmeti. Pnömatik silobas ile kapalı sistem kireç lojistiği; dökme, big-bag veya torbalı teslimat. İnşaat, çevre ve sanayi için 11 ilde.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
@@ -98,7 +100,7 @@ const MalzemeKirec = () => {
                     href="tel:+905393308617"
                     className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all"
                   >
-                    <Phone className="inline mr-1.5 w-4 h-4" /> Bizi Arayın
+                    <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
               </div>
@@ -126,8 +128,19 @@ const MalzemeKirec = () => {
           </div>
         </section>
 
-        {/* Kireç Türleri */}
+        {/* Kireç Tedarikçisi & Lojistik */}
         <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Sönmemiş ve Sönmüş Kireç Tedarikçisi</h2>
+            <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
+              <p>Hammaddem, Türkiye'nin önde gelen kireç üreticileriyle çalışan bir kireç tedarikçisidir. Sönmemiş kireç (CaO), sönmüş kireç (Ca(OH)₂) ve mikronize kireç tedarik hizmetimiz; üretici seçimi, kalite kontrolü, silobas lojistiği ve şantiyeye/tesise teslimatı tek noktadan kapsar. Toptan kireç alımlarında düzenli sevkiyat programı oluşturur, saflık ve analiz sertifikalarını sipariş öncesi paylaşırız.</p>
+              <p>Kireç lojistik hizmeti, pnömatik silobas araçlarla kapalı sistemde yürütülür: ürün havayla ve nemle temas etmeden yüklenir, taşınır ve alıcı silosuna basınçla aktarılır. Böylece tozlanma, fire ve kalite kaybı en aza iner. Arıtma tesisleri ve sanayi kuruluşları için düzenli kireç tedarik sözleşmeleri de yapıyoruz.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Kireç Türleri */}
+        <section className="py-16 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kireç Türleri: Sönmüş, Sönmemiş ve Kireçtaşı</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kullanım amacına göre farklı kireç türleri bulunmaktadır.</p>
@@ -139,6 +152,27 @@ const MalzemeKirec = () => {
                 { title: "Tarımsal Kireç", desc: "Toprak pH düzenleyici. Asit toprakları iyileştirir, bitkisel verimi artırır." },
                 { title: "Sanayi Kireci", desc: "Yüksek saflıkta kireç. Çelik, şeker ve kağıt sektörü üretim prosesleri için." },
                 { title: "Hidrate Kireç", desc: "Hazır sönmüş kireç tozu. İnşaat sıvası ve atık su arıtma için kullanıma hazır." },
+                { title: "Mikronize Kireç", desc: "İnce öğütülmüş (1-100 mikron) kireç. Boya, plastik, yem ve su arıtma için silobas, big-bag veya torbalı satış." },
+              ].map((t) => (
+                <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
+                  <h3 className="font-bold text-sm mb-2">{t.title}</h3>
+                  <p className="text-xs text-txt-2 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Ambalaj ve Teslimat */}
+        <section className="py-16 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kireç Ambalaj ve Teslimat Seçenekleri</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[600px]">Kireç ambalajlama seçeneği sipariş miktarına ve kullanım yerinize göre belirlenir.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { title: "Dökme / Silobas", desc: "10 ton ve üzeri siparişlerde pnömatik silobas ile dökme teslimat. Alıcı silosuna basınçlı boşaltma, sıfır ambalaj atığı." },
+                { title: "Big-Bag (1-1,5 ton)", desc: "Silosu olmayan tesisler için 1-1,5 tonluk big-bag ambalaj. Vinç veya forklift ile kolay indirme." },
+                { title: "Torbalı (25 kg)", desc: "Küçük şantiye ve bayiler için palet üzerinde 25 kg torbalı kireç. Kamyon veya kamyonetle teslimat." },
               ].map((t) => (
                 <div key={t.title} className="border border-border rounded-2xl p-5 bg-background hover:border-accent-border transition-colors">
                   <h3 className="font-bold text-sm mb-2">{t.title}</h3>

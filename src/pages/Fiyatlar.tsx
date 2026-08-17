@@ -7,8 +7,8 @@ import { FIYAT_DATA } from "@/data/fiyatData";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/fiyatlar";
-const title = "Hammadde Fiyatları 2026 | Çimento, Kum, Çakıl, Kalsit Fiyat Listesi – Hammaddem";
-const description = "Güncel hammadde fiyatları: çimento fiyatı, kum fiyatı, çakıl fiyatı, mıcır fiyatı, kalsit fiyatı, kireç fiyatı. Ton bazında güncel fiyat aralıkları ve online teklif. Mart 2026 güncel liste.";
+const title = "Hammadde Fiyatları 2026 | Kum, Çakıl, Çimento Ton Fiyatı";
+const description = "Güncel ton fiyatları: kum 250–600 TL, çakıl 200–500 TL, çimento 2.500–4.500 TL, kireç 2.000–5.000 TL. 10 malzemede güncel liste, 30 dakikada ücretsiz teklif.";
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -23,22 +23,13 @@ const Fiyatlar = () => {
     description,
     url: canonical,
     numberOfItems: FIYAT_DATA.length,
+    // Not: Product zengin sonucu tekil ürün sayfalarından çıkar (her malzeme
+    // sayfasında buildProductOfferJsonLd var); liste sayfasında yalın ListItem yeterli.
     itemListElement: FIYAT_DATA.map((f, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      item: {
-        "@type": "Product",
-        name: f.label,
-        url: `https://hammaddem.co/malzeme/${f.slug}`,
-        offers: {
-          "@type": "AggregateOffer",
-          priceCurrency: "TRY",
-          lowPrice: f.minFiyat,
-          highPrice: f.maxFiyat,
-          offerCount: 1,
-          unitText: f.birim,
-        },
-      },
+      name: `${f.label} (${f.minFiyat.toLocaleString("tr-TR")}–${f.maxFiyat.toLocaleString("tr-TR")} TL/${f.birim})`,
+      url: `https://hammaddem.co/malzeme/${f.slug}`,
     })),
   };
 
@@ -49,6 +40,7 @@ const Fiyatlar = () => {
       { "@type": "Question", name: "Çimento ton fiyatı ne kadar?", acceptedAnswer: { "@type": "Answer", text: "2026 yılı itibarıyla dökme çimento (silobas) ton fiyatı 2.500 – 4.500 TL arasında değişmektedir. Fiyat; çimento türü (CEM I, CEM II), miktar, mesafe ve piyasa koşullarına göre farklılık gösterir." } },
       { "@type": "Question", name: "Kum ton fiyatı ne kadar?", acceptedAnswer: { "@type": "Answer", text: "İnşaat kumu ton fiyatı 250 – 600 TL arasında değişmektedir. Dere kumu, kırma kum ve yıkanmış kum türlerine göre fiyat farklılık gösterir." } },
       { "@type": "Question", name: "Çakıl ton fiyatı ne kadar?", acceptedAnswer: { "@type": "Answer", text: "Çakıl ton fiyatı 200 – 500 TL arasında değişmektedir. Granülometri, çakıl türü ve teslimat bölgesine göre fiyat değişir." } },
+      { "@type": "Question", name: "Kireç ton fiyatı ne kadar?", acceptedAnswer: { "@type": "Answer", text: "Kireç ton fiyatı 2.000 – 5.000 TL arasında değişmektedir. Sönmemiş kireç (CaO) saflığa göre üst banda, sönmüş kireç alt-orta banda yakındır." } },
       { "@type": "Question", name: "Hammadde fiyatları neden değişiyor?", acceptedAnswer: { "@type": "Answer", text: "Hammadde fiyatları; enerji maliyetleri, döviz kuru, arz-talep dengesi, nakliye mesafesi ve mevsimsel talep dalgalanmalarına göre değişiklik gösterir." } },
     ],
   };
@@ -186,6 +178,7 @@ const Fiyatlar = () => {
                 { q: "Çimento ton fiyatı ne kadar?", a: "2026 yılı itibarıyla dökme çimento (silobas) ton fiyatı 2.500 – 4.500 TL arasında değişmektedir. Fiyat; çimento türü (CEM I, CEM II), miktar, mesafe ve piyasa koşullarına göre farklılık gösterir. Güncel çimento fiyatı için online teklif alın." },
                 { q: "Kum ton fiyatı ne kadar?", a: "İnşaat kumu ton fiyatı 250 – 600 TL arasında değişmektedir. Dere kumu, kırma kum ve yıkanmış kum türlerine göre fiyat farklılık gösterir. Bölge ve miktara bağlı olarak indirim uygulanabilir." },
                 { q: "Çakıl ton fiyatı ne kadar?", a: "Çakıl ton fiyatı 200 – 500 TL arasında değişmektedir. Granülometri, çakıl türü ve teslimat bölgesine göre fiyat değişir." },
+                { q: "Kireç ton fiyatı ne kadar?", a: "Kireç ton fiyatı 2.000 – 5.000 TL arasında değişmektedir. Sönmemiş kireç (CaO) saflığa göre üst banda, sönmüş kireç alt-orta banda yakındır. Mikronize ve torbalı kireç için ayrıca teklif alın." },
                 { q: "Hammadde fiyatları neden değişiyor?", a: "Hammadde fiyatları; enerji maliyetleri, döviz kuru, arz-talep dengesi, nakliye mesafesi ve mevsimsel talep dalgalanmalarına göre değişiklik gösterir. En güncel fiyat bilgisi için platformumuz üzerinden teklif alabilirsiniz." },
                 { q: "Toplu siparişte indirim var mı?", a: "Evet, düzenli ve yüksek hacimli siparişlerde özel fiyatlandırma uygulanmaktadır. Düzenli tedarik anlaşması için bizimle iletişime geçin." },
               ].map((item) => (

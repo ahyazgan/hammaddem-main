@@ -58,6 +58,35 @@ export function buildLocalBusinessJsonLd(opts: {
   };
 }
 
+/**
+ * Gerçek fiyat verisinden (fiyatData.ts) beslenen Product + AggregateOffer şeması.
+ * DİKKAT: aggregateRating EKLENMEZ — sitede gerçek puanlama sistemi yok,
+ * doğrulanamayan yıldız verisi Google yapısal veri spam politikasını ihlal eder.
+ */
+export function buildProductOfferJsonLd(
+  fiyat: { label: string; minFiyat: number; maxFiyat: number },
+  opts: { name?: string; description: string; url: string }
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: opts.name ?? fiyat.label,
+    description: opts.description,
+    url: opts.url.startsWith("http") ? opts.url : `${BASE_URL}${opts.url}`,
+    image: `${BASE_URL}/og-image.png`,
+    brand: { "@type": "Brand", name: "Hammaddem" },
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "TRY",
+      lowPrice: fiyat.minFiyat,
+      highPrice: fiyat.maxFiyat,
+      offerCount: 1,
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "Hammaddem", url: BASE_URL },
+    },
+  };
+}
+
 export function buildFaqJsonLd(faqItems: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

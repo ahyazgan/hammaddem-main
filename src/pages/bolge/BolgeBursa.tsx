@@ -85,7 +85,7 @@ const BolgeBursa = () => {
                     Hemen Teklif Al <ArrowRight className="inline ml-1 w-4 h-4" />
                   </Link>
                   <a href="tel:+905393308617" className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all">
-                    <Phone className="inline mr-1.5 w-4 h-4" /> Bizi Arayın
+                    <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
               </div>

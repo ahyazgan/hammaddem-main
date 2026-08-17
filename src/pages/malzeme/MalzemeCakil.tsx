@@ -5,14 +5,14 @@ import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
-import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
+import { buildBreadcrumbJsonLd, buildProductOfferJsonLd } from "@/utils/seoSchemas";
 import FiyatBanner from "@/components/landing/FiyatBanner";
 import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("cakil")!;
 const canonical = "https://hammaddem.co/malzeme/cakil";
-const title = "Çakıl Fiyatları 2026 | Çakıl Satış & Teslimat – Hammaddem";
-const description = "Toptan çakıl satış ve teslimatı. İnce çakıl, iri çakıl, dere çakılı çeşitleri. 11 ilde hızlı teslimat, ton bazında çakıl fiyatı için online teklif alın.";
+const title = "Çakıl Fiyatları 2026 – Ton Fiyatı 200–500 TL | Hammaddem";
+const description = "Çakılın tonu ne kadar? Dere çakılı, ince ve iri çakıl 200–500 TL/ton (2026). 11 ilde damperli araçla hızlı teslimat. 30 dakikada ücretsiz teklif alın.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -33,6 +33,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const MalzemeCakil = () => {
   const ilgiliMalzemeler = MALZEME_ROUTES.filter((r) => r.path !== "/malzeme/cakil");
 
+  const productJsonLd = buildProductOfferJsonLd(fiyat, { description, url: canonical });
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -67,6 +68,7 @@ const MalzemeCakil = () => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
@@ -98,7 +100,7 @@ const MalzemeCakil = () => {
                     href="tel:+905393308617"
                     className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all"
                   >
-                    <Phone className="inline mr-1.5 w-4 h-4" /> Bizi Arayın
+                    <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
               </div>
