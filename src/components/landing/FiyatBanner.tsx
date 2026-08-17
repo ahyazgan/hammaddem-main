@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp, Info } from "lucide-react";
+import { ArrowRight, TrendingUp, Info, Phone } from "lucide-react";
 import type { MalzemeFiyat } from "@/data/fiyatData";
 
 interface FiyatBannerProps {
@@ -29,12 +29,20 @@ const FiyatBanner = ({ fiyat }: FiyatBannerProps) => {
               <span>{fiyat.not}. Son güncelleme: {fiyat.guncelleme}. Kesin fiyat için teklif alın.</span>
             </div>
           </div>
-          <Link
-            to="/teklif-al"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all whitespace-nowrap"
-          >
-            Güncel Fiyat Teklifi Al <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+            <Link
+              to="/teklif-al"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all whitespace-nowrap"
+            >
+              Güncel Fiyat Teklifi Al <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="tel:+905393308617"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all whitespace-nowrap"
+            >
+              <Phone className="w-4 h-4" /> 0539 330 86 17
+            </a>
+          </div>
         </div>
       </div>
     </section>
