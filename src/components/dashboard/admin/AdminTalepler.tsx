@@ -108,29 +108,46 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
     if (!teklifMesaj.trim() || talep._type !== "kayitli" || !talep.user_id) return;
     setUpdating(true);
     try {
-      const updateData: any = { durum: "teklif", updated_at: new Date().toISOString() };
-      if (teklifFiyat && !isNaN(Number(teklifFiyat))) {
-        updateData.teklif_fiyat = Number(teklifFiyat);
-      }
-      await Promise.all([
-        supabase.from("talepler").update(updateData).eq("id", talep.id),
-        supabase.from("bildirimler").insert({
-          user_id: talep.user_id,
-          talep_id: talep.id,
-          tip: "teklif",
-          baslik: `Teklif: #${talep.talep_no}`,
-          mesaj: teklifFiyat ? `${teklifMesaj} — Teklif Fiyatı: ${Number(teklifFiyat).toLocaleString("tr-TR")} ₺` : teklifMesaj,
-        }),
-      ]);
-      await supabase.functions.invoke("send-teklif-email", {
-        body: { talepId: talep.id, mesaj: teklifMesaj, fiyat: teklifFiyat || null },
+      const fiyat = teklifFiyat && !isNaN(Number(teklifFiyat)) ? Number(teklifFiyat) : null;
+      const updateData: { durum: string; updated_at: string; teklif_fiyat?: number } = {
+        durum: "teklif",
+        updated_at: new Date().toISOString(),
+      };
+      if (fiyat !== null) updateData.teklif_fiyat = fiyat;
+
+      // Önce talep güncellensin; bu adım başarısızsa müşteriye bildirim/mail gitmesin.
+      const { error: updateError } = await supabase.from("talepler").update(updateData).eq("id", talep.id);
+      if (updateError) throw new Error(`Talep güncellenemedi: ${updateError.message}`);
+
+      const { error: bildirimError } = await supabase.from("bildirimler").insert({
+        user_id: talep.user_id,
+        talep_id: talep.id,
+        tip: "teklif",
+        baslik: `Teklif: #${talep.talep_no}`,
+        mesaj: fiyat !== null ? `${teklifMesaj} — Teklif Fiyatı: ${fiyat.toLocaleString("tr-TR")} ₺` : teklifMesaj,
       });
-      toast({ title: "Teklif gönderildi", description: "Müşteriye bildirim iletildi." });
-    } catch {
-      toast({ title: "Hata", description: "Teklif gönderilemedi.", variant: "destructive" });
-    } finally {
+      if (bildirimError) throw new Error(`Bildirim oluşturulamadı: ${bildirimError.message}`);
+
+      const { error: mailError } = await supabase.functions.invoke("send-teklif-email", {
+        body: { talepId: talep.id, mesaj: teklifMesaj, fiyat },
+      });
+
+      if (mailError) {
+        // Talep ve panel bildirimi kaydedildi; yalnızca e-posta gitmedi — bunu gizleme.
+        toast({
+          title: "Teklif kaydedildi, e-posta gönderilemedi",
+          description: `Müşteri teklifi panelde görecek. E-posta hatası: ${mailError.message}`,
+          variant: "destructive",
+        });
+      } else {
+        toast({ title: "Teklif gönderildi", description: "Müşteriye bildirim iletildi." });
+      }
       setTeklifMesaj("");
       setTeklifFiyat("");
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Teklif gönderilemedi.";
+      toast({ title: "Hata", description: message, variant: "destructive" });
+    } finally {
       setUpdating(false);
       onRefresh();
     }

@@ -96,6 +96,7 @@ export type Database = {
           miktar: number
           not_text: string | null
           talep_no: string
+          teklif_fiyat: number | null
           telefon: string
           teslimat_ili: string | null
           teslimat_tarihi: string | null
@@ -115,6 +116,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no: string
+          teklif_fiyat?: number | null
           telefon: string
           teslimat_ili?: string | null
           teslimat_tarihi?: string | null
@@ -134,6 +136,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no?: string
+          teklif_fiyat?: number | null
           telefon?: string
           teslimat_ili?: string | null
           teslimat_tarihi?: string | null
@@ -323,6 +326,24 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      talep_sorgula: {
+        Args: { p_telefon: string; p_talep_no?: string | null }
+        Returns: {
+          id: string
+          talep_no: string
+          tip: string
+          kategori: string
+          malzeme: string | null
+          miktar: number
+          birim: string
+          teslimat_ili: string | null
+          teslimat_tarihi: string | null
+          durum: string
+          teklif_fiyat: number | null
+          created_at: string
+          updated_at: string
+        }[]
       }
     }
     Enums: {

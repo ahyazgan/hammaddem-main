@@ -50,44 +50,24 @@ const TalepTakip = () => {
     setSonuclar(null);
 
     try {
-      // Misafir talepler (telefon ile)
-      let query = supabase
-        .from("misafir_talepler")
-        .select("id, talep_no, kategori, malzeme, miktar, birim, teslimat_ili, teslimat_tarihi, durum, teklif_fiyat, created_at, updated_at")
-        .or(`telefon.eq.${temizTelefon},telefon.eq.0${temizTelefon},telefon.eq.+90${temizTelefon}`)
-        .order("created_at", { ascending: false });
+      // Anonim istemci talepler tablolarını RLS nedeniyle okuyamaz; SECURITY DEFINER RPC
+      // yalnızca telefonu eşleşen kayıtların sınırlı alanlarını döner (bkz. migration 20260825000001).
+      const { data, error } = await supabase.rpc("talep_sorgula", {
+        p_telefon: temizTelefon,
+        p_talep_no: talepNo.trim() ? talepNo.trim().toUpperCase() : null,
+      });
 
-      if (talepNo.trim()) {
-        query = query.eq("talep_no", talepNo.trim().toUpperCase());
-      }
+      if (error) throw error;
 
-      const { data: misafir } = await query;
-
-      // Kayıtlı kullanıcı talepler (telefon profil tablosunda)
-      let query2 = supabase
-        .from("talepler")
-        .select("id, talep_no, kategori, malzeme, miktar, birim, teslimat_ili, teslimat_tarihi, durum, teklif_fiyat, created_at, updated_at, profiles!inner(telefon)")
-        .or(`profiles.telefon.eq.${temizTelefon},profiles.telefon.eq.0${temizTelefon},profiles.telefon.eq.+90${temizTelefon}`)
-        .order("created_at", { ascending: false });
-
-      if (talepNo.trim()) {
-        query2 = query2.eq("talep_no", talepNo.trim().toUpperCase());
-      }
-
-      const { data: kayitli } = await query2;
-
-      const combined = [
-        ...((misafir || []) as unknown as TalepSonuc[]),
-        ...((kayitli || []) as unknown as TalepSonuc[]),
-      ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
-
-      if (combined.length === 0) {
+      const bulunan = (data ?? []) as TalepSonuc[];
+      if (bulunan.length === 0) {
         setHata("Bu telefon numarasına ait talep bulunamadı. Talep numarası ekleyerek tekrar deneyin.");
       } else {
-        setSonuclar(combined);
+        setSonuclar(bulunan);
       }
-    } catch {
-      setHata("Sorgulama sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+    } catch (err) {
+      console.error("talep_sorgula hatası:", err);
+      setHata("Sorgulama sırasında bir hata oluştu. Lütfen tekrar deneyin ya da bizi arayın: 0539 330 86 17");
     } finally {
       setLoading(false);
     }
@@ -144,7 +124,7 @@ const TalepTakip = () => {
                     value={talepNo}
                     onChange={e => setTalepNo(e.target.value)}
                     onKeyDown={e => e.key === "Enter" && sorgula()}
-                    placeholder="HMD-0001"
+                    placeholder="HMD-2026-0001"
                     className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:border-primary transition-colors uppercase"
                   />
                 </div>
