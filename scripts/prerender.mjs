@@ -107,6 +107,22 @@ async function main() {
     console.error(`✗ Başarısız rotalar (SPA kabuğuna düşer): ${failed.join(", ")}`);
   }
 
+  // 404.html — Vercel, eşleşmeyen yolları bu dosyayla ve HTTP 404 ile sunar.
+  // Olmadığında olmayan her URL ana sayfa içeriğiyle 200 döner (soft 404) ve
+  // Google sonsuz sahte URL tarayarak tarama bütçesini harcar.
+  try {
+    const result = await render("/__404__");
+    const headBlock = buildHeadBlock(result.helmet);
+    let html = template;
+    if (headBlock) html = html.replace(SEO_BLOCK_RE, headBlock);
+    html = html.replace(ROOT_DIV, `<div id="root">${result.html}</div>`);
+    fs.writeFileSync(path.join(DIST, "404.html"), html, "utf-8");
+    console.log("✓ 404.html üretildi");
+  } catch (err) {
+    console.error(`✗ 404.html üretilemedi: ${err?.message ?? err}`);
+    process.exitCode = 1;
+  }
+
   // SSR bundle'ı deploy paketine dahil etme
   fs.rmSync(path.join(ROOT, "dist-server"), { recursive: true, force: true });
 }
