@@ -29,17 +29,31 @@ const Index = () => {
         <meta name="twitter:title" content="Hammaddem | Hafriyat ve Hammadde Nakliyesi" />
         <meta name="twitter:description" content="Temel kazısı, hafriyat taşıma, moloz ve silobas yükleri. 11 ilde hizmet, 30 dakikada fiyat teklifi." />
         <meta name="twitter:image" content="https://hammaddem.co/og-image.png" />
+        {/* Not: index.html'deki Organization şeması SEO:START/END bloğunun içinde
+            kaldığı için prerender sırasında eziliyor. Google'ın gördüğü şema
+            burasıdır — işletme kimliği burada güncel tutulmalı. legalName ve adres
+            vergi levhasıyla birebir aynı olmalı (Google İşletme Profili itirazında
+            site ile profil karşılaştırılır). */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Hammaddem",
+          "legalName": "Yazgan Nakliye İnşaat ve Orman Ürünleri Sanayi ve Ticaret Limited Şirketi",
+          "brand": { "@type": "Brand", "name": "Hammaddem" },
           "url": "https://hammaddem.co",
           "logo": "https://hammaddem.co/favicon.png",
           "telephone": "+905393308617",
           "email": "hammaddem@outlook.com",
-          "areaServed": "TR",
+          "foundingDate": "1997-01-01",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Beykoz",
+            "addressRegion": "İstanbul",
+            "addressCountry": "TR",
+          },
+          "areaServed": ["İstanbul", "Kocaeli", "Bursa", "Tekirdağ", "Sakarya", "Yalova", "Balıkesir", "Çanakkale", "Edirne", "Ankara", "İzmir"],
           "sameAs": [],
-          "description": "Türkiye'nin dijital B2B hammadde tedarik platformu. Çimento, kalsit, kum, çakıl ve diğer hammaddelerin silobas taşıma ve hafriyat tedariği.",
+          "description": "1997'den beri hafriyat ve nakliye hizmeti veren işletme. Temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu ve arazi tesviyesi; silobas ile dökme çimento, kalsit, kireç ve damperli araçlarla kum, çakıl, mıcır teslimatı.",
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
