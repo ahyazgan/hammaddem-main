@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { HAFRIYAT_ILLER, HAFRIYAT_ILCELER, hafriyatLokatif, type HafriyatLokasyon } from "@/data/hafriyatData";
+import { DOKUM_UCRETLERI } from "@/data/hafriyatFiyatData";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildLocalBusinessJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
 
@@ -16,6 +18,7 @@ interface Props {
 const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
   const canonical = `${BASE_URL}${lokasyon.path}`;
   const lokatif = hafriyatLokatif(lokasyon);
+  const [h1Bas, h1Son] = (lokasyon.h1 ?? `${lokasyon.ad} Hafriyat Firması — Kazı, Moloz ve Hafriyat Taşıma`).split(" — ");
   const ilAdi = lokasyon.parent
     ? HAFRIYAT_ILLER.find((i) => i.slug === lokasyon.parent)?.ad ?? "İstanbul"
     : lokasyon.ad;
@@ -34,18 +37,19 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(breadcrumbItems);
   const faqJsonLd = buildFaqJsonLd(lokasyon.faq);
   const localBusinessJsonLd = buildLocalBusinessJsonLd({
-    name: `Hammaddem – ${lokasyon.ad} Hafriyat İşleri`,
+    name: `Hammaddem – ${lokasyon.ad} Hafriyat Firması`,
     description: lokasyon.description,
     url: canonical,
     city: lokasyon.ad,
   });
   const serviceJsonLd = buildServiceJsonLd({
-    name: `${lokasyon.ad} Hafriyat İşleri – Kazı, Taşıma, Moloz`,
+    name: `${lokasyon.ad} Hafriyat Firması – Kazı, Moloz, Hafriyat Taşıma`,
     description: lokasyon.description,
     url: canonical,
     city: lokasyon.ad,
   });
 
+  const dokumBilgisi = DOKUM_UCRETLERI.find((d) => d.slug === (lokasyon.parent ?? lokasyon.slug));
   const digerIller = HAFRIYAT_ILLER.filter((l) => l.slug !== (lokasyon.parent ?? lokasyon.slug));
   const istanbulIlceleri = HAFRIYAT_ILCELER.filter((l) => l.slug !== lokasyon.slug);
   const ilceleriGoster = lokasyon.parent === "istanbul" || lokasyon.slug === "istanbul";
@@ -88,14 +92,14 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
                   </span>
                 </div>
                 <h1 className="text-[clamp(28px,4vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-5">
-                  {lokasyon.ad} Hafriyat İşleri —
+                  {h1Bas} —
                   <br />
-                  <span className="text-navy">30 Dakikada</span> Fiyat Teklifi
+                  <span className="text-navy">{h1Son}</span>
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-6 max-w-[500px]">
-                  {lokasyon.ad} bölgesinde temel kazısı, hafriyat toprağı taşıma,
+                  {lokatif} lisanslı araçlarla temel kazısı, hafriyat toprağı taşıma,
                   moloz kaldırma ve dolgu işleri. Formu doldurun, işinize özel net
-                  fiyatı aynı saat içinde telefonla iletelim.
+                  fiyatı 30 dakika içinde telefonla iletelim.
                 </p>
                 <ul className="space-y-2.5 mb-7">
                   {[
@@ -159,19 +163,44 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                "Temel & Bodrum Kazısı",
-                "Hafriyat Toprağı Taşıma",
-                "Moloz & İnşaat Atığı Kaldırma",
-                "Dolgu Malzemesi Temini",
-                "Arazi Düzenleme & Tesviye",
-                "Yıkım Sonrası Hafriyat",
-              ].map((h) => (
-                <div key={h} className="flex items-center gap-3 border border-border rounded-xl px-4 py-3.5 bg-background hover:border-navy-border transition-colors">
-                  <CheckCircle className="w-4 h-4 text-navy shrink-0" />
-                  <span className="text-sm font-medium">{h}</span>
-                </div>
-              ))}
+                { ad: "Temel & Bodrum Kazısı", path: "/hafriyat/temel-kazisi" },
+                { ad: "Hafriyat Toprağı Taşıma", path: "/hizmetler/hafriyat-nakliyesi" },
+                { ad: "Moloz & İnşaat Atığı Kaldırma", path: "/hafriyat/moloz-tasima" },
+                { ad: "Dolgu Malzemesi Temini" },
+                { ad: "Arazi Düzenleme & Tesviye" },
+                { ad: "Yıkım Sonrası Hafriyat" },
+              ].map((h) => {
+                const sinif = "flex items-center gap-3 border border-border rounded-xl px-4 py-3.5 bg-background hover:border-navy-border transition-colors no-underline";
+                const govde = (
+                  <>
+                    <CheckCircle className="w-4 h-4 text-navy shrink-0" />
+                    <span className="text-sm font-medium text-foreground">{h.ad}</span>
+                  </>
+                );
+                return h.path ? (
+                  <Link key={h.ad} to={h.path} className={sinif}>{govde}</Link>
+                ) : (
+                  <div key={h.ad} className={sinif}>{govde}</div>
+                );
+              })}
             </div>
+            {dokumBilgisi && (
+              <div className="mt-8 border border-navy-border bg-navy-light/40 rounded-2xl p-5 md:p-6">
+                <h3 className="font-bold text-sm md:text-base mb-2">
+                  {ilAdi} Hafriyat Döküm Ücreti — {dokumBilgisi.kalemler[0].ucret} {dokumBilgisi.kalemler[0].birim}
+                </h3>
+                <p className="text-sm text-txt-2 leading-relaxed mb-3">
+                  {dokumBilgisi.kalemler[0].kalem}. Döküm bedeli taşıma ücretinden ayrı bir kalemdir ve
+                  {" "}{ilAdi} özelinde sefer fiyatını doğrudan etkiler. Tekliflerimizde döküm dahil net fiyat veriyoruz.
+                </p>
+                <Link
+                  to={`/rehber/hafriyat-dokum-ucretleri#${dokumBilgisi.slug}`}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-navy no-underline hover:underline"
+                >
+                  {ilAdi} döküm ücretleri ve saha listesi <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            )}
             <div className="mt-6">
               <Link to="/hafriyat" className="inline-flex items-center gap-1 text-sm font-semibold text-navy no-underline hover:underline">
                 Tüm hafriyat hizmetlerimizi inceleyin <ArrowRight className="w-4 h-4" />
@@ -224,8 +253,15 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
           </div>
         </section>
 
+        <HafriyatKaynaklar
+          haric={lokasyon.path}
+          baslik="Fiyat, Hesaplama ve Rehberler"
+          aciklama={`${lokatif} bütçenizi kendiniz çıkarın: m³ fiyatları, döküm ücretleri, kamyon kapasiteleri ve hesaplama aracı.`}
+          koyu
+        />
+
         {/* CTA */}
-        <section className="py-16 md:py-20 px-4 md:px-10 bg-off">
+        <section className="py-16 md:py-20 px-4 md:px-10">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">
               {lokasyon.ad} Hafriyat İşiniz İçin Teklif Alın

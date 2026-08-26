@@ -27,6 +27,42 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://hammaddem.co/hafriyat/fiyatlar</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/hesaplama</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/temel-kazisi</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/moloz-tasima</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/rehber/hafriyat-dokum-ucretleri</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/rehber/hafriyat-kamyonu-kac-m3</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://hammaddem.co/hizmetler/silobas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -273,6 +309,46 @@
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/umraniye</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/kartal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/maltepe</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/atasehir</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/avcilar</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/kucukcekmece</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/silivri</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/catalca</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hammaddem.co/hafriyat/istanbul/buyukcekmece</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

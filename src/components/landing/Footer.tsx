@@ -45,6 +45,8 @@ const Footer = () => {
           <ul className="list-none flex flex-col gap-2.5">
             <li><Link to="/teklif-al" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Üyeliksiz Teklif Al</Link></li>
             <li><Link to="/hafriyat" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat İşleri</Link></li>
+            <li><Link to="/hafriyat/fiyatlar" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Fiyatları 2026</Link></li>
+            <li><Link to="/hafriyat/hesaplama" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Hesaplama</Link></li>
             <li><Link to="/hizmetler/silobas" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Silobas Yükü</Link></li>
             <li><Link to="/hizmetler/hafriyat-nakliyesi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat &amp; İnşaat</Link></li>
             <li><Link to="/hammadde" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hammadde Tedarik</Link></li>
@@ -86,6 +88,12 @@ const Footer = () => {
 
         {/* Kurumsal */}
         <div>
+          <h4 className="text-[11px] font-bold tracking-wider uppercase text-txt-3 mb-4">Rehberler</h4>
+          <ul className="list-none p-0 m-0 flex flex-col gap-2.5 mb-6">
+            <li><Link to="/rehber/hafriyat-dokum-ucretleri" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Döküm Ücretleri</Link></li>
+            <li><Link to="/rehber/hafriyat-kamyonu-kac-m3" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kamyon Kaç m³ Alır?</Link></li>
+          </ul>
+
           <h4 className="text-[11px] font-bold tracking-wider uppercase text-txt-3 mb-4">Kurumsal</h4>
           <ul className="list-none flex flex-col gap-2.5">
             <li><Link to="/hakkimizda" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hakkımızda</Link></li>

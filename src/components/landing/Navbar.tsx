@@ -50,6 +50,12 @@ const Navbar = () => {
             <Link to="/hafriyat" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
               Hafriyat İşleri
             </Link>
+            <Link to="/hafriyat/fiyatlar" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
+              Hafriyat Fiyatları 2026
+            </Link>
+            <Link to="/hafriyat/hesaplama" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
+              Hafriyat Hesaplama
+            </Link>
             <Link to="/hizmetler/silobas" role="menuitem" className="block px-4 py-2.5 text-[13px] text-foreground no-underline hover:bg-off transition-colors">
               Silobas Taşımacılığı
             </Link>
@@ -109,6 +115,12 @@ const Navbar = () => {
             <p className="text-[11px] font-semibold tracking-wider uppercase text-txt-2 mt-2 mb-1 px-1">Hizmetlerimiz</p>
             <Link to="/hafriyat" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
               Hafriyat İşleri
+            </Link>
+            <Link to="/hafriyat/fiyatlar" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
+              Hafriyat Fiyatları 2026
+            </Link>
+            <Link to="/hafriyat/hesaplama" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
+              Hafriyat Hesaplama
             </Link>
             <Link to="/hizmetler/silobas" onClick={() => setOpen(false)} className="text-[14px] text-foreground py-2 px-3 rounded-lg no-underline hover:bg-off transition-colors">
               Silobas Taşımacılığı

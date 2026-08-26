@@ -21,6 +21,14 @@ const ROUTES = [
   // Teklif ve hafriyat sayfaları
   { path: '/teklif-al', priority: '0.9', changefreq: 'weekly' },
   { path: '/hafriyat', priority: '0.9', changefreq: 'weekly' },
+  { path: '/hafriyat/fiyatlar', priority: '0.9', changefreq: 'weekly', lastmod: '2026-08-25' },
+  { path: '/hafriyat/hesaplama', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
+  { path: '/hafriyat/temel-kazisi', priority: '0.9', changefreq: 'monthly', lastmod: '2026-08-26' },
+  { path: '/hafriyat/moloz-tasima', priority: '0.9', changefreq: 'monthly', lastmod: '2026-08-26' },
+
+  // Hafriyat rehberleri (bilgi niyetli sorgular → hizmet sayfalarına köprü)
+  { path: '/rehber/hafriyat-dokum-ucretleri', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
+  { path: '/rehber/hafriyat-kamyonu-kac-m3', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
 
   // Hizmet sayfaları
   { path: '/hizmetler/silobas', priority: '0.8', changefreq: 'monthly' },
@@ -69,7 +77,11 @@ const ROUTES = [
 // Hafriyat il sayfaları (src/data/hafriyatData.ts ile eşleşmeli)
 const HAFRIYAT_ILLER = ['istanbul', 'kocaeli', 'bursa', 'tekirdag', 'sakarya', 'yalova', 'balikesir', 'canakkale', 'edirne', 'ankara', 'izmir'];
 // Hafriyat İstanbul ilçe sayfaları
-const HAFRIYAT_ISTANBUL_ILCELER = ['esenyurt', 'basaksehir', 'arnavutkoy', 'tuzla', 'pendik', 'sancaktepe', 'beylikduzu', 'umraniye'];
+const HAFRIYAT_ISTANBUL_ILCELER = [
+  'esenyurt', 'basaksehir', 'arnavutkoy', 'tuzla', 'pendik', 'sancaktepe', 'beylikduzu', 'umraniye',
+  // 1. dalga (2026-08-26): "{ilçe} hafriyat firmaları" sorgularında talep doğrulandı
+  'kartal', 'maltepe', 'atasehir', 'avcilar', 'kucukcekmece', 'silivri', 'catalca', 'buyukcekmece',
+];
 
 HAFRIYAT_ILLER.forEach(il => {
   ROUTES.push({ path: `/hafriyat/${il}`, priority: '0.8', changefreq: 'weekly' });

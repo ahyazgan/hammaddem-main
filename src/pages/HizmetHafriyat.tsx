@@ -2,153 +2,261 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone } from "lucide-react";
+import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
+import { SEFER_FIYATLARI, KAMYON_KAPASITELERI } from "@/data/hafriyatFiyatData";
+import { HAFRIYAT_ILLER } from "@/data/hafriyatData";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Info } from "lucide-react";
 
-const malzemeler = [
-  "Kum", "Çakıl", "Mıcır", "Stabilize", "Toprak",
-  "Moloz", "İnşaat Atığı", "Hafriyat Toprağı",
+const canonical = "https://hammaddem.co/hizmetler/hafriyat-nakliyesi";
+const title = "Hafriyat Kamyonu Kiralama | Sefer, Saatlik, Günlük 2026";
+const description =
+  "Hafriyat kamyonu kiralama fiyatları 2026: sefer başı, saatlik ve günlük damperli kamyon. Hafriyat nakliyesi, lisanslı araçlar. 30 dakikada teklif.";
+
+const tl = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+const tasinanlar = [
+  { ad: "Hafriyat toprağı", path: "/hafriyat" },
+  { ad: "Moloz & inşaat atığı", path: "/hafriyat/moloz-tasima" },
+  { ad: "Kum", path: "/malzeme/kum" },
+  { ad: "Çakıl", path: "/malzeme/cakil" },
+  { ad: "Mıcır", path: "/malzeme/micir" },
+  { ad: "Stabilize", path: "/malzeme/stabilize" },
+];
+
+const fiyatModelleri = [
+  {
+    baslik: "Sefer bazlı (en yaygın)",
+    aciklama:
+      "Hafriyat ve moloz taşımada standart model. Yükleme noktası ile döküm sahası arası bir gidiş-dönüş bir sefer sayılır; fiyat mesafeye göre belirlenir. Kaç sefer gerektiğini kazı hacmi belirler.",
+  },
+  {
+    baslik: "Saatlik çalışma",
+    aciklama:
+      "Kamyon için saatlik ücret, ancak araç şantiye içinde sürekli çalışıyor ya da makineye bağlı bekliyorsa uygulanır. Şehir içi döküm işlerinde saatlik model iş sahibi aleyhine olur; trafikte geçen süre de faturalanır.",
+  },
+  {
+    baslik: "Günlük / proje bazlı",
+    aciklama:
+      "Uzun süreli şantiyelerde araç günlük ya da aylık tahsis edilir. Fiyat, günlük yapılabilecek sefer sayısı üzerinden hesaplanır; süreklilik olduğunda sefer başı maliyet düşer.",
+  },
+];
+
+const adimlar = [
+  { step: "01", title: "İşi bildirin", desc: "Yük tipi, konum, tahmini hacim ve tarih; 2 dakika sürer." },
+  { step: "02", title: "Araç planı", desc: "Hacme ve erişime göre kamyon tipi ve sefer sayısı çıkarılır." },
+  { step: "03", title: "Net fiyat", desc: "30 dakika içinde telefonla sefer/gün fiyatı iletilir." },
+  { step: "04", title: "Sevkiyat", desc: "Lisanslı araç görevlendirilir, döküm belgesi teslim edilir." },
 ];
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
-  { icon: Shield, title: "Güvenli Taşıma", desc: "Damperli araçlarımız ile güvenli ve hızlı hafriyat malzemesi taşımacılığı." },
-  { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
-  { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
+  { icon: Clock, title: "30 Dakikada Teklif", desc: "Talebi iletin, aynı saat içinde net sefer fiyatı alın." },
+  { icon: Shield, title: "Lisanslı Araç, Belgeli Döküm", desc: "Taşıma izin belgesi ve döküm fişi iş sahibine iletilir." },
+  { icon: Truck, title: "Filo Esnekliği", desc: "Tek kamyondan çok araçlı konvoya, dar sokağa küçük tonaj." },
+  { icon: CheckCircle, title: "Tek Muhatap", desc: "Yükleme, nakliye ve döküm koordinasyonu tek elden." },
 ];
 
-const nasılCalısır = [
-  { step: "01", title: "Talep Oluştur", desc: "Malzeme türü, miktar ve teslimat adresini girin." },
-  { step: "02", title: "Teklif Alın", desc: "En uygun fiyat teklifini dakikalar içinde alın." },
-  { step: "03", title: "Onaylayın", desc: "Teklifi onaylayın, taşıma planlanır." },
-  { step: "04", title: "Teslimat", desc: "Damperli araç ile güvenli teslimat yapılır." },
+const faq = [
+  {
+    q: "Hafriyat kamyonu kiralama fiyatları ne kadar?",
+    a: "2026'da sefer başına 12–15 m³ kamyon 2.500–3.500 TL, 16–20 m³ kırkayak 3.500–4.500 TL, 24–30 m³ damperli tır 4.500–5.500 TL aralığındadır. Döküm sahası bedeli ayrıca hesaplanır; mesafe arttıkça fiyat üst banda yaklaşır.",
+  },
+  {
+    q: "Hafriyat kamyonu saatlik mi, sefer başına mı kiralanır?",
+    a: "Şehir içi hafriyat ve moloz taşımada standart model sefer başınadır; trafikte geçen süre iş sahibine yansımaz. Saatlik model, aracın şantiye içinde sürekli çalıştığı veya iş makinesine bağlı beklediği durumlarda uygulanır.",
+  },
+  {
+    q: "Kaç kamyon gerekeceğini nasıl bilirim?",
+    a: "Yerinde kazı hacmini kabarma katsayısıyla çarpıp kamyon kapasitesine bölerek bulunur. Hesaplama aracımız bunu otomatik yapar: 100 m³ killi zemin kazısı, 12–15 m³ kamyonla yaklaşık 9–11 sefer eder.",
+  },
+  {
+    q: "Şoför ve yakıt fiyata dahil mi?",
+    a: "Evet. Sefer ve günlük fiyatlarımız araç, şoför ve yakıtı kapsar. Yükleme için ekskavatör gerekiyorsa ayrıca planlanır ve teklifte kalem olarak gösterilir.",
+  },
+  {
+    q: "Aylık kamyon kiralama yapıyor musunuz?",
+    a: "Uzun süreli şantiyelerde araç tahsisi yapıyoruz. Aylık çalışmada günlük sefer sayısı ve güzergâh üzerinden fiyat çıkarılır; süreklilik olduğunda sefer başı maliyet düşer.",
+  },
 ];
 
 const HizmetHafriyat = () => {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    // Not: /hizmetler diye bir rota yok — breadcrumb var olmayan URL'e işaret etmemeli.
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://hammaddem.co/" },
-      { "@type": "ListItem", position: 2, name: "Hafriyat Malzemeleri", item: "https://hammaddem.co/hizmetler/hafriyat-nakliyesi" },
-    ],
-  };
-
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Hafriyat Malzemeleri Taşımacılığı",
-    description: "Hafriyat, kum, çakıl, mıcır ve inşaat malzemeleri taşımacılığı. 11 ilde hızlı teslimat, online teklif.",
-    provider: {
-      "@type": "Organization",
-      name: "Hammaddem",
-      url: "https://hammaddem.co",
-      telephone: "+905393308617",
-      email: "hammaddem@outlook.com",
-    },
-    areaServed: "TR",
-    serviceType: "Logistics",
-    url: "https://hammaddem.co/hizmetler/hafriyat-nakliyesi",
-    availableLanguage: "tr",
-  };
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Ana Sayfa", url: "/" },
+    { name: "Hafriyat İşleri", url: "/hafriyat" },
+    { name: "Hafriyat Kamyonu Kiralama", url: "/hizmetler/hafriyat-nakliyesi" },
+  ]);
+  const faqJsonLd = buildFaqJsonLd(faq);
+  const serviceJsonLd = buildServiceJsonLd({
+    name: "Hafriyat Kamyonu Kiralama ve Hafriyat Nakliyesi",
+    description,
+    url: canonical,
+  });
 
   return (
     <>
       <Helmet>
-        <title>Hafriyat Malzemeleri Taşımacılığı – Kum, Çakıl, Mıcır | Hammaddem</title>
-        <meta name="description" content="Hafriyat, kum, çakıl, mıcır ve inşaat malzemeleri taşımacılığı. Damperli araçlarla 11 ilde hızlı teslimat. Online teklif alın, ton başına rekabetçi fiyatlar." />
-        <meta name="keywords" content="hafriyat taşımacılığı, kum taşıma, çakıl taşıma, mıcır taşıma, inşaat malzemeleri, hafriyat nakliyesi, damper araç, moloz taşıma" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta
+          name="keywords"
+          content="hafriyat kamyonu kiralama, hafriyat kamyonu kiralama fiyatları, hafriyat kamyonu sefer fiyatları, hafriyat kamyonu saatlik ücret, hafriyat kamyonu ücreti, damperli kamyon kiralama, damperli kamyon kiralama fiyatları, kamyon kiralama fiyatları, hafriyat nakliye, hafriyat nakliye birim fiyat, hafriyat taşıma"
+        />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://hammaddem.co/hizmetler/hafriyat-nakliyesi" />
-        <meta property="og:title" content="Hafriyat Malzemeleri Taşımacılığı – Hammaddem" />
-        <meta property="og:description" content="Hafriyat, kum, çakıl taşımacılığı. 11 ilde hızlı teslimat, online teklif." />
-        <meta property="og:url" content="https://hammaddem.co/hizmetler/hafriyat-nakliyesi" />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hafriyat Malzemeleri Taşımacılığı – Hammaddem" />
-        <meta name="twitter:description" content="Hafriyat, kum, çakıl taşımacılığı. 11 ilde hızlı teslimat." />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-dot-pattern">
         <Navbar />
 
-        {/* Hero */}
-        <section className="pt-[120px] pb-16 md:pb-24 px-4 md:px-10">
+        {/* Hero + form */}
+        <section id="teklif" className="pt-[110px] pb-14 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
-            <div className="grid md:grid-cols-2 gap-10 items-center">
+            <nav aria-label="Breadcrumb" className="mb-6 text-sm text-txt-3">
+              <ol className="flex flex-wrap items-center gap-1.5">
+                <li><Link to="/" className="hover:text-navy transition-colors no-underline">Ana Sayfa</Link></li>
+                <li className="text-txt-3/50">/</li>
+                <li><Link to="/hafriyat" className="hover:text-navy transition-colors no-underline">Hafriyat İşleri</Link></li>
+                <li className="text-txt-3/50">/</li>
+                <li className="text-txt-2 font-medium">Kamyon Kiralama</li>
+              </ol>
+            </nav>
+            <div className="grid lg:grid-cols-2 gap-10 items-start">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-4">
-                  Hafriyat Hizmeti
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-navy-light text-navy border border-navy-border mb-4">
+                  <Truck className="w-3 h-3" /> Araç Kiralama
                 </span>
-                <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Hafriyat Malzemeleri Taşımacılığı
+                <h1 className="text-[clamp(28px,4vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-5">
+                  Hafriyat Kamyonu Kiralama —<br />
+                  <span className="text-navy">Sefer, Saatlik ve Günlük</span> Fiyatlar 2026
                 </h1>
-                <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Kum, çakıl, mıcır, stabilize ve tüm hafriyat malzemelerinizi
-                  damperli araçlarımızla güvenle taşıyoruz. Türkiye genelinde 11 ilde
-                  hızlı teslimat ve rekabetçi fiyatlarla hizmetinizdeyiz.
+                <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-6">
+                  Damperli kamyon ve kırkayak filomuzla hafriyat toprağı, moloz, kum, çakıl ve
+                  stabilize nakliyesi. Şoför ve yakıt dahil; lisanslı araç, belgeli döküm.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link
-                    to="/teklif-al"
-                    className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all"
-                  >
-                    Hemen Teklif Al <ArrowRight className="inline ml-1 w-4 h-4" />
-                  </Link>
-                  <a
-                    href="tel:+905393308617"
-                    className="px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-primary hover:text-primary transition-all"
-                  >
-                    <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
-                  </a>
-                </div>
+                <ul className="space-y-2.5 mb-7">
+                  {[
+                    "Tek kamyondan çok araçlı konvoya ölçeklenebilir filo",
+                    "Şoför, yakıt ve sigorta fiyata dahil",
+                    "Dar sokak ve site içi işlerde küçük tonajlı araç",
+                  ].map((m) => (
+                    <li key={m} className="flex items-start gap-2.5 text-sm text-txt-2">
+                      <CheckCircle className="w-[18px] h-[18px] text-navy shrink-0 mt-0.5" />
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+                <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
+                  <Phone className="w-4 h-4" /> 0539 330 86 17
+                </a>
               </div>
-
-              {/* Visual */}
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <Truck className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HafriyatTeklifForm baslik="Kamyon Kiralama Teklifi" defaultMiktar={1} defaultBirim="Kamyon" />
             </div>
           </div>
         </section>
 
-        {/* Malzemeler */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        {/* Sefer fiyatları */}
+        <section className="py-14 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Taşıdığımız Hafriyat Malzemeleri</h2>
-            <p className="text-sm text-txt-2 mb-8 max-w-[520px]">
-              İnşaat ve altyapı projelerine ihtiyaç duyulan tüm hafriyat malzemelerini damperli araçlarımızla taşıyoruz.
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">
+              Kamyon Tipine Göre Sefer Fiyatları
+            </h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[640px]">
+              Şehir içi ortalama mesafe için 2026 piyasa aralıkları; döküm sahası bedeli hariçtir.
             </p>
-            <div className="flex flex-wrap gap-2.5">
-              {malzemeler.map((m) => (
-                <span
-                  key={m}
-                  className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-accent-border hover:text-primary transition-colors"
-                >
-                  {m}
-                </span>
+            <div className="overflow-x-auto rounded-2xl border border-border bg-background mb-4">
+              <table className="w-full min-w-[620px]">
+                <thead>
+                  <tr className="bg-off2 border-b border-border">
+                    <th className="text-left text-[11px] font-bold text-txt-3 uppercase tracking-wider px-5 py-3.5">Araç</th>
+                    <th className="text-right text-[11px] font-bold text-txt-3 uppercase tracking-wider px-5 py-3.5 whitespace-nowrap">Kasa Hacmi</th>
+                    <th className="text-right text-[11px] font-bold text-txt-3 uppercase tracking-wider px-5 py-3.5 whitespace-nowrap">Yük</th>
+                    <th className="text-right text-[11px] font-bold text-txt-3 uppercase tracking-wider px-5 py-3.5 whitespace-nowrap">Sefer Fiyatı (TL)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {SEFER_FIYATLARI.map((s, i) => (
+                    <tr key={s.arac} className="border-b border-border last:border-b-0">
+                      <td className="px-5 py-4 text-sm font-semibold text-foreground whitespace-nowrap">{s.arac}</td>
+                      <td className="px-5 py-4 text-right text-sm font-mono text-txt-2 tabular-nums whitespace-nowrap">{s.kapasite}</td>
+                      <td className="px-5 py-4 text-right text-sm font-mono text-txt-2 tabular-nums whitespace-nowrap">
+                        {KAMYON_KAPASITELERI.find((k) => k.m3 === s.kapasite)?.ton ?? ["≈ 15 ton", "16 – 20 ton", "24 – 28 ton"][i]}
+                      </td>
+                      <td className="px-5 py-4 text-right text-base font-mono font-bold text-navy tabular-nums whitespace-nowrap">{tl(s.min)} – {tl(s.max)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="flex items-start gap-2 text-xs text-txt-2 bg-off2 border border-border rounded-lg px-3.5 py-2.5 max-w-[660px]">
+              <Info className="w-4 h-4 shrink-0 mt-0.5 text-navy" />
+              <span>
+                Kaç kamyon gerektiğini bilmiyorsanız{" "}
+                <Link to="/hafriyat/hesaplama" className="text-navy font-semibold no-underline hover:underline">hesaplama aracını</Link>{" "}
+                kullanın; kapasite ayrıntıları için{" "}
+                <Link to="/rehber/hafriyat-kamyonu-kac-m3" className="text-navy font-semibold no-underline hover:underline">kamyon kaç m³ alır</Link>{" "}
+                rehberine bakın.
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Fiyat modelleri */}
+        <section className="py-14 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">
+              Sefer mi, Saatlik mi, Günlük mü?
+            </h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[640px]">
+              Yanlış fiyat modeli, doğru fiyattan daha pahalıya gelir. İşinize uygun modeli birlikte seçelim.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {fiyatModelleri.map((m) => (
+                <div key={m.baslik} className="border border-border rounded-2xl p-5 bg-background">
+                  <h3 className="font-bold text-sm mb-2">{m.baslik}</h3>
+                  <p className="text-sm text-txt-2 leading-relaxed">{m.aciklama}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Nasıl Çalışır */}
-        <section className="py-16 md:py-24 px-4 md:px-10">
+        {/* Taşıdıklarımız */}
+        <section className="py-14 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Nasıl Çalışır?</h2>
-            <p className="text-sm text-txt-2 mb-10 max-w-[500px]">
-              4 adımda hafriyat malzemeleri taşımacılığı talebinizi oluşturun ve teslim alın.
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Ne Taşıyoruz?</h2>
+            <p className="text-sm text-txt-2 mb-8 max-w-[560px]">
+              Damperli araçlarımız hem şantiyeden çıkan atığı hem de sahaya girecek malzemeyi taşır.
             </p>
+            <div className="flex flex-wrap gap-2.5">
+              {tasinanlar.map((t) => (
+                <Link key={t.path} to={t.path} className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-navy-border hover:text-navy transition-colors no-underline">
+                  {t.ad}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Nasıl çalışır */}
+        <section className="py-14 px-4 md:px-10">
+          <div className="max-w-[1100px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">Nasıl Çalışır?</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {nasılCalısır.map((s) => (
-                <div key={s.step} className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border hover:-translate-y-1 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-accent-light text-primary font-mono font-bold text-sm flex items-center justify-center mb-4">
+              {adimlar.map((s) => (
+                <div key={s.step} className="border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-navy-light text-navy font-mono font-bold text-sm flex items-center justify-center mb-4">
                     {s.step}
                   </div>
                   <h3 className="font-bold text-base mb-2">{s.title}</h3>
@@ -160,14 +268,14 @@ const HizmetHafriyat = () => {
         </section>
 
         {/* Avantajlar */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-14 px-4 md:px-10 bg-off">
           <div className="max-w-[1100px] mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem?</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">Neden Hammaddem?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {avantajlar.map((a) => (
-                <div key={a.title} className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                    <a.icon className="w-5 h-5 text-primary" />
+                <div key={a.title} className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background hover:border-navy-border transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center shrink-0">
+                    <a.icon className="w-5 h-5 text-navy" />
                   </div>
                   <div>
                     <h3 className="font-bold text-base mb-1">{a.title}</h3>
@@ -176,24 +284,54 @@ const HizmetHafriyat = () => {
                 </div>
               ))}
             </div>
+            <h3 className="text-sm font-semibold text-txt-2 uppercase tracking-wider mt-10 mb-3">Araç Görevlendirdiğimiz İller</h3>
+            <div className="flex flex-wrap gap-2.5">
+              {HAFRIYAT_ILLER.map((l) => (
+                <Link key={l.path} to={l.path} className="px-4 py-2 rounded-full text-sm font-medium bg-background border border-border hover:border-navy-border hover:text-navy transition-colors no-underline">
+                  {l.ad}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
+        {/* SSS */}
+        <section className="py-14 px-4 md:px-10">
+          <div className="max-w-[900px] mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
+              Kamyon Kiralama — Sık Sorulan Sorular
+            </h2>
+            <div className="space-y-4">
+              {faq.map((f) => (
+                <div key={f.q} className="border border-border rounded-2xl p-6 bg-background">
+                  <h3 className="font-bold text-sm md:text-base mb-2">{f.q}</h3>
+                  <p className="text-sm text-txt-2 leading-relaxed">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <HafriyatKaynaklar haric="/hizmetler/hafriyat-nakliyesi" koyu />
+
         {/* CTA */}
-        <section className="py-16 md:py-20 px-4 md:px-10">
+        <section className="py-14 md:py-20 px-4 md:px-10">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">
-              Hafriyat Malzemeleri İçin Teklif Alın
+              Araç Planınızı Çıkaralım
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, dakikalar içinde size özel fiyat teklifi alın.
+              Yük tipini, konumu ve hacmi iletin; uygun kamyon tipini, sefer sayısını ve net fiyatı
+              30 dakika içinde telefonla verelim.
             </p>
-            <Link
-              to="/teklif-al"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all"
-            >
-              Üyeliksiz Teklif Al <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <a href="#teklif" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all">
+                Fiyat Teklifi Al <ArrowRight className="w-4 h-4" />
+              </a>
+              <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
+                <Phone className="w-4 h-4" /> 0539 330 86 17
+              </a>
+            </div>
           </div>
         </section>
 

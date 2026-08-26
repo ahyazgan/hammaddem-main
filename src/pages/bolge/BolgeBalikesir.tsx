@@ -8,8 +8,8 @@ import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
 
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/balikesir";
-const title = "Balıkesir Silobas & Hafriyat Hizmetleri – Hammaddem";
-const description = "Balıkesir'de silobas taşımacılığı ve hafriyat malzemesi tedariği. Bandırma, Gönen ve sanayi bölgelerine hızlı teslimat. Online teklif alın.";
+const title = "Balıkesir Silobas Nakliye & Hammadde Teslimatı | Hammaddem";
+const description = "Balıkesir'de silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Bandırma, Gönen ve sanayi bölgelerine teslimat, 30 dk teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -21,7 +21,7 @@ const avantajlar = [
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
   { name: "Hizmet Bölgeleri", url: "/hizmet-bolgeleri/balikesir" },
-  { name: "Balıkesir Silobas & Hafriyat", url: "/hizmet-bolgeleri/balikesir" },
+  { name: "Balıkesir Silobas Nakliye & Hammadde Teslimatı", url: "/hizmet-bolgeleri/balikesir" },
 ]);
 
 const BolgeBalikesir = () => {
@@ -30,7 +30,7 @@ const BolgeBalikesir = () => {
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Hammaddem – Balıkesir Silobas & Hafriyat",
+    name: "Hammaddem – Balıkesir Silobas Nakliye & Hammadde Teslimatı",
     description,
     url: canonical,
     telephone: "+905393308617",
@@ -40,7 +40,7 @@ const BolgeBalikesir = () => {
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Balıkesir Silobas ve Hafriyat Hizmetleri",
+    name: "Balıkesir Silobas Nakliye ve Hammadde Teslimatı",
     description,
     provider: { "@type": "Organization", name: "Hammaddem" },
     areaServed: { "@type": "City", name: "Balıkesir" },
@@ -52,7 +52,7 @@ const BolgeBalikesir = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="balıkesir silobas, balıkesir hafriyat, balıkesir çimento, bandırma kum, balıkesir çakıl, silobas balıkesir" />
+        <meta name="keywords" content="balıkesir silobas, silobas balıkesir, balıkesir silobas nakliye, balıkesir çimento, balıkesir kum fiyatları, balıkesir çakıl, balıkesir mıcır, balıkesir hammadde teslimatı" />
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <meta property="og:title" content={title} />
@@ -75,10 +75,10 @@ const BolgeBalikesir = () => {
                   Hizmet Bölgesi
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Balıkesir Silobas & Hafriyat
+                  Balıkesir Silobas Nakliye ve Hammadde Teslimatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Balıkesir&apos;de silobas taşımacılığı ve hafriyat malzemesi tedariği. Bandırma, Gönen ve sanayi bölgelerine hızlı teslimat. Online teklif alın.
+                  Balıkesir'de silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Bandırma, Gönen ve sanayi bölgelerine teslimat, 30 dk teklif.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/teklif-al" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
@@ -88,6 +88,12 @@ const BolgeBalikesir = () => {
                     <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
+                <p className="mt-5 text-sm text-txt-2">
+                  Hafriyat işi mi var (temel kazısı, moloz taşıma)?{" "}
+                  <Link to="/hafriyat/balikesir" className="font-semibold text-navy no-underline hover:underline">
+                    Balıkesir hafriyat firması sayfası →
+                  </Link>
+                </p>
               </div>
               <div className="hidden md:flex items-center justify-center">
                 <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
@@ -125,15 +131,15 @@ const BolgeBalikesir = () => {
                 </Link>
               </div>
               <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                <h3 className="font-bold text-lg mb-2">Hafriyat & İnşaat Malzemesi</h3>
+                <h3 className="font-bold text-lg mb-2">Kum, Çakıl, Mıcır & Stabilize Teslimatı</h3>
                 <p className="text-sm text-txt-2 leading-relaxed mb-2">
                   Kum, çakıl, mıcır, stabilize malzeme tedariği. Balıkesir ilçelerinde şantiye ve tesislere damperli araçlarla teslimat.
                 </p>
                 <p className="text-xs text-txt-2 leading-relaxed mb-3">
                   <strong>İlçeler:</strong> Bandırma, Gönen, Erdek, Edremit, Susurluk, Bigadiç
                 </p>
-                <Link to="/hizmetler/hafriyat-nakliyesi" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
-                  Hafriyat hizmeti detayı <ArrowRight className="w-4 h-4" />
+                <Link to="/hafriyat/balikesir" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
+                  Balıkesir hafriyat işleri: kazı, moloz <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>

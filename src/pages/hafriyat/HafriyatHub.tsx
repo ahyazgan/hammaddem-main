@@ -3,30 +3,34 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { HAFRIYAT_ILLER, HAFRIYAT_ILCELER } from "@/data/hafriyatData";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Shovel, Building2, Trash2, Layers, Mountain, Hammer } from "lucide-react";
 
 const canonical = "https://hammaddem.co/hafriyat";
-const title = "Hafriyat İşleri & Hafriyat Firması – 30 Dakikada Fiyat Teklifi | Hammaddem";
+const title = "Hafriyat Firması | Kazı, Moloz, Taşıma – 30 Dk Teklif";
 const description =
-  "Hafriyat işleriniz için tek adres: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu. İstanbul ve Marmara genelinde lisanslı araçlarla hizmet. Formu doldurun, 30 dakikada net fiyat alın.";
+  "Hafriyat firması arıyorsanız: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu. Marmara'da 11 il, lisanslı araçlar. 30 dakikada net fiyat.";
 
 const hizmetler = [
   {
     icon: Shovel,
     title: "Temel & Bodrum Kazısı",
     desc: "Konut, site ve tesis projelerinde temel, bodrum ve havuz kazısı. İksa ile koordineli etaplı çalışma.",
+    path: "/hafriyat/temel-kazisi",
   },
   {
     icon: Truck,
     title: "Hafriyat Toprağı Taşıma",
     desc: "Kazıdan çıkan toprağın lisanslı damperli araçlarla ruhsatlı döküm sahalarına nakli, döküm belgesiyle.",
+    path: "/hizmetler/hafriyat-nakliyesi",
   },
   {
     icon: Trash2,
     title: "Moloz & İnşaat Atığı",
     desc: "Tadilat, yıkım ve şantiye molozunun yüklenmesi, ayrıştırılması ve mevzuata uygun bertarafı.",
+    path: "/hafriyat/moloz-tasima",
   },
   {
     icon: Layers,
@@ -103,7 +107,7 @@ const HafriyatHub = () => {
         <meta name="description" content={description} />
         <meta
           name="keywords"
-          content="hafriyat, hafriyat firması, hafriyat işleri, temel kazısı, hafriyat toprağı taşıma, moloz taşıma, dolgu malzemesi, kazı firması, hafriyat fiyatları"
+          content="hafriyat firması, hafriyat firmaları, hafriyat şirketi, hafriyat şirketleri, hafriyat işleri, hafriyat işi, hafriyat taşeronu arayan firmalar, hafriyat fiyatları, moloz taşıma, temel kazısı"
         />
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content={title} />
@@ -131,9 +135,9 @@ const HafriyatHub = () => {
                   Hafriyat İşleri
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Hafriyat İşiniz İçin
+                  Hafriyat Firması — Kazı, Moloz,
                   <br />
-                  <span className="text-navy">30 Dakikada</span> Fiyat Alın
+                  Hafriyat Taşıma. <span className="text-navy">30 Dakikada</span> Teklif
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-6 max-w-[500px]">
                   Temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu…
@@ -173,15 +177,28 @@ const HafriyatHub = () => {
               Kazıdan döküme, molozdan dolguya — şantiyenizin toprakla ilgili tüm işlerini tek elden yönetiyoruz.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {hizmetler.map((h) => (
-                <div key={h.title} className="border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center mb-4">
-                    <h.icon className="w-5 h-5 text-navy" />
-                  </div>
-                  <h3 className="font-bold text-base mb-2">{h.title}</h3>
-                  <p className="text-sm text-txt-2 leading-relaxed">{h.desc}</p>
-                </div>
-              ))}
+              {hizmetler.map((h) => {
+                const govde = (
+                  <>
+                    <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center mb-4">
+                      <h.icon className="w-5 h-5 text-navy" />
+                    </div>
+                    <h3 className="font-bold text-base mb-2">{h.title}</h3>
+                    <p className="text-sm text-txt-2 leading-relaxed">{h.desc}</p>
+                    {"path" in h && (
+                      <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-navy">
+                        Detay ve fiyatlar <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    )}
+                  </>
+                );
+                const sinif = "block border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all no-underline";
+                return "path" in h ? (
+                  <Link key={h.title} to={h.path} className={sinif}>{govde}</Link>
+                ) : (
+                  <div key={h.title} className={sinif}>{govde}</div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -255,8 +272,10 @@ const HafriyatHub = () => {
           </div>
         </section>
 
+        <HafriyatKaynaklar haric="/hafriyat" koyu />
+
         {/* FAQ */}
-        <section className="py-16 px-4 md:px-10 bg-off">
+        <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
               Hafriyat Hakkında Sık Sorulan Sorular
@@ -273,7 +292,7 @@ const HafriyatHub = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 md:py-20 px-4 md:px-10">
+        <section className="py-16 md:py-20 px-4 md:px-10 bg-off">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">
               Hafriyat İşinizi Şimdi Bildirin

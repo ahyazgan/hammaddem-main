@@ -73,19 +73,19 @@ const HizmetSilobas = () => {
   return (
     <>
       <Helmet>
-        <title>Silobas Taşımacılığı & Silobas Kiralama | Hammaddem</title>
-        <meta name="description" content="Silobas taşımacılığı yapan firma mı arıyorsunuz? Çimento, kalsit, kül, kireç taşıma ve sefer bazlı silobas kiralama. 11 ilde teslimat, 30 dakikada teklif." />
-        <meta name="keywords" content="silobas taşımacılığı, silobas kiralama, silobas taşımacılığı yapan firmalar, silobas firmaları, çimento taşıma, kalsit taşıma, pnömatik silobas, toz malzeme taşıma" />
+        <title>Silobas Nakliye Firması | Çimento, Kalsit Taşıma & Kiralama</title>
+        <meta name="description" content="Silobas nakliye firması: dökme çimento, kalsit, kireç, uçucu kül taşıma ve sefer bazlı silobas kiralama. Silobas kaç ton alır? 30 dakikada teklif." />
+        <meta name="keywords" content="silobas nakliye firmaları, silobas nakliye fiyatları, silobas nakliye, silobas firmaları, silobas kiralama, silobas taşımacılığı, silobas taşımacılığı yapan firmalar, silobas kaç ton çimento alır" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://hammaddem.co/hizmetler/silobas" />
-        <meta property="og:title" content="Silobas Taşımacılığı – Hammaddem" />
+        <meta property="og:title" content="Silobas Nakliye Firması – Hammaddem" />
         <meta property="og:description" content="Çimento, kalsit, kül ve tüm toz hammadde taşımacılığı. Online teklif al, 11 ilde teslimat." />
         <meta property="og:url" content="https://hammaddem.co/hizmetler/silobas" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Silobas Taşımacılığı – Hammaddem" />
+        <meta name="twitter:title" content="Silobas Nakliye Firması – Hammaddem" />
         <meta name="twitter:description" content="Silobas ile çimento, kalsit, kül taşımacılığı. 11 ilde hızlı teslimat." />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
@@ -104,7 +104,7 @@ const HizmetSilobas = () => {
                   Silobas Hizmeti
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Silobas Taşımacılığı & Kiralama
+                  Silobas Nakliye — Çimento, Kalsit, Kül Taşıma ve Kiralama
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Çimento, kalsit, uçucu kül ve tüm toz/granül sanayi malzemelerinizi

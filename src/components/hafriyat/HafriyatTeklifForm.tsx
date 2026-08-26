@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { iller } from "@/constants/iller";
@@ -12,21 +12,36 @@ interface Props {
   defaultIl?: string;
   /** Form başlığı; lokasyon sayfalarında "Esenyurt'ta Hafriyat İşiniz mi Var?" gibi */
   baslik?: string;
+  /** Hesaplama aracından gelen tahmini hacim */
+  defaultMiktar?: number;
+  /** "m³" | "Ton" | "Kamyon" */
+  defaultBirim?: string;
 }
 
-const HafriyatTeklifForm = ({ defaultIl = "", baslik = "Hafriyat İşiniz mi Var?" }: Props) => {
+const HafriyatTeklifForm = ({
+  defaultIl = "",
+  baslik = "Hafriyat İşiniz mi Var?",
+  defaultMiktar = 100,
+  defaultBirim = "m³",
+}: Props) => {
   const { toast } = useToast();
   const [isTipi, setIsTipi] = useState("");
   const [il, setIl] = useState(defaultIl);
   const [konum, setKonum] = useState("");
-  const [miktar, setMiktar] = useState(100);
-  const [birim, setBirim] = useState("m³");
+  const [miktar, setMiktar] = useState(defaultMiktar);
+  const [birim, setBirim] = useState(defaultBirim);
   const [tarih, setTarih] = useState("");
   const [telefon, setTelefon] = useState("");
   const [not_, setNot] = useState("");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [talepNo, setTalepNo] = useState("");
+  // Hesaplama aracı sayfasında kullanıcı ölçüleri değiştirdikçe miktar güncel kalsın;
+  // ama kullanıcı miktarı kendi elle değiştirdiyse üzerine yazma.
+  const [miktarElle, setMiktarElle] = useState(false);
+  useEffect(() => {
+    if (!miktarElle) setMiktar(defaultMiktar);
+  }, [defaultMiktar, miktarElle]);
 
   const validate = () => {
     const errs: Record<string, boolean> = {};
@@ -154,14 +169,14 @@ const HafriyatTeklifForm = ({ defaultIl = "", baslik = "Hafriyat İşiniz mi Var
           <div className="flex flex-col gap-[5px]">
             <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Tahmini Miktar</label>
             <div className="flex border-[1.5px] border-border rounded-[9px] overflow-hidden bg-off transition-all focus-within:bg-background focus-within:border-navy focus-within:shadow-[0_0_0_3px_rgba(15,35,71,.08)]">
-              <button type="button" onClick={() => setMiktar(Math.max(1, miktar - 25))} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">−</button>
+              <button type="button" onClick={() => { setMiktarElle(true); setMiktar(Math.max(1, miktar - 25)); }} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">−</button>
               <input
                 type="number"
                 value={miktar}
-                onChange={(e) => setMiktar(Math.max(1, Number(e.target.value) || 1))}
+                onChange={(e) => { setMiktarElle(true); setMiktar(Math.max(1, Number(e.target.value) || 1)); }}
                 className="flex-1 min-w-0 border-none bg-transparent text-center text-sm font-semibold text-foreground font-mono outline-none"
               />
-              <button type="button" onClick={() => setMiktar(miktar + 25)} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">+</button>
+              <button type="button" onClick={() => { setMiktarElle(true); setMiktar(miktar + 25); }} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">+</button>
               <select
                 value={birim}
                 onChange={(e) => setBirim(e.target.value)}

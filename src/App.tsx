@@ -19,6 +19,12 @@ import Index from "./pages/Index";
 
 // Lazy: diğer sayfalar ihtiyaç halinde yüklensin
 const HafriyatHub = lazy(() => import("./pages/hafriyat/HafriyatHub"));
+const HafriyatFiyatlar = lazy(() => import("./pages/hafriyat/HafriyatFiyatlar"));
+const HafriyatHesaplama = lazy(() => import("./pages/hafriyat/HafriyatHesaplama"));
+const HafriyatTemelKazisi = lazy(() => import("./pages/hafriyat/TemelKazisi"));
+const HafriyatMolozTasima = lazy(() => import("./pages/hafriyat/MolozTasima"));
+const RehberDokumUcretleri = lazy(() => import("./pages/rehber/DokumUcretleri"));
+const RehberKamyonKacM3 = lazy(() => import("./pages/rehber/KamyonKacM3"));
 const TeklifAl = lazy(() => import("./pages/TeklifAl"));
 const Giris = lazy(() => import("./pages/Giris"));
 const Kayit = lazy(() => import("./pages/Kayit"));
@@ -132,6 +138,12 @@ export const AppRoutes = () => (
                 <Route path="/hizmetler/hafriyat-nakliyesi" element={<HizmetHafriyat />} />
                 <Route path="/teklif-al" element={<TeklifAl />} />
                 <Route path="/hafriyat" element={<HafriyatHub />} />
+                <Route path="/hafriyat/fiyatlar" element={<HafriyatFiyatlar />} />
+                <Route path="/hafriyat/hesaplama" element={<HafriyatHesaplama />} />
+                <Route path="/hafriyat/temel-kazisi" element={<HafriyatTemelKazisi />} />
+                <Route path="/hafriyat/moloz-tasima" element={<HafriyatMolozTasima />} />
+                <Route path="/rehber/hafriyat-dokum-ucretleri" element={<RehberDokumUcretleri />} />
+                <Route path="/rehber/hafriyat-kamyonu-kac-m3" element={<RehberKamyonKacM3 />} />
                 {hafriyatRoutes.map((r) => (
                   <Route key={r.path} path={r.path} element={r.element} />
                 ))}

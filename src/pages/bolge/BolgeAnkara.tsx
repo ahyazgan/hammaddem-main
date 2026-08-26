@@ -8,8 +8,8 @@ import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
 
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/ankara";
-const title = "Ankara Silobas & Hafriyat Hizmetleri – Hammaddem";
-const description = "Ankara'da çimento, kalsit, kum, çakıl silobas taşımacılığı ve hafriyat malzemesi tedariği. OSTİM, Sincan, İvedik OSB ve şantiyelere hızlı teslimat. Online teklif alın.";
+const title = "Ankara Silobas Nakliye & Hammadde Teslimatı | Hammaddem";
+const description = "Ankara'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. OSTİM, Sincan, İvedik OSB'ye hızlı teslimat, 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -21,7 +21,7 @@ const avantajlar = [
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
   { name: "Hizmet Bölgeleri", url: "/hizmet-bolgeleri/istanbul" },
-  { name: "Ankara Silobas & Hafriyat", url: "/hizmet-bolgeleri/ankara" },
+  { name: "Ankara Silobas Nakliye & Hammadde Teslimatı", url: "/hizmet-bolgeleri/ankara" },
 ]);
 
 const BolgeAnkara = () => {
@@ -30,7 +30,7 @@ const BolgeAnkara = () => {
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Hammaddem – Ankara Silobas & Hafriyat",
+    name: "Hammaddem – Ankara Silobas Nakliye & Hammadde Teslimatı",
     description,
     url: canonical,
     telephone: "+905393308617",
@@ -40,7 +40,7 @@ const BolgeAnkara = () => {
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Ankara Silobas ve Hafriyat Hizmetleri",
+    name: "Ankara Silobas Nakliye ve Hammadde Teslimatı",
     description,
     provider: { "@type": "Organization", name: "Hammaddem" },
     areaServed: { "@type": "City", name: "Ankara" },
@@ -50,12 +50,12 @@ const BolgeAnkara = () => {
   return (
     <>
       <Helmet>
-        <title>{`Ankara Silobas & Hafriyat Hizmetleri – Hammaddem`}</title>
+        <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="ankara silobas, ankara hafriyat, ankara çimento, ankara kum, silobas ankara, ankara inşaat malzemeleri" />
+        <meta name="keywords" content="ankara silobas, silobas ankara, ankara silobas nakliye, ankara çimento, ankara kum fiyatları, ankara çakıl, ankara mıcır, ankara hammadde teslimatı" />
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
-        <meta property="og:title" content={`Ankara Silobas & Hafriyat Hizmetleri – Hammaddem`} />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
@@ -75,10 +75,10 @@ const BolgeAnkara = () => {
                   Hizmet Bölgesi
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Ankara Silobas & Hafriyat
+                  Ankara Silobas Nakliye ve Hammadde Teslimatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Ankara'da silobas taşımacılığı ve hafriyat malzemesi tedariği. OSB ve şantiye teslim, hızlı teslimat. Online teklif alın.
+                  Ankara'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. OSTİM, Sincan, İvedik OSB'ye hızlı teslimat, 30 dakikada teklif.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/teklif-al" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
@@ -88,6 +88,12 @@ const BolgeAnkara = () => {
                     <Phone className="inline mr-1.5 w-4 h-4" /> 0539 330 86 17
                   </a>
                 </div>
+                <p className="mt-5 text-sm text-txt-2">
+                  Hafriyat işi mi var (temel kazısı, moloz taşıma)?{" "}
+                  <Link to="/hafriyat/ankara" className="font-semibold text-navy no-underline hover:underline">
+                    Ankara hafriyat firması sayfası →
+                  </Link>
+                </p>
               </div>
               <div className="hidden md:flex items-center justify-center">
                 <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
@@ -125,15 +131,15 @@ const BolgeAnkara = () => {
                 </Link>
               </div>
               <div className="border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                <h3 className="font-bold text-lg mb-2">Hafriyat & İnşaat Malzemesi</h3>
+                <h3 className="font-bold text-lg mb-2">Kum, Çakıl, Mıcır & Stabilize Teslimatı</h3>
                 <p className="text-sm text-txt-2 leading-relaxed mb-2">
                   Kum, çakıl, mıcır, stabilize malzeme tedariği. Ankara ilçelerinde şantiye ve tesislere damperli araçlarla teslimat.
                 </p>
                 <p className="text-xs text-txt-2 leading-relaxed mb-3">
                   <strong>İlçeler:</strong> Ostim, Sincan, Etimesgut, Polatlı, Haymana, Gölbaşı
                 </p>
-                <Link to="/hizmetler/hafriyat-nakliyesi" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
-                  Hafriyat hizmeti detayı <ArrowRight className="w-4 h-4" />
+                <Link to="/hafriyat/ankara" className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-1 no-underline hover:underline">
+                  Ankara hafriyat işleri: kazı, moloz <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
