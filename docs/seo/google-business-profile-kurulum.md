@@ -21,9 +21,9 @@ Mevcut profilde görünen ve **ihlal sayılabilecek** noktalar:
 
 | Görünen | Sorun | Yapılacak |
 |---|---|---|
-| Kategori: **Lojistik Firması** | Yaptığınız iş hafriyat; kategori uyuşmuyor | `Hafriyat şirketi` yapılacak |
+| Kategori: **Lojistik Firması** | Yaptığınız iş hafriyat; kategori uyuşmuyor | Kategori arama kutusuna `hafriyat`/`kazı`/`toprak` yazılıp çıkan seçilecek (bkz. "Kategori seçimi") |
 | Çalışma saati: **24 saat açık** | Gerçekçi olmayan saat en sık tetikleyicilerden | Gerçek saatler (ör. 07:00–19:00) girilecek |
-| İşletme adı: **`https://hammaddem.co`** | 🔴 **ASIL SEBEP BU.** İşletme adı bir URL olamaz. Google adlandırma kuralı: ad, tabelada/faturada kullanılan gerçek işletme adı olmalıdır. URL, slogan veya anahtar kelime yasak. | `Yazgan Nakliyat` yapılacak (vergi levhasındaki adla birebir aynı olmalı) |
+| İşletme adı: **`https://hammaddem.co`** | 🔴 **ASIL SEBEP BU.** İşletme adı bir URL olamaz. Google adlandırma kuralı: ad, tabelada/faturada kullanılan gerçek işletme adı olmalıdır. URL, slogan veya anahtar kelime yasak. | `Hammaddem` yapılacak — faturalarda da bu ad kullanılacak |
 | Hizmet bölgesi: Bursa, İzmir + 6 bölge | Hizmet alanı çok geniş görünüyorsa şüphe uyandırır | Gerçekten hizmet verilen yerler bırakılacak |
 | Adres | Hizmet alanı işletmesi ise fiziksel adres yine de **doğrulanabilir** olmalı | Vergi levhasındaki adres kullanılacak |
 
