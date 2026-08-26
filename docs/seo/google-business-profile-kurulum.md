@@ -23,7 +23,7 @@ Mevcut profilde görünen ve **ihlal sayılabilecek** noktalar:
 |---|---|---|
 | Kategori: **Lojistik Firması** | Ana kategori, aramalarda en çok karşılık gelen işi tarif etmeli; hafriyat tarafı temsil edilmiyor | Ana kategori hafriyat/kazı olacak; **Lojistik silinmeyip ek kategoriye taşınacak** (bkz. "Kategori seçimi") |
 | Çalışma saati: **24 saat açık** | Gerçekçi olmayan saat en sık tetikleyicilerden | Gerçek saatler (ör. 07:00–19:00) girilecek |
-| İşletme adı: **`https://hammaddem.co`** | 🔴 **ASIL SEBEP BU.** İşletme adı bir URL olamaz. Google adlandırma kuralı: ad, tabelada/faturada kullanılan gerçek işletme adı olmalıdır. URL, slogan veya anahtar kelime yasak. | `Hammaddem` yapılacak — faturalarda da bu ad kullanılacak |
+| İşletme adı: **`https://hammaddem.co`** | 🔴 **ASIL SEBEP BU.** İşletme adı bir URL olamaz. Google kuralı: ad, belgelerdeki gerçek işletme adı olmalı. URL, slogan veya anahtar kelime yasak. | **`Yazgan Nakliye`** yapılacak |
 | Hizmet bölgesi: Bursa, İzmir + 6 bölge | Hizmet alanı çok geniş görünüyorsa şüphe uyandırır | Gerçekten hizmet verilen yerler bırakılacak |
 | Adres | Hizmet alanı işletmesi ise fiziksel adres yine de **doğrulanabilir** olmalı | Vergi levhasındaki adres kullanılacak |
 
@@ -53,32 +53,39 @@ En sık ret sebebi budur.
 
    | Alan | Şu an | Yapılacak |
    |---|---|---|
-   | İşletme adı | `https://hammaddem.co` | `Hammaddem` |
+   | İşletme adı | `https://hammaddem.co` | **`Yazgan Nakliye`** (belgelerle eşleşen ad) |
    | Kategori | Lojistik Firması | Aşağıdaki listeden ilk bulunan (bkz. "Kategori seçimi") |
    | Çalışma saatleri | 24 saat açık | Pzt–Cmt 07:00–19:00, Pazar kapalı (gerçek durumunuz) |
    | Hizmet bölgeleri | Bursa, İzmir + 6 bölge | Gerçekten hizmet verilen iller/ilçeler |
    | Web sitesi | https://hammaddem.co/ | ✓ doğru, dokunmayın |
    | Telefon | 0539 330 86 17 | ✓ doğru, dokunmayın |
 
-   > **Karar (2026-08-26):** Profil adı **`Hammaddem`** olacak. İşletme sahibi
-   > faturaları da Hammaddem adına kesecek. Alan adının işletme adıyla aynı
-   > olması Google açısından sorun değil; şart olan, adın **belgelerde de
-   > geçmesi**.
+   > **KARAR (2026-08-26) — marka ile tüzel kişilik ayrı:**
    >
-   > Sitedeki Organization şeması bunu zaten doğru modelliyor:
-   > `name: "Hammaddem"`, `legalName: "Yazgan Nakliyat"`, `brand: "Hammaddem"`.
-
-   **Kritik şart — "Hammaddem" belgelerde görünmeli:**
-   Türkiye'de şahıs işletmesinin ticaret unvanı kişi adıdır; markayı resmîleştirmenin
-   yolu **işletme adı tescilidir** (ticaret/esnaf sicilinde "işletme adı" olarak
-   kaydedilir ve faturada unvanın yanında kullanılabilir).
-
-   - ✅ "Hammaddem" işletme adı olarak tescilliyse → sicil kaydı itirazın en güçlü belgesi.
-   - ⚠️ Henüz tescilli değilse → tescil ettirin. Askıdaki bir profilde inceleme
-     sıkı yapılır; belge-profil uyuşmazlığı en sık ret sebebidir.
-   - 🔁 Ara çözüm: vergi levhasındaki adla itiraz edip profili geri açtırmak,
-     sonra tescil tamamlanınca adı değiştirmek. Ancak yeniden açılan bir profilde
-     hemen ad değişikliği tekrar askıya alınma riski taşır — tercih edilmez.
+   > | Nerede | Hangi ad |
+   > |---|---|
+   > | Web sitesi, alan adı, e-posta, marka | **Hammaddem** |
+   > | Fatura, sözleşme, resmî işlemler | **Yazgan Nakliye İnşaat ve Orman Ürünleri San. ve Tic. Ltd. Şti.** |
+   > | **Google İşletme Profili adı** | **Yazgan Nakliye** |
+   >
+   > Gerekçe: Google itirazda profil adını belgelerle karşılaştırır. Vergi
+   > levhasında "Hammaddem" geçmiyor; "Yazgan Nakliye … Ltd. Şti." geçiyor.
+   > Marka sitesi ile şirket adının farklı olması Google için sorun değil —
+   > profilin "Web sitesi" alanı `hammaddem.co` kalacak.
+   >
+   > Site tarafı bu bağı zaten kuruyor: footer ve Organization şeması
+   > "Hammaddem, Yazgan Nakliye … Ltd. Şti. kuruluşudur" diyor, adres Beykoz
+   > ve kuruluş yılı 1997 olarak beyan ediliyor. Google profil ile siteyi
+   > karşılaştırdığında aynı işletmeyi görecek.
+   >
+   > **İleride Hammaddem adına geçmek için:** ticaret siciline Ltd. şirket için
+   > "işletme adı: Hammaddem" tescili yaptırın. Tescil belgesi geldiğinde profil
+   > adı Hammaddem'e çevrilebilir. Belgesiz ad değişikliği askıya alınma sebebidir.
+   >
+   > ⚠️ **Profilde "aracı platform", "dijital çözüm ortağı" gibi ifadeler
+   > KULLANILMAYACAK.** Google, işi fiilen yapmayan aracı platformları
+   > listelemez. Siz kendi araçlarınızla sahaya gidiyorsunuz — açıklamada da
+   > yapılan iş anlatılacak.
 
    Ada **"hafriyat", "İstanbul", "en iyi"** gibi kelime EKLEMEYİN ve iki ismi
    birleştirmeyin (`Yazgan Nakliyat - Hammaddem` ✗) — ek tanımlayıcı ihlaldir.
