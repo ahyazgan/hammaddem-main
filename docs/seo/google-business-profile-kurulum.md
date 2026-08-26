@@ -1,4 +1,83 @@
-# Google Business Profile (İşletme Profili) — kurulum paketi
+# Google Business Profile (İşletme Profili)
+
+> ## ⚠️ DURUM (2026-08-26): Profil ASKIDA
+>
+> `ahyazgab@gmail.com` hesabındaki profil "yönergelere uygun olmaması" nedeniyle
+> askıya alınmış. Arama sonucunda **"HERKESE GÖRÜNÜR DEĞİL"** ve *"Müşteriler
+> işletmenizi göremiyor"* yazıyor. Yani şu an lokal aramalarda hiç görünmüyoruz.
+>
+> **Bu bölüm önce okunmalı — yeni profil AÇILMAYACAK.** Askıdayken ikinci profil
+> açmak durumu kötüleştirir (yinelenen profil ihlali) ve itiraz şansını düşürür.
+> Aşağıdaki 5 numaralı bölüm (itiraz süreci) önceliklidir; 1–8 arası bölümler
+> profil geri açıldıktan sonra profili düzeltmek için kullanılacak.
+
+---
+
+## ⚑ Askıdaki profili kurtarma (öncelikli iş)
+
+### A. Askıya alınma sebebi ne olabilir?
+
+Mevcut profilde görünen ve **ihlal sayılabilecek** noktalar:
+
+| Görünen | Sorun | Yapılacak |
+|---|---|---|
+| Kategori: **Lojistik Firması** | Yaptığınız iş hafriyat; kategori uyuşmuyor | `Hafriyat şirketi` yapılacak |
+| Çalışma saati: **24 saat açık** | Gerçekçi olmayan saat en sık tetikleyicilerden | Gerçek saatler (ör. 07:00–19:00) girilecek |
+| İşletme adı | Görünmüyor — **kontrol edilmeli** | Adda "hafriyat", "İstanbul", "nakliyat" gibi anahtar kelime varsa çıkarılacak; ad, resmî belgedekiyle **birebir** aynı olmalı |
+| Hizmet bölgesi: Bursa, İzmir + 6 bölge | Hizmet alanı çok geniş görünüyorsa şüphe uyandırır | Gerçekten hizmet verilen yerler bırakılacak |
+| Adres | Hizmet alanı işletmesi ise fiziksel adres yine de **doğrulanabilir** olmalı | Vergi levhasındaki adres kullanılacak |
+
+> Sanal ofis, ev adresi ya da doğrulanamayan adres kullanımı; işletme adında
+> anahtar kelime; kategori uyuşmazlığı ve gerçek dışı çalışma saati — Türkiye'de
+> askıya alınmanın en yaygın dört sebebidir.
+
+### B. İtirazdan ÖNCE hazırlanacak belgeler
+
+Google itiraz formunu açtıktan sonra **60 dakika** içinde belge yüklenmeli.
+Bu yüzden hepsi önceden taranmış/fotoğraflanmış hâlde masaüstünde hazır olmalı:
+
+- [ ] **Vergi levhası** (en önemlisi — işletme adı ve adresi gösterir)
+- [ ] **Ticaret sicil gazetesi** ya da esnaf/sanatkâr sicil kaydı
+- [ ] **İşyeri açma ve çalışma ruhsatı** (varsa)
+- [ ] **Son 3 aya ait fatura** — elektrik, su, doğalgaz veya internet; adres görünmeli
+- [ ] **Araç ruhsatları / taşıma yetki belgesi (K belgesi)** — gerçek faaliyeti kanıtlar
+- [ ] **İşyeri ve tabela fotoğrafı** — dışarıdan, sokak görünecek şekilde
+- [ ] **Antetli kağıt / kaşe örneği**
+
+⚠️ Belgelerdeki **işletme adı ve adres, profildekiyle birebir aynı olmalı.**
+En sık ret sebebi budur.
+
+### C. İtiraz adımları
+
+1. Profildeki bilgileri **önce düzeltin** (kategori, çalışma saati, ad, hizmet alanı).
+   Google'ın mesajı zaten "İşletme bilgilerinizi düzenleyin" diyor.
+2. Yardım sayfasındaki **"İşlem yapın"** düğmesinden itiraz formunu açın.
+3. Belgeleri 60 dakika içinde yükleyin.
+4. Formda kısa ve net yazın; örnek metin:
+
+```
+Yazgan Nakliyat, İstanbul merkezli, hafriyat ve nakliye hizmeti veren faal bir
+işletmedir. Ekte vergi levhası, işyeri faturası ve araç ruhsatları yer almaktadır.
+İşletme adı resmî kayıtlarla birebir aynıdır ve profilde anahtar kelime
+kullanılmamaktadır. Kategori, faaliyet alanımıza uygun olacak şekilde
+"Hafriyat şirketi" olarak güncellenmiştir. Çalışma saatleri gerçek çalışma
+düzenimize göre düzeltilmiştir. Profilin yeniden etkinleştirilmesini rica ederiz.
+```
+
+5. **Tek itiraz gönderin.** Sonuç genelde 3–14 gün sürer. Cevap gelmeden ikinci
+   itiraz ya da yeni profil açmayın — süreci sıfırlar.
+
+### D. İtiraz reddedilirse
+
+- Ret gerekçesini okuyup eksik belgeyi tamamlayıp **bir kez daha** itiraz edin.
+- Israrla reddediliyorsa: fiziksel adresi doğrulanabilir bir işyerine taşıyıp
+  (kira sözleşmesi + fatura) yeniden başvurmak en sağlıklı yoldur.
+- Bu süreçte site tarafında yapacak bir şey yok; sitenin SEO'su etkilenmez,
+  yalnızca harita paketine giremeyiz.
+
+---
+
+# Profil geri açıldığında uygulanacak kurulum
 
 Lokal aramalarda organik sonuçların **üstünde** çıkan harita paketine girmenin tek yolu
 budur. Site ne kadar iyi olursa olsun, profil olmadan o alana giremezsiniz.
