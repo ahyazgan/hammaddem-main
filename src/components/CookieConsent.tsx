@@ -28,7 +28,7 @@ const CookieConsent = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-[60px] md:bottom-0 left-0 right-0 z-[200] p-4 md:p-6 animate-fade-up">
+    <div className="fixed bottom-[68px] md:bottom-0 left-0 right-0 z-[200] p-4 md:p-6 animate-fade-up">
       <div className="max-w-[720px] mx-auto bg-background border border-border rounded-2xl shadow-elevated p-5 md:p-6">
         <div className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-xl bg-accent-light flex items-center justify-center shrink-0 mt-0.5">

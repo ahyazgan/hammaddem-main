@@ -17,13 +17,19 @@ const konuFromPath = (pathname: string): string => {
   return "hammadde tedariki";
 };
 
+// Sayfa bağlamlı WhatsApp linki — hem masaüstü balonu hem mobil CallBar kullanır.
+export const whatsappUrl = (pathname: string): string => {
+  const message = `Merhaba, ${konuFromPath(pathname)} hakkında fiyat almak istiyorum.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
+
+// Masaüstü yüzen balon. Mobilde gizli: orada WhatsApp, CallBar'ın içinde.
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
   const hiddenPaths = ["/dashboard", "/giris", "/kayit", "/yazgan", "/sifre-sifirla"];
   if (hiddenPaths.some(p => pathname.startsWith(p))) return null;
 
-  const message = `Merhaba, ${konuFromPath(pathname)} hakkında fiyat almak istiyorum.`;
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  const url = whatsappUrl(pathname);
 
   return (
     <a
@@ -31,7 +37,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp ile iletişime geç"
-      className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_14px_rgba(37,211,102,.45)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,.55)] transition-all duration-200"
+      className="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-[0_4px_14px_rgba(37,211,102,.45)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,.55)] transition-all duration-200"
     >
       <MessageCircle size={26} fill="white" strokeWidth={0} />
     </a>
