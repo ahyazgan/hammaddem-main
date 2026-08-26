@@ -21,7 +21,7 @@ Mevcut profilde görünen ve **ihlal sayılabilecek** noktalar:
 
 | Görünen | Sorun | Yapılacak |
 |---|---|---|
-| Kategori: **Lojistik Firması** | Yaptığınız iş hafriyat; kategori uyuşmuyor | Kategori arama kutusuna `hafriyat`/`kazı`/`toprak` yazılıp çıkan seçilecek (bkz. "Kategori seçimi") |
+| Kategori: **Lojistik Firması** | Ana kategori, aramalarda en çok karşılık gelen işi tarif etmeli; hafriyat tarafı temsil edilmiyor | Ana kategori hafriyat/kazı olacak; **Lojistik silinmeyip ek kategoriye taşınacak** (bkz. "Kategori seçimi") |
 | Çalışma saati: **24 saat açık** | Gerçekçi olmayan saat en sık tetikleyicilerden | Gerçek saatler (ör. 07:00–19:00) girilecek |
 | İşletme adı: **`https://hammaddem.co`** | 🔴 **ASIL SEBEP BU.** İşletme adı bir URL olamaz. Google adlandırma kuralı: ad, tabelada/faturada kullanılan gerçek işletme adı olmalıdır. URL, slogan veya anahtar kelime yasak. | `Hammaddem` yapılacak — faturalarda da bu ad kullanılacak |
 | Hizmet bölgesi: Bursa, İzmir + 6 bölge | Hizmet alanı çok geniş görünüyorsa şüphe uyandırır | Gerçekten hizmet verilen yerler bırakılacak |
@@ -157,21 +157,44 @@ karşılıkları da verildi (doğrulanmış resmî liste).
 | `yıkım` | Yıkım müteahhidi | Demolition contractor |
 | `inşaat` | İnşaat şirketi | Construction company |
 
-**Ek kategoriler** (ana kategoriden sonra, bulabildiğiniz kadarını ekleyin):
+### İki iş kolu tek profilde nasıl duracak?
 
-| Aranacak kelime | İngilizce karşılığı |
-|---|---|
-| `moloz` / `enkaz` | Debris removal service |
-| `yıkım` | Demolition contractor |
-| `nakliy` / `kamyon` | Trucking / Moving company |
-| `kum` / `çakıl` | Sand & gravel supplier |
-| `agrega` | Aggregate supplier |
-| `inşaat malzeme` | Building materials supplier |
-| `iş makinesi` / `kiralama` | Equipment rental agency |
+İşletmenin iki kolu var: **hafriyat** (kazı, moloz, taşıma) ve **silobas +
+hammadde** (çimento, kalsit, kireç, kum, çakıl). İkisi için **ayrı profil
+AÇILMAZ** — aynı işletme/aynı adres için ikinci profil "yinelenen profil"
+ihlalidir ve mevcut askıyı büsbütün riske atar.
 
-> Ana kategori sıralamayı en çok etkileyen alandır; hafriyat/kazı/toprak
-> grubundan biri bulunursa **mutlaka o ana kategori olmalı.** "Lojistik Firması"
-> ana kategori olarak kalmamalı — yaptığınız işi tarif etmiyor.
+Doğru yapı: **tek profil, 1 ana + en fazla 9 ek kategori.** Ana kategori
+sıralamayı en çok etkileyen alandır; ek kategoriler diğer iş kolunu kapsar.
+
+**Ana kategori neden hafriyat tarafından seçilmeli?**
+Anahtar kelime araştırmasının verisi net: `{il/ilçe} hafriyat firmaları` kalıbı
+60'tan fazla yerde çıkıyor ve bu aramalarda Google **önce harita paketini**
+gösteriyor. Silobas tarafında ise arama hacmi düşük ve sorguların büyük bölümü
+yedek parça/şoför ilanı; ayrıca beton santrali müşterisi tedarikçisini haritadan
+değil, telefonla ve referansla buluyor. Yani harita paketinden kazanılacak iş
+ezici çoğunlukla hafriyat tarafında.
+
+Silobas işi bu yüzden **kaybolmuyor**: ek kategoriler + "Hizmetler" bölümü +
+açıklama metni ile profilde tam olarak temsil ediliyor.
+
+**Ek kategoriler** (ana kategoriden sonra ekleyin — hafriyat ve silobas kolları):
+
+| Aranacak kelime | İngilizce karşılığı | Hangi kol |
+|---|---|---|
+| `moloz` / `enkaz` | Debris removal service | Hafriyat |
+| `yıkım` | Demolition contractor | Hafriyat |
+| `iş makinesi` / `kiralama` | Equipment rental agency | Hafriyat |
+| `nakliye` / `kamyon` | Trucking / Moving company | Her ikisi |
+| `lojistik` | Logistics service | Her ikisi *(mevcut kategori — silinmeyecek, ek kategoriye taşınacak)* |
+| `çimento` | **Cement supplier** | Silobas |
+| `kum` / `çakıl` | Sand & gravel supplier | Silobas |
+| `agrega` | Aggregate supplier | Silobas |
+| `inşaat malzeme` | Building materials supplier | Silobas |
+| `beton` | Concrete product supplier | Silobas |
+
+> "Lojistik Firması" **silinmiyor** — sadece ana kategori olmaktan çıkıp ek
+> kategoriye iniyor. Hiçbir iş kolu profilden düşmüyor.
 
 **Telefon:** `0539 330 86 17`
 **Web sitesi:** `https://hammaddem.co`
