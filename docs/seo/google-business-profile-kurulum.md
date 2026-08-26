@@ -23,7 +23,7 @@ Mevcut profilde görünen ve **ihlal sayılabilecek** noktalar:
 |---|---|---|
 | Kategori: **Lojistik Firması** | Yaptığınız iş hafriyat; kategori uyuşmuyor | `Hafriyat şirketi` yapılacak |
 | Çalışma saati: **24 saat açık** | Gerçekçi olmayan saat en sık tetikleyicilerden | Gerçek saatler (ör. 07:00–19:00) girilecek |
-| İşletme adı | Görünmüyor — **kontrol edilmeli** | Adda "hafriyat", "İstanbul", "nakliyat" gibi anahtar kelime varsa çıkarılacak; ad, resmî belgedekiyle **birebir** aynı olmalı |
+| İşletme adı: **`https://hammaddem.co`** | 🔴 **ASIL SEBEP BU.** İşletme adı bir URL olamaz. Google adlandırma kuralı: ad, tabelada/faturada kullanılan gerçek işletme adı olmalıdır. URL, slogan veya anahtar kelime yasak. | `Yazgan Nakliyat` yapılacak (vergi levhasındaki adla birebir aynı olmalı) |
 | Hizmet bölgesi: Bursa, İzmir + 6 bölge | Hizmet alanı çok geniş görünüyorsa şüphe uyandırır | Gerçekten hizmet verilen yerler bırakılacak |
 | Adres | Hizmet alanı işletmesi ise fiziksel adres yine de **doğrulanabilir** olmalı | Vergi levhasındaki adres kullanılacak |
 
@@ -49,8 +49,24 @@ En sık ret sebebi budur.
 
 ### C. İtiraz adımları
 
-1. Profildeki bilgileri **önce düzeltin** (kategori, çalışma saati, ad, hizmet alanı).
-   Google'ın mesajı zaten "İşletme bilgilerinizi düzenleyin" diyor.
+1. Profildeki bilgileri **önce düzeltin** — "Bilgileri düzenle" düğmesinden, şu sırayla:
+
+   | Alan | Şu an | Yapılacak |
+   |---|---|---|
+   | İşletme adı | `https://hammaddem.co` | `Yazgan Nakliyat` |
+   | Kategori | Lojistik Firması | `Hafriyat şirketi` |
+   | Çalışma saatleri | 24 saat açık | Pzt–Cmt 07:00–19:00, Pazar kapalı (gerçek durumunuz) |
+   | Hizmet bölgeleri | Bursa, İzmir + 6 bölge | Gerçekten hizmet verilen iller/ilçeler |
+   | Web sitesi | https://hammaddem.co/ | ✓ doğru, dokunmayın |
+   | Telefon | 0539 330 86 17 | ✓ doğru, dokunmayın |
+
+   > İşletme adı `Yazgan Nakliyat` olmalı çünkü site de kendini böyle tanıtıyor
+   > (footer, hakkımızda, iletişim: "Hammaddem, bir Yazgan Nakliyat kuruluşudur").
+   > Google'ın "aynı işletme" diyebilmesi için ad-telefon-adres üçlüsünün site ile
+   > profil arasında birebir uyuşması gerekir.
+
+   Ada **"hafriyat", "İstanbul", "en iyi"** gibi kelime EKLEMEYİN — askının
+   tekrarlanma sebebi olur.
 2. Yardım sayfasındaki **"İşlem yapın"** düğmesinden itiraz formunu açın.
 3. Belgeleri 60 dakika içinde yükleyin.
 4. Formda kısa ve net yazın; örnek metin:
