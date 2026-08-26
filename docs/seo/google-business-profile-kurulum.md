@@ -36,9 +36,14 @@ Mevcut profilde görünen ve **ihlal sayılabilecek** noktalar:
 Google itiraz formunu açtıktan sonra **60 dakika** içinde belge yüklenmeli.
 Bu yüzden hepsi önceden taranmış/fotoğraflanmış hâlde masaüstünde hazır olmalı:
 
-- [ ] **Vergi levhası** (en önemlisi — işletme adı ve adresi gösterir)
-- [ ] **Ticaret sicil gazetesi** ya da esnaf/sanatkâr sicil kaydı
-- [ ] **İşyeri açma ve çalışma ruhsatı** (varsa)
+- [x] **Vergi levhası** ✅ VAR — Ltd. Şti., Beykoz VD, işe başlama 01.01.1997,
+      ana faaliyet 494102 (kara yolu yük taşımacılığı)
+- [ ] **İTO Faaliyet Belgesi (Oda Kayıt Belgesi)** ⚠️ VAR ama **SÜRESİ DOLMUŞ**
+      — 11.09.2025 tarihli, üzerinde "60 gün geçerlidir" yazıyor.
+      **YENİSİNİ ALIN:** https://eportal.ito.org.tr → e-imza/mobil imza ile
+      dakikalar içinde alınır. İtirazın en ikna edici belgesi budur:
+      sicil no 359997-0, MERSİS 0944005142000010, **odaya kayıt 31/12/1996**,
+      adres **BOZHANE KÖYÜ NO: 42/A BEYKOZ İSTANBUL**.
 - [ ] **Son 3 aya ait fatura** — elektrik, su, doğalgaz veya internet; adres görünmeli
 - [ ] **Araç ruhsatları / taşıma yetki belgesi (K belgesi)** — gerçek faaliyeti kanıtlar
 - [ ] **İşyeri ve tabela fotoğrafı** — dışarıdan, sokak görünecek şekilde
@@ -46,6 +51,19 @@ Bu yüzden hepsi önceden taranmış/fotoğraflanmış hâlde masaüstünde haz�
 
 ⚠️ Belgelerdeki **işletme adı ve adres, profildekiyle birebir aynı olmalı.**
 En sık ret sebebi budur.
+
+> **Profile girilecek adres** (faaliyet belgesindeki tam hâli — vergi levhasında
+> kapı no yok, belgede var; ikisi çelişmesin diye belgedeki kullanılacak):
+> `Bozhane Köyü No: 42/A, Beykoz / İstanbul`
+>
+> **Not — kategori tutarlılığı:** Hem vergi levhası (NACE 494102) hem İTO
+> belgesi (meslek grubu 24 Lojistik Hizmetleri, NACE 49.41.02) yalnızca
+> taşımacılığı gösteriyor; hafriyat kaydı yok. Bu yüzden **itiraz aşamasında
+> ana kategori "Nakliyat Şirketi" kalabilir** — belgelerle birebir uyuşur.
+> Hafriyat kategorileri profil geri açıldıktan sonra ek kategori olarak
+> eklenir. Hafriyat asıl iş kolu olacaksa muhasebeciden **NACE 43.12
+> (inşaat alanının hazırlanması / hafriyat)** kodunun eklenmesini isteyin;
+> o zaman ana kategori de hafriyat yapılabilir.
 
 ### C. İtiraz adımları
 
