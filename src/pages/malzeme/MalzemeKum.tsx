@@ -12,7 +12,7 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 const fiyat = getFiyatBySlug("kum")!;
 const canonical = "https://hammaddem.co/malzeme/kum";
 const title = "İnşaat Kumu Fiyatları 2026 | Ton Fiyatı 250–600 TL";
-const description = "İnşaat kumu ton fiyatı 250–600 TL (2026). Dere kumu, kırma ve yıkanmış kum; şantiye ve beton santrallerine 11 ilde aynı gün teslimat. 30 dakikada teklif alın.";
+const description = "İnşaat kumu ton fiyatı 250–600 TL (2026). Dere kumu, kırma ve yıkanmış kum; 1 kamyon kum fiyatı ve 11 ilde teslimat. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -84,7 +84,7 @@ const MalzemeKum = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  İnşaat Kumu Satış & Teslimat
+                  İnşaat Kumu Fiyatları 2026 — Ton ve Kamyon Fiyatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Toptan inşaat kumu satış ve teslimatı. Dere kumu, deniz kumu, beton kumu çeşitleri. 11 ilde aynı gün teslimat, ton bazında kum fiyatı için online teklif alın.

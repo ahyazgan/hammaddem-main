@@ -4,10 +4,10 @@ const MalzemeKalsitIzmir = () => (
   <KombinasyonSayfasi
     malzemeSlug="kalsit"
     sehirSlug="izmir"
-    title="İzmir Kalsit Silobas Taşıma | Hammaddem"
-    description="İzmir'de kalsit silobas taşıma. Aliağa, Torbalı, Kemalpaşa ve Ege bölgesine hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="İzmir Kalsit Fiyatları 2026 | Silobas Teslimat"
+    description="İzmir'de kalsit fiyatları 2026: 1.500–4.000 TL/ton. Aliağa, Torbalı ve Kemalpaşa'ya silobas ile teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/kalsit/izmir"
-    keywords="i̇zmir kalsit, kalsit i̇zmir, i̇zmir kalsit fiyatı, kalsit tozu, kalsiyum karbonat"
+    keywords="i̇zmir kalsit fiyatları, i̇zmir kalsit, kalsit i̇zmir, i̇zmir kalsit ton fiyatı, i̇zmir kalsit teslimat"
   />
 );
 

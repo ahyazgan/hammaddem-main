@@ -12,7 +12,7 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 const fiyat = getFiyatBySlug("kirec")!;
 const canonical = "https://hammaddem.co/malzeme/kirec";
 const title = "Kireç Tedarikçisi | Sönmemiş & Sönmüş Kireç Fiyatları 2026";
-const description = "Sönmemiş, sönmüş ve mikronize kireç tedarikçisi. Kireç fiyatları 2026: 2.000–5.000 TL/ton. Dökme silobas, big-bag veya torbalı teslimat, 11 ilde. 30 dakikada teklif.";
+const description = "Sönmemiş, sönmüş ve mikronize kireç tedariki. Kireç fiyatları 2026: 2.000–5.000 TL/ton. Dökme silobas ve big-bag teslimat. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -84,7 +84,7 @@ const MalzemeKirec = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Sönmemiş & Sönmüş Kireç Tedarikçisi
+                  Kireç Fiyatları 2026 — Sönmemiş ve Sönmüş Kireç
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Sönmemiş kireç (CaO), sönmüş kireç (Ca(OH)₂) ve mikronize kireç tedarik hizmeti. Pnömatik silobas ile kapalı sistem kireç lojistiği; dökme, big-bag veya torbalı teslimat. İnşaat, çevre ve sanayi için 11 ilde.

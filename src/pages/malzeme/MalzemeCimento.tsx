@@ -11,8 +11,8 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("cimento")!;
 const canonical = "https://hammaddem.co/malzeme/cimento";
-const title = "Çimento Fiyatları & Silobas Taşıma | Toptan Çimento Tedariği – Hammaddem";
-const description = "Çimento silobas taşımacılığı ve toptan çimento tedariği. Portland, CEM I, CEM II çimento türlerinde 11 ilde hızlı teslimat. Ton bazında rekabetçi fiyat, online teklif alın.";
+const title = "Dökme Çimento Ton Fiyatı 2026 | Silobas ile Teslimat";
+const description = "Dökme çimento ton fiyatı 2026: CEM I ve CEM II 2.500–4.500 TL/ton. Silobas ile beton santrali ve şantiyeye teslimat, 11 ilde. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -85,7 +85,7 @@ const MalzemeCimento = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Çimento Taşıma & Toptan Tedarik
+                  Dökme Çimento Fiyatları 2026 — Ton Fiyatı ve Teslimat
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Çimento silobas taşımacılığı ve toptan çimento tedariği. Portland, CEM I, CEM II çimento türlerinde 11 ilde hızlı teslimat. Ton bazında rekabetçi fiyat, online teklif alın.

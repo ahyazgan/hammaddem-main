@@ -4,10 +4,10 @@ const MalzemeCimentoKocaeli = () => (
   <KombinasyonSayfasi
     malzemeSlug="cimento"
     sehirSlug="kocaeli"
-    title="Kocaeli Çimento Silobas Taşıma | Hammaddem"
-    description="Kocaeli'nde çimento silobas taşıma. Gebze, Dilovası, GOSB ve Kocaeli genelinde hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="Kocaeli Çimento Fiyatları 2026 | Silobas Teslimat"
+    description="Kocaeli'nde çimento fiyatları 2026: 2.500–4.500 TL/ton. Gebze, Dilovası ve İzmit'e silobas ile teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/cimento/kocaeli"
-    keywords="kocaeli çimento, çimento kocaeli, kocaeli cimento fiyatı, portland çimento, CEM I"
+    keywords="kocaeli çimento fiyatları, kocaeli çimento, çimento kocaeli, kocaeli çimento ton fiyatı, kocaeli çimento teslimat"
   />
 );
 

@@ -8,7 +8,7 @@ import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/fiyatlar";
 const title = "Hammadde Fiyatları 2026 | Kum, Çakıl, Çimento Ton Fiyatı";
-const description = "Güncel ton fiyatları: kum 250–600 TL, çakıl 200–500 TL, çimento 2.500–4.500 TL, kireç 2.000–5.000 TL. 10 malzemede güncel liste, 30 dakikada ücretsiz teklif.";
+const description = "Kum çakıl fiyatları 2026 ve 10 hammaddenin ton fiyatı: kum 250–600 TL, çakıl 200–500 TL, çimento 2.500–4.500 TL. 30 dakikada teslimatlı teklif.";
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },

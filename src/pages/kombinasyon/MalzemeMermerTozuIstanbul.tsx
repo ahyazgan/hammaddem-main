@@ -4,10 +4,10 @@ const MalzemeMermerTozuIstanbul = () => (
   <KombinasyonSayfasi
     malzemeSlug="mermer-tozu"
     sehirSlug="istanbul"
-    title="İstanbul Mermer Tozu Silobas Taşıma | Hammaddem"
-    description="İstanbul'da mermer tozu silobas taşıma. Avrupa ve Anadolu yakasında, sanayi bölgeleri ve OSB'lere hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="İstanbul Mermer Tozu Fiyatları 2026 | Silobas Teslimat"
+    description="İstanbul'da mermer tozu fiyatları 2026: 1.200–3.500 TL/ton. Avrupa ve Anadolu yakası şantiyelerine silobas ile teslimat. 30 dakikada net teklif."
     canonical="https://hammaddem.co/malzeme/mermer-tozu/istanbul"
-    keywords="i̇stanbul mermer tozu, mermer tozu i̇stanbul, i̇stanbul mermer-tozu fiyatı, mermer unu, CaCO3"
+    keywords="i̇stanbul mermer tozu fiyatları, i̇stanbul mermer tozu, mermer tozu i̇stanbul, i̇stanbul mermer tozu ton fiyatı, i̇stanbul mermer tozu teslimat"
   />
 );
 

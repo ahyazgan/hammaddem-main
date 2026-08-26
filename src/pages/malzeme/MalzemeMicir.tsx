@@ -11,8 +11,8 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("micir")!;
 const canonical = "https://hammaddem.co/malzeme/micir";
-const title = "Mıcır Fiyatları 2026 | Mıcır Satış & Teslimat – Hammaddem";
-const description = "Toptan mıcır satış ve teslimatı. Kırma taş, bazalt mıcır, kireçtaşı mıcır çeşitleri. 11 ilde hızlı teslimat, ton bazında mıcır fiyatı için online teklif alın.";
+const title = "Mıcır Fiyatları 2026 | Ton Fiyatı 200–450 TL";
+const description = "Mıcır ton fiyatı 2026: 200–450 TL/ton. Kırma taş, bazalt ve kireçtaşı mıcır; 1 kamyon mıcır fiyatı ve 11 ilde teslimat. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -84,7 +84,7 @@ const MalzemeMicir = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Mıcır Satış & Teslimat
+                  Mıcır Fiyatları 2026 — Ton ve Kamyon Fiyatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Toptan mıcır satış ve teslimatı. Kırma taş, bazalt mıcır, kireçtaşı mıcır çeşitleri. 11 ilde hızlı teslimat, ton bazında mıcır fiyatı için online teklif alın.

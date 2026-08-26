@@ -4,10 +4,10 @@ const MalzemeKumKocaeli = () => (
   <KombinasyonSayfasi
     malzemeSlug="kum"
     sehirSlug="kocaeli"
-    title="Kocaeli Kum Silobas Taşıma | Hammaddem"
-    description="Kocaeli'nde kum satış ve teslimat. Gebze, Dilovası, GOSB ve Kocaeli genelinde hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="Kocaeli Kum Fiyatları 2026 | Damperli Teslimat"
+    description="Kocaeli'nde kum fiyatları 2026: 250–600 TL/ton. Gebze, Dilovası ve İzmit'e damperli araçla teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/kum/kocaeli"
-    keywords="kocaeli kum, kum kocaeli, kocaeli kum fiyatı, dere kumu, beton kumu"
+    keywords="kocaeli kum fiyatları, kocaeli kum, kum kocaeli, kocaeli kum ton fiyatı, kocaeli kum teslimat"
   />
 );
 

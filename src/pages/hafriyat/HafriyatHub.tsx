@@ -36,6 +36,7 @@ const hizmetler = [
     icon: Layers,
     title: "Dolgu Malzemesi",
     desc: "Stabilize, tuvenan, kırma taş ve dolgu toprağının ocaktan şantiyeye tesliği; serme-sıkıştırma desteği.",
+    path: "/hafriyat/dolgu-malzemesi",
   },
   {
     icon: Mountain,

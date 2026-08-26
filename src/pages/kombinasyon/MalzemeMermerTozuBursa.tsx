@@ -4,10 +4,10 @@ const MalzemeMermerTozuBursa = () => (
   <KombinasyonSayfasi
     malzemeSlug="mermer-tozu"
     sehirSlug="bursa"
-    title="Bursa Mermer Tozu Silobas Taşıma | Hammaddem"
-    description="Bursa'da mermer tozu silobas taşıma. DOSAB, NOSAB, Nilüfer OSB ve Bursa genelinde hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="Bursa Mermer Tozu Fiyatları 2026 | Silobas Teslimat"
+    description="Bursa'da mermer tozu fiyatları 2026: 1.200–3.500 TL/ton. DOSAB, NOSAB ve Nilüfer'e silobas ile teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/mermer-tozu/bursa"
-    keywords="bursa mermer tozu, mermer tozu bursa, bursa mermer-tozu fiyatı, mermer unu, CaCO3"
+    keywords="bursa mermer tozu fiyatları, bursa mermer tozu, mermer tozu bursa, bursa mermer tozu ton fiyatı, bursa mermer tozu teslimat"
   />
 );
 

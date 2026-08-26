@@ -11,7 +11,7 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("cakil")!;
 const canonical = "https://hammaddem.co/malzeme/cakil";
-const title = "Çakıl Fiyatları 2026 – Ton Fiyatı 200–500 TL | Hammaddem";
+const title = "Çakıl Fiyatları 2026 | Ton Fiyatı 200–500 TL";
 const description = "Çakılın tonu ne kadar? Dere çakılı, ince ve iri çakıl 200–500 TL/ton (2026). 11 ilde damperli araçla hızlı teslimat. 30 dakikada ücretsiz teklif alın.";
 
 const avantajlar = [
@@ -84,7 +84,7 @@ const MalzemeCakil = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Çakıl Satış & Teslimat
+                  Çakıl Fiyatları 2026 — Ton ve Kamyon Fiyatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Toptan çakıl satış ve teslimatı. İnce çakıl, iri çakıl, dere çakılı çeşitleri. 11 ilde hızlı teslimat, ton bazında çakıl fiyatı için online teklif alın.

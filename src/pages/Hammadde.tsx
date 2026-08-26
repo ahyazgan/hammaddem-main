@@ -7,8 +7,8 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Package, Layers } from "
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/hammadde";
-const title = "Hammadde Tedarik | Çimento, Kum, Çakıl, Kalsit, Mıcır – Hammaddem";
-const description = "Hammadde tedarik platformu. Çimento, kum, çakıl, kalsit, mıcır, kireç, alçı, mermer tozu ve daha fazlası için online hammadde siparişi verin. 11 ilde hızlı teslimat, uygun fiyat.";
+const title = "Hammadde Tedarik | Çimento, Kum, Çakıl, Kalsit, Mıcır";
+const description = "Hammadde tedarik platformu: çimento, kum, çakıl, kalsit, mıcır, kireç, alçı ve mermer tozu. 11 ilde teslimat, 30 dakikada online fiyat teklifi.";
 
 const malzemeler = [
   { name: "Çimento", path: "/malzeme/cimento", desc: "Portland, CEM I, CEM II çimento türleri. Silobas ile güvenli taşıma." },

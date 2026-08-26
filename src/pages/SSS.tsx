@@ -84,11 +84,11 @@ const faqJsonLd = {
 const SSS = () => (
   <>
     <Helmet>
-      <title>Sıkça Sorulan Sorular – Silobas, Hafriyat, Hammadde | Hammaddem</title>
-      <meta name="description" content="Silobas taşımacılığı, hafriyat malzeme tedariği, çimento kum çakıl mıcır kalsit fiyatları hakkında sık sorulan sorular. Hammaddem nasıl çalışır, hangi iller?" />
+      <title>Sıkça Sorulan Sorular | Hafriyat, Silobas, Hammadde</title>
+      <meta name="description" content="Hafriyat fiyatları, moloz taşıma, silobas nakliye ve çimento-kum-çakıl tedariği hakkında sık sorulan sorular. Hammaddem nasıl çalışır, hangi iller?" />
       <meta name="keywords" content="silobas nedir, hafriyat nedir, çimento fiyatı, kum çakıl fiyat, kalsit taşıma, hammaddem sss" />
       <link rel="canonical" href="https://hammaddem.co/sss" />
-      <meta property="og:title" content="Sıkça Sorulan Sorular – Silobas, Hafriyat, Hammadde | Hammaddem" />
+      <meta property="og:title" content="Sıkça Sorulan Sorular | Hafriyat, Silobas, Hammadde" />
       <meta property="og:description" content="Silobas taşımacılığı, hafriyat malzeme tedariği, çimento kum çakıl kalsit fiyatları hakkında sık sorulan sorular." />
       <meta property="og:url" content="https://hammaddem.co/sss" />
       <meta property="og:type" content="website" />

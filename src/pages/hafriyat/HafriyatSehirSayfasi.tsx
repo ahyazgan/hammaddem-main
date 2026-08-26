@@ -166,7 +166,7 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
                 { ad: "Temel & Bodrum Kazısı", path: "/hafriyat/temel-kazisi" },
                 { ad: "Hafriyat Toprağı Taşıma", path: "/hizmetler/hafriyat-nakliyesi" },
                 { ad: "Moloz & İnşaat Atığı Kaldırma", path: "/hafriyat/moloz-tasima" },
-                { ad: "Dolgu Malzemesi Temini" },
+                { ad: "Dolgu Malzemesi Temini", path: "/hafriyat/dolgu-malzemesi" },
                 { ad: "Arazi Düzenleme & Tesviye" },
                 { ad: "Yıkım Sonrası Hafriyat" },
               ].map((h) => {

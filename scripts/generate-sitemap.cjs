@@ -25,10 +25,13 @@ const ROUTES = [
   { path: '/hafriyat/hesaplama', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
   { path: '/hafriyat/temel-kazisi', priority: '0.9', changefreq: 'monthly', lastmod: '2026-08-26' },
   { path: '/hafriyat/moloz-tasima', priority: '0.9', changefreq: 'monthly', lastmod: '2026-08-26' },
+  { path: '/hafriyat/dolgu-malzemesi', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-26' },
 
   // Hafriyat rehberleri (bilgi niyetli sorgular → hizmet sayfalarına köprü)
   { path: '/rehber/hafriyat-dokum-ucretleri', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
   { path: '/rehber/hafriyat-kamyonu-kac-m3', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
+  { path: '/rehber/moloz-nereye-dokulur', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-26' },
+  { path: '/rehber/hafriyat-tasima-izin-belgesi', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-26' },
 
   // Hizmet sayfaları
   { path: '/hizmetler/silobas', priority: '0.8', changefreq: 'monthly' },
@@ -81,6 +84,8 @@ const HAFRIYAT_ISTANBUL_ILCELER = [
   'esenyurt', 'basaksehir', 'arnavutkoy', 'tuzla', 'pendik', 'sancaktepe', 'beylikduzu', 'umraniye',
   // 1. dalga (2026-08-26): "{ilçe} hafriyat firmaları" sorgularında talep doğrulandı
   'kartal', 'maltepe', 'atasehir', 'avcilar', 'kucukcekmece', 'silivri', 'catalca', 'buyukcekmece',
+  // 2. dalga (2026-08-26)
+  'eyupsultan', 'sultanbeyli', 'cekmekoy', 'beykoz', 'sariyer', 'sultangazi', 'bagcilar', 'kagithane',
 ];
 
 HAFRIYAT_ILLER.forEach(il => {

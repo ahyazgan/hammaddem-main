@@ -11,8 +11,8 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("stabilize")!;
 const canonical = "https://hammaddem.co/malzeme/stabilize";
-const title = "Stabilize Fiyatları 2026 | Stabilize Malzeme Satış & Teslimat – Hammaddem";
-const description = "Toptan stabilize malzeme satış ve teslimatı. Yol stabilizesi, temel dolgu stabilizesi. 11 ilde hızlı teslimat, ton bazında stabilize fiyatı için online teklif alın.";
+const title = "Stabilize Malzeme Fiyatı 2026 | Ton ve Kamyon Fiyatı";
+const description = "Stabilize malzeme fiyatı 2026: kırma taş stabilize 150–350 TL/ton. Yol altyapısı ve temel dolgusu için damperli araçla teslimat. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -84,7 +84,7 @@ const MalzemeStabilize = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Stabilize Malzeme Satış & Teslimat
+                  Stabilize Malzeme Fiyatı 2026 — Ton ve Kamyon
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Toptan stabilize malzeme satış ve teslimatı. Yol stabilizesi, temel dolgu stabilizesi. 11 ilde hızlı teslimat, ton bazında stabilize fiyatı için online teklif alın.

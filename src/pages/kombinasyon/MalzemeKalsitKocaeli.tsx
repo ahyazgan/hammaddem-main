@@ -4,10 +4,10 @@ const MalzemeKalsitKocaeli = () => (
   <KombinasyonSayfasi
     malzemeSlug="kalsit"
     sehirSlug="kocaeli"
-    title="Kocaeli Kalsit Silobas Taşıma | Hammaddem"
-    description="Kocaeli'nde kalsit silobas taşıma. Gebze, Dilovası, GOSB ve Kocaeli genelinde hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="Kocaeli Kalsit Fiyatları 2026 | Silobas Teslimat"
+    description="Kocaeli'nde kalsit fiyatları 2026: 1.500–4.000 TL/ton. Gebze, Dilovası ve İzmit'e silobas ile teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/kalsit/kocaeli"
-    keywords="kocaeli kalsit, kalsit kocaeli, kocaeli kalsit fiyatı, kalsit tozu, kalsiyum karbonat"
+    keywords="kocaeli kalsit fiyatları, kocaeli kalsit, kalsit kocaeli, kocaeli kalsit ton fiyatı, kocaeli kalsit teslimat"
   />
 );
 

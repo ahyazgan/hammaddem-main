@@ -4,10 +4,10 @@ const MalzemeMicirAnkara = () => (
   <KombinasyonSayfasi
     malzemeSlug="micir"
     sehirSlug="ankara"
-    title="Ankara Mıcır Silobas Taşıma | Hammaddem"
-    description="Ankara'da mıcır satış ve teslimat. OSB, Ostim ve sanayi bölgelerine hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="Ankara Mıcır Fiyatları 2026 | Damperli Teslimat"
+    description="Ankara'da mıcır fiyatları 2026: 200–450 TL/ton. OSTİM, İvedik ve Sincan bölgelerine damperli araçla teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/micir/ankara"
-    keywords="ankara mıcır, mıcır ankara, ankara micir fiyatı, kırma taş, bazalt mıcır"
+    keywords="ankara mıcır fiyatları, ankara mıcır, mıcır ankara, ankara mıcır ton fiyatı, ankara mıcır teslimat"
   />
 );
 

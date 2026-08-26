@@ -51,6 +51,9 @@ interface Props {
   keywords: string;
 }
 
+// Agrega (kum, çakıl, mıcır, stabilize) damperli araçla taşınır; toz/dökme malzeme silobasla.
+const SILOBAS_MALZEMELER = new Set(["cimento", "kalsit", "kirec", "alci", "mermer-tozu", "ucucu-kul"]);
+
 const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canonical, keywords }: Props) => {
   const kombo = getKomboIcerik(malzemeSlug, sehirSlug);
   const malzemeAdi = MALZEME_ETIKET[malzemeSlug] ?? malzemeSlug;
@@ -58,11 +61,14 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
   const sehirDe = SEHIR_EK[sehirSlug]?.bulunma ?? `${sehirAdi}'da`;
   const sehirE = SEHIR_EK[sehirSlug]?.yonelme ?? `${sehirAdi}'a`;
   const fiyat = getFiyatBySlug(malzemeSlug);
+  const silobasMi = SILOBAS_MALZEMELER.has(malzemeSlug);
+  const aracTipi = silobasMi ? "Silobas" : "Damperli Araç";
+  const aracIle = silobasMi ? "silobas ile" : "damperli araçla";
 
   const faqSorular = kombo?.faq ?? [
     {
-      q: `${sehirDe} ${malzemeAdi} silobas taşıma nasıl çalışır?`,
-      a: `Hammaddem platformu üzerinden talep oluşturun; ${sehirAdi} bölgesindeki araç filomuz 30 dakika içinde size özel fiyat teklifi sunar.`,
+      q: `${sehirDe} ${malzemeAdi} teslimatı nasıl çalışır?`,
+      a: `Talep oluşturun; ${sehirAdi} bölgesindeki filomuz ${malzemeAdi.toLocaleLowerCase("tr-TR")} yükünü ${aracIle} taşır ve 30 dakika içinde size özel net fiyat teklifi sunar.`,
     },
   ];
 
@@ -79,7 +85,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${sehirAdi} ${malzemeAdi} Silobas Taşıma`,
+    name: `${sehirAdi} ${malzemeAdi} Tedariği – ${aracTipi} ile Teslimat`,
     description,
     provider: { "@type": "Organization", name: "Hammaddem", url: "https://hammaddem.co", telephone: "+905393308617" },
     areaServed: { "@type": "City", name: sehirAdi, containedInPlace: { "@type": "Country", name: "Türkiye" } },
@@ -130,9 +136,12 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-muted border border-border text-txt-2">
                     {malzemeAdi}
                   </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-muted border border-border text-txt-2">
+                    {aracTipi}
+                  </span>
                 </div>
                 <h1 className="text-[clamp(28px,4vw,46px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  {sehirDe} {malzemeAdi} Silobas Taşıma
+                  {sehirDe} {malzemeAdi} Fiyatları 2026
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   {description}

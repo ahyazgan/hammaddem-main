@@ -4,10 +4,10 @@ const MalzemeKalsitAnkara = () => (
   <KombinasyonSayfasi
     malzemeSlug="kalsit"
     sehirSlug="ankara"
-    title="Ankara Kalsit Silobas Taşıma | Hammaddem"
-    description="Ankara'da kalsit silobas taşıma. OSB, Ostim ve sanayi bölgelerine hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="Ankara Kalsit Fiyatları 2026 | Silobas Teslimat"
+    description="Ankara'da kalsit fiyatları 2026: 1.500–4.000 TL/ton. OSTİM, İvedik ve Sincan bölgelerine silobas ile teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/kalsit/ankara"
-    keywords="ankara kalsit, kalsit ankara, ankara kalsit fiyatı, kalsit tozu, kalsiyum karbonat"
+    keywords="ankara kalsit fiyatları, ankara kalsit, kalsit ankara, ankara kalsit ton fiyatı, ankara kalsit teslimat"
   />
 );
 

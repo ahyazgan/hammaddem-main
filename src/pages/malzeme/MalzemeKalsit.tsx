@@ -11,8 +11,8 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("kalsit")!;
 const canonical = "https://hammaddem.co/malzeme/kalsit";
-const title = "Kalsit Fiyatları & Silobas Taşıma | Kalsit Tozu Tedariği – Hammaddem";
-const description = "Kalsit tozu ve öğütülmüş kalsit silobas taşımacılığı. Boya, plastik, kağıt sektörü için toptan kalsit tedariği. 11 ilde hızlı teslimat, online teklif alın.";
+const title = "Kalsit Fiyatları 2026 | Kalsit Tozu Ton Fiyatı";
+const description = "Kalsit tozu ton fiyatı 2026: 1.500–4.000 TL/ton, mikron ve saflığa göre. Boya, plastik ve kağıt sanayisine silobas teslimat. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -84,7 +84,7 @@ const MalzemeKalsit = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Kalsit Tozu Taşıma & Tedarik
+                  Kalsit Fiyatları 2026 — Kalsit Tozu Ton Fiyatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Kalsit tozu ve öğütülmüş kalsit silobas taşımacılığı. Boya, plastik, kağıt sektörü için toptan kalsit tedariği. 11 ilde hızlı teslimat, online teklif alın.

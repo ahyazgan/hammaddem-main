@@ -11,8 +11,8 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("alci")!;
 const canonical = "https://hammaddem.co/malzeme/alci";
-const title = "Alçı Fiyatları & Silobas Taşıma – Hammaddem";
-const description = "Alçı silobas taşımacılığı ve toptan alçı tedariği. İnşaat alçısı, sanayi alçısı çeşitleri. 11 ilde hızlı teslimat, ton bazında alçı fiyatı için online teklif alın.";
+const title = "Alçı Fiyatları 2026 | Ton Fiyatı ve Silobas Teslimat";
+const description = "Alçı ton fiyatı 2026: 3.000–6.000 TL/ton. Yapı alçısı, sıva alçısı ve sanayi alçısı; silobas ve big-bag teslimat. 30 dakikada teklif.";
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
@@ -84,7 +84,7 @@ const MalzemeAlci = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Alçı Taşıma & Toptan Tedarik
+                  Alçı Fiyatları 2026 — Ton Fiyatı ve Teslimat
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Alçı silobas taşımacılığı ve toptan alçı tedariği. İnşaat alçısı, sanayi alçısı çeşitleri. 11 ilde hızlı teslimat, ton bazında alçı fiyatı için online teklif alın.

@@ -4,10 +4,10 @@ const MalzemeKirecIstanbul = () => (
   <KombinasyonSayfasi
     malzemeSlug="kirec"
     sehirSlug="istanbul"
-    title="İstanbul Kireç Tedarikçisi | Fiyat & Silobas Taşıma – Hammaddem"
-    description="İstanbul'da kireç silobas taşıma. Avrupa ve Anadolu yakasında, sanayi bölgeleri ve OSB'lere hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="İstanbul Kireç Fiyatları 2026 | Silobas Teslimat"
+    description="İstanbul'da kireç fiyatları 2026: 2.000–5.000 TL/ton. Avrupa ve Anadolu yakası şantiyelerine silobas ile teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/kirec/istanbul"
-    keywords="i̇stanbul kireç, kireç i̇stanbul, i̇stanbul kirec fiyatı, sönmüş kireç, sönmemiş kireç"
+    keywords="i̇stanbul kireç fiyatları, i̇stanbul kireç, kireç i̇stanbul, i̇stanbul kireç ton fiyatı, i̇stanbul kireç teslimat"
   />
 );
 

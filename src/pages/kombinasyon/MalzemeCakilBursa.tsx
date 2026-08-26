@@ -4,10 +4,10 @@ const MalzemeCakilBursa = () => (
   <KombinasyonSayfasi
     malzemeSlug="cakil"
     sehirSlug="bursa"
-    title="Bursa Çakıl Silobas Taşıma | Hammaddem"
-    description="Bursa'da çakıl satış ve teslimat. DOSAB, NOSAB, Nilüfer OSB ve Bursa genelinde hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="Bursa Çakıl Fiyatları 2026 | Damperli Teslimat"
+    description="Bursa'da çakıl fiyatları 2026: 200–500 TL/ton. DOSAB, NOSAB ve Nilüfer'e damperli araçla teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/cakil/bursa"
-    keywords="bursa çakıl, çakıl bursa, bursa cakil fiyatı, iri çakıl, ince çakıl"
+    keywords="bursa çakıl fiyatları, bursa çakıl, çakıl bursa, bursa çakıl ton fiyatı, bursa çakıl teslimat"
   />
 );
 

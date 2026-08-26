@@ -4,10 +4,10 @@ const MalzemeMicirIstanbul = () => (
   <KombinasyonSayfasi
     malzemeSlug="micir"
     sehirSlug="istanbul"
-    title="İstanbul Mıcır Silobas Taşıma | Hammaddem"
-    description="İstanbul'da mıcır satış ve teslimat. Avrupa ve Anadolu yakasında, sanayi bölgeleri ve OSB'lere hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="İstanbul Mıcır Fiyatları 2026 | Damperli Teslimat"
+    description="İstanbul'da mıcır fiyatları 2026: 200–450 TL/ton. Avrupa ve Anadolu yakası şantiyelerine damperli araçla teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/micir/istanbul"
-    keywords="i̇stanbul mıcır, mıcır i̇stanbul, i̇stanbul micir fiyatı, kırma taş, bazalt mıcır"
+    keywords="i̇stanbul mıcır fiyatları, i̇stanbul mıcır, mıcır i̇stanbul, i̇stanbul mıcır ton fiyatı, i̇stanbul mıcır teslimat"
   />
 );
 

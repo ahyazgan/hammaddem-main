@@ -344,6 +344,110 @@ export const MOLOZ_FAQ = [
   },
 ];
 
+/* ---------------- Belgeler ---------------- */
+export interface BelgeKalemi {
+  belge: string;
+  kim: string;
+  nereden: string;
+  aciklama: string;
+}
+
+export const HAFRIYAT_BELGELERI: BelgeKalemi[] = [
+  {
+    belge: "Hafriyat Toprağı / İnşaat-Yıkıntı Atıkları Taşıma İzin Belgesi",
+    kim: "Taşımayı yapan araç sahibi (nakliyeci)",
+    nereden: "Büyükşehir belediyesi çevre koruma birimi",
+    aciklama:
+      "Araç başına düzenlenir ve yıllık ücrete tabidir (İstanbul 2026 tarifesinde kamyon başına 655 TL). Belgesiz araçla taşıma, hem şoföre hem atığın sahibine ceza doğurur.",
+  },
+  {
+    belge: "Hafriyat Toprağı ve İnşaat-Yıkıntı Atıkları Taşıma ve Kabul Belgesi",
+    kim: "İş sahibi / müteahhit (atığın üreticisi)",
+    nereden: "İlgili belediye; kazı ruhsatı sürecinde",
+    aciklama:
+      "Atığın hangi sahaya, ne miktarda gideceğini beyan eden belgedir. Yapı ruhsatı ve iskân aşamalarında istenir; sahaya kabul bu belgeye dayanır.",
+  },
+  {
+    belge: "Döküm fişi / kabul makbuzu",
+    kim: "Sahaya giren her araç",
+    nereden: "Saha işletmecisi (İSTAÇ, BURKENT vb.)",
+    aciklama:
+      "Aracın sahaya girişinde düzenlenir; taşınan miktarı ve tarihi gösterir. İş sahibinin, atığın gerçekten ruhsatlı sahaya döküldüğünü kanıtlayan tek belgesidir — mutlaka isteyin.",
+  },
+  {
+    belge: "Mavi plaka / lisanslı araç kaydı",
+    kim: "Hafriyat kamyonu",
+    nereden: "İstanbul'da İBB kayıt sistemi",
+    aciklama:
+      "İstanbul'da hafriyat taşıyan kamyonların büyükşehir kayıt sistemine tanımlı olması gerekir. Firmadan araç listesi ve kayıt teyidi isteyebilirsiniz.",
+  },
+];
+
+export const BELGE_ADIMLARI = [
+  { baslik: "Yapı ruhsatını ve kazı bilgisini hazırlayın", aciklama: "Parsel bilgisi, ruhsat numarası ve tahmini kazı hacmi (m³) başvurunun temelidir. Hacim, kabul belgesindeki miktar beyanını belirler." },
+  { baslik: "Döküm sahasını belirleyin", aciklama: "Büyükşehir belediyesinin açık sahalarından ya da Çevre Bakanlığı lisanslı özel sahalardan biri seçilir. Saha kapasitesi dolmuşsa alternatif saha yazısı istenir." },
+  { baslik: "Taşıma ve kabul belgesi başvurusu", aciklama: "İlgili belediyenin çevre koruma birimine başvurulur; miktar üzerinden bedel tahakkuk eder. Başvuru çoğu büyükşehirde e-belediye üzerinden yapılabilir." },
+  { baslik: "Araç izin belgelerini teyit edin", aciklama: "Taşımayı yapacak her aracın taşıma izin belgesi ve (İstanbul'da) kayıtlı plaka durumu kontrol edilir." },
+  { baslik: "Döküm fişlerini dosyalayın", aciklama: "Her seferin fişi saklanır. İskân ve denetimlerde, ayrıca kaçak döküm iddiasına karşı savunmada bu fişler esas alınır." },
+];
+
+export const BELGE_FAQ = [
+  {
+    q: "Hafriyat taşıma izin belgesi nasıl alınır?",
+    a: "Büyükşehir belediyesinin çevre koruma birimine yapı ruhsatı, parsel bilgisi ve tahmini kazı hacmiyle başvurulur; miktar üzerinden bedel tahakkuk eder ve araç başına izin belgesi düzenlenir. Çoğu büyükşehirde başvuru e-belediye üzerinden yapılabilir.",
+  },
+  {
+    q: "Taşıma izin belgesi ile kabul belgesi arasındaki fark nedir?",
+    a: "Taşıma izin belgesi aracı yetkilendirir ve nakliyeciye aittir. Kabul belgesi ise atığın sahibi olan iş sahibine aittir; atığın hangi sahaya ne miktarda gideceğini beyan eder. Döküm fişi ise her seferin sahaya girişini belgeler.",
+  },
+  {
+    q: "Hafriyat döküm belgesi nereden alınır?",
+    a: "Döküm fişi, aracın döküm sahasına girişinde saha işletmecisi tarafından düzenlenir (İstanbul'da İSTAÇ, Bursa'da BURKENT gibi). Belgeyi taşımayı yapan firmadan talep edin; Hammaddem işlerinde fişler iş sahibine iletilir.",
+  },
+  {
+    q: "Belgesiz hafriyat taşımanın cezası nedir?",
+    a: "Hafriyat toprağı ve inşaat/yıkıntı atıklarının izinsiz taşınması ve ruhsatsız sahaya dökülmesi, 2872 sayılı Çevre Kanunu kapsamında idari para cezası gerektirir. Ceza tutarları her yıl yeniden değerleme oranıyla güncellenir ve yalnızca şoföre değil atığın sahibine de uygulanabilir; ayrıca sahanın temizlenmesi masrafı da yüklenir.",
+  },
+  {
+    q: "Belge işlerini siz mi yürütüyorsunuz?",
+    a: "Evet. Saha koordinasyonu, araç izin belgeleri ve döküm fişlerinin toplanması hizmetimize dahildir; şantiyenizin ayrıca evrak takibi yapmasına gerek kalmaz.",
+  },
+];
+
+/* ---------------- Dolgu malzemesi ---------------- */
+export interface DolguKalemi {
+  malzeme: string;
+  kullanim: string;
+  min: number;
+  max: number;
+}
+
+export const DOLGU_FIYATLARI: DolguKalemi[] = [
+  { malzeme: "Dolgu toprağı", kullanim: "Kot yükseltme, bahçe ve peyzaj dolgusu; taşıma ağırlıklı fiyat.", min: 150, max: 400 },
+  { malzeme: "Stabilize (kırma taş)", kullanim: "Yol altyapısı, temel altı ve saha dolgusu; sıkışma performansı yüksek.", min: 150, max: 350 },
+  { malzeme: "Tuvenan", kullanim: "Ocaktan elenmemiş karışık malzeme; kalın dolgu tabakalarında ekonomik.", min: 150, max: 300 },
+  { malzeme: "Kırmataş / mıcır dolgu", kullanim: "Drenaj tabakası ve zemin iyileştirmede; granülometriye göre seçilir.", min: 200, max: 450 },
+];
+
+export const DOLGU_FAQ = [
+  {
+    q: "Dolgu toprağı fiyatı ne kadar?",
+    a: "2026'da dolgu toprağı ton başına 150–400 TL, stabilize 150–350 TL, tuvenan 150–300 TL aralığındadır. Bu malzemelerde fiyatın büyük kısmı nakliyedir; ocak veya kaynak sahaya ne kadar yakınsa maliyet o kadar düşer.",
+  },
+  {
+    q: "Kazıdan çıkan toprağı dolguda kullanabilir miyim?",
+    a: "Zemin sınıfı uygunsa evet. Bitkisel toprak ve organik malzeme dolguda kullanılmaz; kil ve uygun granülometrideki malzeme sıkıştırılarak değerlendirilebilir. Bu, hem döküm bedelinden hem malzeme alımından tasarruf sağlar.",
+  },
+  {
+    q: "Stabilize ile tuvenan farkı nedir?",
+    a: "Stabilize, belirli granülometride kırılmış ve elenmiş taştır; sıkıştığında yüksek taşıma gücü verir. Tuvenan ise ocaktan çıktığı haliyle elenmemiş karışık malzemedir; daha ekonomiktir ama üst tabaka yerine kalın alt dolgularda tercih edilir.",
+  },
+  {
+    q: "Arazi tesviyesi yapıyor musunuz?",
+    a: "Evet. Kot planına göre kazı-dolgu dengesini hesaplıyor, serme ve sıkıştırma dahil saha tesviyesini tek teklif altında yürütüyoruz.",
+  },
+];
+
 /* ---------------- Temel kazısı ---------------- */
 export interface KaziSure {
   olcek: string;

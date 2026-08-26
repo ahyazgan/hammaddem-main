@@ -9,7 +9,7 @@ import { CheckCircle, Clock, Phone, ShieldCheck, UserX } from "lucide-react";
 const canonical = "https://hammaddem.co/teklif-al";
 const title = "Üyeliksiz Teklif Al – 30 Dakikada Fiyat | Hammaddem";
 const description =
-  "Üye olmadan fiyat teklifi alın: hafriyat, silobas, kum, çakıl, çimento… 2 dakikada formu doldurun, 30 dakika içinde telefonunuza net fiyat gelsin. Kayıt gerekmez, ücretsizdir.";
+  "Üye olmadan fiyat teklifi alın: hafriyat, moloz, silobas, kum, çakıl, çimento. 2 dakikada formu doldurun, 30 dakikada net fiyat telefonunuzda.";
 
 const avantajlar = [
   { icon: UserX, title: "Üyelik Gerekmez", desc: "Kayıt olmadan, sadece telefon numaranızla talep oluşturun." },

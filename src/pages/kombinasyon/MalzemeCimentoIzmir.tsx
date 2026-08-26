@@ -4,10 +4,10 @@ const MalzemeCimentoIzmir = () => (
   <KombinasyonSayfasi
     malzemeSlug="cimento"
     sehirSlug="izmir"
-    title="İzmir Çimento Silobas Taşıma | Hammaddem"
-    description="İzmir'de çimento silobas taşıma. Aliağa, Torbalı, Kemalpaşa ve Ege bölgesine hızlı teslimat. Ton bazında rekabetçi fiyat, 30 dakikada online teklif alın."
+    title="İzmir Çimento Fiyatları 2026 | Silobas Teslimat"
+    description="İzmir'de çimento fiyatları 2026: 2.500–4.500 TL/ton. Aliağa, Torbalı ve Kemalpaşa'ya silobas ile teslimat. 30 dakikada net fiyat teklifi alın."
     canonical="https://hammaddem.co/malzeme/cimento/izmir"
-    keywords="i̇zmir çimento, çimento i̇zmir, i̇zmir cimento fiyatı, portland çimento, CEM I"
+    keywords="i̇zmir çimento fiyatları, i̇zmir çimento, çimento i̇zmir, i̇zmir çimento ton fiyatı, i̇zmir çimento teslimat"
   />
 );
 

@@ -11,7 +11,7 @@ import { getFiyatBySlug } from "@/data/fiyatData";
 
 const fiyat = getFiyatBySlug("mermer-tozu")!;
 const canonical = "https://hammaddem.co/malzeme/mermer-tozu";
-const title = "Mermer Tozu Fiyatları & Silobas Taşıma – Hammaddem";
+const title = "Mermer Tozu Fiyatı 2026 | Ton Fiyatı, Silobas Teslim";
 const description = "Mermer tozu silobas taşımacılığı ve toptan tedariği. Boya, plastik, seramik sektörü için mermer tozu. 11 ilde hızlı teslimat, online teklif alın.";
 
 const avantajlar = [
@@ -84,7 +84,7 @@ const MalzemeMermerTozu = () => {
                   Malzeme
                 </span>
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-                  Mermer Tozu Taşıma & Tedarik
+                  Mermer Tozu Fiyatları 2026 — Ton Fiyatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
                   Mermer tozu silobas taşımacılığı ve toptan tedariği. Boya, plastik, seramik sektörü için mermer tozu. 11 ilde hızlı teslimat, online teklif alın.
