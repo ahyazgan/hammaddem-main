@@ -54,7 +54,7 @@ En sık ret sebebi budur.
    | Alan | Şu an | Yapılacak |
    |---|---|---|
    | İşletme adı | `https://hammaddem.co` | `Yazgan Nakliyat` |
-   | Kategori | Lojistik Firması | `Hafriyat şirketi` |
+   | Kategori | Lojistik Firması | Aşağıdaki listeden ilk bulunan (bkz. "Kategori seçimi") |
    | Çalışma saatleri | 24 saat açık | Pzt–Cmt 07:00–19:00, Pazar kapalı (gerçek durumunuz) |
    | Hizmet bölgeleri | Bursa, İzmir + 6 bölge | Gerçekten hizmet verilen iller/ilçeler |
    | Web sitesi | https://hammaddem.co/ | ✓ doğru, dokunmayın |
@@ -110,14 +110,38 @@ kendi bilginizle doldurun.**
 > Not: Google, isme anahtar kelime eklenmesini (ör. "Yazgan Nakliyat Hafriyat İstanbul")
 > yasaklar; tabeladaki isim neyse o yazılmalı. Aksi hâlde profil askıya alınabilir.
 
-**Ana kategori:** `Hafriyat şirketi`
-Google'daki karşılığı: *Excavating contractor*
+### Kategori seçimi
 
-**Ek kategoriler** (sırayla ekleyin):
-1. `Nakliye şirketi`
-2. `İnşaat malzemesi tedarikçisi`
-3. `Kum ve çakıl tedarikçisi`
-4. `Moloz kaldırma hizmeti` (listede varsa)
+⚠️ Google'ın resmî listesinde **"Hafriyat şirketi"** diye birebir bir kategori
+YOK. Kategori kutusu bir arama kutusudur: yazarsınız, Google eşleşenleri önerir.
+Türkçe etiketler hesabın diline göre değişebildiği için aşağıda İngilizce
+karşılıkları da verildi (doğrulanmış resmî liste).
+
+**Ana kategori — şu sırayla arayın, ilk çıkanı seçin:**
+
+| Aranacak kelime | Beklenen kategori | İngilizce karşılığı |
+|---|---|---|
+| `hafriyat` | Hafriyat müteahhidi / Hafriyat şirketi | Excavating contractor |
+| `kazı` | Kazı müteahhidi | Excavating contractor |
+| `toprak` | Toprak işleri şirketi | Earth works company |
+| `yıkım` | Yıkım müteahhidi | Demolition contractor |
+| `inşaat` | İnşaat şirketi | Construction company |
+
+**Ek kategoriler** (ana kategoriden sonra, bulabildiğiniz kadarını ekleyin):
+
+| Aranacak kelime | İngilizce karşılığı |
+|---|---|
+| `moloz` / `enkaz` | Debris removal service |
+| `yıkım` | Demolition contractor |
+| `nakliy` / `kamyon` | Trucking / Moving company |
+| `kum` / `çakıl` | Sand & gravel supplier |
+| `agrega` | Aggregate supplier |
+| `inşaat malzeme` | Building materials supplier |
+| `iş makinesi` / `kiralama` | Equipment rental agency |
+
+> Ana kategori sıralamayı en çok etkileyen alandır; hafriyat/kazı/toprak
+> grubundan biri bulunursa **mutlaka o ana kategori olmalı.** "Lojistik Firması"
+> ana kategori olarak kalmamalı — yaptığınız işi tarif etmiyor.
 
 **Telefon:** `0539 330 86 17`
 **Web sitesi:** `https://hammaddem.co`
