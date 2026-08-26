@@ -47,6 +47,8 @@ const Footer = () => {
             <li><Link to="/hafriyat" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat İşleri</Link></li>
             <li><Link to="/hafriyat/fiyatlar" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Fiyatları 2026</Link></li>
             <li><Link to="/hafriyat/hesaplama" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Hesaplama</Link></li>
+            <li><Link to="/hafriyat/temel-kazisi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Temel Kazısı</Link></li>
+            <li><Link to="/hafriyat/moloz-tasima" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Moloz Taşıma</Link></li>
             <li><Link to="/hizmetler/silobas" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Silobas Yükü</Link></li>
             <li><Link to="/hizmetler/hafriyat-nakliyesi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat &amp; İnşaat</Link></li>
             <li><Link to="/hammadde" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hammadde Tedarik</Link></li>
@@ -96,6 +98,7 @@ const Footer = () => {
             <li><Link to="/rehber/hafriyat-tasima-izin-belgesi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Taşıma İzin Belgesi</Link></li>
             <li><Link to="/rehber/hafriyat-fiyat-teklifi-ornegi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Teklif Örneği</Link></li>
             <li><Link to="/rehber/hafriyat-nedir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Nedir?</Link></li>
+            <li><Link to="/rehber/hafriyat-topragi-yonetmeligi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Yönetmeliği</Link></li>
           </ul>
 
           <h4 className="text-[11px] font-bold tracking-wider uppercase text-txt-3 mb-4">Kurumsal</h4>

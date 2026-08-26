@@ -180,6 +180,8 @@ const MolozNereyeDokulur = () => {
                 <Link to="/hafriyat/moloz-tasima" className="text-navy font-semibold no-underline hover:underline">moloz taşıma sayfamıza</Link>{" "}
                 bakın; belge süreci için{" "}
                 <Link to="/rehber/hafriyat-tasima-izin-belgesi" className="text-navy font-semibold no-underline hover:underline">taşıma izin belgesi rehberini</Link>{" "}
+                ve{" "}
+                <Link to="/rehber/hafriyat-topragi-yonetmeligi" className="text-navy font-semibold no-underline hover:underline">yönetmelik özetini</Link>{" "}
                 inceleyin.
               </span>
             </div>

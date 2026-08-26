@@ -176,6 +176,9 @@ const TasimaIzinBelgesi = () => {
               <Link to="/rehber/hafriyat-dokum-ucretleri" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                 Döküm ücretleri 2026
               </Link>
+              <Link to="/rehber/hafriyat-topragi-yonetmeligi" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
+                Yönetmelik özeti
+              </Link>
             </div>
           </div>
         </section>
