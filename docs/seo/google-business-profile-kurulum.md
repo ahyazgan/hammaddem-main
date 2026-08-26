@@ -53,32 +53,60 @@ En sık ret sebebi budur.
 
    | Alan | Şu an | Yapılacak |
    |---|---|---|
-   | İşletme adı | `https://hammaddem.co` | `Yazgan Nakliyat` |
+   | İşletme adı | `https://hammaddem.co` | `Hammaddem` |
    | Kategori | Lojistik Firması | Aşağıdaki listeden ilk bulunan (bkz. "Kategori seçimi") |
    | Çalışma saatleri | 24 saat açık | Pzt–Cmt 07:00–19:00, Pazar kapalı (gerçek durumunuz) |
    | Hizmet bölgeleri | Bursa, İzmir + 6 bölge | Gerçekten hizmet verilen iller/ilçeler |
    | Web sitesi | https://hammaddem.co/ | ✓ doğru, dokunmayın |
    | Telefon | 0539 330 86 17 | ✓ doğru, dokunmayın |
 
-   > İşletme adı `Yazgan Nakliyat` olmalı çünkü site de kendini böyle tanıtıyor
-   > (footer, hakkımızda, iletişim: "Hammaddem, bir Yazgan Nakliyat kuruluşudur").
-   > Google'ın "aynı işletme" diyebilmesi için ad-telefon-adres üçlüsünün site ile
-   > profil arasında birebir uyuşması gerekir.
+   > **Karar (2026-08-26):** Profil adı **`Hammaddem`** olacak. İşletme sahibi
+   > faturaları da Hammaddem adına kesecek. Alan adının işletme adıyla aynı
+   > olması Google açısından sorun değil; şart olan, adın **belgelerde de
+   > geçmesi**.
+   >
+   > Sitedeki Organization şeması bunu zaten doğru modelliyor:
+   > `name: "Hammaddem"`, `legalName: "Yazgan Nakliyat"`, `brand: "Hammaddem"`.
 
-   Ada **"hafriyat", "İstanbul", "en iyi"** gibi kelime EKLEMEYİN — askının
-   tekrarlanma sebebi olur.
+   **Kritik şart — "Hammaddem" belgelerde görünmeli:**
+   Türkiye'de şahıs işletmesinin ticaret unvanı kişi adıdır; markayı resmîleştirmenin
+   yolu **işletme adı tescilidir** (ticaret/esnaf sicilinde "işletme adı" olarak
+   kaydedilir ve faturada unvanın yanında kullanılabilir).
+
+   - ✅ "Hammaddem" işletme adı olarak tescilliyse → sicil kaydı itirazın en güçlü belgesi.
+   - ⚠️ Henüz tescilli değilse → tescil ettirin. Askıdaki bir profilde inceleme
+     sıkı yapılır; belge-profil uyuşmazlığı en sık ret sebebidir.
+   - 🔁 Ara çözüm: vergi levhasındaki adla itiraz edip profili geri açtırmak,
+     sonra tescil tamamlanınca adı değiştirmek. Ancak yeniden açılan bir profilde
+     hemen ad değişikliği tekrar askıya alınma riski taşır — tercih edilmez.
+
+   Ada **"hafriyat", "İstanbul", "en iyi"** gibi kelime EKLEMEYİN ve iki ismi
+   birleştirmeyin (`Yazgan Nakliyat - Hammaddem` ✗) — ek tanımlayıcı ihlaldir.
 2. Yardım sayfasındaki **"İşlem yapın"** düğmesinden itiraz formunu açın.
 3. Belgeleri 60 dakika içinde yükleyin.
 4. Formda kısa ve net yazın; örnek metin:
 
 ```
-Yazgan Nakliyat, İstanbul merkezli, hafriyat ve nakliye hizmeti veren faal bir
-işletmedir. Ekte vergi levhası, işyeri faturası ve araç ruhsatları yer almaktadır.
-İşletme adı resmî kayıtlarla birebir aynıdır ve profilde anahtar kelime
-kullanılmamaktadır. Kategori, faaliyet alanımıza uygun olacak şekilde
-"Hafriyat şirketi" olarak güncellenmiştir. Çalışma saatleri gerçek çalışma
-düzenimize göre düzeltilmiştir. Profilin yeniden etkinleştirilmesini rica ederiz.
+Hammaddem, İstanbul merkezli olarak hafriyat ve nakliye hizmeti veren faal bir
+işletmedir. Profilin askıya alınmasına yol açan hata tarafımızca giderilmiştir:
+işletme adı alanında sehven web sitesi adresi ("https://hammaddem.co") yazılıydı;
+bu alan, işletmenin gerçek ticari adı olan "Hammaddem" olarak düzeltilmiştir.
+
+Ayrıca kategori, faaliyet alanımıza uygun olacak şekilde güncellenmiş; çalışma
+saatleri gerçek çalışma düzenimize göre düzeltilmiş ve hizmet bölgeleri fiilen
+hizmet verdiğimiz alanlarla sınırlandırılmıştır.
+
+Ekte vergi levhası, sicil kaydı, işyerine ait fatura, araç ruhsatları ve
+"Hammaddem" adının kullanıldığı fatura örneği ile tabela/araç fotoğrafları yer
+almaktadır. İşletme adında anahtar kelime, slogan veya ek tanımlayıcı
+kullanılmamaktadır. Profilin yeniden etkinleştirilmesini rica ederiz.
 ```
+
+> Vergi levhasındaki unvan "Hammaddem"den farklıysa (şahıs işletmelerinde
+> genellikle kişi adıdır), itiraz metnine şu cümleyi ekleyin:
+> *"İşletmenin ticaret unvanı [levhadaki unvan] olup, işletme adı olarak
+> 'Hammaddem' kullanılmaktadır; ekteki sicil kaydı ve fatura örneği bunu
+> göstermektedir."*
 
 5. **Tek itiraz gönderin.** Sonuç genelde 3–14 gün sürer. Cevap gelmeden ikinci
    itiraz ya da yeni profil açmayın — süreci sıfırlar.
@@ -106,9 +134,11 @@ kendi bilginizle doldurun.**
 
 ## 1. Temel bilgiler
 
-**İşletme adı:** `Yazgan Nakliyat`
-> Not: Google, isme anahtar kelime eklenmesini (ör. "Yazgan Nakliyat Hafriyat İstanbul")
-> yasaklar; tabeladaki isim neyse o yazılmalı. Aksi hâlde profil askıya alınabilir.
+**İşletme adı:** `Hammaddem`
+> Not: Google, isme anahtar kelime eklenmesini (ör. "Hammaddem Hafriyat İstanbul")
+> yasaklar; tabeladaki/faturadaki isim neyse o yazılmalı. Aksi hâlde profil askıya
+> alınır. Resmî unvan farklıysa (Yazgan Nakliyat) bu, işletme adı olarak Hammaddem
+> kullanılmasına engel değildir — belgelerde geçmesi yeterlidir.
 
 ### Kategori seçimi
 
@@ -186,7 +216,7 @@ Ankara
 Aşağıdaki metin 730 karakter, olduğu gibi yapıştırılabilir:
 
 ```
-Yazgan Nakliyat, İstanbul ve Marmara genelinde hafriyat ve nakliye hizmeti veren
+Hammaddem, İstanbul ve Marmara genelinde hafriyat ve nakliye hizmeti veren
 bir işletmedir. Temel ve bodrum kazısı, hafriyat toprağı taşıma, moloz ve inşaat
 atığı kaldırma, dolgu malzemesi temini ile arazi tesviyesi ana çalışma
 alanlarımızdır. Tüm taşımalar lisanslı damperli araçlarla, belediyelerin ruhsat
