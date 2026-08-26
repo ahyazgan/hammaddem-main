@@ -94,6 +94,8 @@ const Footer = () => {
             <li><Link to="/rehber/hafriyat-kamyonu-kac-m3" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Kamyon Kaç m³ Alır?</Link></li>
             <li><Link to="/rehber/moloz-nereye-dokulur" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Moloz Nereye Dökülür?</Link></li>
             <li><Link to="/rehber/hafriyat-tasima-izin-belgesi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Taşıma İzin Belgesi</Link></li>
+            <li><Link to="/rehber/hafriyat-fiyat-teklifi-ornegi" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Teklif Örneği</Link></li>
+            <li><Link to="/rehber/hafriyat-nedir" className="text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">Hafriyat Nedir?</Link></li>
           </ul>
 
           <h4 className="text-[11px] font-bold tracking-wider uppercase text-txt-3 mb-4">Kurumsal</h4>

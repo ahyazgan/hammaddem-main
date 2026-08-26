@@ -26,12 +26,16 @@ const ROUTES = [
   { path: '/hafriyat/temel-kazisi', priority: '0.9', changefreq: 'monthly', lastmod: '2026-08-26' },
   { path: '/hafriyat/moloz-tasima', priority: '0.9', changefreq: 'monthly', lastmod: '2026-08-26' },
   { path: '/hafriyat/dolgu-malzemesi', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-26' },
+  { path: '/hafriyat/yikim-sonrasi-hafriyat', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-26' },
 
   // Hafriyat rehberleri (bilgi niyetli sorgular → hizmet sayfalarına köprü)
   { path: '/rehber/hafriyat-dokum-ucretleri', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
   { path: '/rehber/hafriyat-kamyonu-kac-m3', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-25' },
   { path: '/rehber/moloz-nereye-dokulur', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-26' },
   { path: '/rehber/hafriyat-tasima-izin-belgesi', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-26' },
+  { path: '/rehber/hafriyat-fiyat-teklifi-ornegi', priority: '0.7', changefreq: 'monthly', lastmod: '2026-08-26' },
+  { path: '/rehber/hafriyat-topragi-yonetmeligi', priority: '0.6', changefreq: 'yearly', lastmod: '2026-08-26' },
+  { path: '/rehber/hafriyat-nedir', priority: '0.6', changefreq: 'yearly', lastmod: '2026-08-26' },
 
   // Hizmet sayfaları
   { path: '/hizmetler/silobas', priority: '0.8', changefreq: 'monthly' },
@@ -86,6 +90,9 @@ const HAFRIYAT_ISTANBUL_ILCELER = [
   'kartal', 'maltepe', 'atasehir', 'avcilar', 'kucukcekmece', 'silivri', 'catalca', 'buyukcekmece',
   // 2. dalga (2026-08-26)
   'eyupsultan', 'sultanbeyli', 'cekmekoy', 'beykoz', 'sariyer', 'sultangazi', 'bagcilar', 'kagithane',
+  // 3. dalga (2026-08-26): merkez ilçeler — moloz/tadilat ağırlıklı
+  'kadikoy', 'uskudar', 'sisli', 'besiktas', 'zeytinburnu', 'bayrampasa', 'gaziosmanpasa', 'esenler',
+  'bahcelievler', 'sile',
 ];
 
 HAFRIYAT_ILLER.forEach(il => {

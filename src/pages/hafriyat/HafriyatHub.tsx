@@ -42,11 +42,13 @@ const hizmetler = [
     icon: Mountain,
     title: "Arazi Düzenleme & Tesviye",
     desc: "Saha tesviyesi, kot düzenleme ve kazı-dolgu dengesi hesabıyla arazi hazırlığı.",
+    path: "/hafriyat/dolgu-malzemesi",
   },
   {
     icon: Hammer,
     title: "Yıkım Sonrası Hafriyat",
     desc: "Kentsel dönüşüm yıkımları sonrası saha temizliği, moloz nakli ve arsanın inşaata hazırlanması.",
+    path: "/hafriyat/yikim-sonrasi-hafriyat",
   },
 ];
 
@@ -178,28 +180,22 @@ const HafriyatHub = () => {
               Kazıdan döküme, molozdan dolguya — şantiyenizin toprakla ilgili tüm işlerini tek elden yönetiyoruz.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {hizmetler.map((h) => {
-                const govde = (
-                  <>
-                    <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center mb-4">
-                      <h.icon className="w-5 h-5 text-navy" />
-                    </div>
-                    <h3 className="font-bold text-base mb-2">{h.title}</h3>
-                    <p className="text-sm text-txt-2 leading-relaxed">{h.desc}</p>
-                    {"path" in h && (
-                      <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-navy">
-                        Detay ve fiyatlar <ArrowRight className="w-3.5 h-3.5" />
-                      </span>
-                    )}
-                  </>
-                );
-                const sinif = "block border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all no-underline";
-                return "path" in h ? (
-                  <Link key={h.title} to={h.path} className={sinif}>{govde}</Link>
-                ) : (
-                  <div key={h.title} className={sinif}>{govde}</div>
-                );
-              })}
+              {hizmetler.map((h) => (
+                <Link
+                  key={h.title}
+                  to={h.path}
+                  className="block border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all no-underline"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center mb-4">
+                    <h.icon className="w-5 h-5 text-navy" />
+                  </div>
+                  <h3 className="font-bold text-base mb-2 text-foreground">{h.title}</h3>
+                  <p className="text-sm text-txt-2 leading-relaxed">{h.desc}</p>
+                  <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-navy">
+                    Detay ve fiyatlar <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

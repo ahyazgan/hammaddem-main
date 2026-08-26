@@ -167,8 +167,8 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
                 { ad: "Hafriyat Toprağı Taşıma", path: "/hizmetler/hafriyat-nakliyesi" },
                 { ad: "Moloz & İnşaat Atığı Kaldırma", path: "/hafriyat/moloz-tasima" },
                 { ad: "Dolgu Malzemesi Temini", path: "/hafriyat/dolgu-malzemesi" },
-                { ad: "Arazi Düzenleme & Tesviye" },
-                { ad: "Yıkım Sonrası Hafriyat" },
+                { ad: "Arazi Düzenleme & Tesviye", path: "/hafriyat/dolgu-malzemesi" },
+                { ad: "Yıkım Sonrası Hafriyat", path: "/hafriyat/yikim-sonrasi-hafriyat" },
               ].map((h) => {
                 const sinif = "flex items-center gap-3 border border-border rounded-xl px-4 py-3.5 bg-background hover:border-navy-border transition-colors no-underline";
                 const govde = (

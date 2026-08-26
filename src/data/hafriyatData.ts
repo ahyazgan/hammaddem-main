@@ -1022,6 +1022,276 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
       },
     ],
   },
+  {
+    slug: "kadikoy",
+    ad: "Kadıköy",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/kadikoy",
+    title: "Kadıköy Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
+    h1: "Kadıköy Hafriyat ve Moloz Taşıma",
+    description:
+      "Kadıköy'de hafriyat ve moloz taşıma: tadilat molozu, temel kazısı, hafriyat nakli. Fikirtepe dönüşüm bölgesi. Aynı gün servis, 30 dk teklif.",
+    keywords:
+      "kadıköy hafriyat, kadıköy hafriyat firmaları, kadıköy moloz taşıma, fikirtepe hafriyat, kadıköy tadilat molozu, kadıköy temel kazısı",
+    intro: [
+      "Kadıköy'de iş iki koldan yürür: Fikirtepe ve çevresindeki büyük ölçekli kentsel dönüşüm kazıları ile Moda, Göztepe ve Suadiye hattındaki daire ve dükkân tadilatlarının molozu. İkisine de aynı ekiple cevap veriyoruz.",
+      "Merkez mahallelerde park yoğunluğu ve dar sokaklar yüklemeyi zorlaştırır; bu bölgelerde çuval bazlı toplama ya da küçük tonajlı araçla çalışıyoruz. Fikirtepe gibi büyük şantiyelerde ise çok araçlı sevkiyat düzeni kuruyoruz.",
+    ],
+    bolgeler: ["Fikirtepe", "Göztepe", "Erenköy", "Suadiye", "Bostancı", "Koşuyolu", "Sahrayıcedit", "Moda"],
+    faq: [
+      {
+        q: "Kadıköy'de daire tadilat molozu alıyor musunuz?",
+        a: "Alıyoruz. Çuval bazlı toplama ya da küçük tonajlı araçla tek seferlik moloz kaldırma yapıyoruz; apartman içi taşıma da hizmete dahil edilebilir.",
+      },
+      {
+        q: "Fikirtepe dönüşüm projelerinde çalışıyor musunuz?",
+        a: "Evet. Fikirtepe ve çevresindeki yıkım sonrası moloz nakli ile bodrumlu blok kazılarında çok araçlı sevkiyat planıyla çalışıyoruz.",
+      },
+    ],
+  },
+  {
+    slug: "uskudar",
+    ad: "Üsküdar",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/uskudar",
+    title: "Üsküdar Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
+    h1: "Üsküdar Hafriyat ve Moloz Taşıma",
+    description:
+      "Üsküdar'da hafriyat ve moloz taşıma: tadilat molozu, temel kazısı, hafriyat nakli. Dar sokaklara küçük tonajlı araç. 30 dakikada teklif.",
+    keywords:
+      "üsküdar hafriyat, üsküdar hafriyat firmaları, üsküdar moloz taşıma, kısıklı hafriyat, altunizade hafriyat, üsküdar tadilat molozu",
+    intro: [
+      "Üsküdar'da Altunizade ve Kısıklı'nın ticari yapılarından sahil hattındaki tarihi dokuya kadar geniş bir alanda moloz kaldırma ve kazı hizmeti veriyoruz. Tadilat molozu, bodrum kazısı ve hafriyat nakli ana işlerimiz.",
+      "İlçenin eski yerleşim dokusunda sokaklar dar, eğim yüksektir; büyük araç çoğu parsele giremez. Küçük tonajlı damperli araç ve gerektiğinde ana caddede aktarma düzeniyle çalışarak hem süreyi hem komşuluk şikâyetini azaltıyoruz.",
+    ],
+    bolgeler: ["Altunizade", "Kısıklı", "Bulgurlu", "Ünalan", "Çengelköy", "Kuzguncuk", "Burhaniye", "Bahçelievler"],
+    faq: [
+      {
+        q: "Üsküdar'ın dar sokaklarına araç girebiliyor mu?",
+        a: "Giriyor. Küçük tonajlı damperli araç kullanıyor, gerekirse ana caddede büyük araca aktarma yaparak sefer sayısını düşürüyoruz.",
+      },
+      {
+        q: "Üsküdar'da hafta sonu moloz kaldırıyor musunuz?",
+        a: "Uygun araç varsa hafta sonu da servis veriyoruz; yoğun dönemlerde ertesi güne planlıyoruz. Acil işlerde telefonla arayın.",
+      },
+    ],
+  },
+  {
+    slug: "sisli",
+    ad: "Şişli",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/sisli",
+    title: "Şişli Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
+    h1: "Şişli Hafriyat ve Moloz Taşıma",
+    description:
+      "Şişli'de hafriyat ve moloz taşıma: ofis tadilat molozu, bodrum kazısı, hafriyat nakli. Gece sevkiyatı ile trafiksiz tahliye. 30 dk teklif.",
+    keywords:
+      "şişli hafriyat, şişli hafriyat firmaları, şişli moloz taşıma, mecidiyeköy hafriyat, bomonti hafriyat, şişli tadilat molozu",
+    intro: [
+      "Şişli'de Mecidiyeköy ve Esentepe'nin ofis kuleleri, Bomonti'nin dönüşen sanayi yapıları ve merkez mahallelerin konut tadilatları bir arada yürüyor. Ofis kat tadilatı molozundan bodrum kazısına kadar her ölçekte iş alıyoruz.",
+      "İlçe İstanbul'un en yoğun trafik akslarının üzerinde; gündüz sevkiyat çoğu zaman verimsizdir. Gerekli izinler alındığında gece yüklemesi planlayarak hem işi hızlandırıyor hem bina sakinlerini rahatsız etmeden çalışıyoruz.",
+    ],
+    bolgeler: ["Mecidiyeköy", "Bomonti", "Esentepe", "Fulya", "Gülbağ", "Kuştepe", "Halaskargazi", "Teşvikiye"],
+    faq: [
+      {
+        q: "Şişli'de ofis tadilat molozu alıyor musunuz?",
+        a: "Evet. Plaza ve iş merkezlerinde kat tadilatı molozunu asansör ve yükleme saatlerine göre planlayarak kaldırıyoruz.",
+      },
+      {
+        q: "Gece moloz sevkiyatı yapıyor musunuz?",
+        a: "Gerekli izinler alındığında evet; Şişli'nin trafik yoğunluğunda gece sevkiyatı işi belirgin şekilde hızlandırır.",
+      },
+    ],
+  },
+  {
+    slug: "besiktas",
+    ad: "Beşiktaş",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/besiktas",
+    title: "Beşiktaş Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
+    h1: "Beşiktaş Hafriyat ve Moloz Taşıma",
+    description:
+      "Beşiktaş'ta hafriyat ve moloz taşıma: daire ve ofis tadilat molozu, bodrum kazısı. Etiler, Levent, Ortaköy. Dar sokağa uygun araç, 30 dk teklif.",
+    keywords:
+      "beşiktaş hafriyat, beşiktaş hafriyat firmaları, beşiktaş moloz taşıma, etiler hafriyat, levent hafriyat, beşiktaş tadilat molozu",
+    intro: [
+      "Beşiktaş'ta Levent ve Etiler'in ofis ve rezidans projelerinden Ortaköy ve Bebek'in yamaçtaki konutlarına kadar moloz kaldırma ve kazı hizmeti veriyoruz. Tadilat molozu, bodrum kazısı ve hafriyat nakli ana kalemlerimiz.",
+      "Boğaz hattındaki dar ve eğimli sokaklarda araç boyutu işin süresini doğrudan belirler. Küçük tonajlı araç, mini ekskavatör ve gerektiğinde el gücüyle yükleme kombinasyonuyla erişimi zor parsellerde de çalışıyoruz.",
+    ],
+    bolgeler: ["Levent", "Etiler", "Ortaköy", "Bebek", "Gayrettepe", "Balmumcu", "Ulus", "Sinanpaşa"],
+    faq: [
+      {
+        q: "Beşiktaş'ta erişimi zor parsellerde çalışıyor musunuz?",
+        a: "Evet. Dar ve eğimli sokaklarda küçük tonajlı araç ve mini ekskavatörle, gerekirse el gücüyle yükleme yaparak çalışıyoruz.",
+      },
+      {
+        q: "Levent'teki ofis projelerinde bodrum kazısı yapıyor musunuz?",
+        a: "Yapıyoruz. Levent ve Gayrettepe'deki ticari projelerde iksa ile koordineli, etaplı bodrum kazısı yürütüyoruz.",
+      },
+    ],
+  },
+  {
+    slug: "zeytinburnu",
+    ad: "Zeytinburnu",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/zeytinburnu",
+    title: "Zeytinburnu Hafriyat Firması | Moloz Taşıma, Teklif",
+    h1: "Zeytinburnu Hafriyat ve Moloz Taşıma",
+    description:
+      "Zeytinburnu'nda hafriyat ve moloz taşıma: dönüşüm projelerinde yıkım molozu, temel kazısı, hafriyat nakli. Lisanslı araç, 30 dakikada teklif.",
+    keywords:
+      "zeytinburnu hafriyat, zeytinburnu hafriyat firmaları, zeytinburnu moloz taşıma, kazlıçeşme hafriyat, zeytinburnu temel kazısı",
+    intro: [
+      "Zeytinburnu, Kazlıçeşme'deki büyük dönüşüm alanı ve ilçe genelindeki eski konut stokunun yenilenmesiyle sürekli yıkım ve kazı üretiyor. Yıkım molozu kaldırma, temel kazısı ve hafriyat nakli ilçedeki ana işlerimiz.",
+      "Sahil yolu ve E-5 bağlantısı sevkiyatı kolaylaştırır; buna karşılık ilçenin iç mahallelerinde sokaklar dardır ve deri-tekstil atölyelerinin bulunduğu bölgelerde gündüz trafiği yoğundur. Sevkiyat saatlerini buna göre planlıyoruz.",
+    ],
+    bolgeler: ["Kazlıçeşme", "Merkezefendi", "Sümer", "Telsiz", "Veliefendi", "Yeşiltepe", "Beştelsiz", "Çırpıcı"],
+    faq: [
+      {
+        q: "Zeytinburnu'nda yıkım molozu kaldırıyor musunuz?",
+        a: "Evet. Yıkım sonrası moloz yükleme, ayrıştırma ve ruhsatlı sahaya nakil ile arsanın inşaata hazır teslimi hizmetimize dahildir.",
+      },
+      {
+        q: "Atölye ve iş yeri boşaltma atığı alıyor musunuz?",
+        a: "Alıyoruz. Atölye söküm ve boşaltma atıklarını türüne göre ayrıştırıp uygun tesise götürüyoruz.",
+      },
+    ],
+  },
+  {
+    slug: "bayrampasa",
+    ad: "Bayrampaşa",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/bayrampasa",
+    title: "Bayrampaşa Hafriyat Firması | Moloz Taşıma, Teklif",
+    h1: "Bayrampaşa Hafriyat ve Moloz Taşıma",
+    description:
+      "Bayrampaşa'da hafriyat ve moloz taşıma: depo ve iş hanı söküm atığı, temel kazısı, yıkım molozu. E-5 aksına yakın filo, 30 dakikada teklif.",
+    keywords:
+      "bayrampaşa hafriyat, bayrampaşa hafriyat firmaları, bayrampaşa moloz taşıma, bayrampaşa temel kazısı, bayrampaşa yıkım molozu",
+    intro: [
+      "Bayrampaşa; depo, iş hanı ve toptancı sitelerinin yoğun olduğu yapısıyla hem ticari söküm atığı hem konut dönüşümü molozu üretiyor. Temel kazısı, yıkım molozu kaldırma ve hafriyat nakli ilçede düzenli yürüttüğümüz işler.",
+      "E-5 ve TEM bağlantılarına yakınlık, Avrupa yakası döküm sahalarına erişimi hızlandırır. Toptancı bölgelerinde gündüz yoğunluğu nedeniyle yüklemeyi sabah erken ya da akşam saatlerine planlıyoruz.",
+    ],
+    bolgeler: ["Yenidoğan", "Muratpaşa", "Terazidere", "Vatan", "Kartaltepe", "Altıntepsi", "Orta", "İsmetpaşa"],
+    faq: [
+      {
+        q: "Depo ve iş hanı söküm atığı alıyor musunuz?",
+        a: "Alıyoruz. Ticari alan söküm ve boşaltma atıklarını ayrıştırıp lisanslı tesise götürüyor, döküm fişini iletiyoruz.",
+      },
+      {
+        q: "Bayrampaşa'da sabah erken yükleme mümkün mü?",
+        a: "Mümkün. Toptancı bölgelerinde trafiği beklememek için sabah erken ya da akşam saatlerinde yükleme planlıyoruz.",
+      },
+    ],
+  },
+  {
+    slug: "gaziosmanpasa",
+    ad: "Gaziosmanpaşa",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/gaziosmanpasa",
+    title: "Gaziosmanpaşa Hafriyat Firması | Moloz Taşıma, Teklif",
+    h1: "Gaziosmanpaşa Hafriyat ve Moloz Taşıma",
+    description:
+      "Gaziosmanpaşa'da hafriyat: kentsel dönüşümde yıkım molozu, temel kazısı, hafriyat nakli. Dar sokaklara uygun araç, 30 dakikada net teklif.",
+    keywords:
+      "gaziosmanpaşa hafriyat, gaziosmanpaşa hafriyat firmaları, gaziosmanpaşa moloz taşıma, gop hafriyat, gaziosmanpaşa temel kazısı",
+    intro: [
+      "Gaziosmanpaşa, İstanbul'un en kapsamlı kentsel dönüşüm programlarından birinin yürüdüğü ilçe. Ada bazlı yıkımlar, yıkım molozu kaldırma ve ardından gelen temel kazıları ilçedeki iş hacminin çoğunu oluşturuyor.",
+      "Dönüşüm adalarında birden fazla bina aynı anda yıkıldığı için moloz hacmi kısa sürede büyür; bu da çok araçlı, programlı sevkiyat gerektirir. Dar sokaklı mahallelerde küçük tonajlı araçla ana yola aktarma düzeni kuruyoruz.",
+    ],
+    bolgeler: ["Karayolları", "Karadeniz", "Sarıgöl", "Yıldıztabya", "Barbaros Hayrettin", "Merkez", "Pazariçi", "Bağlarbaşı"],
+    faq: [
+      {
+        q: "Ada bazlı yıkımlarda çok araçlı çalışıyor musunuz?",
+        a: "Evet. Aynı anda birden fazla binanın yıkıldığı adalarda günlük kamyon planı çıkarıp programlı sevkiyatla molozu biriktirmeden kaldırıyoruz.",
+      },
+      {
+        q: "Gaziosmanpaşa'da döküm belgesi veriyor musunuz?",
+        a: "Veriyoruz. Tüm taşımalar lisanslı araçlarla, ruhsatlı sahaya yapılır; döküm fişleri iş sahibine iletilir.",
+      },
+    ],
+  },
+  {
+    slug: "esenler",
+    ad: "Esenler",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/esenler",
+    title: "Esenler Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
+    h1: "Esenler Hafriyat ve Moloz Taşıma",
+    description:
+      "Esenler'de hafriyat ve moloz taşıma: dönüşüm projelerinde yıkım molozu, temel kazısı, hafriyat nakli. Lisanslı araç, 30 dakikada teklif.",
+    keywords:
+      "esenler hafriyat, esenler hafriyat firmaları, esenler moloz taşıma, atışalanı hafriyat, esenler temel kazısı, esenler yıkım molozu",
+    intro: [
+      "Esenler'de yenilenen konut stoku ve Atışalanı çevresindeki dönüşüm alanları sürekli yıkım ve kazı üretiyor. Yıkım molozu kaldırma, temel kazısı ve hafriyat nakli ilçedeki ana çalışma alanlarımız.",
+      "Otogar ve TEM bağlantısı sayesinde Avrupa yakası döküm sahalarına erişim hızlıdır. Yoğun kent dokusunda park ve manevra sorunu yaşamamak için sevkiyatı mesai ve okul saatleri dışına planlıyoruz.",
+    ],
+    bolgeler: ["Atışalanı", "Havaalanı", "Menderes", "Oruçreis", "Turgutreis", "Nine Hatun", "Kemer", "Tuna"],
+    faq: [
+      {
+        q: "Esenler'de küçük ölçekli moloz işi alıyor musunuz?",
+        a: "Alıyoruz. Tek kamyonluk tadilat molozundan ada bazlı yıkım molozuna kadar her ölçekte iş kabul ediyoruz.",
+      },
+      {
+        q: "Sevkiyat saatlerini biz belirleyebilir miyiz?",
+        a: "Belirleyebilirsiniz. İş programınıza göre sabah erken, akşam ya da izin alındığında gece sevkiyatı planlıyoruz.",
+      },
+    ],
+  },
+  {
+    slug: "bahcelievler",
+    ad: "Bahçelievler",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/bahcelievler",
+    title: "Bahçelievler Hafriyat Firması | Moloz Taşıma, Teklif",
+    h1: "Bahçelievler Hafriyat ve Moloz Taşıma",
+    description:
+      "Bahçelievler'de hafriyat ve moloz taşıma: daire tadilat molozu, dönüşüm kazıları, hafriyat nakli. Dar sokaklara uygun araç, 30 dk teklif.",
+    keywords:
+      "bahçelievler hafriyat, bahçelievler hafriyat firmaları, bahçelievler moloz taşıma, şirinevler hafriyat, bahçelievler temel kazısı",
+    intro: [
+      "Bahçelievler, yoğun apartman dokusu ve yenilenen konut stokuyla hem tadilat molozu hem dönüşüm kazısı üretiyor. Şirinevler ve Kocasinan hattındaki ticari yapılar da düzenli söküm atığı çıkarıyor.",
+      "İlçede sokaklar dar ve park yoğunluğu yüksek olduğu için büyük araçla yükleme çoğu adreste mümkün olmaz. Küçük tonajlı araç ve çuval bazlı toplama seçenekleriyle apartman içi işlere de giriyoruz.",
+    ],
+    bolgeler: ["Şirinevler", "Kocasinan", "Soğanlı", "Zafer", "Siyavuşpaşa", "Çobançeşme", "Yenibosna Merkez", "Fevziçakmak"],
+    faq: [
+      {
+        q: "Apartman içinden moloz taşıyor musunuz?",
+        a: "Taşıyoruz. Kat içi toplama ve çuvallama dahil çalışabiliyoruz; talebinizde kat ve asansör bilgisini belirtmeniz yeterli.",
+      },
+      {
+        q: "Bahçelievler'de aynı gün servis var mı?",
+        a: "Uygun araç varsa aynı gün, yoğun dönemlerde ertesi gün sabah kaldırıyoruz.",
+      },
+    ],
+  },
+  {
+    slug: "sile",
+    ad: "Şile",
+    parent: "istanbul",
+    path: "/hafriyat/istanbul/sile",
+    title: "Şile Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
+    h1: "Şile Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
+    description:
+      "Şile'de hafriyat firması: villa ve yazlık projelerinde temel kazısı, moloz taşıma, dolgu. Kömürcüoda tesisine yakınlık avantajı, 30 dk teklif.",
+    keywords:
+      "şile hafriyat, şile hafriyat firmaları, şile moloz taşıma, ağva hafriyat, şile hafriyat döküm sahası, şile temel kazısı",
+    intro: [
+      "Şile'de villa, yazlık ve site projelerinin yoğunlaştığı sahil hattı ile Ağva çevresinde temel kazısı, hafriyat nakli, moloz kaldırma ve dolgu hizmeti veriyoruz. Sezon öncesi biten inşaat takvimlerine uyum sağlıyoruz.",
+      "İlçenin belirgin avantajı, İstanbul'un ana inert atık ve hafriyat tesislerinden Kömürcüoda'nın Şile sınırlarında olması. Sahaya mesafe kısa olduğu için döküm sefer süresi ve buna bağlı maliyet düşük kalır.",
+    ],
+    bolgeler: ["Merkez", "Ağva", "Çayırbaşı", "Kumbaba", "Balibey", "Doğancılı", "Ahmetli", "Karakiraz"],
+    faq: [
+      {
+        q: "Şile'de villa temel kazısı yapıyor musunuz?",
+        a: "Evet. Sahil hattı ve Ağva çevresindeki villa ve site projelerinde temel kazısı, hafriyat nakli ve dolgu hizmetini tek pakette veriyoruz.",
+      },
+      {
+        q: "Şile'de hafriyat maliyeti neden avantajlı?",
+        a: "Kömürcüoda tesisi ilçe sınırlarında; döküm mesafesi kısa olduğu için sefer süresi ve m³ başına maliyet düşer.",
+      },
+    ],
+  },
 ];
 
 export const HAFRIYAT_LOKASYONLAR: HafriyatLokasyon[] = [

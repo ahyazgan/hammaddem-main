@@ -26,6 +26,10 @@ const HafriyatMolozTasima = lazy(() => import("./pages/hafriyat/MolozTasima"));
 const HafriyatDolguMalzemesi = lazy(() => import("./pages/hafriyat/DolguMalzemesi"));
 const RehberMolozNereye = lazy(() => import("./pages/rehber/MolozNereyeDokulur"));
 const RehberTasimaIzinBelgesi = lazy(() => import("./pages/rehber/TasimaIzinBelgesi"));
+const HafriyatYikimSonrasi = lazy(() => import("./pages/hafriyat/YikimSonrasiHafriyat"));
+const RehberHafriyatNedir = lazy(() => import("./pages/rehber/HafriyatNedir"));
+const RehberYonetmelik = lazy(() => import("./pages/rehber/Yonetmelik"));
+const RehberTeklifOrnegi = lazy(() => import("./pages/rehber/TeklifOrnegi"));
 const RehberDokumUcretleri = lazy(() => import("./pages/rehber/DokumUcretleri"));
 const RehberKamyonKacM3 = lazy(() => import("./pages/rehber/KamyonKacM3"));
 const TeklifAl = lazy(() => import("./pages/TeklifAl"));
@@ -148,6 +152,10 @@ export const AppRoutes = () => (
                 <Route path="/hafriyat/dolgu-malzemesi" element={<HafriyatDolguMalzemesi />} />
                 <Route path="/rehber/moloz-nereye-dokulur" element={<RehberMolozNereye />} />
                 <Route path="/rehber/hafriyat-tasima-izin-belgesi" element={<RehberTasimaIzinBelgesi />} />
+                <Route path="/hafriyat/yikim-sonrasi-hafriyat" element={<HafriyatYikimSonrasi />} />
+                <Route path="/rehber/hafriyat-nedir" element={<RehberHafriyatNedir />} />
+                <Route path="/rehber/hafriyat-topragi-yonetmeligi" element={<RehberYonetmelik />} />
+                <Route path="/rehber/hafriyat-fiyat-teklifi-ornegi" element={<RehberTeklifOrnegi />} />
                 <Route path="/rehber/hafriyat-dokum-ucretleri" element={<RehberDokumUcretleri />} />
                 <Route path="/rehber/hafriyat-kamyonu-kac-m3" element={<RehberKamyonKacM3 />} />
                 {hafriyatRoutes.map((r) => (
