@@ -57,7 +57,9 @@ const Fiyatlar = () => {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta property="og:image" content="https://hammaddem.co/og/fiyatlar-silobas.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(productListJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>

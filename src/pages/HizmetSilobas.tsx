@@ -84,7 +84,9 @@ const HizmetSilobas = () => {
         <meta property="og:description" content="Çimento, kalsit, kül ve tüm toz hammadde taşımacılığı. Online teklif al, 11 ilde teslimat." />
         <meta property="og:url" content="https://hammaddem.co/hizmetler/silobas" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta property="og:image" content="https://hammaddem.co/og/hizmet-silobas-yol.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Silobas Nakliye Firması – Hammaddem" />
         <meta name="twitter:description" content="Silobas ile çimento, kalsit, kül taşımacılığı. 11 ilde hızlı teslimat." />
@@ -129,7 +131,7 @@ const HizmetSilobas = () => {
               </div>
 
               {/* Visual */}
-              <HeroGorsel src="/images/hizmet-silobas-yol.webp" alt="Otoyolda seyreden Avrupa tipi çekici ve alüminyum pnömatik silobas dorse" />
+              <HeroGorsel priority src="/images/hizmet-silobas-yol.webp" alt="Otoyolda seyreden Avrupa tipi çekici ve alüminyum pnömatik silobas dorse" />
             </div>
           </div>
         </section>

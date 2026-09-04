@@ -60,7 +60,9 @@ const BolgeIzmir = () => {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta property="og:image" content="https://hammaddem.co/og/il-izmir.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
@@ -96,7 +98,7 @@ const BolgeIzmir = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel src="/images/il-izmir.webp" alt="İzmir körfezi kıyı yolunda damperli kamyon" />
+              <HeroGorsel priority src="/images/il-izmir.webp" alt="İzmir körfezi kıyı yolunda damperli kamyon" />
             </div>
           </div>
         </section>

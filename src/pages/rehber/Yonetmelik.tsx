@@ -85,7 +85,9 @@ const Yonetmelik = () => {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta property="og:image" content="https://hammaddem.co/og/rehber-yonetmelik.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />

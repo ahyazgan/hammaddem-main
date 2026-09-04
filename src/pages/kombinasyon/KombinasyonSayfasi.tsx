@@ -117,7 +117,9 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta property="og:image" content={`https://hammaddem.co/og/malzeme-${malzemeSlug}.jpg`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
         {productJsonLd && <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>}
       </Helmet>
@@ -156,7 +158,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
                   </a>
                 </div>
               </div>
-              <HeroGorsel src={`/images/malzeme-${malzemeSlug}.webp`} alt={`${sehirDe} ${malzemeAdi} teslimatı için ${aracTipi.toLowerCase()} yükleme sahası`} />
+              <HeroGorsel priority src={`/images/malzeme-${malzemeSlug}.webp`} alt={`${sehirDe} ${malzemeAdi} teslimatı için ${aracTipi.toLowerCase()} yükleme sahası`} />
             </div>
           </div>
         </section>

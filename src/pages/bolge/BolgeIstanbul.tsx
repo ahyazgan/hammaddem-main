@@ -60,7 +60,9 @@ const BolgeIstanbul = () => {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta property="og:image" content="https://hammaddem.co/og/il-istanbul.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
@@ -96,7 +98,7 @@ const BolgeIstanbul = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel src="/images/il-istanbul.webp" alt="Boğaz ve köprü manzaralı yamaç yolunda damperli hafriyat kamyonu" />
+              <HeroGorsel priority src="/images/il-istanbul.webp" alt="Boğaz ve köprü manzaralı yamaç yolunda damperli hafriyat kamyonu" />
             </div>
           </div>
         </section>

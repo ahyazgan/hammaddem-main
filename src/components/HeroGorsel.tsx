@@ -6,17 +6,20 @@ interface Props {
   width?: number;
   height?: number;
   className?: string;
+  /** İlk ekranda görünen görseller için: lazy yerine eager + yüksek fetch önceliği (LCP). */
+  priority?: boolean;
 }
 
 /** Sayfa hero alanlarında kullanılan fotoğraf bloğu. */
-const HeroGorsel = ({ src, alt, caption, width = 1200, height = 800, className = "" }: Props) => (
+const HeroGorsel = ({ src, alt, caption, width = 1200, height = 800, className = "", priority = false }: Props) => (
   <figure className={`rounded-2xl overflow-hidden border border-border shadow-card bg-off ${className}`}>
     <img
       src={src}
       alt={alt}
       width={width}
       height={height}
-      loading="lazy"
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
       decoding="async"
       style={{ aspectRatio: `${width} / ${height}` }}
       className="w-full object-cover"

@@ -67,7 +67,9 @@ const MalzemeMermerTozu = () => {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://hammaddem.co/og-image.png" />
+        <meta property="og:image" content="https://hammaddem.co/og/malzeme-mermer-tozu.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
@@ -105,7 +107,7 @@ const MalzemeMermerTozu = () => {
                   </a>
                 </div>
               </div>
-              <HeroGorsel src="/images/malzeme-mermer-tozu.webp" alt="Mermer ocağındaki toz tesisinde mermer tozu yükleyen silobas" />
+              <HeroGorsel priority src="/images/malzeme-mermer-tozu.webp" alt="Mermer ocağındaki toz tesisinde mermer tozu yükleyen silobas" />
             </div>
           </div>
         </section>

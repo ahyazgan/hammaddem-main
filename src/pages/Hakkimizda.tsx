@@ -17,6 +17,13 @@ const Hakkimizda = () => (
       <title>Hakkımızda – Hammaddem | Hammadde Tedarik Platformu</title>
       <meta name="description" content="Hammaddem, Yazgan Nakliye güvencesiyle silobas taşımacılığı ve hafriyat nakliyesini tek dijital platformda sunar. İstanbul merkezli ekibimizi tanıyın." />
       <link rel="canonical" href="https://hammaddem.co/hakkimizda" />
+      <meta property="og:title" content="Hakkımızda – Hammaddem | Yazgan Nakliye Kuruluşu" />
+      <meta property="og:description" content="Hammaddem, Yazgan Nakliye güvencesiyle silobas taşımacılığı ve hafriyat nakliyesini tek dijital platformda sunar." />
+      <meta property="og:url" content="https://hammaddem.co/hakkimizda" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://hammaddem.co/og/hakkimizda-filo.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
     </Helmet>
 
     <div className="min-h-screen bg-dot-pattern">
@@ -55,7 +62,8 @@ const Hakkimizda = () => (
                 width={1000}
                 height={1250}
                 className="w-full h-full object-cover"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-white/20 shadow-lg">
