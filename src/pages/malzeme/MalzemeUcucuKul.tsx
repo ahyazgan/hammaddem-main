@@ -107,7 +107,7 @@ const MalzemeUcucuKul = () => {
                   </a>
                 </div>
               </div>
-              <HeroGorsel priority src="/images/malzeme-ucucu-kul.webp" alt="Termik santral silolarının altında uçucu kül yükleyen silobas" />
+              <HeroGorsel src="/images/malzeme-ucucu-kul.webp" alt="Termik santral silolarının altında uçucu kül yükleyen silobas" />
             </div>
           </div>
         </section>

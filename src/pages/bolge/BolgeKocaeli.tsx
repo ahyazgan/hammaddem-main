@@ -98,7 +98,7 @@ const BolgeKocaeli = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-kocaeli.webp" alt="Kocaeli sanayi bölgesinden çıkan silobas çekici" />
+              <HeroGorsel src="/images/il-kocaeli.webp" alt="Kocaeli sanayi bölgesinden çıkan silobas çekici" />
             </div>
           </div>
         </section>

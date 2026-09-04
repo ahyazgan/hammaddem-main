@@ -98,7 +98,7 @@ const BolgeTekirdag = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-tekirdag.webp" alt="Tekirdağ limanı rıhtımında silobas çekici" />
+              <HeroGorsel src="/images/il-tekirdag.webp" alt="Tekirdağ limanı rıhtımında silobas çekici" />
             </div>
           </div>
         </section>

@@ -98,7 +98,7 @@ const BolgeEdirne = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-edirne.webp" alt="Edirne ovasında Selimiye silueti önünde silobas çekici" />
+              <HeroGorsel src="/images/il-edirne.webp" alt="Edirne ovasında Selimiye silueti önünde silobas çekici" />
             </div>
           </div>
         </section>

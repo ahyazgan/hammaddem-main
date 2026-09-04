@@ -107,7 +107,7 @@ const MalzemeStabilize = () => {
                   </a>
                 </div>
               </div>
-              <HeroGorsel priority src="/images/malzeme-stabilize.webp" alt="Yol dolgusunda stabilize seren damperli kamyon, greyder ve silindir" />
+              <HeroGorsel src="/images/malzeme-stabilize.webp" alt="Yol dolgusunda stabilize seren damperli kamyon, greyder ve silindir" />
             </div>
           </div>
         </section>

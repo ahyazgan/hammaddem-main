@@ -107,7 +107,7 @@ const MalzemeKalsit = () => {
                   </a>
                 </div>
               </div>
-              <HeroGorsel priority src="/images/malzeme-kalsit.webp" alt="Beyaz kalsit ocağı ve öğütme tesisinde bekleyen silobas çekici" />
+              <HeroGorsel src="/images/malzeme-kalsit.webp" alt="Beyaz kalsit ocağı ve öğütme tesisinde bekleyen silobas çekici" />
             </div>
           </div>
         </section>

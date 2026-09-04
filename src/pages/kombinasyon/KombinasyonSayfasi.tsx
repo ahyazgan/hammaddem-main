@@ -158,7 +158,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
                   </a>
                 </div>
               </div>
-              <HeroGorsel priority src={`/images/malzeme-${malzemeSlug}.webp`} alt={`${sehirDe} ${malzemeAdi} teslimatı için ${aracTipi.toLowerCase()} yükleme sahası`} />
+              <HeroGorsel src={`/images/malzeme-${malzemeSlug}.webp`} alt={`${sehirDe} ${malzemeAdi} teslimatı için ${aracTipi.toLowerCase()} yükleme sahası`} />
             </div>
           </div>
         </section>

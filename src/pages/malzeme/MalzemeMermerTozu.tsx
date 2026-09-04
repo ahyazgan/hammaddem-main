@@ -107,7 +107,7 @@ const MalzemeMermerTozu = () => {
                   </a>
                 </div>
               </div>
-              <HeroGorsel priority src="/images/malzeme-mermer-tozu.webp" alt="Mermer ocağındaki toz tesisinde mermer tozu yükleyen silobas" />
+              <HeroGorsel src="/images/malzeme-mermer-tozu.webp" alt="Mermer ocağındaki toz tesisinde mermer tozu yükleyen silobas" />
             </div>
           </div>
         </section>

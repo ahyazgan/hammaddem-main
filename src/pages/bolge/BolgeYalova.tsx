@@ -98,7 +98,7 @@ const BolgeYalova = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-yalova.webp" alt="Yalova sahil yolunda deniz ve feribot iskelesi önünde damperli kamyon" />
+              <HeroGorsel src="/images/il-yalova.webp" alt="Yalova sahil yolunda deniz ve feribot iskelesi önünde damperli kamyon" />
             </div>
           </div>
         </section>

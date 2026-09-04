@@ -131,7 +131,7 @@ const HizmetSilobas = () => {
               </div>
 
               {/* Visual */}
-              <HeroGorsel priority src="/images/hizmet-silobas-yol.webp" alt="Otoyolda seyreden Avrupa tipi çekici ve alüminyum pnömatik silobas dorse" />
+              <HeroGorsel src="/images/hizmet-silobas-yol.webp" alt="Otoyolda seyreden Avrupa tipi çekici ve alüminyum pnömatik silobas dorse" />
             </div>
           </div>
         </section>

@@ -62,8 +62,7 @@ const Hakkimizda = () => (
                 width={1000}
                 height={1250}
                 className="w-full h-full object-cover"
-                loading="eager"
-                fetchPriority="high"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-white/20 shadow-lg">

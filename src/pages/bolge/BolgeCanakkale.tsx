@@ -98,7 +98,7 @@ const BolgeCanakkale = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-canakkale.webp" alt="Çanakkale Boğazı ve köprü manzaralı sahil yolunda damperli kamyon" />
+              <HeroGorsel src="/images/il-canakkale.webp" alt="Çanakkale Boğazı ve köprü manzaralı sahil yolunda damperli kamyon" />
             </div>
           </div>
         </section>

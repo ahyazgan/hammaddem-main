@@ -98,7 +98,7 @@ const BolgeAnkara = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-ankara.webp" alt="Ankara bulvarında modern kuleler önünde silobas çekici" />
+              <HeroGorsel src="/images/il-ankara.webp" alt="Ankara bulvarında modern kuleler önünde silobas çekici" />
             </div>
           </div>
         </section>

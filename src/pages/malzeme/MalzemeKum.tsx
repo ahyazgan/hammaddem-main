@@ -107,7 +107,7 @@ const MalzemeKum = () => {
                   </a>
                 </div>
               </div>
-              <HeroGorsel priority src="/images/malzeme-kum.webp" alt="Kum ocağında yükleyici, sarı inşaat kumunu damperli kamyona boşaltıyor" />
+              <HeroGorsel src="/images/malzeme-kum.webp" alt="Kum ocağında yükleyici, sarı inşaat kumunu damperli kamyona boşaltıyor" />
             </div>
           </div>
         </section>

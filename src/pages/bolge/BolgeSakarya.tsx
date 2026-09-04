@@ -98,7 +98,7 @@ const BolgeSakarya = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-sakarya.webp" alt="Sakarya vadisi ve fındık bahçeleri önünde otoyolda damperli kamyon" />
+              <HeroGorsel src="/images/il-sakarya.webp" alt="Sakarya vadisi ve fındık bahçeleri önünde otoyolda damperli kamyon" />
             </div>
           </div>
         </section>

@@ -98,7 +98,7 @@ const BolgeBursa = () => {
                   </Link>
                 </p>
               </div>
-              <HeroGorsel priority src="/images/il-bursa.webp" alt="Karlı Uludağ önünde Bursa şantiyesinde damperli kamyon" />
+              <HeroGorsel src="/images/il-bursa.webp" alt="Karlı Uludağ önünde Bursa şantiyesinde damperli kamyon" />
             </div>
           </div>
         </section>

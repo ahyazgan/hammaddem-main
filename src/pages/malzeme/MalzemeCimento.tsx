@@ -108,7 +108,7 @@ const MalzemeCimento = () => {
                   </a>
                 </div>
               </div>
-              <HeroGorsel priority src="/images/malzeme-cimento.webp" alt="Çimento fabrikasında silo altında yüklenen Avrupa tipi alüminyum silobas" />
+              <HeroGorsel src="/images/malzeme-cimento.webp" alt="Çimento fabrikasında silo altında yüklenen Avrupa tipi alüminyum silobas" />
             </div>
           </div>
         </section>
