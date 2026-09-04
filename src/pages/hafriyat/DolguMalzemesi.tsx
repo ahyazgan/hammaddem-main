@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatHeroGorsel from "@/components/hafriyat/HafriyatHeroGorsel";
 import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
 import { DOLGU_FIYATLARI, DOLGU_FAQ } from "@/data/hafriyatFiyatData";
@@ -102,6 +103,11 @@ const DolguMalzemesi = () => {
                 <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                   <Phone className="w-4 h-4" /> 0539 330 86 17
                 </a>
+                <HafriyatHeroGorsel
+                  src="/images/hafriyat-dolgu-malzemesi.webp"
+                  alt="Kum, çakıl, mıcır ve stabilize yığınlarının bulunduğu sahada yükleyici damperli kamyonu dolduruyor"
+                  caption="Kum, çakıl, mıcır ve stabilize tedariği"
+                />
               </div>
               <HafriyatTeklifForm baslik="Dolgu ve Tesviye Teklifi" />
             </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatHeroGorsel from "@/components/hafriyat/HafriyatHeroGorsel";
 import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
 import { MOLOZ_FIYATLARI } from "@/data/hafriyatFiyatData";
@@ -119,6 +120,11 @@ const YikimSonrasiHafriyat = () => {
                 <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                   <Phone className="w-4 h-4" /> 0539 330 86 17
                 </a>
+                <HafriyatHeroGorsel
+                  src="/images/hafriyat-yikim-sonrasi.webp"
+                  alt="Yıkım sonrası enkaz sahasında kırıcı ataşmanlı ekskavatör molozu damperli kamyona yüklüyor, toz bastırma için su püskürtülüyor"
+                  caption="Yıkım sonrası enkaz kaldırma"
+                />
               </div>
               <HafriyatTeklifForm baslik="Yıkım Molozu İçin Teklif" defaultMiktar={1} defaultBirim="Kamyon" />
             </div>

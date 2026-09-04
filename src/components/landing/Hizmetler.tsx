@@ -22,7 +22,7 @@ const hizmetler = [
     href: "/hafriyat",
     linkLabel: "Hafriyat Sayfası →",
     image: "/images/hizmet-hafriyat.webp",
-    imageAlt: "Ekskavatör şantiyede temel kazısı yaparken hafriyat toprağını damperli kamyona yüklüyor",
+    imageAlt: "Ekskavatör İstanbul'da şantiyede temel kazısı yaparken hafriyat toprağını Avrupa tipi damperli kamyona yüklüyor",
   },
 ];
 

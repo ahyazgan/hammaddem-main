@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatHeroGorsel from "@/components/hafriyat/HafriyatHeroGorsel";
 import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
 import {
@@ -110,6 +111,11 @@ const TemelKazisi = () => {
                 <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                   <Phone className="w-4 h-4" /> 0539 330 86 17
                 </a>
+                <HafriyatHeroGorsel
+                  src="/images/hafriyat-temel-kazisi.webp"
+                  alt="İksa perdeli derin temel çukurunda kazı yapan ekskavatör ve rampada bekleyen damperli kamyon, kenarda ölçüm yapan mühendis"
+                  caption="İksa ile koordineli etaplı temel kazısı"
+                />
               </div>
               <HafriyatTeklifForm baslik="Temel Kazısı Fiyat Teklifi" />
             </div>

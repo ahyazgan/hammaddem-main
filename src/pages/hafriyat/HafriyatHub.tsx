@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatHeroGorsel from "@/components/hafriyat/HafriyatHeroGorsel";
 import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { HAFRIYAT_ILLER, HAFRIYAT_ILCELER } from "@/data/hafriyatData";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
@@ -165,6 +166,11 @@ const HafriyatHub = () => {
                 >
                   <Phone className="w-4 h-4" /> Hemen Arayın: 0539 330 86 17
                 </a>
+                <HafriyatHeroGorsel
+                  src="/images/hafriyat-hub.webp"
+                  alt="Şantiyede ekskavatör hafriyat toprağını Avrupa tipi damperli kamyonlara yüklüyor, arkada bekleyen kamyon konvoyu"
+                  caption="Lisanslı damperli filo ve deneyimli ekip"
+                />
               </div>
 
               <HafriyatTeklifForm />
