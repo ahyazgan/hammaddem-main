@@ -10,6 +10,8 @@ const hizmetler = [
     color: "orange" as const,
     href: "#siparis-formu",
     linkLabel: "Teklif Al →",
+    image: "/images/hizmet-silobas.webp",
+    imageAlt: "Avrupa tipi alüminyum silobas dorseli çekici çimento fabrikasında siloya pnömatik boşaltım yapıyor",
   },
   {
     icon: Mountain,
@@ -19,6 +21,8 @@ const hizmetler = [
     color: "navy" as const,
     href: "/hafriyat",
     linkLabel: "Hafriyat Sayfası →",
+    image: "/images/hizmet-hafriyat.webp",
+    imageAlt: "Ekskavatör şantiyede temel kazısı yaparken hafriyat toprağını damperli kamyona yüklüyor",
   },
 ];
 
@@ -55,23 +59,30 @@ const Hizmetler = () => {
           {hizmetler.map((h) => (
             <div
               key={h.title}
-              className={`group border-[1.5px] border-border rounded-2xl overflow-hidden transition-all duration-200 cursor-default bg-background hover:-translate-y-1 hover:shadow-elevated ${
-                h.color === "orange" ? "hover:border-accent-border" : "hover:border-navy-border"
-              }`}
+              className={`group border-[1.5px] border-border rounded-2xl overflow-hidden transition-all duration-200 cursor-default bg-background hover:-translate-y-1 hover:shadow-elevated flex flex-col ${h.color === "orange" ? "hover:border-accent-border" : "hover:border-navy-border"
+                }`}
             >
-              <div className="p-5 md:p-7 pb-0">
-                <div className={`w-14 h-14 rounded-[14px] flex items-center justify-center text-[28px] mb-4 ${
-                  h.color === "orange" ? "bg-accent-light" : "bg-navy-light"
-                }`}>
+              <div className="w-full h-48 sm:h-56 overflow-hidden relative">
+                <img
+                  src={h.image}
+                  alt={h.imageAlt}
+                  width={1200}
+                  height={800}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className={`absolute top-4 left-4 w-12 h-12 rounded-[12px] flex items-center justify-center text-[24px] shadow-lg backdrop-blur-md bg-white/90 border border-white/20`}>
                   {h.color === "orange" ? "🌫️" : "🏗️"}
                 </div>
+              </div>
+              <div className="p-5 md:p-7 pb-0 flex-1">
                 <h3 className="text-xl font-extrabold tracking-tight mb-2">{h.title}</h3>
                 <p className="text-sm text-txt-2 leading-[1.7] mb-5">{h.desc}</p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {h.products.map((p) => (
-                    <span key={p} className={`px-3 py-[5px] rounded-full text-xs font-medium bg-off2 text-txt-2 border border-border transition-colors ${
-                      h.color === "orange" ? "group-hover:bg-accent-light group-hover:text-primary group-hover:border-accent-border" : "group-hover:bg-navy-light group-hover:text-navy group-hover:border-navy-border"
-                    }`}>{p}</span>
+                    <span key={p} className={`px-3 py-[5px] rounded-full text-xs font-medium bg-off2 text-txt-2 border border-border transition-colors ${h.color === "orange" ? "group-hover:bg-accent-light group-hover:text-primary group-hover:border-accent-border" : "group-hover:bg-navy-light group-hover:text-navy group-hover:border-navy-border"
+                      }`}>{p}</span>
                   ))}
                 </div>
               </div>

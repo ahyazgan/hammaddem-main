@@ -24,27 +24,53 @@ const Hakkimizda = () => (
 
       <section className="pt-[120px] pb-16 md:pb-24 px-4 md:px-10">
         <div className="max-w-[1100px] mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-4">
-            Hakkımızda
-          </span>
-          <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
-            Hammaddem Nedir?
-          </h1>
-          <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-6 max-w-[640px]">
-            Hammaddem, Türkiye genelinde silobas taşımacılığı ve hafriyat nakliyesi başta olmak üzere
-            hammadde tedarik süreçlerini tek bir dijital platformda birleştiren yenilikçi bir lojistik çözümüdür.
-            Amacımız; üreticiler, tedarikçiler ve taşıyıcılar arasındaki bağlantıyı hızlandırmak,
-            maliyetleri düşürmek ve süreçleri şeffaf hale getirmektir.
-          </p>
-          <p className="text-base text-txt-2 leading-[1.7] mb-6 max-w-[640px]">
-            İstanbul merkezli ekibimiz, sektördeki yıllara dayanan deneyimini teknoloji ile birleştirerek
-            hem alıcılara hem de taşıyıcılara değer yaratan bir ekosistem inşa etmektedir.
-          </p>
-          <p className="text-base text-txt-2 leading-[1.7] mb-12 max-w-[640px]">
-            Hammaddem bir <strong>Yazgan Nakliyat</strong> kuruluşudur: masa başı bir aracı değil,
-            nakliye sektörünün içinden gelen bir işletmeyiz. Taşımalar kendi araç kapasitemiz ve
-            anlaşmalı taşıyıcı ağımızla yürütülür; işi hem ekrandan hem sahadan biliriz.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-4">
+                Hakkımızda
+              </span>
+              <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
+                Hammaddem Nedir?
+              </h1>
+              <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-6">
+                Hammaddem, Türkiye genelinde silobas taşımacılığı ve hafriyat nakliyesi başta olmak üzere
+                hammadde tedarik süreçlerini tek bir dijital platformda birleştiren yenilikçi bir lojistik çözümüdür.
+                Amacımız; üreticiler, tedarikçiler ve taşıyıcılar arasındaki bağlantıyı hızlandırmak,
+                maliyetleri düşürmek ve süreçleri şeffaf hale getirmektir.
+              </p>
+              <p className="text-base text-txt-2 leading-[1.7] mb-6">
+                İstanbul merkezli ekibimiz, sektördeki yıllara dayanan deneyimini teknoloji ile birleştirerek
+                hem alıcılara hem de taşıyıcılara değer yaratan bir ekosistem inşa etmektedir.
+              </p>
+              <p className="text-base text-txt-2 leading-[1.7]">
+                Hammaddem bir <strong>Yazgan Nakliyat</strong> kuruluşudur: masa başı bir aracı değil,
+                nakliye sektörünün içinden gelen bir işletmeyiz. Taşımalar kendi araç kapasitemiz ve
+                anlaşmalı taşıyıcı ağımızla yürütülür; işi hem ekrandan hem sahadan biliriz.
+              </p>
+            </div>
+            <div className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/hakkimizda-filo.webp"
+                alt="Çimento silolarının altında yükleme yapan iki Avrupa tipi silobas ve hortumu bağlayan saha çalışanı"
+                width={1000}
+                height={1250}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-white/20 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <Target className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-foreground">Sektörde Güven</p>
+                    <p className="text-xs text-txt-2">Yazgan Nakliyat Güvencesiyle</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {degerler.map((d) => (
