@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hammaddem.co/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hizmet-silobas.webp</image:loc></image:image>
+    <image:image><image:loc>https://hammaddem.co/images/hizmet-hafriyat.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hammadde</loc>
@@ -15,6 +17,7 @@
     <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/fiyatlar-silobas.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/teklif-al</loc>
@@ -25,99 +28,116 @@
     <loc>https://hammaddem.co/hafriyat</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hafriyat-hub.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/fiyatlar</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hafriyat-fiyatlar.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/hesaplama</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hafriyat-hesaplama.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/temel-kazisi</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hafriyat-temel-kazisi.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/moloz-tasima</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hafriyat-moloz-tasima.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/dolgu-malzemesi</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hafriyat-dolgu-malzemesi.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/yikim-sonrasi-hafriyat</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hafriyat-yikim-sonrasi.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/rehber/hafriyat-dokum-ucretleri</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/rehber-dokum-ucretleri.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/rehber/hafriyat-kamyonu-kac-m3</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/rehber-kamyon-kac-m3.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/rehber/moloz-nereye-dokulur</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/rehber-moloz-nereye-dokulur.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/rehber/hafriyat-tasima-izin-belgesi</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/rehber-tasima-izin-belgesi.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/rehber/hafriyat-fiyat-teklifi-ornegi</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/rehber-teklif-ornegi.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/rehber/hafriyat-topragi-yonetmeligi</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <image:image><image:loc>https://hammaddem.co/images/rehber-yonetmelik.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/rehber/hafriyat-nedir</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <image:image><image:loc>https://hammaddem.co/images/rehber-hafriyat-nedir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmetler/silobas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hizmet-silobas-yol.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmetler/hafriyat-nakliyesi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hizmet-kamyon-kiralama.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hakkimizda</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/hakkimizda-filo.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/iletisim</loc>
@@ -158,580 +178,696 @@
     <loc>https://hammaddem.co/malzeme/cimento</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cimento.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kalsit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kalsit.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kirec</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kirec.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/alci</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-alci.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/mermer-tozu</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-mermer-tozu.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/ucucu-kul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-ucucu-kul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kum</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kum.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cakil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cakil.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/micir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-micir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/stabilize</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-stabilize.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-ankara.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-izmir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-bursa.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-kocaeli.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/tekirdag</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-tekirdag.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/sakarya</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-sakarya.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/yalova</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-yalova.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/balikesir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-balikesir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/canakkale</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-canakkale.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hizmet-bolgeleri/edirne</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-edirne.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/kocaeli</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-kocaeli.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/bursa</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-bursa.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/tekirdag</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-tekirdag.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/sakarya</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-sakarya.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/yalova</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-yalova.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/balikesir</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-balikesir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/canakkale</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-canakkale.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/edirne</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-edirne.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/ankara</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-ankara.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/izmir</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-izmir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/esenyurt</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/basaksehir</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/arnavutkoy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/tuzla</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/pendik</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/sancaktepe</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/beylikduzu</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/umraniye</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/kartal</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/maltepe</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/atasehir</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/avcilar</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/kucukcekmece</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/silivri</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/catalca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/buyukcekmece</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/eyupsultan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/sultanbeyli</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/cekmekoy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/beykoz</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/sariyer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/sultangazi</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/bagcilar</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/kagithane</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/kadikoy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/uskudar</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/sisli</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/besiktas</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/zeytinburnu</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/bayrampasa</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/gaziosmanpasa</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/esenler</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/bahcelievler</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/hafriyat/istanbul/sile</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/il-istanbul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cimento/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cimento.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cimento/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cimento.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cimento/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cimento.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cimento/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cimento.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cimento/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cimento.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kalsit/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kalsit.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kalsit/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kalsit.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kalsit/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kalsit.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kalsit/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kalsit.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kalsit/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kalsit.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kirec/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kirec.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kirec/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kirec.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kirec/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kirec.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kirec/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kirec.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kirec/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kirec.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/alci/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-alci.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/alci/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-alci.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/alci/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-alci.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/alci/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-alci.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/alci/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-alci.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/mermer-tozu/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-mermer-tozu.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/mermer-tozu/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-mermer-tozu.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/mermer-tozu/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-mermer-tozu.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/mermer-tozu/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-mermer-tozu.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/mermer-tozu/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-mermer-tozu.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/ucucu-kul/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-ucucu-kul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/ucucu-kul/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-ucucu-kul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/ucucu-kul/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-ucucu-kul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/ucucu-kul/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-ucucu-kul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/ucucu-kul/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-ucucu-kul.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kum/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kum.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kum/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kum.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kum/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kum.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kum/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kum.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/kum/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-kum.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cakil/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cakil.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cakil/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cakil.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cakil/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cakil.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cakil/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cakil.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/cakil/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-cakil.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/micir/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-micir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/micir/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-micir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/micir/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-micir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/micir/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-micir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/micir/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-micir.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/stabilize/istanbul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-stabilize.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/stabilize/ankara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-stabilize.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/stabilize/izmir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-stabilize.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/stabilize/bursa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-stabilize.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://hammaddem.co/malzeme/stabilize/kocaeli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://hammaddem.co/images/malzeme-stabilize.webp</image:loc></image:image>
   </url>
 </urlset>

@@ -49,7 +49,7 @@ const TasiyiciOlun = () => {
       if (error) throw error;
       toast.success("Başvurunuz alındı! En kısa sürede sizinle iletişime geçeceğiz.");
       setForm({ ad: "", telefon: "", aracTipi: "", plaka: "" });
-    } catch (err: any) {
+    } catch {
       toast.error("Başvuru gönderilemedi, lütfen tekrar deneyin veya bizi arayın.");
     } finally {
       setLoading(false);

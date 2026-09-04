@@ -22,7 +22,7 @@ const Iletisim = () => {
       if (error) throw error;
       toast.success("Mesajınız alındı, en kısa sürede dönüş yapacağız.");
       setForm({ ad: "", email: "", mesaj: "" });
-    } catch (err: any) {
+    } catch {
       toast.error("Mesaj gönderilemedi, lütfen tekrar deneyin veya bizi arayın.");
     } finally {
       setLoading(false);

@@ -65,7 +65,7 @@ const SiparislerimView = ({ kategoriFilter, initialFilter }: SiparislerimViewPro
     if (!user) return;
     if (!confirm("Bu talebi iptal etmek istediğinizden emin misiniz?")) return;
     setIptalLoading(true);
-    await supabase.from("talepler").update({ durum: "iptal", updated_at: new Date().toISOString() } as any).eq("id", id).eq("user_id", user.id);
+    await supabase.from("talepler").update({ durum: "iptal", updated_at: new Date().toISOString() }).eq("id", id).eq("user_id", user.id);
     setIptalLoading(false);
     setSelectedId(null);
     fetchTalepler();

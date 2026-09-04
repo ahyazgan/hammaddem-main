@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import AdminStats from "./admin/AdminStats";
-import AdminTalepler from "./admin/AdminTalepler";
+import AdminTalepler, { type Talep } from "./admin/AdminTalepler";
 import AdminUsers from "./admin/AdminUsers";
 
 interface Profile {
@@ -20,8 +20,8 @@ const tabs = [
 
 const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("stats");
-  const [talepler, setTalepler] = useState<any[]>([]);
-  const [misafirTalepler, setMisafirTalepler] = useState<any[]>([]);
+  const [talepler, setTalepler] = useState<Talep[]>([]);
+  const [misafirTalepler, setMisafirTalepler] = useState<Talep[]>([]);
   const [profiles, setProfiles] = useState<Record<string, Profile>>({});
   const [userCount, setUserCount] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -34,8 +34,8 @@ const AdminPanel = () => {
       supabase.from("misafir_talepler").select("*").order("created_at", { ascending: false }),
       supabase.from("profiles").select("user_id, firma_adi, email"),
     ]);
-    if (talepData) setTalepler(talepData);
-    if (misafirData) setMisafirTalepler(misafirData);
+    if (talepData) setTalepler(talepData as unknown as Talep[]);
+    if (misafirData) setMisafirTalepler(misafirData as unknown as Talep[]);
     if (profileData) {
       const map: Record<string, Profile> = {};
       (profileData as unknown as Profile[]).forEach(p => { map[p.user_id] = p; });
@@ -47,7 +47,7 @@ const AdminPanel = () => {
 
   const fetchSettings = async () => {
     const { data } = await supabase.from("site_settings").select("key, value, label").order("key");
-    if (data) setSiteSettings(data as any);
+    if (data) setSiteSettings(data as { key: string; value: string; label: string | null }[]);
   };
 
   const saveSettings = async () => {

@@ -1,6 +1,28 @@
 const HeroBgPattern = () => (
   <div className="absolute inset-0 z-0 overflow-hidden">
-    <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+    {/* Filo fotografi: ilk ekranin LCP adayi, bu yuzden eager + yuksek oncelik */}
+    <picture>
+      <source media="(max-width: 767px)" srcSet="/images/hero-filo-mobil.webp" />
+      <img
+        src="/images/hero-filo.webp"
+        alt=""
+        aria-hidden="true"
+        width={1920}
+        height={823}
+        loading="eager"
+        {...{ fetchpriority: "high" }}
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover object-[50%_35%]"
+      />
+    </picture>
+    {/* Fotografin ustune beyaz yikama: metin okunur kalsin, alta dogru tamamen beyaza baglansin */}
+    <div
+      className="absolute inset-0"
+      style={{
+        background: 'linear-gradient(to bottom, rgba(255,255,255,.48) 0%, rgba(255,255,255,.62) 35%, rgba(255,255,255,.88) 65%, rgba(255,255,255,.98) 100%)'
+      }}
+    />
+    <svg className="absolute inset-0 w-full h-full opacity-70" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
           <path d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(216 18% 90%)" strokeWidth="0.8" opacity="0.5" />

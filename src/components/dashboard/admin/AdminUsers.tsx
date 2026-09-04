@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { toast } from "@/hooks/use-toast";
 import { Search } from "lucide-react";
 
@@ -43,7 +44,7 @@ const AdminUsers = () => {
 
   const updateRole = async (userId: string, newRole: string) => {
     setUpdating(userId);
-    const { error } = await supabase.from("user_roles").upsert({ user_id: userId, role: newRole as any }, { onConflict: "user_id" });
+    const { error } = await supabase.from("user_roles").upsert({ user_id: userId, role: newRole as Database["public"]["Enums"]["app_role"] }, { onConflict: "user_id" });
     if (error) {
       toast({ title: "Hata", description: error.message, variant: "destructive" });
     } else {

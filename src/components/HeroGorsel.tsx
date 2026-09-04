@@ -19,7 +19,7 @@ const HeroGorsel = ({ src, alt, caption, width = 1200, height = 800, className =
       width={width}
       height={height}
       loading={priority ? "eager" : "lazy"}
-      fetchPriority={priority ? "high" : undefined}
+      {...(priority ? { fetchpriority: "high" } : {})}
       decoding="async"
       style={{ aspectRatio: `${width} / ${height}` }}
       className="w-full object-cover"

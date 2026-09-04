@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { Search, Filter } from "lucide-react";
 
-interface Talep {
+export interface Talep {
   id: string;
   talep_no: string;
   kategori: string;
@@ -95,8 +95,10 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
   const updateDurum = async (id: string, durum: string, type: "kayitli" | "misafir") => {
     setUpdating(true);
     try {
-      const table = type === "misafir" ? "misafir_talepler" : "talepler";
-      const { error } = await supabase.from(table).update({ durum, updated_at: new Date().toISOString() } as any).eq("id", id);
+      const payload = { durum, updated_at: new Date().toISOString() };
+      const { error } = type === "misafir"
+        ? await supabase.from("misafir_talepler").update(payload).eq("id", id)
+        : await supabase.from("talepler").update(payload).eq("id", id);
       if (error) toast({ title: "Hata", description: error.message, variant: "destructive" });
       else onRefresh();
     } finally {
@@ -189,7 +191,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
           </select>
           <select
             value={filterType}
-            onChange={e => setFilterType(e.target.value as any)}
+            onChange={e => setFilterType(e.target.value as "all" | "kayitli" | "misafir")}
             className="bg-[#111520] border border-[#1c2133] rounded-md px-2.5 py-1.5 text-[11px] text-[#e8eaf0] focus:outline-none"
           >
             <option value="all">Tümü</option>

@@ -120,11 +120,43 @@ MALZEMELER.forEach(malzeme => {
 // Sitemap'e girecek rotalar (prerender listesi ROUTES'un tamamıdır)
 const SITEMAP_ROUTES = ROUTES.filter(route => route.sitemap !== false);
 
+// Sayfa hero görseli → Google Görseller için <image:image> (yalnızca loc; title/caption Google tarafında kullanılmıyor).
+// Şablon sayfalar (malzeme/il, hafriyat/il/ilçe) sayfadaki görselle aynı kuralı izler.
+const STATIK_GORSEL = {
+  '/': ['hizmet-silobas', 'hizmet-hafriyat'],
+  '/hakkimizda': ['hakkimizda-filo'],
+  '/fiyatlar': ['fiyatlar-silobas'],
+  '/hafriyat': ['hafriyat-hub'],
+  '/hafriyat/fiyatlar': ['hafriyat-fiyatlar'],
+  '/hafriyat/hesaplama': ['hafriyat-hesaplama'],
+  '/hafriyat/temel-kazisi': ['hafriyat-temel-kazisi'],
+  '/hafriyat/moloz-tasima': ['hafriyat-moloz-tasima'],
+  '/hafriyat/dolgu-malzemesi': ['hafriyat-dolgu-malzemesi'],
+  '/hafriyat/yikim-sonrasi-hafriyat': ['hafriyat-yikim-sonrasi'],
+  '/rehber/hafriyat-dokum-ucretleri': ['rehber-dokum-ucretleri'],
+  '/rehber/hafriyat-kamyonu-kac-m3': ['rehber-kamyon-kac-m3'],
+  '/rehber/moloz-nereye-dokulur': ['rehber-moloz-nereye-dokulur'],
+  '/rehber/hafriyat-tasima-izin-belgesi': ['rehber-tasima-izin-belgesi'],
+  '/rehber/hafriyat-fiyat-teklifi-ornegi': ['rehber-teklif-ornegi'],
+  '/rehber/hafriyat-topragi-yonetmeligi': ['rehber-yonetmelik'],
+  '/rehber/hafriyat-nedir': ['rehber-hafriyat-nedir'],
+  '/hizmetler/silobas': ['hizmet-silobas-yol'],
+  '/hizmetler/hafriyat-nakliyesi': ['hizmet-kamyon-kiralama'],
+};
+function sayfaGorselleri(routePath) {
+  if (STATIK_GORSEL[routePath]) return STATIK_GORSEL[routePath];
+  let m;
+  if ((m = routePath.match(/^\/malzeme\/([a-z-]+)(?:\/[a-z]+)?$/))) return ['malzeme-' + m[1]];
+  if ((m = routePath.match(/^\/hizmet-bolgeleri\/([a-z]+)$/))) return ['il-' + m[1]];
+  if ((m = routePath.match(/^\/hafriyat\/([a-z]+)(?:\/[a-z]+)?$/))) return ['il-' + m[1]];
+  return [];
+}
+
 function generateSitemap() {
   // lastmod her build'de "bugün" yazılırsa Google sinyale güvenmeyi bırakır;
   // yalnızca rotada açıkça lastmod tanımlıysa yazılır (örn. fiyat güncellemesi).
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n';
 
   SITEMAP_ROUTES.forEach(route => {
     xml += '  <url>\n';
@@ -132,6 +164,9 @@ function generateSitemap() {
     if (route.lastmod) xml += `    <lastmod>${route.lastmod}</lastmod>\n`;
     xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
     xml += `    <priority>${route.priority}</priority>\n`;
+    sayfaGorselleri(route.path).forEach(g => {
+      xml += `    <image:image><image:loc>${BASE_URL}/images/${g}.webp</image:loc></image:image>\n`;
+    });
     xml += '  </url>\n';
   });
   
