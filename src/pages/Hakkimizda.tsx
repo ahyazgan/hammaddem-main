@@ -15,7 +15,7 @@ const Hakkimizda = () => (
   <>
     <Helmet>
       <title>Hakkımızda – Hammaddem | Hammadde Tedarik Platformu</title>
-      <meta name="description" content="Hammaddem, Türkiye genelinde hammadde tedarik ve lojistik süreçlerini dijitalleştiren yenilikçi bir platformdur. Vizyonumuz ve değerlerimiz hakkında bilgi alın." />
+      <meta name="description" content="Hammaddem, Yazgan Nakliye güvencesiyle silobas taşımacılığı ve hafriyat nakliyesini tek dijital platformda sunar. İstanbul merkezli ekibimizi tanıyın." />
       <link rel="canonical" href="https://hammaddem.co/hakkimizda" />
     </Helmet>
 
