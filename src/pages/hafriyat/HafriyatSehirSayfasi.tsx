@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatHeroGorsel from "@/components/hafriyat/HafriyatHeroGorsel";
 import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { HAFRIYAT_ILLER, HAFRIYAT_ILCELER, hafriyatLokatif, type HafriyatLokasyon } from "@/data/hafriyatData";
 import { DOKUM_UCRETLERI } from "@/data/hafriyatFiyatData";
@@ -119,6 +120,11 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
                 >
                   <Phone className="w-4 h-4" /> 0539 330 86 17
                 </a>
+                <HafriyatHeroGorsel
+                  src={`/images/il-${lokasyon.parent ?? lokasyon.slug}.webp`}
+                  alt={`${lokatif} hafriyat taşıma: Avrupa tipi damperli kamyon, ${ilAdi} manzarasıyla`}
+                  caption={`${ilAdi} genelinde lisanslı hafriyat filosu`}
+                />
               </div>
 
               <HafriyatTeklifForm

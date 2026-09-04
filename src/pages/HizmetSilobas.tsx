@@ -5,6 +5,7 @@ import Footer from "@/components/landing/Footer";
 import SilobasIcon from "@/components/SilobasIcon";
 import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const malzemeler = [
   "Çimento", "Uçucu Kül", "Kireç", "Kalsit", "Mermer Tozu",
   "Alçı", "Curuf", "Silis Kumu", "Talk", "Barit",
@@ -128,11 +129,7 @@ const HizmetSilobas = () => {
               </div>
 
               {/* Visual */}
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <SilobasIcon className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HeroGorsel src="/images/hizmet-silobas-yol.webp" alt="Otoyolda seyreden Avrupa tipi çekici ve alüminyum pnömatik silobas dorse" />
             </div>
           </div>
         </section>

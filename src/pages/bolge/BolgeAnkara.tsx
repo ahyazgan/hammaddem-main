@@ -5,8 +5,9 @@ import Footer from "@/components/landing/Footer";
 import { MALZEME_ROUTES } from "@/pages/malzeme/malzemeRoutes";
 import { BOLGE_ROUTES } from "./bolgeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/ankara";
 const title = "Ankara Silobas Nakliye & Hammadde Teslimatı | Hammaddem";
 const description = "Ankara'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. OSTİM, Sincan, İvedik OSB'ye hızlı teslimat, 30 dakikada teklif.";
@@ -95,11 +96,7 @@ const BolgeAnkara = () => {
                   </Link>
                 </p>
               </div>
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <MapPin className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HeroGorsel src="/images/il-ankara.webp" alt="Ankara bulvarında modern kuleler önünde silobas çekici" />
             </div>
           </div>
         </section>

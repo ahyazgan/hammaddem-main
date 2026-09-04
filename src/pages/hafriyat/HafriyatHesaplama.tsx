@@ -14,6 +14,7 @@ import {
 } from "@/data/hafriyatFiyatData";
 import { ArrowRight, Phone, Info, Calculator, Ruler, Truck, Coins } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hafriyat/hesaplama";
 const title = "Hafriyat Hesaplama | m³, Kamyon Sayısı ve Maliyet Aracı";
 const description =
@@ -108,6 +109,7 @@ const HafriyatHesaplama = () => {
                 anında görün.
               </p>
             </div>
+            <HeroGorsel src="/images/hafriyat-hesaplama.webp" alt="Ekskavatör kepçesiyle dolan damperli kamyon kasası, hacim ve sefer hesabı için" width={1600} height={686} className="mt-10" />
           </div>
         </section>
 

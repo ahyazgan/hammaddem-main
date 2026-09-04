@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import HafriyatTeklifForm from "@/components/hafriyat/HafriyatTeklifForm";
+import HafriyatHeroGorsel from "@/components/hafriyat/HafriyatHeroGorsel";
 import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd } from "@/utils/seoSchemas";
 import { SEFER_FIYATLARI, KAMYON_KAPASITELERI } from "@/data/hafriyatFiyatData";
@@ -160,6 +161,11 @@ const HizmetHafriyat = () => {
                 <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                   <Phone className="w-4 h-4" /> 0539 330 86 17
                 </a>
+                <HafriyatHeroGorsel
+                  src="/images/hizmet-kamyon-kiralama.webp"
+                  alt="Kiralamaya hazır, sıralı beş adet Avrupa tipi damperli hafriyat kamyonu ve sevkiyat sorumlusu"
+                  caption="Sefer ve günlük kiralamaya hazır damperli filo"
+                />
               </div>
               <HafriyatTeklifForm baslik="Kamyon Kiralama Teklifi" defaultMiktar={1} defaultBirim="Kamyon" />
             </div>

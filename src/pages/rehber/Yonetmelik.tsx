@@ -6,6 +6,7 @@ import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 import { ArrowRight, Phone, Scale, ExternalLink, AlertTriangle } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/hafriyat-topragi-yonetmeligi";
 const title = "Hafriyat Toprağı Yönetmeliği | Şantiye İçin Özet";
 const description =
@@ -131,6 +132,7 @@ const Yonetmelik = () => {
                 </span>
               </div>
             </div>
+            <HeroGorsel src="/images/rehber-yonetmelik.webp" alt="Tekerlek yıkama ünitesinden geçen brandalı damperli kamyon ve tabletle denetim yapan mühendis" width={1200} height={600} className="mt-10 max-w-[760px]" />
           </div>
         </section>
 

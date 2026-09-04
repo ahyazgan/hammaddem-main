@@ -6,6 +6,7 @@ import { ArrowRight, TrendingUp, Info, Phone } from "lucide-react";
 import { FIYAT_DATA } from "@/data/fiyatData";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/fiyatlar";
 const title = "Hammadde Fiyatları 2026 | Kum, Çakıl, Çimento Ton Fiyatı";
 const description = "Kum çakıl fiyatları 2026 ve 10 hammaddenin ton fiyatı: kum 250–600 TL, çakıl 200–500 TL, çimento 2.500–4.500 TL. 30 dakikada teslimatlı teklif.";
@@ -92,6 +93,7 @@ const Fiyatlar = () => {
                 <span>Aşağıdaki fiyatlar tahmini piyasa aralıklarıdır. Kesin fiyat; miktar, mesafe ve piyasa koşullarına göre değişir. Güncel fiyat için online teklif alın.</span>
               </div>
             </div>
+            <HeroGorsel src="/images/fiyatlar-silobas.webp" alt="Çimento terminalinde yükleme köprüsü altındaki silobas ve kontrol panelindeki operatör" width={1600} height={686} className="mt-10" />
           </div>
         </section>
 

@@ -6,6 +6,7 @@ import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 import { ArrowRight, Phone, BookOpen, Check, X } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/hafriyat-nedir";
 const title = "Hafriyat Nedir? Hafriyat mı Harfiyat mı, Nasıl Yapılır";
 const description =
@@ -106,6 +107,7 @@ const HafriyatNedir = () => {
                 parçasıdır — sorumluluk kazı bitince sona ermez.
               </p>
             </div>
+            <HeroGorsel src="/images/rehber-hafriyat-nedir.webp" alt="Tipik bir hafriyat sahası: kazı yapan ekskavatör, toprak yığını, yüklenen kamyon ve şantiye konteyneri" width={1200} height={600} className="mt-10 max-w-[760px]" />
           </div>
         </section>
 

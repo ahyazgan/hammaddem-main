@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Layers } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd, buildProductOfferJsonLd } from "@/utils/seoSchemas";
 import FiyatBanner from "@/components/landing/FiyatBanner";
 import { getFiyatBySlug } from "@/data/fiyatData";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("alci")!;
 const canonical = "https://hammaddem.co/malzeme/alci";
 const title = "Alçı Fiyatları 2026 | Ton Fiyatı ve Silobas Teslimat";
@@ -104,11 +105,7 @@ const MalzemeAlci = () => {
                   </a>
                 </div>
               </div>
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <Package className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HeroGorsel src="/images/malzeme-alci.webp" alt="Alçı tesisinde beyaz silolara hortumla bağlı silobas dorse" />
             </div>
           </div>
         </section>

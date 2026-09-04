@@ -7,6 +7,7 @@ import HafriyatKaynaklar from "@/components/hafriyat/HafriyatKaynaklar";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 import { ArrowRight, Phone, FileText, Printer, AlertTriangle } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/hafriyat-fiyat-teklifi-ornegi";
 const title = "Hafriyat Fiyat Teklifi Örneği ve Sözleşme Maddeleri";
 const description =
@@ -121,6 +122,7 @@ const TeklifOrnegi = () => {
                 7 soru var. Sayfayı yazdırıp şablon olarak kullanabilirsiniz.
               </p>
             </div>
+            <HeroGorsel src="/images/rehber-teklif-ornegi.webp" alt="Şantiye ofisi masasında baret, hesap makinesi ve teklif evrakı; camdan görünen ekskavatör" width={1200} height={600} className="mt-10 max-w-[760px]" />
           </div>
         </section>
 

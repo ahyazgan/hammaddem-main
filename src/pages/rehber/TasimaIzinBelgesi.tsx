@@ -8,6 +8,7 @@ import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 import { HAFRIYAT_BELGELERI, BELGE_ADIMLARI, BELGE_FAQ, DOKUM_UCRETLERI } from "@/data/hafriyatFiyatData";
 import { ArrowRight, Phone, FileText, ShieldCheck, AlertTriangle, ExternalLink } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/hafriyat-tasima-izin-belgesi";
 const title = "Hafriyat Taşıma İzin Belgesi Nasıl Alınır? (2026)";
 const description =
@@ -81,6 +82,7 @@ const TasimaIzinBelgesi = () => {
                 </span>
               </div>
             </div>
+            <HeroGorsel src="/images/rehber-tasima-izin-belgesi.webp" alt="Kamyon kabininde taşıma belgelerini kontrol eden saha denetçisi ve şoför" width={1200} height={600} className="mt-10 max-w-[760px]" />
           </div>
         </section>
 

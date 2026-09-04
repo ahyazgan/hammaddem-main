@@ -5,8 +5,9 @@ import Footer from "@/components/landing/Footer";
 import { MALZEME_ROUTES } from "@/pages/malzeme/malzemeRoutes";
 import { BOLGE_ROUTES } from "./bolgeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/sakarya";
 const title = "Sakarya Silobas Nakliye & Hammadde Teslimatı | Hammaddem";
 const description = "Sakarya'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Otomotiv sanayi ve OSB bölgelerine teslimat, 30 dk teklif.";
@@ -95,11 +96,7 @@ const BolgeSakarya = () => {
                   </Link>
                 </p>
               </div>
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <MapPin className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HeroGorsel src="/images/il-sakarya.webp" alt="Sakarya vadisi ve fındık bahçeleri önünde otoyolda damperli kamyon" />
             </div>
           </div>
         </section>

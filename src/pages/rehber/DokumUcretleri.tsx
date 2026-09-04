@@ -8,6 +8,7 @@ import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 import { DOKUM_UCRETLERI, DOKUM_FAQ, HAFRIYAT_FIYAT_GUNCELLEME } from "@/data/hafriyatFiyatData";
 import { ArrowRight, Phone, Info, MapPin, FileText, ExternalLink } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/hafriyat-dokum-ucretleri";
 const title = "Hafriyat Döküm Ücretleri 2026 | İstanbul, Ankara, Kocaeli";
 const description =
@@ -80,6 +81,7 @@ const DokumUcretleri = () => {
                 </span>
               </div>
             </div>
+            <HeroGorsel src="/images/rehber-dokum-ucretleri.webp" alt="Ruhsatlı döküm sahasında yükünü boşaltan damperli kamyon ve toprağı seren dozer" width={1200} height={600} className="mt-10 max-w-[760px]" />
           </div>
         </section>
 

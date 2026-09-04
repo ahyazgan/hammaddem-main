@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package, Layers } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Package } from "lucide-react";
 import { MALZEME_ROUTES } from "./malzemeRoutes";
 import { buildBreadcrumbJsonLd, buildProductOfferJsonLd } from "@/utils/seoSchemas";
 import FiyatBanner from "@/components/landing/FiyatBanner";
 import { getFiyatBySlug } from "@/data/fiyatData";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("micir")!;
 const canonical = "https://hammaddem.co/malzeme/micir";
 const title = "Mıcır Fiyatları 2026 | Ton Fiyatı 200–450 TL";
@@ -104,11 +105,7 @@ const MalzemeMicir = () => {
                   </a>
                 </div>
               </div>
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <Layers className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HeroGorsel src="/images/malzeme-micir.webp" alt="Taş ocağı kırma-eleme tesisinde gri mıcır yükleyen damperli kamyon" />
             </div>
           </div>
         </section>

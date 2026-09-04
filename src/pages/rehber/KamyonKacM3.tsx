@@ -14,6 +14,7 @@ import {
 } from "@/data/hafriyatFiyatData";
 import { ArrowRight, Phone, Info, Truck, ExternalLink, Calculator } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/hafriyat-kamyonu-kac-m3";
 const title = "Hafriyat Kamyonu Kaç m³ Alır? 10 Teker, Kırkayak, Tır";
 const description =
@@ -88,6 +89,7 @@ const KamyonKacM3 = () => {
                 </span>
               </div>
             </div>
+            <HeroGorsel src="/images/rehber-kamyon-kac-m3.webp" alt="Kasası tepeleme toprakla dolu dört akslı damperli kamyonun yandan görünümü" width={1200} height={600} className="mt-10 max-w-[760px]" />
           </div>
         </section>
 

@@ -5,8 +5,9 @@ import Footer from "@/components/landing/Footer";
 import { MALZEME_ROUTES } from "@/pages/malzeme/malzemeRoutes";
 import { BOLGE_ROUTES } from "./bolgeRoutes";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/izmir";
 const title = "İzmir Silobas Nakliye & Hammadde Teslimatı | Hammaddem";
 const description = "İzmir'de silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Aliağa, Torbalı, Kemalpaşa OSB'ye teslimat, 30 dk teklif.";
@@ -95,11 +96,7 @@ const BolgeIzmir = () => {
                   </Link>
                 </p>
               </div>
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <MapPin className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HeroGorsel src="/images/il-izmir.webp" alt="İzmir körfezi kıyı yolunda damperli kamyon" />
             </div>
           </div>
         </section>

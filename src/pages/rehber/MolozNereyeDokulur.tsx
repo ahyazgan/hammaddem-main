@@ -8,6 +8,7 @@ import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 import { DOKUM_UCRETLERI } from "@/data/hafriyatFiyatData";
 import { ArrowRight, Phone, AlertTriangle, MapPin, ExternalLink, Info } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/moloz-nereye-dokulur";
 const title = "Moloz Nereye Atılır? İstanbul, Ankara, Bursa, İzmir 2026";
 const description =
@@ -102,6 +103,7 @@ const MolozNereyeDokulur = () => {
                 </span>
               </div>
             </div>
+            <HeroGorsel src="/images/rehber-moloz-nereye-dokulur.webp" alt="Belediye döküm tesisi girişinde bariyer önünde bekleyen yüklü damperli kamyon" width={1200} height={600} className="mt-10 max-w-[760px]" />
           </div>
         </section>
 

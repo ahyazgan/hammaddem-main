@@ -2,12 +2,13 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, MapPin, Building2 } from "lucide-react";
+import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Building2 } from "lucide-react";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildProductOfferJsonLd } from "@/utils/seoSchemas";
 import { getKomboIcerik } from "@/data/kombinasyonData";
 import FiyatBanner from "@/components/landing/FiyatBanner";
 import { getFiyatBySlug } from "@/data/fiyatData";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const MALZEME_ETIKET: Record<string, string> = {
   cimento: "Çimento",
   kum: "Kum",
@@ -155,11 +156,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
                   </a>
                 </div>
               </div>
-              <div className="hidden md:flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-accent-light border-2 border-accent-border flex items-center justify-center">
-                  <MapPin className="w-32 h-32 text-primary" />
-                </div>
-              </div>
+              <HeroGorsel src={`/images/malzeme-${malzemeSlug}.webp`} alt={`${sehirDe} ${malzemeAdi} teslimatı için ${aracTipi.toLowerCase()} yükleme sahası`} />
             </div>
           </div>
         </section>

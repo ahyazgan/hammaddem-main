@@ -16,6 +16,7 @@ import {
 } from "@/data/hafriyatFiyatData";
 import { ArrowRight, Phone, Info, Calculator, TrendingUp } from "lucide-react";
 
+import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hafriyat/fiyatlar";
 const title = "Hafriyat Fiyatları 2026 | m³ Fiyatı, Sefer ve Döküm Ücreti";
 const description =
@@ -111,6 +112,7 @@ const HafriyatFiyatlar = () => {
                 </Link>
               </div>
             </div>
+            <HeroGorsel src="/images/hafriyat-fiyatlar.webp" alt="Döküm sahası girişindeki kantar üzerinde yüklü damperli hafriyat kamyonu" width={1600} height={686} className="mt-10" />
           </div>
         </section>
 
