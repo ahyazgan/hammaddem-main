@@ -1,3 +1,4 @@
+import BrandIcon from "@/components/brand/BrandIcon";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import Navbar from "@/components/landing/Navbar";
@@ -52,31 +53,25 @@ const Iletisim = () => {
               Sorularınız, önerileriniz veya iş birliği talepleriniz için aşağıdaki kanallardan bize ulaşabilirsiniz.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {/* Contact info */}
               <div className="flex flex-col gap-5">
                 <div className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background">
-                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
+                  <BrandIcon icon={Phone} />
                   <div>
                     <h3 className="font-bold text-base mb-1">Telefon</h3>
                     <a href="tel:+905393308617" className="text-sm text-txt-2 no-underline hover:text-primary transition-colors">+90 (539) 330 8617</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background">
-                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5 text-primary" />
-                  </div>
+                  <BrandIcon icon={Mail} />
                   <div>
                     <h3 className="font-bold text-base mb-1">E-posta</h3>
-                    <a href="mailto:hammaddem@outlook.com" className="text-sm text-txt-2 no-underline hover:text-primary transition-colors">hammaddem@outlook.com</a>
+                    <a href="mailto:hammaddem@outlook.com" className="text-sm text-txt-2 no-underline hover:text-primary transition-colors">hammaddem@<wbr />outlook.com</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background">
-                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
+                  <BrandIcon icon={MapPin} />
                   <div>
                     <h3 className="font-bold text-base mb-1">Adres</h3>
                     <p className="text-sm text-txt-2">İstanbul, Türkiye</p>
@@ -89,35 +84,35 @@ const Iletisim = () => {
               <form onSubmit={handleSubmit} className="border border-border rounded-2xl p-6 md:p-8 bg-background flex flex-col gap-4">
                 <h2 className="text-lg font-bold mb-1">Mesaj Gönderin</h2>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Ad Soyad</label>
+                  <label htmlFor="contact-name" className="text-sm font-medium text-foreground mb-1.5 block">Ad Soyad</label>
                   <input
-                    type="text"
+                    id="contact-name" autoComplete="name" type="text"
                     required
                     value={form.ad}
                     onChange={(e) => setForm({ ...form, ad: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
                     placeholder="Adınız Soyadınız"
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">E-posta</label>
+                  <label htmlFor="contact-email" className="text-sm font-medium text-foreground mb-1.5 block">E-posta</label>
                   <input
-                    type="email"
+                    id="contact-email" autoComplete="email" type="email"
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
                     placeholder="ornek@email.com"
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Mesajınız</label>
-                  <textarea
+                  <label htmlFor="contact-message" className="text-sm font-medium text-foreground mb-1.5 block">Mesajınız</label>
+                  <textarea id="contact-message"
                     required
                     rows={4}
                     value={form.mesaj}
                     onChange={(e) => setForm({ ...form, mesaj: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-background text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none"
                     placeholder="Mesajınızı yazın..."
                   />
                 </div>

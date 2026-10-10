@@ -1,4 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
+import { Package, Info, Smartphone, Clock3, Check, AlertCircle } from "lucide-react";
+import { BulkTruckIcon } from "@/components/brand/BrandIcon";
 import { useNavigate } from "react-router-dom";
 import { submitGuestRequest, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
 import { useToast } from "@/hooks/use-toast";
@@ -14,9 +16,9 @@ type YukTipi = "silobas" | "hafriyat" | "";
 type HizmetTipi = "satin_alma" | "nakliye";
 
 const aciliyetler = [
-  { id: "normal", label: "Normal", icon: "🟢" },
-  { id: "acil", label: "Acil", icon: "🟡" },
-  { id: "cok_acil", label: "Çok Acil", icon: "🔴" },
+  { id: "normal", label: "Normal", color: "bg-emerald-600" },
+  { id: "acil", label: "Acil", color: "bg-amber-500" },
+  { id: "cok_acil", label: "Çok Acil", color: "bg-red-600" },
 ];
 
 const birimler = ["Ton", "m³", "Adet"];
@@ -134,7 +136,7 @@ const OrderCard = () => {
       {/* Card header */}
       <div className="px-3 sm:px-4 md:px-7 pt-3 sm:pt-4 md:pt-[18px] flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2">
         <div className="text-[12px] sm:text-[13px] font-semibold text-txt-2 flex items-center gap-1.5">
-          📦 Sipariş Oluştur
+          <Package size={16} className="text-primary" aria-hidden="true" /> Sipariş Oluştur
           <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-off2 text-txt-3 font-mono">
             MİSAFİR
           </span>
@@ -161,7 +163,7 @@ const OrderCard = () => {
                     : "border-border2 text-txt-3"
                 }`}
               >
-                {step > s.num ? "✓" : s.num}
+                {step > s.num ? <Check size={12} aria-hidden="true" /> : s.num}
               </div>
               <span className={`text-[10px] font-medium transition-colors hidden sm:inline ${step === s.num ? "text-foreground" : "text-txt-3"}`}>
                 {s.label}
@@ -190,7 +192,7 @@ const OrderCard = () => {
                     : "bg-off text-txt-2 hover:bg-off2"
                 }`}
               >
-                📦 Malzeme Satın Al
+                <Package size={16} aria-hidden="true" /> Malzeme Satın Al
               </button>
               <button
                 onClick={() => setHizmetTipi("nakliye")}
@@ -200,7 +202,7 @@ const OrderCard = () => {
                     : "bg-off text-txt-2 hover:bg-off2"
                 }`}
               >
-                🚛 Sadece Nakliye
+                <BulkTruckIcon className="h-5 w-6" aria-hidden="true" /> Sadece Nakliye
               </button>
             </div>
 
@@ -216,11 +218,11 @@ const OrderCard = () => {
               >
                 <div className={`absolute top-3 right-3 md:top-3.5 md:right-3.5 w-[22px] h-[22px] rounded-full flex items-center justify-center text-primary-foreground text-[11px] font-bold transition-all ${
                   yukTipi === "silobas" ? "opacity-100 scale-100 bg-primary" : "opacity-0 scale-[.4]"
-                }`}>✓</div>
+                }`}><Check size={14} aria-hidden="true" /></div>
                 <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-[50px] md:h-[50px] rounded-[10px] sm:rounded-[11px] flex items-center justify-center text-lg sm:text-xl md:text-2xl mb-1.5 sm:mb-2 md:mb-3 bg-accent-light transition-transform hover:scale-105"><SilobasIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" /></div>
                 <div className="text-[13px] sm:text-sm md:text-base font-bold tracking-tight mb-0.5 sm:mb-1">Silobas Yükü</div>
                 <div className="text-[10px] sm:text-[11px] md:text-xs text-txt-2 leading-relaxed mb-1.5 sm:mb-2 md:mb-3">
-                  Toz, granül ve akışkan malzemelerin kapalı sistem silobas araçlarıyla taşınması.
+                  Toz ve granül malzemelerin kapalı sistem silobas araçlarıyla taşınması.
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {["Çimento", "Alçı", "Kireç", "Kalsit", "Kül", "+5"].map((t) => (
@@ -244,7 +246,7 @@ const OrderCard = () => {
               >
                 <div className={`absolute top-3 right-3 md:top-3.5 md:right-3.5 w-[22px] h-[22px] rounded-full flex items-center justify-center text-primary-foreground text-[11px] font-bold transition-all ${
                   yukTipi === "hafriyat" ? "opacity-100 scale-100 bg-navy" : "opacity-0 scale-[.4]"
-                }`}>✓</div>
+                }`}><Check size={14} aria-hidden="true" /></div>
                 <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-[50px] md:h-[50px] rounded-[10px] sm:rounded-[11px] flex items-center justify-center text-lg sm:text-xl md:text-2xl mb-1.5 sm:mb-2 md:mb-3 bg-navy-light transition-transform hover:scale-105"><HafriyatIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" /></div>
                 <div className="text-[13px] sm:text-sm md:text-base font-bold tracking-tight mb-0.5 sm:mb-1">Hafriyat & İnşaat</div>
                 <div className="text-[10px] sm:text-[11px] md:text-xs text-txt-2 leading-relaxed mb-1.5 sm:mb-2 md:mb-3">
@@ -263,7 +265,7 @@ const OrderCard = () => {
             </div>
 
             <div className="flex items-start gap-[9px] px-3 py-2.5 rounded-[9px] bg-off2 border border-border text-[11px] md:text-xs text-txt-2 leading-relaxed mb-4 md:mb-[18px]">
-              <span className="text-[15px] flex-shrink-0 mt-px">💡</span>
+              <Info size={17} className="shrink-0 text-primary mt-px" aria-hidden="true" />
               Kayıt gerekmez. Misafir olarak sipariş oluşturabilirsiniz — telefon numaranıza teklif iletiyoruz.
             </div>
 
@@ -323,7 +325,7 @@ const OrderCard = () => {
                 </button>
               ))}
             </div>
-            {errors.malzeme && <div className="text-[11px] text-destructive font-medium mb-3">⚠ Lütfen bir malzeme seçin.</div>}
+            {errors.malzeme && <div className="text-[11px] text-destructive font-medium mb-3"><AlertCircle size={12} className="inline mr-1" aria-hidden="true" /> Lütfen bir malzeme seçin.</div>}
 
             {/* Form grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
@@ -341,7 +343,7 @@ const OrderCard = () => {
                     placeholder="Malzemenin yükleneceği adres / konum"
                     className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.yukAdres ? "border-destructive bg-destructive/5" : ""}`}
                   />
-                  {errors.yukAdres && <div className="text-[11px] text-destructive font-medium">⚠ Lütfen yükleme adresini girin.</div>}
+                  {errors.yukAdres && <div className="text-[11px] text-destructive font-medium"><AlertCircle size={12} className="inline mr-1" aria-hidden="true" /> Lütfen yükleme adresini girin.</div>}
                 </div>
               )}
               {/* Miktar */}
@@ -393,7 +395,7 @@ const OrderCard = () => {
                   <option value="">Seçiniz…</option>
                   {iller.map((i) => <option key={i} value={i}>{i}</option>)}
                 </select>
-                {errors.il && <div className="text-[11px] text-destructive font-medium">⚠ Lütfen bir il seçin.</div>}
+                {errors.il && <div className="text-[11px] text-destructive font-medium"><AlertCircle size={12} className="inline mr-1" aria-hidden="true" /> Lütfen bir il seçin.</div>}
               </div>
 
               <div className="flex flex-col gap-[5px] sm:col-span-2">
@@ -432,7 +434,7 @@ const OrderCard = () => {
                   maxLength={25}
                   className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.telefon ? "border-destructive bg-destructive/5" : ""}`}
                 />
-                {errors.telefon && <div className="text-[11px] text-destructive font-medium">⚠ Geçerli bir telefon numarası girin (05XX XXX XXXX)</div>}
+                {errors.telefon && <div className="text-[11px] text-destructive font-medium"><AlertCircle size={12} className="inline mr-1" aria-hidden="true" /> Geçerli bir telefon numarası girin (05XX XXX XXXX)</div>}
               </div>
 
               {/* Aciliyet */}
@@ -452,7 +454,7 @@ const OrderCard = () => {
                           : "border-border bg-off text-txt-2 hover:border-border2"
                       }`}
                     >
-                      {a.icon} {a.label}
+                      <span aria-hidden="true" className={`w-1.5 h-1.5 rounded-full ${a.color}`} /> {a.label}
                     </button>
                   ))}
                 </div>
@@ -497,7 +499,7 @@ const OrderCard = () => {
             <h3 className="text-sm md:text-base font-bold tracking-tight mb-3.5">Talebinizi Onaylayın</h3>
             <div className="bg-off border border-border rounded-xl overflow-hidden mb-3.5">
               {[
-                { key: "Hizmet", val: hizmetTipi === "nakliye" ? "🚛 Sadece Nakliye" : "📦 Satın Alma" },
+                { key: "Hizmet", val: hizmetTipi === "nakliye" ? "Sadece Nakliye" : "Satın Alma" },
                 { key: "Yük Tipi", val: yukTipi === "silobas" ? "Silobas" : "Hafriyat" },
                 { key: hizmetTipi === "nakliye" ? "Taşınacak Malzeme" : "Malzeme", val: malzeme },
                 { key: "Miktar", val: `${miktar} ${birim}` },
@@ -506,9 +508,9 @@ const OrderCard = () => {
                 { key: "Teslimat Adresi", val: adres.trim() },
                 ...(tarih ? [{ key: "İstenen Tarih", val: new Date(tarih + "T12:00:00").toLocaleDateString("tr-TR") }] : []),
                 ...(not_.trim() ? [{ key: "Ek Not", val: not_.trim() }] : []),
-                { key: "Aciliyet", val: `${aciliyetler.find(a => a.id === aciliyet)?.icon} ${aciliyetler.find(a => a.id === aciliyet)?.label}` },
+                { key: "Aciliyet", val: aciliyetler.find(a => a.id === aciliyet)?.label },
                 { key: "Telefon", val: telefon },
-                { key: "Ücret", val: "✓ Ücretsiz teklif", isFree: true },
+                { key: "Ücret", val: "Ücretsiz teklif", isFree: true },
               ].map((row) => (
                 <div key={row.key} className="flex justify-between items-start gap-4 px-3 md:px-4 py-2.5 border-b border-border last:border-b-0 text-[12px] md:text-[13px]">
                   <span className="text-txt-2 font-medium shrink-0">{row.key}</span>
@@ -522,7 +524,7 @@ const OrderCard = () => {
             <div className={`flex gap-2.5 p-3 rounded-[10px] text-[11px] md:text-xs text-txt-2 leading-relaxed mb-3.5 ${
               colorClass === "orange" ? "bg-accent-light border border-accent-border" : "bg-navy-light border border-navy-border"
             }`}>
-              <span className="text-base flex-shrink-0">⏱</span>
+              <Clock3 size={18} className="shrink-0 text-primary" aria-hidden="true" />
               Talebiniz iletildikten sonra 30 dakika içinde net fiyat teklifiniz hazırlanır ve sizi telefonla arayacağız.
             </div>
 
@@ -539,7 +541,7 @@ const OrderCard = () => {
                     : "bg-navy shadow-[0_4px_16px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px"
                 }`}
               >
-                {loading ? "Gönderiliyor..." : "✓  Talebi Gönder"}
+                {!loading && <Check size={16} aria-hidden="true" />}{loading ? "Gönderiliyor..." : "Talebi Gönder"}
               </button>
             </div>
           </div>
@@ -549,7 +551,7 @@ const OrderCard = () => {
         {step === 4 && showSuccess && (
           <div className="text-center py-3">
             <div className="w-16 h-16 md:w-[70px] md:h-[70px] rounded-full bg-success-light border-2 border-success-border flex items-center justify-center mx-auto mb-3.5 text-[28px] md:text-[30px] animate-pop">
-              ✓
+              <Check size={30} className="text-success" aria-hidden="true" />
             </div>
             <h3 className="text-lg md:text-xl font-bold tracking-tight mb-2">Talebiniz Alındı!</h3>
             <p className="text-[12px] md:text-[13px] text-txt-2 mb-4 md:mb-[18px] leading-relaxed">
@@ -567,7 +569,7 @@ const OrderCard = () => {
             <button onClick={() => navigate("/talep-takip?talep=" + encodeURIComponent(talepNo))} className="w-full py-3 mb-3 rounded-lg bg-primary text-primary-foreground font-semibold">Talebimi Takip Et →</button>
 
             <div className="border-[1.5px] border-accent-border bg-accent-light rounded-xl p-4 text-left mb-3">
-              <h4 className="text-[13px] font-bold text-primary mb-1">📱 Siparişinizi panelden takip edin</h4>
+              <h4 className="text-[13px] font-bold text-primary mb-1"><Smartphone size={15} className="inline mr-1.5" aria-hidden="true" /> Siparişinizi panelden takip edin</h4>
               <p className="text-[11px] md:text-xs text-txt-2 leading-relaxed mb-3">
                 Hesap oluşturarak tüm siparişlerinizi gerçek zamanlı takip edebilir, dijital irsaliyelerinize anında ulaşabilirsiniz.
               </p>

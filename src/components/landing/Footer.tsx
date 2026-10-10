@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.svg";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="border-t border-border pt-16">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr] gap-8 md:gap-10 pb-12">
+    <footer id="footer" className="border-t border-border pt-14 bg-off">
+      <div className="max-w-[1100px] mx-auto px-4 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pb-12">
         {/* Brand */}
-        <div className="col-span-1 md:col-span-1">
+        <div className="col-span-1">
           <Link to="/" className="flex items-center mb-3.5 no-underline">
             <img src={logo} alt="Hammaddem" className="h-[50px] w-auto" />
           </Link>
@@ -17,23 +17,23 @@ const Footer = () => {
           </p>
           <div className="flex flex-col gap-2">
             <a href="tel:+905393308617" className="flex items-center gap-2 text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">
-              📞 +90 (539) 330 8617
+              <Phone size={16} aria-hidden="true" className="text-primary shrink-0" /> +90 (539) 330 8617
             </a>
             <a href="mailto:hammaddem@outlook.com" className="flex items-center gap-2 text-[13px] text-txt-2 no-underline hover:text-primary transition-colors">
-              ✉️ hammaddem@outlook.com
+              <Mail size={16} aria-hidden="true" className="text-primary shrink-0" /> hammaddem@outlook.com
             </a>
             <span className="flex items-center gap-2 text-[13px] text-txt-2">
-              📍 İstanbul, Türkiye
+              <MapPin size={16} aria-hidden="true" className="text-primary shrink-0" /> İstanbul, Türkiye
             </span>
           </div>
           <div className="flex items-center gap-3 mt-4">
-            <a href="https://instagram.com/hammaddem" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-muted/60 border border-border flex items-center justify-center text-txt-3 hover:text-primary hover:border-primary transition-colors">
+            <a aria-label="Hammaddem Instagram" href="https://instagram.com/hammaddem" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-muted/60 border border-border flex items-center justify-center text-txt-3 hover:text-primary hover:border-primary transition-colors">
               <Instagram size={15} />
             </a>
-            <a href="https://linkedin.com/company/hammaddem" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-muted/60 border border-border flex items-center justify-center text-txt-3 hover:text-primary hover:border-primary transition-colors">
+            <a aria-label="Hammaddem LinkedIn" href="https://linkedin.com/company/hammaddem" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-muted/60 border border-border flex items-center justify-center text-txt-3 hover:text-primary hover:border-primary transition-colors">
               <Linkedin size={15} />
             </a>
-            <a href="https://x.com/hammaddem" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-muted/60 border border-border flex items-center justify-center text-txt-3 hover:text-primary hover:border-primary transition-colors">
+            <a aria-label="Hammaddem X" href="https://x.com/hammaddem" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-muted/60 border border-border flex items-center justify-center text-txt-3 hover:text-primary hover:border-primary transition-colors">
               <Twitter size={15} />
             </a>
           </div>

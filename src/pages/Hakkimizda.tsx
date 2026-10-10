@@ -1,3 +1,4 @@
+import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import SitePhoto from "@/components/SitePhoto";
 import { Link } from "react-router-dom";
@@ -80,15 +81,7 @@ const Hakkimizda = () => (
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {degerler.map((d) => (
-              <div key={d.title} className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                  <d.icon className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-base mb-1">{d.title}</h3>
-                  <p className="text-sm text-txt-2 leading-relaxed">{d.desc}</p>
-                </div>
-              </div>
+              <BrandBenefitCard key={d.title} {...d} />
             ))}
           </div>
         </div>
