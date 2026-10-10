@@ -41,7 +41,7 @@ it("carries a guest request from the form through persistence, admin pricing and
 
   const record = { ...saved!, birim: "m³", id: "test-1", created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
   let price: number;
-  const eq = vi.fn().mockResolvedValue({ error: null });
+  const eq = vi.fn().mockReturnValue({ select: () => ({ single: async () => ({ data: { id: "test-1" }, error: null }) }) });
   const update = vi.fn().mockImplementation(payload => { price = payload.teklif_fiyat; return { eq }; });
   mocks.from.mockReturnValue({ update });
   render(<AdminTalepler talepler={[]} misafirTalepler={[record]} profiles={{}} onRefresh={vi.fn()} />);

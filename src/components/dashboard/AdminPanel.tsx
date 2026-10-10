@@ -25,12 +25,13 @@ const AdminPanel = () => {
   const [profiles, setProfiles] = useState<Record<string, Profile>>({});
   const [userCount, setUserCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [loadError, setLoadError] = useState("");
   const [siteSettings, setSiteSettings] = useState<{ key: string; value: string; label: string | null }[]>([]);
   const [savingSettings, setSavingSettings] = useState(false);
 
   const fetchAll = useCallback(async () => {
-    setLoading(true);
+    setRefreshing(true);
     setLoadError("");
     try {
       const results = await Promise.all([
@@ -52,6 +53,7 @@ const AdminPanel = () => {
       setLoadError(error instanceof Error ? error.message : "Talepler yüklenemedi.");
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
   }, []);
 
@@ -111,7 +113,7 @@ const AdminPanel = () => {
 
       <div className="px-4 py-2 flex items-center gap-3 border-b border-[#1c2133]">
         {loadError && <p role="alert" className="text-xs text-red-400">{loadError}</p>}
-        <button onClick={fetchAll} disabled={loading} className="ml-auto shrink-0 text-xs text-[#e8eaf0] disabled:opacity-40">Talepleri Yenile</button>
+        <button onClick={fetchAll} disabled={refreshing} className="ml-auto shrink-0 text-xs text-[#e8eaf0] disabled:opacity-40">Talepleri Yenile</button>
       </div>
       {/* Content */}
       {loading ? (

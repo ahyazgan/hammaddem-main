@@ -98,8 +98,8 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
     try {
       const payload = { durum, updated_at: new Date().toISOString() };
       const { error } = type === "misafir"
-        ? await supabase.from("misafir_talepler").update(payload).eq("id", id)
-        : await supabase.from("talepler").update(payload).eq("id", id);
+        ? await supabase.from("misafir_talepler").update(payload).eq("id", id).select("id").single()
+        : await supabase.from("talepler").update(payload).eq("id", id).select("id").single();
       if (error) toast({ title: "Hata", description: error.message, variant: "destructive" });
       else onRefresh();
     } catch {
@@ -126,7 +126,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
       if (fiyat !== null) updateData.teklif_fiyat = fiyat;
 
       // Önce talep güncellensin; bu adım başarısızsa müşteriye bildirim/mail gitmesin.
-      const { error: updateError } = await supabase.from(talep._type === "misafir" ? "misafir_talepler" : "talepler").update(updateData).eq("id", talep.id);
+      const { error: updateError } = await supabase.from(talep._type === "misafir" ? "misafir_talepler" : "talepler").update(updateData).eq("id", talep.id).select("id").single();
       if (updateError) throw new Error(`Talep güncellenemedi: ${updateError.message}`);
 
       if (talep._type === "misafir") {
