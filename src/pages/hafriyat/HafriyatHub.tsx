@@ -1,4 +1,4 @@
-import BrandIcon from "@/components/brand/BrandIcon";
+import BrandIcon, { TipperTruckIcon } from "@/components/brand/BrandIcon";
 import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -196,7 +196,7 @@ const HafriyatHub = () => {
                   to={h.path}
                   className="block border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all no-underline"
                 >
-                  <BrandIcon icon={h.icon} className="mb-4" />
+                  <BrandIcon icon={h.icon === Truck ? TipperTruckIcon : h.icon} className="mb-4" />
                   <h3 className="font-bold text-base mb-2 text-foreground">{h.title}</h3>
                   <p className="text-sm text-txt-2 leading-relaxed">{h.desc}</p>
                   <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-navy">

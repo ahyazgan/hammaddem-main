@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Clock, Shield, Truck, ArrowRight, Package, Layers } from "lucide-react";
+import { CheckCircle, Clock, Shield, MapPinned, ArrowRight, Package, Layers } from "lucide-react";
 import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/hammadde";
@@ -26,7 +26,7 @@ const malzemeler = [
 
 const avantajlar = [
   { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi hammadde fiyat teklifi al." },
-  { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş lojistik ağımızla hızlı ve güvenilir hammadde teslimatı." },
+  { icon: MapPinned, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş lojistik ağımızla hızlı ve güvenilir hammadde teslimatı." },
   { icon: Shield, title: "Kalite Garantisi", desc: "Standartlara uygun hammadde tedariki. Her teslimat kalite kontrollüdür." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Hammadde siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
 ];
