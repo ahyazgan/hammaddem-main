@@ -1,3 +1,4 @@
+import BrandIcon from "@/components/brand/BrandIcon";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
@@ -181,9 +182,7 @@ const Hammadde = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {avantajlar.map((a) => (
                 <div key={a.title} className="p-5 rounded-xl bg-off2 border border-border">
-                  <div className="w-10 h-10 rounded-lg bg-accent-light flex items-center justify-center mb-4">
-                    <a.icon className="w-5 h-5 text-primary" />
-                  </div>
+                  <BrandIcon icon={a.icon} className="mb-4" />
                   <h3 className="font-bold text-foreground text-sm mb-2">{a.title}</h3>
                   <p className="text-xs text-txt-3 leading-relaxed">{a.desc}</p>
                 </div>

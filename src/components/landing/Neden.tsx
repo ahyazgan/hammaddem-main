@@ -1,55 +1,42 @@
+import { Clock3, ShieldCheck, MapPinned, Smartphone, PackageCheck } from "lucide-react";
+import BrandIcon, { BulkTruckIcon } from "@/components/brand/BrandIcon";
+import SectionHeading from "@/components/brand/SectionHeading";
+
 const items = [
-  { icon: "⚡", title: "Hızlı Teklif", desc: "30 dakika içinde net fiyat teklifiniz hazır.", stat: "30dk", statLabel: "Ort. Süre" },
-  { icon: "🛡️", title: "Güvenilir Hizmet", desc: "Müşteri memnuniyetini her şeyin önünde tutuyoruz.", stat: "%98", statLabel: "Memnuniyet" },
-  { icon: "🚛", title: "Aktif Filomuz", desc: "Silobas ve damperli araçlardan oluşan güçlü filo.", stat: "20+", statLabel: "Araç" },
-  { icon: "📍", title: "Türkiye Geneli", desc: "11 ilde aktif teslimat ağımızla her noktaya ulaşım.", stat: "11 İl", statLabel: "Kapsama" },
-  { icon: "📱", title: "Dijital Takip", desc: "Siparişinizi her aşamada anlık olarak izleyin.", stat: "7/24", statLabel: "Online" },
-  { icon: "💰", title: "Tamamlanan Teslimat", desc: "Her geçen gün büyüyen teslimat ağımızla hizmetinizdeyiz.", stat: "250+", statLabel: "Teslimat" },
+  { icon: Clock3, title: "Zamanınız değerli", desc: "Malzeme, güzergâh ve miktarı birlikte değerlendirerek talebinize özel teklif hazırlıyoruz.", stat: "30", unit: "dk", label: "Ortalama teklif süresi" },
+  { icon: ShieldCheck, title: "Güvenle ilerleyin", desc: "Talebinizden teslimata kadar süreci ekibimizle birlikte, tek muhatap üzerinden yönetin.", stat: "%98", unit: "", label: "Müşteri memnuniyeti" },
+  { icon: BulkTruckIcon, title: "Yüke uygun araç", desc: "Toz ve granül için silobas; agrega ve hafriyat için damperli araç planlaması.", stat: "20+", unit: "", label: "Araç kapasitesi" },
+  { icon: MapPinned, title: "Bölgenize yakın çözümler", desc: "Şantiye ve tesis konumunuza göre yükleme, güzergâh ve teslimat planı oluşturun.", stat: "11", unit: "il", label: "Aktif hizmet bölgesi" },
+  { icon: Smartphone, title: "Talebiniz elinizin altında", desc: "Telefon ve talep numaranızla teklifinizi ve güncel sipariş durumunu görüntüleyin.", stat: "7/24", unit: "", label: "Dijital talep erişimi" },
+  { icon: PackageCheck, title: "Sahada biriken deneyim", desc: "Farklı malzeme, tesis ve şantiye ihtiyaçlarına göre şekillenen tedarik ve nakliye hizmeti.", stat: "250+", unit: "", label: "Tamamlanan teslimat" },
 ];
 
-const Neden = () => {
+export default function Neden() {
   return (
-    <section id="neden-biz" className="relative py-16 md:py-24 px-4 md:px-10 bg-dot-pattern">
+    <section id="neden-biz" className="py-16 md:py-24 px-4 md:px-10 bg-[#f5f6f8] border-y border-border/70">
       <div className="max-w-[1100px] mx-auto">
-        <div className="mb-12">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-3.5">
-            Avantajlarımız
-          </span>
-          <h2 className="text-[clamp(28px,3.5vw,42px)] font-extrabold tracking-tight leading-[1.1] text-foreground mb-3.5">
-            Neden Hammaddem?
-          </h2>
-          <p className="text-base text-txt-2 leading-[1.7] max-w-[520px]">
-            Sektördeki farkımızı rakamlarla ortaya koyuyoruz.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <SectionHeading eyebrow="Hammaddem farkı" title="Güçlü saha deneyimi. Net bir süreç.">
+          Doğru malzeme, uygun araç ve planlı teslimat. İşinizin her adımında aynı özenle yanınızdayız.
+        </SectionHeading>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {items.map((item) => (
-            <div
-              key={item.title}
-              className="group flex flex-col gap-3 p-5 md:p-6 bg-background border border-border rounded-2xl transition-all duration-200 hover:-translate-y-1 hover:shadow-elevated hover:border-accent-border"
-            >
-              <div className="w-11 h-11 rounded-[11px] bg-accent-light border border-accent-border flex items-center justify-center text-xl shrink-0 transition-transform group-hover:scale-110">
-                {item.icon}
+            <article key={item.title} className="relative overflow-hidden rounded-2xl border border-border bg-background p-6 md:p-7">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <BrandIcon icon={item.icon} size="lg" />
+                <span aria-hidden="true" className="h-px w-12 bg-border" />
               </div>
-              <div>
-                <div className="font-mono text-[26px] font-bold text-primary leading-none mb-1">
-                  {item.stat}
-                </div>
-                <div className="text-[10px] font-semibold tracking-wider uppercase text-txt-3 mb-2">
-                  {item.statLabel}
-                </div>
+              <p className="text-[38px] md:text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none tabular-nums">
+                {item.stat}<span className="ml-1.5 text-xl font-semibold tracking-tight text-primary">{item.unit}</span>
+              </p>
+              <p className="mt-2 mb-5 text-[11px] font-semibold uppercase tracking-[.1em] text-txt-2">{item.label}</p>
+              <div className="border-t border-border pt-5">
+                <h3 className="text-base font-bold text-navy tracking-tight mb-2">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-txt-2">{item.desc}</p>
               </div>
-              <div>
-                <h4 className="text-[14px] font-bold mb-1 tracking-tight text-foreground">{item.title}</h4>
-                <p className="text-[13px] text-txt-2 leading-[1.7]">{item.desc}</p>
-              </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Neden;
+}

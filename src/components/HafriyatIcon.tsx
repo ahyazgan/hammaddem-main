@@ -1,11 +1,11 @@
-import hafriyatIcon from "@/assets/hafriyat-icon.svg";
+import { TipperTruckIcon } from "@/components/brand/BrandIcon";
 
 interface HafriyatIconProps {
   className?: string;
 }
 
 const HafriyatIcon = ({ className = "w-6 h-6" }: HafriyatIconProps) => (
-  <img src={hafriyatIcon} alt="Hafriyat" className={className} />
+  <TipperTruckIcon aria-hidden="true" className={className} />
 );
 
 export default HafriyatIcon;

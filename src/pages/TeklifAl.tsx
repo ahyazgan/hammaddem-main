@@ -1,3 +1,4 @@
+import BrandIcon from "@/components/brand/BrandIcon";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
@@ -99,9 +100,7 @@ const TeklifAl = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {avantajlar.map((a) => (
                 <div key={a.title} className="flex flex-col gap-3 border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                    <a.icon className="w-5 h-5 text-primary" />
-                  </div>
+                  <BrandIcon icon={a.icon} />
                   <div>
                     <h2 className="font-bold text-sm mb-1">{a.title}</h2>
                     <p className="text-xs text-txt-2 leading-relaxed">{a.desc}</p>

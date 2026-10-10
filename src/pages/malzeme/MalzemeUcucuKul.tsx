@@ -1,3 +1,4 @@
+import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
@@ -172,15 +173,7 @@ const MalzemeUcucuKul = () => {
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem ile Uçucu Kül Tedarik Edin?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {avantajlar.map((a) => (
-                <div key={a.title} className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                    <a.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-base mb-1">{a.title}</h3>
-                    <p className="text-sm text-txt-2 leading-relaxed">{a.desc}</p>
-                  </div>
-                </div>
+                <BrandBenefitCard key={a.title} {...a} />
               ))}
             </div>
           </div>

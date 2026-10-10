@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Clock3, ClipboardCheck, MapPinned, UserCheck } from "lucide-react";
+import { BulkTruckIcon } from "@/components/brand/BrandIcon";
 import HeroBgPattern from "./HeroBgPattern";
 import OrderCard from "./OrderCard";
 import SitePhoto from "@/components/SitePhoto";
@@ -7,7 +9,7 @@ const stats = [
   { val: "250+", label: "Tamamlanan Teslimat", color: "text-primary" },
   { val: "30dk", label: "Ort. Teklif Süresi", color: "text-navy" },
   { val: "11 İl", label: "Aktif Teslimat Bölgesi", color: "text-foreground" },
-  { val: "%98", label: "Zamanında Teslimat", color: "text-primary" },
+  { val: "%98", label: "Müşteri Memnuniyeti", color: "text-primary" },
 ];
 
 const Hero = () => {
@@ -71,7 +73,7 @@ const Hero = () => {
                   ${i < 3 ? "sm:border-r sm:border-border" : "sm:border-r-0"}
                 `}
               >
-                <span className={`font-mono text-[15px] sm:text-base md:text-lg font-bold leading-none ${stat.color}`}>{stat.val}</span>
+                <span className={`tabular-nums tracking-tight text-[15px] sm:text-base md:text-lg font-bold leading-none ${stat.color}`}>{stat.val}</span>
                 <span className="text-[10px] sm:text-[10px] md:text-[11px] text-txt-3 font-medium whitespace-nowrap">{stat.label}</span>
               </div>
             ))}
@@ -84,16 +86,16 @@ const Hero = () => {
         {/* Trust strip */}
         <div className="mt-4 sm:mt-5 md:mt-6 grid grid-cols-3 sm:flex sm:flex-row items-center gap-2 sm:gap-3 md:gap-5 justify-center animate-fade-up" style={{ animationDelay: '.3s' }}>
           {[
-            { icon: "🚛", label: "Silobas & Hafriyat" },
-            { icon: "⚡", label: "30dk Teklif" },
-            { icon: "📋", label: "Dijital İrsaliye" },
-            { icon: "🇹🇷", label: "11 İl Teslimat" },
-            { icon: "✓", label: "Kayıt Gerekmez" },
+            { icon: BulkTruckIcon, label: "Silobas & Hafriyat" },
+            { icon: Clock3, label: "30dk Teklif" },
+            { icon: ClipboardCheck, label: "Dijital İrsaliye" },
+            { icon: MapPinned, label: "11 İl Teslimat" },
+            { icon: UserCheck, label: "Kayıt Gerekmez" },
           ].map((item, i) => (
             <div key={item.label} className="flex items-center gap-1 sm:gap-1.5 justify-center">
               {i > 0 && <div className="hidden sm:block w-px h-3.5 bg-border2 mr-1 md:mr-3" />}
               <div className="w-[18px] sm:w-5 md:w-[22px] h-[18px] sm:h-5 md:h-[22px] rounded flex items-center justify-center text-[10px] sm:text-[11px] md:text-[11px] bg-off2 border border-border" aria-hidden="true">
-                {item.icon}
+                <item.icon className="h-3.5 w-3.5 text-navy" strokeWidth={1.7} />
               </div>
               <span className="text-[10px] sm:text-[11px] md:text-xs text-txt-2 font-medium whitespace-nowrap">{item.label}</span>
             </div>

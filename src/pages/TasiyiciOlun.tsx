@@ -1,3 +1,4 @@
+import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import Navbar from "@/components/landing/Navbar";
@@ -85,15 +86,7 @@ const TasiyiciOlun = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {avantajlar.map((a) => (
-                    <div key={a.title} className="flex gap-3 items-start border border-border rounded-xl p-4 bg-background">
-                      <div className="w-10 h-10 rounded-lg bg-accent-light flex items-center justify-center shrink-0">
-                        <a.icon className="w-4 h-4 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-sm mb-0.5">{a.title}</h3>
-                        <p className="text-xs text-txt-2 leading-relaxed">{a.desc}</p>
-                      </div>
-                    </div>
+                    <BrandBenefitCard key={a.title} {...a} />
                   ))}
                 </div>
               </div>

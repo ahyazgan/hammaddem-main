@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import SitePhoto from "@/components/SitePhoto";
-import { Truck, Mountain, Package, MapPin, FileText, CheckCircle } from "lucide-react";
+import { Truck, Mountain, Package, MapPinned, Clock3 } from "lucide-react";
+import BrandIcon from "@/components/brand/BrandIcon";
+import SectionHeading from "@/components/brand/SectionHeading";
 
 const hizmetler = [
   {
@@ -28,9 +30,9 @@ const hizmetler = [
 ];
 
 const extras = [
-  { icon: "📦", title: "Toplu Sipariş", desc: "Büyük projeler için özel fiyatlandırma." },
-  { icon: "📍", title: "Türkiye Geneli", desc: "11 ilde aktif teslimat ağı." },
-  { icon: "⚡", title: "Hızlı Teklif", desc: "48 saat içinde net fiyat teklifi." },
+  { icon: Package, title: "Projenize özel tedarik", desc: "Miktar ve teslimat programına uygun toplu sipariş planlaması." },
+  { icon: MapPinned, title: "11 ilde hizmet ağı", desc: "Şantiye ve tesis konumuna göre güzergâh ve araç planı." },
+  { icon: Clock3, title: "Ortalama 30 dakikada teklif", desc: "Malzeme, miktar ve adres bilgisine göre hazırlanan fiyat teklifi." },
 ];
 
 const Hizmetler = () => {
@@ -38,19 +40,11 @@ const Hizmetler = () => {
     <section id="hizmetler" className="relative py-16 md:py-24 px-4 md:px-10 overflow-hidden">
       <div className="max-w-[1100px] mx-auto">
         {/* Header */}
-        <div className="flex items-end justify-between gap-5 mb-12 flex-wrap">
-          <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-3.5">
-              Hizmetler
-            </span>
-            <h2 className="text-[clamp(28px,3.5vw,42px)] font-extrabold tracking-tight leading-[1.1] mb-3.5">
-              Ne Sunuyoruz?
-            </h2>
-            <p className="text-base text-txt-2 leading-[1.7] max-w-[520px]">
-              Hammadde tedarikinden teslimatına kadar tüm süreci dijitalleştiriyoruz.
-            </p>
-          </div>
-          <a href="#siparis-formu" className="text-[13px] font-semibold text-primary no-underline flex items-center gap-1 hover:underline">
+        <div className="flex items-center justify-between gap-x-5 mb-2 flex-wrap">
+          <SectionHeading eyebrow="Hizmetlerimiz" title="Yükünüze uygun çözüm.">
+            Hammadde tedarikinden hafriyat nakliyesine, ihtiyacınıza uygun aracı ve teslimat planını birlikte belirleyelim.
+          </SectionHeading>
+          <a href="#siparis-formu" className="mb-10 md:mb-12 min-h-11 text-sm font-semibold text-primary no-underline flex items-center gap-1 hover:underline">
             Teklif Al →
           </a>
         </div>
@@ -105,12 +99,10 @@ const Hizmetler = () => {
         <div className="mt-5 border-[1.5px] border-border rounded-2xl p-5 md:p-7 grid grid-cols-1 md:grid-cols-3 gap-6 transition-all hover:border-border2 hover:shadow-card bg-background">
           {extras.map((e) => (
             <div key={e.title} className="flex gap-3.5 items-start">
-              <div className="w-10 h-10 rounded-[10px] flex-shrink-0 flex items-center justify-center text-lg bg-off2 border border-border">
-                {e.icon}
-              </div>
+              <BrandIcon icon={e.icon} size="sm" />
               <div>
-                <h4 className="text-sm font-bold tracking-tight mb-1">{e.title}</h4>
-                <p className="text-xs text-txt-2 leading-relaxed">{e.desc}</p>
+                <h4 className="text-sm font-bold tracking-tight mb-2 text-navy">{e.title}</h4>
+                <p className="text-sm text-txt-2 leading-relaxed">{e.desc}</p>
               </div>
             </div>
           ))}

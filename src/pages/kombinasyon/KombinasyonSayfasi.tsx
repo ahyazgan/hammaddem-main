@@ -1,3 +1,4 @@
+import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
@@ -227,15 +228,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
                 { icon: Truck, title: `${sehirAdi} Hizmet`, desc: `${kombo?.sehir.lojistik ?? `${sehirAdi} genelinde aktif araç filomuzla hızlı teslimat.`}` },
                 { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişi panelden anlık takip edin." },
               ].map((a) => (
-                <div key={a.title} className="flex flex-col gap-3 border border-border rounded-2xl p-6 bg-background hover:border-accent-border transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-accent-light flex items-center justify-center shrink-0">
-                    <a.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-sm mb-1">{a.title}</h3>
-                    <p className="text-xs text-txt-2 leading-relaxed">{a.desc}</p>
-                  </div>
-                </div>
+                <BrandBenefitCard key={a.title} {...a} stacked />
               ))}
             </div>
           </div>

@@ -42,7 +42,7 @@
     --border2: 218 14% 83%;
     --text: 220 30% 10%;
     --text2: 218 12% 37%;
-    --text3: 215 10% 61%;
+    --text3: 215 10% 44%;
     --accent-hex: #e8620a;
     --accent-hover: 22 92% 42%;
     --accent-light: 25 100% 97%;
@@ -107,6 +107,43 @@
     @apply bg-background text-foreground antialiased;
     overflow-x: hidden;
   }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 4px;
+  }
+}
+
+@layer components {
+  .brand-icon {
+    @apply relative inline-flex shrink-0 items-center justify-center rounded-2xl border text-navy;
+    background: linear-gradient(145deg, #fff, hsl(var(--accent-light)));
+    border-color: hsl(var(--accent-border) / .65);
+  }
+  .brand-icon::after {
+    content: '';
+    @apply absolute right-2 top-2 h-1 w-1 rounded-full bg-primary;
+  }
+  .brand-icon--sm { @apply h-11 w-11; }
+  .brand-icon--md { @apply h-14 w-14; }
+  .brand-icon--lg { @apply h-[72px] w-[72px]; }
+  .brand-icon__glyph { @apply h-[55%] w-[55%]; }
+  .brand-icon--lg .brand-icon__glyph { @apply h-[60%] w-[60%]; }
+  .brand-icon .brand-icon__glyph--vehicle { @apply h-[70%] w-[80%]; }
+  .brand-benefit {
+    @apply flex items-start gap-4 rounded-2xl border border-border bg-background p-5 md:p-6;
+    box-shadow: 0 3px 16px hsl(var(--navy) / .025);
+  }
+  .brand-eyebrow {
+    @apply flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[.16em] text-primary;
+  }
+  .brand-eyebrow::before {
+    content: '';
+    @apply h-[2px] w-6 bg-primary;
+  }
+  .brand-action {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-colors;
+  }
 }
 
 /* ══════════ ANIMATIONS ══════════ */
@@ -156,8 +193,8 @@
 
   .bg-dot-pattern {
     background-color: hsl(var(--background));
-    background-image: radial-gradient(circle, hsl(220 15% 70% / 0.45) 1px, transparent 1px);
-    background-size: 18px 18px;
+    background-image: radial-gradient(circle, hsl(220 15% 70% / 0.16) .75px, transparent .75px);
+    background-size: 24px 24px;
   }
 
   /* Reveal on scroll */
@@ -169,5 +206,14 @@
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
 }

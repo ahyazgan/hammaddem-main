@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import SectionHeading from "@/components/brand/SectionHeading";
 
 const yorumlar = [
   {
@@ -31,33 +32,26 @@ const MusteriYorumlari = () => {
   return (
     <section className="py-16 md:py-20 px-4 md:px-10 bg-off">
       <div className="max-w-[1100px] mx-auto">
-        <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-accent-light text-primary border border-accent-border mb-3">
-            Referanslar
-          </span>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground mb-2">
-            Müşterilerimiz Ne Diyor?
-          </h2>
-          <p className="text-sm text-txt-2 max-w-[450px] mx-auto">
-            Hammaddem ile çalışan firma ve santral yetkililerinin deneyimleri.
-          </p>
-        </div>
+        <SectionHeading eyebrow="Müşteri deneyimleri" title="Birlikte çalıştığımız sahalardan.">
+          Hammaddem ile çalışan firma ve santral yetkililerinin deneyimleri.
+        </SectionHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {yorumlar.map((y) => (
             <div
               key={y.isim}
-              className="p-5 rounded-2xl bg-background border border-border hover:border-accent-border transition-colors"
+              className="p-6 flex flex-col rounded-2xl bg-background border border-border"
             >
-              <div className="flex gap-0.5 mb-3">
+              <div className="flex gap-1 mb-5" aria-label={`${y.puan} / 5 yıldız`}>
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
+                    aria-hidden="true"
                     className={`w-3.5 h-3.5 ${i < y.puan ? "text-primary fill-primary" : "text-border"}`}
                   />
                 ))}
               </div>
-              <p className="text-sm text-txt-2 leading-relaxed mb-4">"{y.yorum}"</p>
-              <div>
+              <blockquote className="text-sm text-txt-2 leading-relaxed mb-6">“{y.yorum}”</blockquote>
+              <div className="mt-auto border-t border-border pt-4">
                 <p className="text-sm font-semibold text-foreground">{y.isim}</p>
                 <p className="text-xs text-txt-3">{y.firma}</p>
               </div>

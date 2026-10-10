@@ -6,6 +6,7 @@ import Hizmetler from "@/components/landing/Hizmetler";
 import Neden from "@/components/landing/Neden";
 import MusteriYorumlari from "@/components/landing/MusteriYorumlari";
 import Footer from "@/components/landing/Footer";
+import ProjectResources from "@/components/landing/ProjectResources";
 
 const Index = () => {
   return (
@@ -74,6 +75,7 @@ const Index = () => {
         <Hizmetler />
         <Neden />
         <MusteriYorumlari />
+        <ProjectResources />
         <Footer />
       </div>
     </>

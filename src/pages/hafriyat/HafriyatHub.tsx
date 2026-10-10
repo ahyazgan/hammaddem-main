@@ -1,3 +1,5 @@
+import BrandIcon from "@/components/brand/BrandIcon";
+import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
@@ -194,9 +196,7 @@ const HafriyatHub = () => {
                   to={h.path}
                   className="block border border-border rounded-2xl p-6 bg-background hover:border-navy-border hover:-translate-y-1 transition-all no-underline"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center mb-4">
-                    <h.icon className="w-5 h-5 text-navy" />
-                  </div>
+                  <BrandIcon icon={h.icon} className="mb-4" />
                   <h3 className="font-bold text-base mb-2 text-foreground">{h.title}</h3>
                   <p className="text-sm text-txt-2 leading-relaxed">{h.desc}</p>
                   <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-navy">
@@ -235,15 +235,7 @@ const HafriyatHub = () => {
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Neden Hammaddem?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {avantajlar.map((a) => (
-                <div key={a.title} className="flex gap-4 items-start border border-border rounded-2xl p-6 bg-background hover:border-navy-border transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-navy-light flex items-center justify-center shrink-0">
-                    <a.icon className="w-5 h-5 text-navy" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-base mb-1">{a.title}</h3>
-                    <p className="text-sm text-txt-2 leading-relaxed">{a.desc}</p>
-                  </div>
-                </div>
+                <BrandBenefitCard key={a.title} {...a} />
               ))}
             </div>
           </div>
