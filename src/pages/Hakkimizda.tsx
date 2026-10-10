@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import SitePhoto from "@/components/SitePhoto";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
@@ -56,12 +57,10 @@ const Hakkimizda = () => (
               </p>
             </div>
             <div className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
+              <SitePhoto
                 src="/images/hakkimizda-filo.webp"
                 alt="Çimento silolarının altında yükleme yapan iki Avrupa tipi silobas ve hortumu bağlayan saha çalışanı"
-                width={1000}
-                height={1250}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-[center_65%]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>

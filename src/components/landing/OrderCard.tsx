@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { submitGuestRequest, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
 import { useToast } from "@/hooks/use-toast";
 import { iller } from "@/constants/iller";
 import { formatPhone, isValidPhone, cleanPhone } from "@/utils/phone";
@@ -22,6 +22,10 @@ const aciliyetler = [
 const birimler = ["Ton", "m³", "Adet"];
 
 const OrderCard = () => {
+  const fieldId = useId();
+  const submitting = useRef(false);
+  const card = useRef<HTMLDivElement>(null);
+  const previousStep = useRef(1);
   const navigate = useNavigate();
   const { toast } = useToast();
   const [step, setStep] = useState(1);
@@ -29,7 +33,8 @@ const OrderCard = () => {
   const [yukTipi, setYukTipi] = useState<YukTipi>("");
   const [malzeme, setMalzeme] = useState("");
   const [yukAdres, setYukAdres] = useState("");
-  const [miktar, setMiktar] = useState(25);
+  const [adres, setAdres] = useState("");
+  const [miktar, setMiktar] = useState<number | string>(25);
   const [birim, setBirim] = useState("Ton");
   const [il, setIl] = useState("");
   const [tarih, setTarih] = useState("");
@@ -41,6 +46,11 @@ const OrderCard = () => {
   const [loading, setLoading] = useState(false);
   const [talepNo, setTalepNo] = useState("");
 
+  useEffect(() => {
+    if (previousStep.current !== step) card.current?.scrollIntoView?.({ block: "start", behavior: "smooth" });
+    previousStep.current = step;
+  }, [step]);
+
   const colorClass = yukTipi === "silobas" ? "orange" : yukTipi === "hafriyat" ? "navy" : "";
   const malzemeler = yukTipi === "silobas" ? silobasMalzemeler : yukTipi === "hafriyat" ? hafriyatMalzemeler : [];
 
@@ -49,41 +59,43 @@ const OrderCard = () => {
     if (!malzeme) errs.malzeme = true;
     if (!il) errs.il = true;
     if (!telefon || !isValidPhone(telefon)) errs.telefon = true;
-    if (hizmetTipi === "nakliye" && !yukAdres) errs.yukAdres = true;
+    if (hizmetTipi === "nakliye" && !yukAdres.trim()) errs.yukAdres = true;
+    if (!adres.trim()) errs.adres = true;
+    if (!isValidQuantity(miktar)) errs.miktar = true;
+    if (!isValidDeliveryDate(tarih)) errs.tarih = true;
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
 
   const handleSubmit = async () => {
+    if (submitting.current) return;
+    if (!validateStep2()) { setStep(2); return; }
+    submitting.current = true;
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke("misafir-talep", {
-        body: {
-          kategori: yukTipi,
-          malzeme,
-          miktar,
-          birim,
-          teslimat_ili: il,
-          adres: il || null,
-          yuk_adres: yukAdres || null,
-          teslimat_tarihi: tarih || null,
-          aciliyet,
-          hizmet_tipi: hizmetTipi,
-          not_text: not_,
-          telefon: cleanPhone(telefon),
-        },
+      const receipt = await submitGuestRequest({
+        kategori: yukTipi,
+        malzeme,
+        miktar: Number(miktar),
+        birim,
+        teslimat_ili: il,
+        adres: adres.trim(),
+        yuk_adres: hizmetTipi === "nakliye" ? yukAdres.trim() : null,
+        teslimat_tarihi: tarih || null,
+        aciliyet,
+        hizmet_tipi: hizmetTipi,
+        not_text: not_,
+        telefon: cleanPhone(telefon),
       });
-
-      if (error) throw error;
-
-      setTalepNo(data.talep_no);
+      setTalepNo(receipt);
       setShowSuccess(true);
       setStep(4);
-      toast({ title: "Talep alındı!", description: `${data.talep_no} numaralı talebiniz kaydedildi.` });
+      toast({ title: "Talep alındı!", description: `${receipt} numaralı talebiniz kaydedildi.` });
     } catch (err) {
       const mesaj = err instanceof Error && err.message ? err.message : "Talep gönderilemedi.";
-      toast({ title: "Hata", description: `${mesaj} Dilerseniz bizi arayın: 0539 330 86 17`, variant: "destructive" });
+      toast({ title: "Hata", description: mesaj, variant: "destructive" });
     } finally {
+      submitting.current = false;
       setLoading(false);
     }
   };
@@ -94,6 +106,7 @@ const OrderCard = () => {
     setYukTipi("");
     setMalzeme("");
     setYukAdres("");
+    setAdres("");
     setMiktar(25);
     setBirim("Ton");
     setIl("");
@@ -114,7 +127,7 @@ const OrderCard = () => {
     : "bg-border";
 
   return (
-    <div id="siparis-formu" className="w-full max-w-[760px] bg-background border border-border rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-elevated overflow-hidden animate-fade-up" style={{ animationDelay: '.18s' }}>
+    <div ref={card} id="siparis-formu" className="scroll-mt-24 w-full max-w-[760px] bg-background border border-border rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-elevated overflow-hidden animate-fade-up" style={{ animationDelay: '.18s' }}>
       {/* Top color bar */}
       <div className={`h-1 w-full transition-colors duration-400 ${topbarColor}`} />
 
@@ -317,36 +330,39 @@ const OrderCard = () => {
               {/* Yükleme Adresi - only for nakliye */}
               {hizmetTipi === "nakliye" && (
                 <div className="flex flex-col gap-[5px] sm:col-span-2">
-                  <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
+                  <label htmlFor={fieldId + "-yukAdres"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
                     Yükleme Adresi <span className="text-destructive">*</span>
                   </label>
                   <input
                     type="text"
+                    id={fieldId + "-yukAdres"} maxLength={500} aria-invalid={!!errors.yukAdres}
                     value={yukAdres}
                     onChange={(e) => { setYukAdres(e.target.value); setErrors(er => ({ ...er, yukAdres: false })); }}
                     placeholder="Malzemenin yükleneceği adres / konum"
-                    className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.yukAdres ? "border-destructive bg-destructive/5" : ""}`}
+                    className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.yukAdres ? "border-destructive bg-destructive/5" : ""}`}
                   />
                   {errors.yukAdres && <div className="text-[11px] text-destructive font-medium">⚠ Lütfen yükleme adresini girin.</div>}
                 </div>
               )}
               {/* Miktar */}
               <div className="flex flex-col gap-[5px]">
-                <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
+                <label htmlFor={fieldId + "-miktar"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
                   Miktar <span className="text-destructive">*</span>
                 </label>
                 <div className={`flex border-[1.5px] border-border rounded-[9px] overflow-hidden bg-off transition-all focus-within:bg-background ${
                   colorClass === "orange" ? "focus-within:border-primary focus-within:shadow-[0_0_0_3px_rgba(232,98,10,.08)]" : "focus-within:border-navy focus-within:shadow-[0_0_0_3px_rgba(15,35,71,.08)]"
                 }`}>
-                  <button onClick={() => setMiktar(Math.max(1, miktar - 5))} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">−</button>
+                  <button onClick={() => setMiktar(Math.max(1, Number(miktar) - 5))} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">−</button>
                   <input
                     type="number"
+                    id={fieldId + "-miktar"} min="0" step="any" inputMode="decimal" aria-invalid={!!errors.miktar}
                     value={miktar}
-                    onChange={(e) => setMiktar(Math.max(1, Number(e.target.value) || 1))}
-                    className="flex-1 min-w-0 border-none bg-transparent text-center text-sm font-semibold text-foreground font-mono outline-none"
+                    onChange={(e) => { setMiktar(e.target.value); setErrors(er => ({ ...er, miktar: false })); }}
+                    className="flex-1 min-w-0 border-none bg-transparent text-center text-base sm:text-sm font-semibold text-foreground font-mono outline-none"
                   />
-                  <button onClick={() => setMiktar(miktar + 5)} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">+</button>
+                  <button onClick={() => setMiktar(Number(miktar) + 5)} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">+</button>
                   <select
+                    aria-label="Miktar birimi"
                     value={birim}
                     onChange={(e) => setBirim(e.target.value)}
                     className="px-3 text-xs text-txt-3 border-l-[1.5px] border-border cursor-pointer flex items-center whitespace-nowrap font-medium bg-off hover:bg-off2 hover:text-foreground transition-all appearance-none text-center"
@@ -356,15 +372,17 @@ const OrderCard = () => {
                 </div>
               </div>
 
+              {errors.miktar && <p className="text-xs text-destructive">Miktar sıfırdan büyük olmalıdır.</p>}
               {/* İl */}
               <div className="flex flex-col gap-[5px]">
-                <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
+                <label htmlFor={fieldId + "-il"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
                   Teslimat İli <span className="text-destructive">*</span>
                 </label>
                 <select
+                  id={fieldId + "-il"} autoComplete="address-level1" aria-invalid={!!errors.il}
                   value={il}
                   onChange={(e) => { setIl(e.target.value); setErrors(er => ({ ...er, il: false })); }}
-                  className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all appearance-none cursor-pointer focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.il ? "border-destructive bg-destructive/5" : ""}`}
+                  className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all appearance-none cursor-pointer focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.il ? "border-destructive bg-destructive/5" : ""}`}
                   style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239aa3b2' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                     backgroundRepeat: 'no-repeat',
@@ -378,30 +396,41 @@ const OrderCard = () => {
                 {errors.il && <div className="text-[11px] text-destructive font-medium">⚠ Lütfen bir il seçin.</div>}
               </div>
 
+              <div className="flex flex-col gap-[5px] sm:col-span-2">
+                <label htmlFor={fieldId + "-adres"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Teslimat Adresi <span className="text-destructive">*</span></label>
+                <textarea id={fieldId + "-adres"} value={adres} maxLength={500} rows={2} autoComplete="street-address" aria-invalid={!!errors.adres}
+                  onChange={e => { setAdres(e.target.value); setErrors(er => ({ ...er, adres: false })); }}
+                  placeholder="İlçe, mahalle, sokak ve şantiye / tesis bilgisi"
+                  className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none focus:border-primary resize-none" />
+                {errors.adres && <p className="text-[11px] text-destructive">Lütfen teslimat adresini girin.</p>}
+              </div>
               {/* Tarih */}
               <div className="flex flex-col gap-[5px]">
-                <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">İstenen Tarih</label>
+                <label htmlFor={fieldId + "-tarih"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">İstenen Tarih</label>
                 <input
                   type="date"
+                  id={fieldId + "-tarih"} aria-invalid={!!errors.tarih}
                   value={tarih}
-                  min={new Date().toISOString().split("T")[0]}
-                  onChange={(e) => setTarih(e.target.value)}
-                  className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)]"
+                  min={todayInTurkey()}
+                  onChange={(e) => { setTarih(e.target.value); setErrors(er => ({ ...er, tarih: false })); }}
+                  className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)]"
                 />
               </div>
 
+              {errors.tarih && <p className="text-xs text-destructive">Bugün veya sonraki bir tarih seçin.</p>}
               {/* Telefon */}
               <div className="flex flex-col gap-[5px]">
-                <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
+                <label htmlFor={fieldId + "-telefon"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
                   Telefon <span className="text-destructive">*</span>
                 </label>
                 <input
                   type="tel"
+                  id={fieldId + "-telefon"} autoComplete="tel" aria-invalid={!!errors.telefon}
                   value={telefon}
                   onChange={(e) => { setTelefon(formatPhone(e.target.value)); setErrors(er => ({ ...er, telefon: false })); }}
                   placeholder="05XX XXX XXXX"
-                  maxLength={13}
-                  className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.telefon ? "border-destructive bg-destructive/5" : ""}`}
+                  maxLength={25}
+                  className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] ${errors.telefon ? "border-destructive bg-destructive/5" : ""}`}
                 />
                 {errors.telefon && <div className="text-[11px] text-destructive font-medium">⚠ Geçerli bir telefon numarası girin (05XX XXX XXXX)</div>}
               </div>
@@ -431,13 +460,14 @@ const OrderCard = () => {
 
               {/* Not */}
               <div className="flex flex-col gap-[5px] sm:col-span-2">
-                <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Not / Adres Detayı</label>
+                <label htmlFor={fieldId + "-not"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Ek Not</label>
                 <textarea
+                  id={fieldId + "-not"} maxLength={2000}
                   value={not_}
                   onChange={(e) => setNot(e.target.value)}
-                  placeholder="Varsa adres veya ek bilgi..."
+                  placeholder="Varsa ek bilgi..."
                   rows={2}
-                  className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] resize-none"
+                  className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-primary focus:bg-background focus:shadow-[0_0_0_3px_rgba(232,98,10,.08)] resize-none"
                 />
               </div>
             </div>
@@ -472,14 +502,17 @@ const OrderCard = () => {
                 { key: hizmetTipi === "nakliye" ? "Taşınacak Malzeme" : "Malzeme", val: malzeme },
                 { key: "Miktar", val: `${miktar} ${birim}` },
                 ...(hizmetTipi === "nakliye" && yukAdres ? [{ key: "Yükleme Adresi", val: yukAdres }] : []),
-                { key: hizmetTipi === "nakliye" ? "Teslimat Yeri" : "Konum", val: il },
+                { key: "Teslimat İli", val: il },
+                { key: "Teslimat Adresi", val: adres.trim() },
+                ...(tarih ? [{ key: "İstenen Tarih", val: new Date(tarih + "T12:00:00").toLocaleDateString("tr-TR") }] : []),
+                ...(not_.trim() ? [{ key: "Ek Not", val: not_.trim() }] : []),
                 { key: "Aciliyet", val: `${aciliyetler.find(a => a.id === aciliyet)?.icon} ${aciliyetler.find(a => a.id === aciliyet)?.label}` },
                 { key: "Telefon", val: telefon },
                 { key: "Ücret", val: "✓ Ücretsiz teklif", isFree: true },
               ].map((row) => (
-                <div key={row.key} className="flex justify-between items-center px-3 md:px-4 py-2.5 border-b border-border last:border-b-0 text-[12px] md:text-[13px]">
-                  <span className="text-txt-2 font-medium">{row.key}</span>
-                  <span className={`font-semibold font-mono text-[11px] md:text-xs ${row.isFree ? "text-success text-[13px]" : "text-foreground"}`}>
+                <div key={row.key} className="flex justify-between items-start gap-4 px-3 md:px-4 py-2.5 border-b border-border last:border-b-0 text-[12px] md:text-[13px]">
+                  <span className="text-txt-2 font-medium shrink-0">{row.key}</span>
+                  <span className={`min-w-0 break-words text-right font-semibold font-mono text-[11px] md:text-xs ${row.isFree ? "text-success text-[13px]" : "text-foreground"}`}>
                     {row.val}
                   </span>
                 </div>
@@ -499,7 +532,7 @@ const OrderCard = () => {
               </button>
               <button
                 onClick={handleSubmit}
-                disabled={loading || Object.keys(errors).length > 0}
+                disabled={loading}
                 className={`flex-1 py-3 rounded-[10px] text-primary-foreground text-[13px] font-bold border-none cursor-pointer transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed ${
                   colorClass === "orange"
                     ? "bg-primary shadow-[0_4px_16px_rgba(232,98,10,.28)] hover:bg-accent-hover hover:-translate-y-px"
@@ -530,6 +563,8 @@ const OrderCard = () => {
                 #{talepNo}
               </span>
             </div>
+
+            <button onClick={() => navigate("/talep-takip?talep=" + encodeURIComponent(talepNo))} className="w-full py-3 mb-3 rounded-lg bg-primary text-primary-foreground font-semibold">Talebimi Takip Et →</button>
 
             <div className="border-[1.5px] border-accent-border bg-accent-light rounded-xl p-4 text-left mb-3">
               <h4 className="text-[13px] font-bold text-primary mb-1">📱 Siparişinizi panelden takip edin</h4>

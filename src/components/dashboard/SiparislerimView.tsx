@@ -229,7 +229,7 @@ const SiparislerimView = ({ kategoriFilter, initialFilter }: SiparislerimViewPro
               {selected.teklif_fiyat && (
                 <div className="px-4 py-3 border-t border-border bg-green-50 dark:bg-green-950/20">
                   <span className="text-[10px] font-semibold tracking-[.5px] text-green-600 uppercase block mb-1">TEKLİF FİYATI</span>
-                  <p className="text-[18px] font-bold text-green-700">{selected.teklif_fiyat.toLocaleString("tr-TR")} ₺<span className="text-[11px] font-normal text-green-600 ml-1">/ ton</span></p>
+                  <p className="text-[18px] font-bold text-green-700">{selected.teklif_fiyat.toLocaleString("tr-TR")} ₺<span className="text-[11px] font-normal text-green-600 ml-1">/ {selected.birim}</span></p>
                   <p className="text-[10px] text-green-600 mt-0.5">Toplam tahmini: {(selected.teklif_fiyat * selected.miktar).toLocaleString("tr-TR")} ₺</p>
                 </div>
               )}

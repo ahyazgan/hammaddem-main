@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SitePhoto from "@/components/SitePhoto";
 import { Truck, Mountain, Package, MapPin, FileText, CheckCircle } from "lucide-react";
 
 const hizmetler = [
@@ -62,19 +63,12 @@ const Hizmetler = () => {
               className={`group border-[1.5px] border-border rounded-2xl overflow-hidden transition-all duration-200 cursor-default bg-background hover:-translate-y-1 hover:shadow-elevated flex flex-col ${h.color === "orange" ? "hover:border-accent-border" : "hover:border-navy-border"
                 }`}
             >
-              <div className="w-full h-48 sm:h-56 overflow-hidden relative">
-                <img
+              <div className="w-full aspect-video overflow-hidden relative">
+                <SitePhoto
                   src={h.image}
                   alt={h.imageAlt}
-                  width={1200}
-                  height={800}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                <div className={`absolute top-4 left-4 w-12 h-12 rounded-[12px] flex items-center justify-center text-[24px] shadow-lg backdrop-blur-md bg-white/90 border border-white/20`}>
-                  {h.color === "orange" ? "🌫️" : "🏗️"}
-                </div>
               </div>
               <div className="p-5 md:p-7 pb-0 flex-1">
                 <h3 className="text-xl font-extrabold tracking-tight mb-2">{h.title}</h3>

@@ -7,10 +7,12 @@ import { whatsappUrl } from "./WhatsAppButton";
 // Numara "Ara" butonunda açıkça yazar: kullanıcı aramadan da not alabilir.
 const CallBar = () => {
   const { pathname } = useLocation();
-  const hiddenPaths = ["/dashboard", "/giris", "/kayit", "/yazgan", "/sifre-sifirla"];
+  const hiddenPaths = ["/admin", "/dashboard", "/giris", "/kayit", "/yazgan", "/sifre-sifirla"];
   if (hiddenPaths.some((p) => pathname.startsWith(p))) return null;
 
   return (
+    <>
+    <div aria-hidden="true" className="md:hidden h-[calc(4.25rem+env(safe-area-inset-bottom))]" />
     <div className="md:hidden fixed bottom-0 inset-x-0 z-[210] flex gap-2 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] bg-background/95 backdrop-blur border-t border-border shadow-[0_-2px_12px_rgba(0,0,0,.08)]">
       <a
         href={whatsappUrl(pathname)}
@@ -29,6 +31,7 @@ const CallBar = () => {
         <Phone size={18} /> 0539 330 86 17
       </a>
     </div>
+    </>
   );
 };
 
