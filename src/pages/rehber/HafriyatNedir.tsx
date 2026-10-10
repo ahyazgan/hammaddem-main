@@ -200,7 +200,7 @@ const HafriyatNedir = () => {
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Hafriyat İşiniz mi Var?</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Kazı, nakliye ve döküm dahil net fiyatı 30 dakika içinde telefonla verelim.
+              Kazı, nakliye ve döküm dahil net fiyatı değerlendirme sonrasında telefonla verelim.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/hafriyat" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all">

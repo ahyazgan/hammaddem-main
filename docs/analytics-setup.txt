@@ -1,0 +1,67 @@
+Hammaddem – teklif ölçümleme ve canlı kontrol
+10 Ekim 2026
+
+Ölçüm davranışı
+Ziyaretçi analiz izni vermeden Vercel veya Google Analytics kodu yüklenmez.
+Sayfa altındaki Çerez Tercihleri ile izin değiştirilebilir.
+Yönetim, hesap, giriş, şifre ve talep takip ekranları ölçülmez.
+Sayfa URL'lerinden sorgu ve fragment çıkarılır. Özel olaylar yalnızca sabit
+form adı, adım ve yerleşim bilgisi içerir. Telefon, adres, malzeme, miktar,
+serbest not, talep numarası ve hata metni analiz olaylarına eklenmez.
+
+GA4 bağlantısı
+VITE_GA_MEASUREMENT_ID=G-... üretim ortamında tanımlandığında etkinleşir.
+Kimlik yoksa GA4 yüklenmez ve özel olaylar gönderilmez.
+Hammaddem'e özel web veri akışı kullanın. Gelişmiş ölçümde otomatik sayfa,
+form, dış bağlantı ve site araması ölçümünü kapatın; olayları uygulama
+gönderir. Google Signals ve reklam kişiselleştirmesi uygulamada kapalıdır.
+Vercel Hobby özel olayları desteklemediğinden ücretli özellik etkinleştirilmedi.
+
+Özel olaylar
+contact_phone_click: telefon bağlantısına tıklama; aramanın yapıldığını kanıtlamaz.
+contact_whatsapp_click: WhatsApp bağlantısına tıklama; mesaj gönderildiğini kanıtlamaz.
+quote_cta_click: teklif sayfasına / formuna yönlendiren bağlantı.
+quote_form_start: ziyaretçinin formdaki ilk etkileşimi.
+quote_form_step: order formunda 1/2/3; hafriyat formunda 1. Tek girişte tekrar sayılmaz.
+quote_submit: geçerli formun gönderilmeye başlanması.
+quote_success: sunucudan doğrulanmış HMD takip numarası alınması.
+quote_error: kayıt sonucunun doğrulanamaması; kişisel hata metni gönderilmez.
+form_name: order veya hafriyat. placement: header, footer veya content.
+
+Formu terk etme analizi
+GA4 keşif hunisinde başlangıç > adım 2 > adım 3 > başarılı kayıt sırasını,
+form_name=order ile inceleyin. Hafriyat için başlangıç > başarılı kayıt kullanın.
+Başlangıç/başarı farkı yalnızca izin veren ve ölçülebilen ziyaretçileri kapsar;
+reklam engelleyiciler ve yarım oturumlar nedeniyle toplam talep sayısı değildir.
+Asıl talep sayısının kaynağı Supabase kayıtlarıdır.
+
+Canlı deneme
+Talep: HMD-2026-0006. 25 Ton Çimento / İstanbul.
+Adres ve not açıkça TEST – gerçek sipariş değildir şeklinde işaretlendi.
+Kullanıcının belirttiği işletme telefonu kullanıldı.
+Form gönderimi başarılı; müşteri takip ekranı aynı kaydı Bekliyor durumunda buldu.
+Yönetici fiyatlama adımı: Codex tarayıcısında yönetici oturumu bekleniyor.
+E-posta: 18:10:50 Supabase günlüğünde Resend 403 görüldü. Test gönderici
+kısıtlaması nedeniyle işletme bildirim e-postası teslim edilmedi.
+Resend alan adı doğrulaması ve doğru FROM adresi kontrol edilmeli.
+Test kaydı silinmedi veya gerçek sevkiyat durumuna geçirilmedi.
+
+İçerik ve görseller
+Doğrulanmamış 30 dakika, %98, 20+ araç ve 250+ teslimat iddiaları kaldırıldı.
+Süre vaadi iç sayfa ve arama açıklamalarından da çıkarıldı.
+Kaynağı doğrulanmamış müşteri yorumları ana sayfada gösterilmiyor.
+Mevcut temsili görseller gerçek işletme filosu olarak sunulmadı.
+Gerçek saha/referans bölümü için işletmenin paylaşabileceği fotoğraflar ve
+yayın izni olan müşteri referansları gerekli.
+
+Kontroller
+37 otomatik test başarılı (31 teklif testi/temel kontrol + 6 ölçümleme testi).
+TypeScript başarılı. ESLint: 0 hata, önceki 14 uyarı.
+145/145 sayfa üretim derlemesi.
+390 px mobil teklif formu: yatay taşma yok, telefon alanı 16 px.
+320 px analiz tercihleri: yatay taşma yok, her iki seçim erişilebilir.
+Kontroller tarayıcı boyutlandırmasıyla yapıldı; fiziksel telefon testi yapılmadı.
+
+Kaynaklar
+https://vercel.com/docs/analytics/custom-events
+https://vercel.com/docs/analytics/package

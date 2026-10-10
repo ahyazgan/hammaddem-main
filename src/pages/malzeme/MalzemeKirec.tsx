@@ -14,10 +14,10 @@ import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("kirec")!;
 const canonical = "https://hammaddem.co/malzeme/kirec";
 const title = "Kireç Tedarikçisi | Sönmemiş & Sönmüş Kireç Fiyatları 2026";
-const description = "Sönmemiş, sönmüş ve mikronize kireç tedariki. Kireç fiyatları 2026: 2.000–5.000 TL/ton. Dökme silobas ve big-bag teslimat. 30 dakikada teklif.";
+const description = "Sönmemiş, sönmüş ve mikronize kireç tedariki. Kireç fiyatları 2026: 2.000–5.000 TL/ton. Dökme silobas ve big-bag teslimat. İşinize özel teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik silobas ile güvenli, kapalı sistem taşıma. Tozlanma ve fire minimumda." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -238,7 +238,7 @@ const MalzemeKirec = () => {
               Kireç İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, değerlendirme sonrasında size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link

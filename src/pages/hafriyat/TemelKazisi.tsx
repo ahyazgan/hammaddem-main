@@ -19,7 +19,7 @@ import { ArrowRight, Phone, Info, Shovel, Clock, Calculator, CheckCircle } from 
 const canonical = "https://hammaddem.co/hafriyat/temel-kazisi";
 const title = "Temel Kazısı | 2026 Birim Fiyat, Süre, Aşamalar";
 const description =
-  "Temel kazısı 2026: m³ birim fiyat, kaç gün sürer, aşamaları, kot verme ve su çıkması. Bodrum, havuz ve bitişik nizam kazıları. 30 dakikada teklif.";
+  "Temel kazısı 2026: m³ birim fiyat, kaç gün sürer, aşamaları, kot verme ve su çıkması. Bodrum, havuz ve bitişik nizam kazıları. İşinize özel teklif.";
 
 const tl = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -296,7 +296,7 @@ const TemelKazisi = () => {
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
               Parsel ölçüsü, derinlik ve konumu iletin; zemin durumuna göre net m³ fiyatını
-              30 dakika içinde telefonla verelim.
+              değerlendirme sonrasında telefonla verelim.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <a href="#teklif" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all">

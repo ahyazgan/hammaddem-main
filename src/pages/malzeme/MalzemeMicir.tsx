@@ -14,10 +14,10 @@ import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("micir")!;
 const canonical = "https://hammaddem.co/malzeme/micir";
 const title = "Mıcır Fiyatları 2026 | Ton Fiyatı 200–450 TL";
-const description = "Mıcır ton fiyatı 2026: 200–450 TL/ton. Kırma taş, bazalt ve kireçtaşı mıcır; 1 kamyon mıcır fiyatı ve 11 ilde teslimat. 30 dakikada teklif.";
+const description = "Mıcır ton fiyatı 2026: 200–450 TL/ton. Kırma taş, bazalt ve kireçtaşı mıcır; 1 kamyon mıcır fiyatı ve 11 ilde teslimat. İşinize özel teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Damperli araçlarla güvenli teslimat. Saha koşullarına uygun araç seçimi." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -123,7 +123,7 @@ const MalzemeMicir = () => {
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Mıcır (kırma taş), kaya bloklarının kırılıp elenmesiyle elde edilen köşeli agrega malzemesidir. Beton karışımında, asfalt üretiminde ve temel dolgu uygulamalarında yaygın kullanılır. Bazalt, kireçtaşı ve granit başta olmak üzere farklı kayaç türlerinden üretilen mıcır, kullanım amacına göre seçilir.</p>
               <p>Hammaddem ile mıcır tedariğini dijital platformdan yönetin. 8-16 mm, 16-22 mm ve 22-32 mm olmak üzere farklı granülometrilerde mıcır tedarik ediyoruz. 11 ilde güvenilir teslimat, ton bazında rekabetçi fiyatlar.</p>
-              <p>Online talep formundan mıcır türü, miktar ve teslimat adresinizi belirterek 30 dakika içinde fiyat teklifi alın.</p>
+              <p>Online talep formundan mıcır türü, miktar ve teslimat adresinizi belirterek değerlendirme sonrasında fiyat teklifi alın.</p>
             </div>
           </div>
         </section>
@@ -206,7 +206,7 @@ const MalzemeMicir = () => {
               Mıcır İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, değerlendirme sonrasında size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link

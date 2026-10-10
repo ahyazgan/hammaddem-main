@@ -9,7 +9,7 @@ import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 
 const canonical = "https://hammaddem.co/hammadde";
 const title = "Hammadde Tedarik | Çimento, Kum, Çakıl, Kalsit, Mıcır";
-const description = "Hammadde tedarik platformu: çimento, kum, çakıl, kalsit, mıcır, kireç, alçı ve mermer tozu. 11 ilde teslimat, 30 dakikada online fiyat teklifi.";
+const description = "Hammadde tedarik platformu: çimento, kum, çakıl, kalsit, mıcır, kireç, alçı ve mermer tozu. 11 ilde teslimat, işinize özel online fiyat teklifi.";
 
 const malzemeler = [
   { name: "Çimento", path: "/malzeme/cimento", desc: "Portland, CEM I, CEM II çimento türleri. Silobas ile güvenli taşıma." },
@@ -25,7 +25,7 @@ const malzemeler = [
 ];
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi hammadde fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi hammadde fiyat teklifi al." },
   { icon: MapPinned, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş lojistik ağımızla hızlı ve güvenilir hammadde teslimatı." },
   { icon: Shield, title: "Kalite Garantisi", desc: "Standartlara uygun hammadde tedariki. Her teslimat kalite kontrollüdür." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Hammadde siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -33,7 +33,7 @@ const avantajlar = [
 
 const faq = [
   { q: "Hammadde nedir?", a: "Hammadde, bir ürünün üretiminde kullanılan işlenmemiş veya az işlenmiş doğal malzemeye verilen addır. İnşaat sektöründe çimento, kum, çakıl, kalsit, mıcır, kireç gibi malzemeler hammadde olarak kullanılır." },
-  { q: "Hammadde tedariki nasıl çalışır?", a: "Hammaddem platformunda ihtiyaç duyduğunuz hammaddeyi ve miktarı belirterek talep oluşturursunuz. Sistem, bölgenizdeki uygun tedarikçileri eşleştirir ve 30 dakika içinde fiyat teklifi alırsınız." },
+  { q: "Hammadde tedariki nasıl çalışır?", a: "Hammaddem platformunda ihtiyaç duyduğunuz hammaddeyi ve miktarı belirterek talep oluşturursunuz. Sistem, bölgenizdeki uygun tedarikçileri eşleştirir ve değerlendirme sonrasında fiyat teklifi alırsınız." },
   { q: "Hangi hammaddeleri tedarik edebilirsiniz?", a: "Çimento, kum, çakıl, kalsit, mıcır, kireç, alçı, mermer tozu, uçucu kül ve stabilize gibi inşaat ve endüstriyel hammaddeleri tedarik ediyoruz." },
   { q: "Hammadde silobas ile nasıl taşınır?", a: "Toz ve granül hammaddeler (çimento, kalsit, kireç, alçı, uçucu kül) pnömatik silobas araçlarıyla taşınır. Kum, çakıl ve mıcır gibi agrega hammaddeleri ise damperli kamyonlarla nakledilir." },
   { q: "Hammadde fiyatları nasıl belirlenir?", a: "Hammadde fiyatları; malzeme türü, miktar, teslimat bölgesi ve piyasa koşullarına göre değişir. Güncel hammadde fiyatı için online teklif almanızı öneririz." },
@@ -114,7 +114,7 @@ const Hammadde = () => {
                 <span className="text-primary">Platformu</span>
               </h1>
               <p className="text-base md:text-lg text-txt-2 leading-relaxed mb-8 max-w-[560px]">
-                Çimento, kum, çakıl, kalsit, mıcır ve daha fazlası için Türkiye'nin dijital hammadde tedarik platformu. Online sipariş verin, 30 dakikada teklif alın, 11 ilde teslimat imkânından yararlanın.
+                Çimento, kum, çakıl, kalsit, mıcır ve daha fazlası için Türkiye'nin dijital hammadde tedarik platformu. Online sipariş verin, işinize özel teklif alın, 11 ilde teslimat imkânından yararlanın.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
@@ -251,7 +251,7 @@ const Hammadde = () => {
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Hammadde Siparişinizi Hemen Oluşturun</h2>
             <p className="text-txt-2 text-sm md:text-base mb-6">
-              30 dakika içinde fiyat teklifi alın, ihtiyaç duyduğunuz hammaddeyi en uygun koşullarda tedarik edin.
+              değerlendirme sonrasında fiyat teklifi alın, ihtiyaç duyduğunuz hammaddeyi en uygun koşullarda tedarik edin.
             </p>
             <Link
               to="/teklif-al"

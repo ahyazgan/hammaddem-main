@@ -14,7 +14,7 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Info } from "luci
 const canonical = "https://hammaddem.co/hizmetler/hafriyat-nakliyesi";
 const title = "Hafriyat Kamyonu Kiralama | Sefer, Saatlik, Günlük 2026";
 const description =
-  "Hafriyat kamyonu kiralama fiyatları 2026: sefer başı, saatlik ve günlük damperli kamyon. Hafriyat nakliyesi, lisanslı araçlar. 30 dakikada teklif.";
+  "Hafriyat kamyonu kiralama fiyatları 2026: sefer başı, saatlik ve günlük damperli kamyon. Hafriyat nakliyesi, lisanslı araçlar. İşinize özel teklif.";
 
 const tl = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -48,12 +48,12 @@ const fiyatModelleri = [
 const adimlar = [
   { step: "01", title: "İşi bildirin", desc: "Yük tipi, konum, tahmini hacim ve tarih; 2 dakika sürer." },
   { step: "02", title: "Araç planı", desc: "Hacme ve erişime göre kamyon tipi ve sefer sayısı çıkarılır." },
-  { step: "03", title: "Net fiyat", desc: "30 dakika içinde telefonla sefer/gün fiyatı iletilir." },
+  { step: "03", title: "Net fiyat", desc: "değerlendirme sonrasında telefonla sefer/gün fiyatı iletilir." },
   { step: "04", title: "Sevkiyat", desc: "Lisanslı araç görevlendirilir, döküm belgesi teslim edilir." },
 ];
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Talebi iletin, aynı saat içinde net sefer fiyatı alın." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Talebi iletin, güzergâhınıza özel sefer fiyatı alın." },
   { icon: Shield, title: "Lisanslı Araç, Belgeli Döküm", desc: "Taşıma izin belgesi ve döküm fişi iş sahibine iletilir." },
   { icon: Truck, title: "Filo Esnekliği", desc: "Tek kamyondan çok araçlı konvoya, dar sokağa küçük tonaj." },
   { icon: CheckCircle, title: "Tek Muhatap", desc: "Yükleme, nakliye ve döküm koordinasyonu tek elden." },
@@ -323,7 +323,7 @@ const HizmetHafriyat = () => {
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
               Yük tipini, konumu ve hacmi iletin; uygun kamyon tipini, sefer sayısını ve net fiyatı
-              30 dakika içinde telefonla verelim.
+              değerlendirme sonrasında telefonla verelim.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <a href="#teklif" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all">

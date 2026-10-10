@@ -124,7 +124,8 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="max-w-[1100px] mx-auto px-4 md:px-10 border-t border-border py-5 flex items-center justify-between flex-wrap gap-3">
         <span className="text-xs text-txt-3">© 2026 Hammaddem — Yazgan Nakliye İnşaat ve Orman Ürünleri San. ve Tic. Ltd. Şti. Tüm hakları saklıdır.</span>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
+          <button type="button" onClick={() => window.dispatchEvent(new Event("hammaddem:open-preferences"))} className="min-h-11 text-xs text-txt-3 hover:text-txt-2">Çerez Tercihleri</button>
           <Link to="/cerez-politikasi" className="text-xs text-txt-3 no-underline hover:text-txt-2 transition-colors">Çerez Politikası</Link>
           <span className="inline-flex items-center gap-[5px] px-2.5 py-[3px] rounded-full bg-success-light border border-success-border text-[10px] font-semibold text-success font-mono">
             <span className="w-[5px] h-[5px] rounded-full bg-success" />

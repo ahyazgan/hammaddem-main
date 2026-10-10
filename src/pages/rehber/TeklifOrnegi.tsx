@@ -11,7 +11,7 @@ import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/rehber/hafriyat-fiyat-teklifi-ornegi";
 const title = "Hafriyat Fiyat Teklifi Örneği ve Sözleşme Maddeleri";
 const description =
-  "Hafriyat fiyat teklifi örneği: kalem kalem teklif tablosu, m³ ve sefer birim fiyatı, döküm bedeli ile sözleşmede olması gereken maddeler. 30 dk'da teklif.";
+  "Hafriyat fiyat teklifi örneği: kalem kalem teklif tablosu, m³ ve sefer birim fiyatı, döküm bedeli ile sözleşmede olması gereken maddeler. İşinize özel teklif.";
 
 const tl = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -185,7 +185,7 @@ const TeklifOrnegi = () => {
                 Bu tablo <strong>örnektir</strong>, fiyat listesi değildir. Gerçek fiyat zemin, mesafe,
                 erişim ve iş programına göre belirlenir. Kendi işiniz için{" "}
                 <Link to="/hafriyat/hesaplama" className="text-navy font-semibold no-underline hover:underline">hesaplama aracını</Link>{" "}
-                kullanın ya da 30 dakikada net teklif alın.
+                kullanın ya da işinize özel net teklif alın.
               </span>
             </div>
           </div>
@@ -249,7 +249,7 @@ const TeklifOrnegi = () => {
             <div className="pt-2">
               <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Kendi İşiniz İçin Kalem Kalem Teklif</h2>
               <p className="text-sm text-txt-2 leading-[1.7] mb-6 max-w-[460px]">
-                Yukarıdaki formatta, döküm bedeli ve evrak dahil kalem kalem teklifi 30 dakika içinde
+                Yukarıdaki formatta, döküm bedeli ve evrak dahil kalem kalem teklifi değerlendirme sonrasında
                 telefonla iletelim. Kayıt gerekmez.
               </p>
               <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">

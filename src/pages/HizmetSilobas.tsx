@@ -13,7 +13,7 @@ const malzemeler = [
 ];
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik boşaltma sistemi ile tozlanma ve fire riski minimuma iner." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -76,7 +76,7 @@ const HizmetSilobas = () => {
     <>
       <Helmet>
         <title>Silobas Nakliye Firması | Çimento, Kalsit Taşıma & Kiralama</title>
-        <meta name="description" content="Silobas nakliye firması: dökme çimento, kalsit, kireç, uçucu kül taşıma ve sefer bazlı silobas kiralama. Silobas kaç ton alır? 30 dakikada teklif." />
+        <meta name="description" content="Silobas nakliye firması: dökme çimento, kalsit, kireç, uçucu kül taşıma ve sefer bazlı silobas kiralama. Silobas kaç ton alır? işinize özel teklif." />
         <meta name="keywords" content="silobas nakliye firmaları, silobas nakliye fiyatları, silobas nakliye, silobas firmaları, silobas kiralama, silobas taşımacılığı, silobas taşımacılığı yapan firmalar, silobas kaç ton çimento alır" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

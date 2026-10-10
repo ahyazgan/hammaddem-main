@@ -16,7 +16,7 @@ const CerezPolitikasi = () => (
       </Link>
 
       <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-2">Çerez Politikası</h1>
-      <p className="text-sm text-muted-foreground mb-10">Son güncelleme: 26 Şubat 2026</p>
+      <p className="text-sm text-muted-foreground mb-10">Son güncelleme: 10 Ekim 2026</p>
 
       <div className="prose prose-sm max-w-none text-foreground/80 space-y-6 [&_h2]:text-lg [&_h2]:font-bold [&_h2]:text-foreground [&_h2]:mt-8 [&_h2]:mb-3">
         <h2>1. Çerez Nedir?</h2>
@@ -24,13 +24,15 @@ const CerezPolitikasi = () => (
 
         <h2>2. Kullanılan Çerez Türleri</h2>
         <p><strong>Zorunlu Çerezler:</strong> Oturum yönetimi ve güvenlik için gereklidir. Bu çerezler olmadan platform düzgün çalışmaz.</p>
-        <p><strong>Performans Çerezleri:</strong> Sayfa yüklenme süreleri ve hata raporları gibi anonim kullanım verilerini toplar.</p>
+        <p><strong>İsteğe Bağlı Analiz:</strong> İzin verdiğinizde ziyaretler, telefon ve WhatsApp bağlantılarına tıklamalar ile teklif formunun aşamaları ölçülebilir. Analiz tercihiniz tarayıcınızda saklanır. Telefon numarası, teslimat adresi, talep numarası ve yazdığınız notlar analiz olaylarına eklenmez.</p>
         <p><strong>İşlevsellik Çerezleri:</strong> Dil tercihi ve oturum bilgilerinizi hatırlar.</p>
 
         <h2>3. Üçüncü Taraf Çerezleri</h2>
-        <p>Platformumuz analiz amacıyla üçüncü taraf hizmetleri kullanabilir. Bu hizmetlerin kendi gizlilik politikaları geçerlidir.</p>
+        <p>Ziyaret ölçümü için Vercel Web Analytics, etkinleştirildiğinde etkileşim ölçümü için Google Analytics kullanılır. Analiz kodları yalnızca izin verdikten sonra yüklenir. Yönetim, hesap ve talep takip ekranları ölçüme dahil edilmez; sayfa adreslerindeki sorgu ve bağlantı parçaları analiz verisinden çıkarılır. Bu hizmetlerin kendi gizlilik politikaları da geçerlidir.</p>
 
         <h2>4. Çerez Yönetimi</h2>
+        <p>“Yalnızca Gerekli” seçeneğiyle analiz ölçümünü kapalı tutabilirsiniz. Kararınızı değiştirmek için aşağıdaki düğmeyi veya sayfaların altındaki “Çerez Tercihleri” bağlantısını kullanın. Analizi reddetmeniz teklif almanıza engel olmaz.</p>
+        <button type="button" onClick={() => window.dispatchEvent(new Event("hammaddem:open-preferences"))} className="min-h-11 rounded-lg border border-primary px-4 py-2 text-primary font-semibold">Çerez Tercihleri</button>
         <p>Tarayıcı ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz. Ancak zorunlu çerezlerin engellenmesi platformun işleyişini olumsuz etkileyebilir.</p>
 
         <h2>5. Değişiklikler</h2>

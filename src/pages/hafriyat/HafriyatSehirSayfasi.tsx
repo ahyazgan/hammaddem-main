@@ -103,7 +103,7 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-6 max-w-[500px]">
                   {lokatif} lisanslı araçlarla temel kazısı, hafriyat toprağı taşıma,
                   moloz kaldırma ve dolgu işleri. Formu doldurun, işinize özel net
-                  fiyatı 30 dakika içinde telefonla iletelim.
+                  fiyatı değerlendirme sonrasında telefonla iletelim.
                 </p>
                 <ul className="space-y-2.5 mb-7">
                   {[
@@ -268,7 +268,7 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
               {lokasyon.ad} Hafriyat İşiniz İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Formu doldurun ya da arayın; 30 dakika içinde {lokasyon.ad} bölgesine özel net fiyat verelim.
+              Formu doldurun ya da arayın; değerlendirme sonrasında {lokasyon.ad} bölgesine özel net fiyat verelim.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <a href="#hafriyat-teklif" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all">

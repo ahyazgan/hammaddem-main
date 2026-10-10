@@ -509,7 +509,7 @@ export const HESAPLAMA_FAQ = [
   },
   {
     q: "Hesaplama sonucu kesin fiyat mı?",
-    a: "Hayır; sonuç piyasa aralıklarıyla hesaplanan bir ön bütçedir. Zemin etüdü, döküm sahası mesafesi ve iş programı net fiyatı belirler. Sonucu formla gönderin, 30 dakika içinde işinize özel net teklif alın.",
+    a: "Hayır; sonuç piyasa aralıklarıyla hesaplanan bir ön bütçedir. Zemin etüdü, döküm sahası mesafesi ve iş programı net fiyatı belirler. Sonucu formla gönderin, değerlendirme sonrasında işinize özel net teklif alın.",
   },
   {
     q: "Temel kazısı hesaplama farklı mı?",

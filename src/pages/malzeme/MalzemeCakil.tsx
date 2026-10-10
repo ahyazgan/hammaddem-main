@@ -14,10 +14,10 @@ import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("cakil")!;
 const canonical = "https://hammaddem.co/malzeme/cakil";
 const title = "Çakıl Fiyatları 2026 | Ton Fiyatı 200–500 TL";
-const description = "Çakılın tonu ne kadar? Dere çakılı, ince ve iri çakıl 200–500 TL/ton (2026). 11 ilde damperli araçla hızlı teslimat. 30 dakikada ücretsiz teklif alın.";
+const description = "Çakılın tonu ne kadar? Dere çakılı, ince ve iri çakıl 200–500 TL/ton (2026). 11 ilde damperli araçla hızlı teslimat. İşinize özel ücretsiz teklif alın.";
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Damperli araçlarla güvenli teslimat. Saha koşullarına uygun araç seçimi." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -123,7 +123,7 @@ const MalzemeCakil = () => {
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Çakıl, beton üretimi, drenaj sistemleri ve yol yapımında yaygın kullanılan doğal bir agrega malzemesidir. İnce çakıl (0-8 mm), orta çakıl (8-16 mm) ve iri çakıl (16-32 mm) olarak sınıflandırılır. Granülometri açısından TS 706 standartlarına uygunluk, yapı kalitesi için büyük önem taşır.</p>
               <p>Hammaddem ile çakıl tedariğini dijital platformdan yönetin. Ton bazında çakıl fiyatları için online teklif oluşturun, 11 ilde güvenilir teslimat alın. Beton santralleri, altyapı projeleri ve peyzaj uygulamaları için düzenli çakıl tedariki sağlıyoruz.</p>
-              <p>Çakıl türü, miktar ve teslimat adresinizi belirterek 30 dakika içinde rekabetçi fiyat teklifi alın.</p>
+              <p>Çakıl türü, miktar ve teslimat adresinizi belirterek değerlendirme sonrasında rekabetçi fiyat teklifi alın.</p>
             </div>
           </div>
         </section>
@@ -206,7 +206,7 @@ const MalzemeCakil = () => {
               Çakıl İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, değerlendirme sonrasında size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link

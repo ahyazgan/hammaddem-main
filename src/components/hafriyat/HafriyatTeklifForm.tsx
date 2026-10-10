@@ -1,3 +1,4 @@
+import { useQuoteAnalytics } from "@/hooks/use-quote-analytics";
 import { useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { submitGuestRequest, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
@@ -39,6 +40,7 @@ const HafriyatTeklifForm = ({
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [talepNo, setTalepNo] = useState("");
+  const analytics = useQuoteAnalytics("hafriyat");
   // Hesaplama aracı sayfasında kullanıcı ölçüleri değiştirdikçe miktar güncel kalsın;
   // ama kullanıcı miktarı kendi elle değiştirdiyse üzerine yazma.
   const [miktarElle, setMiktarElle] = useState(false);
@@ -62,6 +64,7 @@ const HafriyatTeklifForm = ({
     if (submitting.current || !validate()) return;
     submitting.current = true;
     setLoading(true);
+    analytics.submit();
     try {
       const receipt = await submitGuestRequest({
         kategori: "hafriyat",
@@ -77,9 +80,11 @@ const HafriyatTeklifForm = ({
         not_text: [`Hafriyat işi talebi (${isTipi})`, not_].filter(Boolean).join(" — "),
         telefon: cleanPhone(telefon),
       });
+      analytics.success();
       setTalepNo(receipt);
       toast({ title: "Talebiniz alındı!", description: `${receipt} numaralı talebiniz kaydedildi.` });
     } catch (err: unknown) {
+      analytics.error();
       const message = err instanceof Error ? err.message : "Talep gönderilemedi.";
       toast({ title: "Hata", description: message, variant: "destructive" });
     } finally {
@@ -98,7 +103,7 @@ const HafriyatTeklifForm = ({
           </div>
           <h3 className="text-lg font-bold tracking-tight mb-2">Talebiniz Alındı!</h3>
           <p className="text-[13px] text-txt-2 mb-4 leading-relaxed">
-            Ekibimiz 30 dakika içinde sizi arayacak ve işinize özel net fiyat teklifini sunacak.
+            Ekibimiz değerlendirme sonrasında sizi arayacak ve işinize özel net fiyat teklifini sunacak.
           </p>
           <div className="bg-off border border-border rounded-[10px] px-4 py-3 flex justify-between items-center">
             <span className="text-[13px] text-txt-2 font-medium">Takip Numaranız</span>
@@ -111,12 +116,12 @@ const HafriyatTeklifForm = ({
   }
 
   return (
-    <div className="w-full bg-background border border-border rounded-2xl shadow-elevated overflow-hidden">
+    <div onClickCapture={analytics.start} onChangeCapture={analytics.start} className="w-full bg-background border border-border rounded-2xl shadow-elevated overflow-hidden">
       <div className="h-1 w-full bg-navy" />
       <div className="p-5 md:p-7">
         <h3 className="text-base md:text-lg font-bold tracking-tight mb-1">{baslik}</h3>
         <p className="text-[12px] md:text-[13px] text-txt-2 mb-4">
-          İşinizi bildirin, 30 dakika içinde net fiyat teklifi verelim. Kayıt gerekmez.
+          İşinizi bildirin, değerlendirme sonrasında net fiyat teklifi verelim. Kayıt gerekmez.
         </p>
 
         {/* İş tipi */}
@@ -250,7 +255,7 @@ const HafriyatTeklifForm = ({
           {loading ? "Gönderiliyor..." : "✓ Ücretsiz Fiyat Teklifi Al"}
         </button>
         <p className="text-[11px] text-txt-3 text-center mt-2.5">
-          Telefonunuza 30 dakika içinde net fiyat iletiyoruz · Kayıt gerekmez
+          İş detaylarına göre size özel fiyat teklifi · Kayıt gerekmez
         </p>
       </div>
     </div>

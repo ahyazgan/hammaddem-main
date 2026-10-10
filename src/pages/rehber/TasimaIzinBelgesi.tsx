@@ -215,7 +215,7 @@ const TasimaIzinBelgesi = () => {
               <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Evrak Süreci Dahil, Anahtar Teslim</h2>
               <p className="text-sm text-txt-2 leading-[1.7] mb-6 max-w-[460px]">
                 Saha koordinasyonu, izin belgeleri ve döküm fişleri bizde. İşinizi bildirin;
-                belgeli ve döküm dahil net fiyatı 30 dakika içinde iletelim.
+                belgeli ve döküm dahil net fiyatı değerlendirme sonrasında iletelim.
               </p>
               <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                 <Phone className="w-4 h-4" /> 0539 330 86 17

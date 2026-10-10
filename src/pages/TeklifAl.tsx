@@ -8,13 +8,13 @@ import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/utils/seoSchemas";
 import { CheckCircle, Clock, Phone, ShieldCheck, UserX } from "lucide-react";
 
 const canonical = "https://hammaddem.co/teklif-al";
-const title = "Üyeliksiz Teklif Al – 30 Dakikada Fiyat | Hammaddem";
+const title = "Üyeliksiz Teklif Al – İşinize Özel Fiyat | Hammaddem";
 const description =
-  "Üye olmadan fiyat teklifi alın: hafriyat, moloz, silobas, kum, çakıl, çimento. 2 dakikada formu doldurun, 30 dakikada net fiyat telefonunuzda.";
+  "Üye olmadan fiyat teklifi alın: hafriyat, moloz, silobas, kum, çakıl, çimento. Formu doldurun, işinize özel fiyat teklifini birlikte netleştirelim.";
 
 const avantajlar = [
-  { icon: UserX, title: "Üyelik Gerekmez", desc: "Kayıt olmadan, sadece telefon numaranızla talep oluşturun." },
-  { icon: Clock, title: "30 Dakikada Fiyat", desc: "Talebiniz düşer düşmez ekibimiz arar, net fiyatı iletir." },
+  { icon: UserX, title: "Üyelik Gerekmez", desc: "Hesap açmadan, iş detayları ve iletişim telefonunuzla talep oluşturun." },
+  { icon: Clock, title: "İşinize Özel Fiyat", desc: "Ekibimiz işin detaylarını değerlendirir, size özel fiyatı iletir." },
   { icon: ShieldCheck, title: "Ücretsiz & Bağlayıcı Değil", desc: "Teklif almak tamamen ücretsizdir; kabul zorunluluğu yoktur." },
   { icon: CheckCircle, title: "Takip Numarası", desc: "Talep numaranızla üye olmadan da durumunuzu sorgulayın." },
 ];
@@ -22,7 +22,7 @@ const avantajlar = [
 const faq = [
   {
     q: "Üye olmadan fiyat teklifi alabilir miyim?",
-    a: "Evet. Formu misafir olarak doldurmanız yeterli; yalnızca telefon numaranız gerekir. 30 dakika içinde sizi arayıp net fiyatı iletiyoruz.",
+    a: "Evet. Malzeme, miktar, teslimat adresi ve iletişim telefonunuzu misafir formuna yazabilirsiniz. Ekibimiz bilgileri değerlendirip size özel fiyat için sizinle iletişime geçer.",
   },
   {
     q: "Teklif almak ücretli mi ya da bağlayıcı mı?",
@@ -78,7 +78,7 @@ const TeklifAl = () => {
             </h1>
             <p className="text-sm md:text-base text-txt-2 leading-[1.7] mb-8 max-w-[560px]">
               Hafriyat işi, silobas yükü ya da malzeme alımı — hangisi olursa olsun
-              aşağıdaki formu misafir olarak doldurun. 30 dakika içinde sizi arayıp
+              aşağıdaki formu misafir olarak doldurun. Değerlendirme sonrasında sizi arayıp
               net fiyatı iletelim. Kayıt yok, ücret yok, bağlayıcılık yok.
             </p>
 

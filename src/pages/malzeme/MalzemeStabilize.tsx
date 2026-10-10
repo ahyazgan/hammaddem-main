@@ -14,10 +14,10 @@ import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("stabilize")!;
 const canonical = "https://hammaddem.co/malzeme/stabilize";
 const title = "Stabilize Malzeme Fiyatı 2026 | Ton ve Kamyon Fiyatı";
-const description = "Stabilize malzeme fiyatı 2026: kırma taş stabilize 150–350 TL/ton. Yol altyapısı ve temel dolgusu için damperli araçla teslimat. 30 dakikada teklif.";
+const description = "Stabilize malzeme fiyatı 2026: kırma taş stabilize 150–350 TL/ton. Yol altyapısı ve temel dolgusu için damperli araçla teslimat. İşinize özel teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Damperli araçlarla güvenli teslimat. Saha koşullarına uygun araç seçimi." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -122,7 +122,7 @@ const MalzemeStabilize = () => {
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Stabilize Malzeme Nedir? Yol Stabilizesi, Temel Dolgu ve Zemin İyileştirme</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>Stabilize, kırma taş, doğal taş ve kil karışımından oluşan, sıkıştırıldığında yüksek mukavemet kazanan bir zemin iyileştirme malzemesidir. Granülometri olarak genellikle 0-30 mm veya 0-50 mm aralığında üretilir. Yol yapımında temel tabakası, şantiye içi ulaşım yolları ve açık alan zemin düzenlemesinde yaygın kullanılır.</p>
-              <p>Hammaddem ile stabilize malzeme tedariğini dijital platformdan yönetin. Granülometri, miktar ve teslimat adresinizi belirterek 30 dakika içinde fiyat teklifi alın. 11 ilde damperli araçlarla güvenilir teslimat sağlıyoruz.</p>
+              <p>Hammaddem ile stabilize malzeme tedariğini dijital platformdan yönetin. Granülometri, miktar ve teslimat adresinizi belirterek değerlendirme sonrasında fiyat teklifi alın. 11 ilde damperli araçlarla güvenilir teslimat sağlıyoruz.</p>
               <p>Stabilize malzemenin doğru sıkıştırılması ve nemlendirilmesi, zemin dayanımı için kritik öneme sahiptir. Teknik destek için uzmanlarımıza danışabilirsiniz.</p>
             </div>
           </div>
@@ -206,7 +206,7 @@ const MalzemeStabilize = () => {
               Stabilize Malzeme İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, değerlendirme sonrasında size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link

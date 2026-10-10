@@ -6,10 +6,10 @@ import OrderCard from "./OrderCard";
 import SitePhoto from "@/components/SitePhoto";
 
 const stats = [
-  { val: "250+", label: "Tamamlanan Teslimat", color: "text-primary" },
-  { val: "30dk", label: "Ort. Teklif Süresi", color: "text-navy" },
+  { val: "Yüke Özel", label: "Araç Planlaması", color: "text-primary" },
+  { val: "Ücretsiz", label: "Teklif Talebi", color: "text-navy" },
   { val: "11 İl", label: "Aktif Teslimat Bölgesi", color: "text-foreground" },
-  { val: "%98", label: "Müşteri Memnuniyeti", color: "text-primary" },
+  { val: "Dijital", label: "Talep Takibi", color: "text-primary" },
 ];
 
 const Hero = () => {
@@ -35,8 +35,8 @@ const Hero = () => {
 
             {/* Subtitle */}
             <p className="text-[13px] sm:text-sm md:text-base font-normal text-txt-2 leading-[1.65] max-w-[520px] mb-3 px-1 animate-fade-down" style={{ animationDelay: '.1s' }}>
-              Temel kazısı, hafriyat taşıma, moloz ya da silobas yükü — 2 dakikada
-              talep oluşturun, 30 dakikada net fiyat teklifiniz hazır.{" "}
+              Temel kazısı, hafriyat taşıma, moloz ya da silobas yükü — ihtiyacınızı
+              iletin, detayları birlikte değerlendirip teklifinizi hazırlayalım.{" "}
               <Link to="/hafriyat" className="font-semibold text-navy hover:underline">
                 Hafriyat işleri sayfası →
               </Link>
@@ -87,7 +87,7 @@ const Hero = () => {
         <div className="mt-4 sm:mt-5 md:mt-6 grid grid-cols-3 sm:flex sm:flex-row items-center gap-2 sm:gap-3 md:gap-5 justify-center animate-fade-up" style={{ animationDelay: '.3s' }}>
           {[
             { icon: BulkTruckIcon, label: "Silobas & Hafriyat" },
-            { icon: Clock3, label: "30dk Teklif" },
+            { icon: Clock3, label: "Özel Teklif" },
             { icon: ClipboardCheck, label: "Dijital İrsaliye" },
             { icon: MapPinned, label: "11 İl Teslimat" },
             { icon: UserCheck, label: "Kayıt Gerekmez" },

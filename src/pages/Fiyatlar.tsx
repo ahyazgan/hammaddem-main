@@ -9,7 +9,7 @@ import { buildBreadcrumbJsonLd } from "@/utils/seoSchemas";
 import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/fiyatlar";
 const title = "Hammadde Fiyatları 2026 | Kum, Çakıl, Çimento Ton Fiyatı";
-const description = "Kum çakıl fiyatları 2026 ve 10 hammaddenin ton fiyatı: kum 250–600 TL, çakıl 200–500 TL, çimento 2.500–4.500 TL. 30 dakikada teslimatlı teklif.";
+const description = "Kum çakıl fiyatları 2026 ve 10 hammaddenin ton fiyatı: kum 250–600 TL, çakıl 200–500 TL, çimento 2.500–4.500 TL. İşinize özel teslimatlı teklif.";
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Ana Sayfa", url: "/" },
@@ -200,7 +200,7 @@ const Fiyatlar = () => {
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Kesin Fiyat Teklifi Alın</h2>
             <p className="text-txt-2 text-sm md:text-base mb-6">
-              Miktar, malzeme türü ve teslimat adresinizi belirterek 30 dakika içinde size özel fiyat teklifi alın.
+              Miktar, malzeme türü ve teslimat adresinizi belirterek değerlendirme sonrasında size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
