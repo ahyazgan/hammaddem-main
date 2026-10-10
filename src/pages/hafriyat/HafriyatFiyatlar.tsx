@@ -20,7 +20,7 @@ import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hafriyat/fiyatlar";
 const title = "Hafriyat Fiyatları 2026 | m³ Fiyatı, Sefer ve Döküm Ücreti";
 const description =
-  "Hafriyat fiyatları 2026: yumuşak zemin 120–180 TL/m³, kayalık 260–400 TL/m³; kamyon sefer 2.500–5.500 TL. İl il güncel tablo, 30 dakikada net teklif.";
+  "Hafriyat fiyatları 2026: yumuşak zemin 120–180 TL/m³, kayalık 260–400 TL/m³; kamyon sefer 2.500–5.500 TL. İl il güncel tablo, işinize özel net teklif.";
 
 const tl = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -102,7 +102,7 @@ const HafriyatFiyatlar = () => {
                 <span>
                   Bu sayfadaki rakamlar sektör yayınlarından derlenmiş <strong>piyasa aralıklarıdır</strong>,
                   Hammaddem'in sabit fiyat listesi değildir. İşinize özel net fiyat; hacim, zemin ve döküm
-                  mesafesine göre 30 dakika içinde telefonla iletilir.
+                  mesafesine göre değerlendirme sonrasında telefonla iletilir.
                 </span>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -287,7 +287,7 @@ const HafriyatFiyatlar = () => {
               </h2>
               <p className="text-sm text-txt-2 leading-[1.7] mb-6 max-w-[460px]">
                 Yukarıdaki aralıklar bütçe planlaması içindir. Konum, hacim ve zemin bilgisini iletin;
-                döküm bedeli dahil net fiyatı 30 dakika içinde telefonla verelim.
+                döküm bedeli dahil net fiyatı değerlendirme sonrasında telefonla verelim.
               </p>
               <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                 <Phone className="w-4 h-4" /> 0539 330 86 17

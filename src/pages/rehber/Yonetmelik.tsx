@@ -211,7 +211,7 @@ const Yonetmelik = () => {
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Mevzuat Yükünü Biz Taşıyalım</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
               Lisanslı araç, ruhsatlı saha, izin belgeleri ve döküm fişleri bizde. İşinizi bildirin;
-              belgeli ve net fiyatı 30 dakika içinde iletelim.
+              belgeli ve net fiyatı değerlendirme sonrasında iletelim.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/hafriyat" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all">

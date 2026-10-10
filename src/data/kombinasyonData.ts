@@ -101,13 +101,13 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} çimento silobas taşıma için Hammaddem'i tercih edin. ${s.sanayi} alanında faaliyet gösteren firmalara, ${s.osblar.slice(0, 3).join(", ")} gibi organize sanayi bölgelerine ve büyük inşaat projelerine çimento tedariği sağlıyoruz. CEM I, CEM II ve portland çimentosu dahil tüm çimento türleri için silobas araç filomuzla ${s.ad} genelinde güvenli ve hızlı teslimat sunuyoruz.`,
     hizmetDetay: (s) =>
-      `${s.adDa} çimento silobas taşıma süreciniz Hammaddem platformuyla tamamen dijital olarak yönetilir. Talep formunu doldurduğunuzda ${s.ad} bölgesindeki araç filomuz 30 dakika içinde size özel fiyat teklifi sunar. ${s.lojistik} avantajından yararlanarak aynı gün veya ertesi gün teslimat seçenekleri sunuyoruz. Kapalı pnömatik silobas sistemiyle çimentonun nem ve kirlenme riski olmadan güvenle taşınmasını garanti ediyoruz. Ton bazında rekabetçi fiyatlar için hemen talep oluşturun.`,
+      `${s.adDa} çimento silobas taşıma süreciniz Hammaddem platformuyla tamamen dijital olarak yönetilir. Talep formunu doldurduğunuzda ${s.ad} bölgesindeki ekibimiz değerlendirme sonrasında size özel fiyat teklifi sunar. ${s.lojistik} avantajından yararlanarak aynı gün veya ertesi gün teslimat seçenekleri sunuyoruz. Kapalı pnömatik silobas sistemiyle çimentonun nem ve kirlenme riski olmadan güvenle taşınmasını garanti ediyoruz. Ton bazında rekabetçi fiyatlar için hemen talep oluşturun.`,
     yerelBilgi: (s) =>
       `${s.ad} çimento taşıma hizmetimiz özellikle ${s.ilceler.slice(0, 4).join(", ")} ilçelerini kapsamaktadır. ${s.inşaatBolgeleri} gibi aktif yapılaşma alanlarına öncelikli teslimat yapıyoruz. ${s.osblar[0]} ve ${s.osblar[1] ?? s.osblar[0]} bölgelerindeki sanayi tesislerine düzenli çimento tedariki konusunda deneyimliyiz.`,
     faq: (s) => [
       {
         q: `${s.adDa} çimento silobas taşıma fiyatları nasıl belirlenir?`,
-        a: `${s.adDa} çimento fiyatları; ton miktarı, teslimat noktası (${s.ilceler[0]}, ${s.ilceler[1]} gibi ilçeler arasında mesafeye göre farklılık gösterir), çimento türü (CEM I, CEM II) ve teslimat zamanlamasına göre değişir. Hammaddem üzerinden talep oluşturduğunuzda 30 dakika içinde güncel fiyat teklifi alırsınız.`,
+        a: `${s.adDa} çimento fiyatları; ton miktarı, teslimat noktası (${s.ilceler[0]}, ${s.ilceler[1]} gibi ilçeler arasında mesafeye göre farklılık gösterir), çimento türü (CEM I, CEM II) ve teslimat zamanlamasına göre değişir. Hammaddem üzerinden talep oluşturduğunuzda değerlendirme sonrasında güncel fiyat teklifi alırsınız.`,
       },
       {
         q: `${s.ad} bölgesinde minimum çimento sipariş miktarı nedir?`,
@@ -124,7 +124,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} inşaat kumu ve dere kumu tedariki için Hammaddem'i kullanın. ${s.inşaatBolgeleri} başta olmak üzere ${s.adIn} tüm yapılaşma bölgelerine kum teslimatı yapıyoruz. Yıkanmış kum, kırma kum ve dere kumu çeşitleri için ton bazında rekabetçi fiyat; ${s.lojistik} imkânıyla hızlı teslimat garantisi sunuyoruz.`,
     hizmetDetay: (s) =>
-      `${s.ad} inşaat sektörü için kum tedarik sürecini Hammaddem dijitalleştiriyor. ${s.osblar.slice(0, 2).join(" ve ")} bölgelerindeki sanayi tesislerinden büyük konut projelerine kadar farklı kalite ve granülometride kum sağlıyoruz. Online talep formunuzu doldurduğunuzda, ${s.ad} genelindeki nakliyecilerden en uygun fiyat teklifini 30 dakika içinde alırsınız. ${s.lojistik} sayesinde düzenli kum teslimatlarını kolayca planlayabilirsiniz.`,
+      `${s.ad} inşaat sektörü için kum tedarik sürecini Hammaddem dijitalleştiriyor. ${s.osblar.slice(0, 2).join(" ve ")} bölgelerindeki sanayi tesislerinden büyük konut projelerine kadar farklı kalite ve granülometride kum sağlıyoruz. Online talep formunuzu doldurduğunuzda, ${s.ad} genelindeki nakliyecilerden en uygun fiyat teklifini değerlendirme sonrasında alırsınız. ${s.lojistik} sayesinde düzenli kum teslimatlarını kolayca planlayabilirsiniz.`,
     yerelBilgi: (s) =>
       `${s.adDa} kum ihtiyacı en yoğun ${s.ilceler.slice(0, 3).join(", ")} ilçelerinde faaliyet gösteren müteahhit ve yapı firmalarına öncelikli hizmet veriyoruz. ${s.inşaatBolgeleri} bölgeleri için stok durumuna göre aynı gün kum teslimatı organize edilebilmektedir.`,
     faq: (s) => [
@@ -147,13 +147,13 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} çakıl ve agrega tedariki için Hammaddem'i tercih edin. ${s.sanayi} sektörlerine hizmet eden ${s.osblar.slice(0, 2).join(" ve ")} bölgeleri başta olmak üzere tüm ${s.ad} genelinde çakıl teslimatı yapıyoruz. Beton agregası, drenaj çakılı ve peyzaj çakılı çeşitleri için ton bazında uygun fiyat ve güvenilir teslimat sağlıyoruz.`,
     hizmetDetay: (s) =>
-      `${s.ad} çakıl tedarik hizmetimiz; beton santralleri, prefabrik üreticileri ve altyapı projelerine özel fiyatlandırma sunar. ${s.lojistik} avantajıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerine zamanında teslimat garantisi veriyoruz. Hammaddem platformu üzerinden miktarınızı ve teslim tarihinizi belirterek 30 dakika içinde teklif alabilirsiniz. Düzenli çakıl ihtiyaçlarınız için aylık ve yıllık tedarik sözleşmesi imkânı da sunuyoruz.`,
+      `${s.ad} çakıl tedarik hizmetimiz; beton santralleri, prefabrik üreticileri ve altyapı projelerine özel fiyatlandırma sunar. ${s.lojistik} avantajıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerine zamanında teslimat garantisi veriyoruz. Hammaddem platformu üzerinden miktarınızı ve teslim tarihinizi belirterek değerlendirme sonrasında teklif alabilirsiniz. Düzenli çakıl ihtiyaçlarınız için aylık ve yıllık tedarik sözleşmesi imkânı da sunuyoruz.`,
     yerelBilgi: (s) =>
       `${s.adDa} çakıl kullanımı en yoğun ${s.inşaatBolgeleri} bölgelerindedir. ${s.osblar[0]} sanayi bölgesi firmalarına agrega ve çakıl tedariki konusunda uzun süreli deneyime sahibiz. ${s.ilceler.slice(0, 2).join(" ve ")} ilçelerindeki altyapı projelerine öncelikli hizmet veriyoruz.`,
     faq: (s) => [
       {
         q: `${s.adDa} çakıl fiyatları ton başına ne kadardır?`,
-        a: `${s.adDa} çakıl fiyatları agrega boyutuna (0-5mm, 5-12mm, 12-25mm), mesafeye ve miktara göre değişmektedir. ${s.ilceler[0]} merkezine ton başına nakliye dahil fiyat almak için Hammaddem üzerinden talep oluşturun; 30 dakika içinde güncel fiyat bildiriyoruz.`,
+        a: `${s.adDa} çakıl fiyatları agrega boyutuna (0-5mm, 5-12mm, 12-25mm), mesafeye ve miktara göre değişmektedir. ${s.ilceler[0]} merkezine ton başına nakliye dahil fiyat almak için Hammaddem üzerinden talep oluşturun; değerlendirme sonrasında güncel fiyat bildiriyoruz.`,
       },
       {
         q: `${s.adDa} beton agregası için hangi çakıl boyutu uygundur?`,
@@ -170,7 +170,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} mıcır ve kırmataş tedariki için Hammaddem platformunu kullanın. ${s.sanayi} kapsamındaki sanayi tesisleri, beton santralleri ve altyapı projelerine ${s.osblar.slice(0, 3).join(", ")} dahil tüm ${s.ad} bölgesine mıcır teslimatı yapıyoruz. 0-5mm, 4-8mm ve 8-16mm ebatlarında kaliteli mıcır için rekabetçi fiyat teklifi alın.`,
     hizmetDetay: (s) =>
-      `${s.adDa} mıcır tedarik sürecini Hammaddem dijitalleştiriyor. Talep formunda mıcır boyutunu ve miktarı belirttiğinizde ${s.adDa}ki tedarikçi ağımız 30 dakika içinde fiyat teklifi sunar. ${s.lojistik} altyapısı sayesinde ${s.ilceler.slice(0, 4).join(", ")} ilçelerinde aynı gün veya ertesi gün teslimat mümkündür. Düzenli mıcır ihtiyaçlarınız için haftalık veya aylık programlı teslimat seçeneği de sunuyoruz.`,
+      `${s.adDa} mıcır tedarik sürecini Hammaddem dijitalleştiriyor. Talep formunda mıcır boyutunu ve miktarı belirttiğinizde ${s.adDa}ki tedarikçi ağımız değerlendirme sonrasında fiyat teklifi sunar. ${s.lojistik} altyapısı sayesinde ${s.ilceler.slice(0, 4).join(", ")} ilçelerinde aynı gün veya ertesi gün teslimat mümkündür. Düzenli mıcır ihtiyaçlarınız için haftalık veya aylık programlı teslimat seçeneği de sunuyoruz.`,
     yerelBilgi: (s) =>
       `${s.adDa} mıcır en çok ${s.inşaatBolgeleri} bölgelerindeki altyapı ve inşaat projelerinde kullanılmaktadır. ${s.osblar[0]} sanayi bölgesindeki beton santralleri ve üretim tesisleri başlıca mıcır kullanıcılarımız arasındadır. ${s.ilceler.slice(1, 3).join(" ve ")} ilçelerindeki yol yapım projelerine de düzenli teslimat yapıyoruz.`,
     faq: (s) => [
@@ -193,7 +193,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} kalsit ve kalsiyum karbonat tedariki için Hammaddem'i tercih edin. ${s.sanayi} sektörlerine hizmet veren ${s.osblar.slice(0, 2).join(" ve ")} başta olmak üzere tüm ${s.ad} genelinde kalsit teslimatı yapıyoruz. Boya, plastik, kauçuk, kağıt ve ilaç sektörü için farklı incelik derecelerinde (GCC, PCC) kalsit tedariki sağlıyoruz.`,
     hizmetDetay: (s) =>
-      `${s.ad} kalsit tedarik hizmetimiz, silobas araçlarla kapalı sistem taşıma ve hassas tartım imkânı sunmaktadır. ${s.lojistik} altyapısıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki üretim tesislerine zamanında ve standart kalitede kalsit teslimatı garanti ediyoruz. Hammaddem platformu üzerinden talep oluşturun, 30 dakika içinde ${s.ad} bölgesi için fiyat teklifi alın.`,
+      `${s.ad} kalsit tedarik hizmetimiz, silobas araçlarla kapalı sistem taşıma ve hassas tartım imkânı sunmaktadır. ${s.lojistik} altyapısıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki üretim tesislerine zamanında ve standart kalitede kalsit teslimatı garanti ediyoruz. Hammaddem platformu üzerinden talep oluşturun, değerlendirme sonrasında ${s.ad} bölgesi için fiyat teklifi alın.`,
     yerelBilgi: (s) =>
       `${s.adDa} kalsit kullanımı ${s.osblar[0]} ve ${s.osblar[1] ?? s.osblar[0]} sanayi bölgelerindeki boya, plastik ve yapı kimyasalları üreticilerinde yoğunlaşmaktadır. ${s.inşaatBolgeleri} bölgelerindeki boya ve kaplama firmalarına da düzenli kalsit tedariki yapıyoruz.`,
     faq: (s) => [
@@ -216,7 +216,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} kireç (söndürülmüş/sönmemiş) tedariki için Hammaddem platformunu kullanın. ${s.sanayi} sektörlerine hizmet veren ${s.osblar.slice(0, 2).join(" ve ")} başta olmak üzere ${s.ad} genelinde kireç teslimatı yapıyoruz. Atık su arıtma, demir-çelik, inşaat ve tarım sektörü için CaO ve Ca(OH)₂ türündeki kireç ürünlerini silobas araçlarla güvenle taşıyoruz.`,
     hizmetDetay: (s) =>
-      `${s.adDa} kireç tedarik sürecini Hammaddem hızlandırıyor. Talep formunda kireç türü (CaO/Ca(OH)₂), saflık derecesi ve miktarı belirttiğinizde ${s.ad} bölgesi için 30 dakika içinde fiyat teklifi alırsınız. ${s.lojistik} sayesinde ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki arıtma tesisleri ve üretim santrallerine zamanında kireç teslimatı garanti ediyoruz.`,
+      `${s.adDa} kireç tedarik sürecini Hammaddem hızlandırıyor. Talep formunda kireç türü (CaO/Ca(OH)₂), saflık derecesi ve miktarı belirttiğinizde ${s.ad} bölgesi için değerlendirme sonrasında fiyat teklifi alırsınız. ${s.lojistik} sayesinde ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki arıtma tesisleri ve üretim santrallerine zamanında kireç teslimatı garanti ediyoruz.`,
     yerelBilgi: (s) =>
       `${s.adDa} kireç en fazla ${s.osblar[0]} bölgesindeki demir-çelik ve metal işleme tesisleri ile atık su arıtma tesislerinde kullanılmaktadır. ${s.inşaatBolgeleri} bölgelerindeki sıva ve bağlayıcı malzeme olarak da söndürülmüş kireç talebimiz yüksektir.`,
     faq: (s) => [
@@ -239,7 +239,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} alçı ve alçı bazlı ürün tedariki için Hammaddem'i tercih edin. ${s.sanayi} alanındaki inşaat sektörüne hizmet veren ${s.osblar.slice(0, 2).join(" ve ")} başta olmak üzere ${s.ad} genelinde alçı teslimatı yapıyoruz. Beta alçısı, alfa alçısı, gips ve alçı levha hammaddesi çeşitleri için silobas taşıma ve dökme teslimat imkânı sunuyoruz.`,
     hizmetDetay: (s) =>
-      `${s.ad} alçı tedarik hizmetimiz; alçı üreticileri, boya ve yapı kimyasalları firmaları ile büyük inşaat şantiyelerine özel fiyatlandırma sunar. ${s.lojistik} altyapısıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerinde zamanında teslimat garanti ediyoruz. Hammaddem platformundan 30 dakika içinde ${s.ad} bölgesi için alçı fiyat teklifi alabilirsiniz.`,
+      `${s.ad} alçı tedarik hizmetimiz; alçı üreticileri, boya ve yapı kimyasalları firmaları ile büyük inşaat şantiyelerine özel fiyatlandırma sunar. ${s.lojistik} altyapısıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerinde zamanında teslimat garanti ediyoruz. Hammaddem platformundan değerlendirme sonrasında ${s.ad} bölgesi için alçı fiyat teklifi alabilirsiniz.`,
     yerelBilgi: (s) =>
       `${s.adDa} alçı kullanımı ${s.inşaatBolgeleri} bölgelerindeki inşaat projelerinde yoğunlaşmaktadır. ${s.osblar[0]} ve çevresindeki alçı ürünleri üreticilerine düzenli hammadde tedariki yapıyoruz.`,
     faq: (s) => [
@@ -253,7 +253,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
       },
       {
         q: `${s.adDa} alçı fiyatları nasıl şekilleniyor?`,
-        a: `${s.adDa} alçı fiyatları; saflık derecesi, incelik (mesh), nakliye mesafesi ve sipariş miktarına göre değişmektedir. ${s.osblar[0]} bölgesine ton başına fiyat için Hammaddem'den talep oluşturun, 30 dakika içinde güncel fiyat alırsınız.`,
+        a: `${s.adDa} alçı fiyatları; saflık derecesi, incelik (mesh), nakliye mesafesi ve sipariş miktarına göre değişmektedir. ${s.osblar[0]} bölgesine ton başına fiyat için Hammaddem'den talep oluşturun, değerlendirme sonrasında güncel fiyat alırsınız.`,
       },
     ],
   },
@@ -262,7 +262,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} mermer tozu ve kalsit unu tedariki için Hammaddem'i kullanın. ${s.sanayi} kapsamındaki üretim tesisleri başta olmak üzere ${s.osblar.slice(0, 2).join(" ve ")} bölgelerine mermer tozu teslimatı yapıyoruz. Boya, plastik, dolgu malzemesi ve tarım sektörü için farklı incelik derecelerinde mermer tozu ve kalsit unu tedarik ediyoruz.`,
     hizmetDetay: (s) =>
-      `${s.adDa} mermer tozu tedarik hizmetimiz silobas araçlarla kapalı sistem taşıma imkânı sunar. ${s.lojistik} altyapısı sayesinde ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki boya, yapı kimyasalları ve plastik üretim tesislerine zamanında teslimat yapıyoruz. Hammaddem platformunda talep oluşturun, 30 dakika içinde ${s.ad} için fiyat teklifi alın.`,
+      `${s.adDa} mermer tozu tedarik hizmetimiz silobas araçlarla kapalı sistem taşıma imkânı sunar. ${s.lojistik} altyapısı sayesinde ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki boya, yapı kimyasalları ve plastik üretim tesislerine zamanında teslimat yapıyoruz. Hammaddem platformunda talep oluşturun, değerlendirme sonrasında ${s.ad} için fiyat teklifi alın.`,
     yerelBilgi: (s) =>
       `${s.adDa} mermer tozu tüketimi ${s.osblar[0]} ve ${s.osblar[1] ?? s.osblar[0]} bölgelerindeki boya ve yapı malzemeleri üretim tesislerinde yoğunlaşmaktadır. ${s.inşaatBolgeleri} bölgelerindeki cephe kaplaması ve dekoratif beton üretiminde de artan mermer tozu talebi karşılıyoruz.`,
     faq: (s) => [
@@ -285,7 +285,7 @@ export const MALZEME_ICERIK: Record<string, MalzemeKomboIcerik> = {
     aciklama: (s) =>
       `${s.adDa} uçucu kül (fly ash) tedariki için Hammaddem'i tercih edin. ${s.sanayi} alanındaki çimento ve beton üreticilerine hizmet veren ${s.osblar.slice(0, 2).join(" ve ")} başta olmak üzere ${s.ad} genelinde uçucu kül teslimatı yapıyoruz. Beton karışım katkısı, çimento ikamesi ve zemin stabilizasyonu amacıyla F ve C sınıfı uçucu kül tedarik ediyoruz.`,
     hizmetDetay: (s) =>
-      `${s.ad} uçucu kül tedarik hizmetimiz; beton santralleri, hazır beton üreticileri ve büyük altyapı projelerine özel fiyatlandırma sunar. ${s.lojistik} altyapısıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki üretim tesislerine zamanında uçucu kül teslimatı yapıyoruz. Hammaddem platformundan talep oluşturun, 30 dakika içinde güncel fiyat teklifi alın.`,
+      `${s.ad} uçucu kül tedarik hizmetimiz; beton santralleri, hazır beton üreticileri ve büyük altyapı projelerine özel fiyatlandırma sunar. ${s.lojistik} altyapısıyla ${s.ilceler.slice(0, 3).join(", ")} ilçelerindeki üretim tesislerine zamanında uçucu kül teslimatı yapıyoruz. Hammaddem platformundan talep oluşturun, değerlendirme sonrasında güncel fiyat teklifi alın.`,
     yerelBilgi: (s) =>
       `${s.adDa} uçucu kül kullanımı ${s.osblar[0]} bölgesindeki beton santralleri ve çimento fabrikalarında yoğunlaşmaktadır. ${s.inşaatBolgeleri} bölgelerindeki büyük altyapı projelerinde uçucu kül kullanımı zemin dayanımını artırırken maliyeti düşürmektedir.`,
     faq: (s) => [

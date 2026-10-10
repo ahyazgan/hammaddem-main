@@ -3,12 +3,12 @@ import BrandIcon, { BulkTruckIcon } from "@/components/brand/BrandIcon";
 import SectionHeading from "@/components/brand/SectionHeading";
 
 const items = [
-  { icon: Clock3, title: "Zamanınız değerli", desc: "Malzeme, güzergâh ve miktarı birlikte değerlendirerek talebinize özel teklif hazırlıyoruz.", stat: "30", unit: "dk", label: "Ortalama teklif süresi" },
-  { icon: ShieldCheck, title: "Güvenle ilerleyin", desc: "Talebinizden teslimata kadar süreci ekibimizle birlikte, tek muhatap üzerinden yönetin.", stat: "%98", unit: "", label: "Müşteri memnuniyeti" },
-  { icon: BulkTruckIcon, title: "Yüke uygun araç", desc: "Toz ve granül için silobas; agrega ve hafriyat için damperli araç planlaması.", stat: "20+", unit: "", label: "Araç kapasitesi" },
+  { icon: Clock3, title: "Zamanınız değerli", desc: "Malzeme, güzergâh ve miktarı birlikte değerlendirerek talebinize özel teklif hazırlıyoruz.", stat: "İşe özel", unit: "", label: "Teklif hazırlığı" },
+  { icon: ShieldCheck, title: "Güvenle ilerleyin", desc: "Talebinizden teslimata kadar süreci ekibimizle birlikte, tek muhatap üzerinden yönetin.", stat: "Birlikte", unit: "", label: "Süreç yönetimi" },
+  { icon: BulkTruckIcon, title: "Yüke uygun araç", desc: "Toz ve granül için silobas; agrega ve hafriyat için damperli araç planlaması.", stat: "Uygun araç", unit: "", label: "Yüke göre planlama" },
   { icon: MapPinned, title: "Bölgenize yakın çözümler", desc: "Şantiye ve tesis konumunuza göre yükleme, güzergâh ve teslimat planı oluşturun.", stat: "11", unit: "il", label: "Aktif hizmet bölgesi" },
   { icon: Smartphone, title: "Talebiniz elinizin altında", desc: "Telefon ve talep numaranızla teklifinizi ve güncel sipariş durumunu görüntüleyin.", stat: "7/24", unit: "", label: "Dijital talep erişimi" },
-  { icon: PackageCheck, title: "Sahada biriken deneyim", desc: "Farklı malzeme, tesis ve şantiye ihtiyaçlarına göre şekillenen tedarik ve nakliye hizmeti.", stat: "250+", unit: "", label: "Tamamlanan teslimat" },
+  { icon: PackageCheck, title: "Sahada biriken deneyim", desc: "Farklı malzeme, tesis ve şantiye ihtiyaçlarına göre şekillenen tedarik ve nakliye hizmeti.", stat: "Planlı", unit: "", label: "Tedarik ve teslimat" },
 ];
 
 export default function Neden() {
@@ -25,7 +25,7 @@ export default function Neden() {
                 <BrandIcon icon={item.icon} size="lg" />
                 <span aria-hidden="true" className="h-px w-12 bg-border" />
               </div>
-              <p className="text-[38px] md:text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none tabular-nums">
+              <p className="text-[30px] md:text-[34px] font-extrabold tracking-[-.045em] text-navy leading-none tabular-nums">
                 {item.stat}<span className="ml-1.5 text-xl font-semibold tracking-tight text-primary">{item.unit}</span>
               </p>
               <p className="mt-2 mb-5 text-[11px] font-semibold uppercase tracking-[.1em] text-txt-2">{item.label}</p>

@@ -32,7 +32,7 @@ const hizmetler = [
 const extras = [
   { icon: Package, title: "Projenize özel tedarik", desc: "Miktar ve teslimat programına uygun toplu sipariş planlaması." },
   { icon: MapPinned, title: "11 ilde hizmet ağı", desc: "Şantiye ve tesis konumuna göre güzergâh ve araç planı." },
-  { icon: Clock3, title: "Ortalama 30 dakikada teklif", desc: "Malzeme, miktar ve adres bilgisine göre hazırlanan fiyat teklifi." },
+  { icon: Clock3, title: "Talebinize özel teklif", desc: "Malzeme, miktar ve adres bilgisine göre hazırlanan fiyat teklifi." },
 ];
 
 const Hizmetler = () => {

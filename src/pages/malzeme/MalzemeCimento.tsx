@@ -14,10 +14,10 @@ import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("cimento")!;
 const canonical = "https://hammaddem.co/malzeme/cimento";
 const title = "Dökme Çimento Ton Fiyatı 2026 | Silobas ile Teslimat";
-const description = "Dökme çimento ton fiyatı 2026: CEM I ve CEM II 2.500–4.500 TL/ton. Silobas ile beton santrali ve şantiyeye teslimat, 11 ilde. 30 dakikada teklif.";
+const description = "Dökme çimento ton fiyatı 2026: CEM I ve CEM II 2.500–4.500 TL/ton. Silobas ile beton santrali ve şantiyeye teslimat, 11 ilde. İşinize özel teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik silobas ile güvenli, kapalı sistem taşıma. Tozlanma ve fire minimumda." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -207,7 +207,7 @@ const MalzemeCimento = () => {
               Çimento İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, değerlendirme sonrasında size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link

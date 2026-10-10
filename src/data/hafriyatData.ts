@@ -44,7 +44,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "İstanbul Hafriyat Firması | Kazı, Moloz, 30 Dk Teklif",
     h1: "İstanbul Hafriyat Firması — Temel Kazısı, Moloz ve Hafriyat Taşıma",
     description:
-      "İstanbul'da lisanslı hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Avrupa ve Anadolu yakası, 39 ilçe. 30 dakikada net teklif.",
+      "İstanbul'da lisanslı hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Avrupa ve Anadolu yakası, 39 ilçe. İşinize özel net teklif.",
     keywords:
       "istanbul hafriyat firmaları, istanbul hafriyat firması, hafriyat firmaları istanbul, istanbul hafriyat, istanbul anadolu yakası hafriyat firmaları, istanbul avrupa yakası hafriyat firmaları, istanbul hafriyat şirketleri",
     intro: [
@@ -58,7 +58,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     faq: [
       {
         q: "İstanbul'da hafriyat fiyatları nasıl belirlenir?",
-        a: "Fiyat; kazı hacmi (m³), zemin türü, döküm sahasına uzaklık ve araç sayısına göre belirlenir. İstanbul'da döküm sahası mesafesi fiyatın en büyük kalemidir. Formu doldurun, işinize özel net fiyatı 30 dakika içinde iletelim.",
+        a: "Fiyat; kazı hacmi (m³), zemin türü, döküm sahasına uzaklık ve araç sayısına göre belirlenir. İstanbul'da döküm sahası mesafesi fiyatın en büyük kalemidir. Formu doldurun, işinize özel net fiyatı değerlendirme sonrasında iletelim.",
       },
       {
         q: "İstanbul'da hafriyat dökümü için izin gerekiyor mu?",
@@ -77,7 +77,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Kocaeli Hafriyat Firması | Gebze, İzmit Kazı & Moloz",
     h1: "Kocaeli Hafriyat Firması — Gebze, İzmit, Çayırova, Dilovası",
     description:
-      "Kocaeli'de hafriyat firması: Gebze, İzmit, Çayırova ve Dilovası OSB'lerde temel kazısı, hafriyat taşıma, moloz ve dolgu. Lisanslı araç, 30 dakikada teklif.",
+      "Kocaeli'de hafriyat firması: Gebze, İzmit, Çayırova ve Dilovası OSB'lerde temel kazısı, hafriyat taşıma, moloz ve dolgu. Lisanslı araç, işinize özel teklif.",
     keywords:
       "kocaeli hafriyat firmaları, gebze hafriyat firmaları, izmit hafriyat firmaları, gebze hafriyat şirketi, kocaeli hafriyatçılar, kocaeli kepçe kiralama",
     intro: [
@@ -96,7 +96,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "Kocaeli'de hafriyat fiyat teklifi ne kadar sürede gelir?",
-        a: "Formu doldurduktan sonra 30 dakika içinde telefonla arayıp net fiyat iletiyoruz. Büyük sahalar için ücretsiz keşif planlıyoruz.",
+        a: "Formu doldurduktan sonra değerlendirme sonrasında telefonla arayıp net fiyat iletiyoruz. Büyük sahalar için ücretsiz keşif planlıyoruz.",
       },
     ],
   },
@@ -107,7 +107,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Bursa Hafriyat Firması | Kazı, Moloz Taşıma, Dolgu",
     h1: "Bursa Hafriyat Firması — Nilüfer, Osmangazi, İnegöl",
     description:
-      "Bursa'da hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz taşıma ve stabilize dolgu. Nilüfer, Osmangazi, İnegöl, Gemlik. 30 dakikada teklif.",
+      "Bursa'da hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz taşıma ve stabilize dolgu. Nilüfer, Osmangazi, İnegöl, Gemlik. İşinize özel teklif.",
     keywords:
       "bursa hafriyat firmaları, bursa hafriyat, moloz taşıma bursa, bursa moloz taşıma fiyatları, nilüfer hafriyat, inegöl hafriyat, bursa kepçe kiralama",
     intro: [
@@ -137,7 +137,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Tekirdağ Hafriyat Firması | Çorlu, Çerkezköy Kazı",
     h1: "Tekirdağ Hafriyat Firması — Çorlu, Çerkezköy, Kapaklı",
     description:
-      "Tekirdağ'da hafriyat firması: Çorlu, Çerkezköy, Kapaklı ve Ergene sanayi bölgelerinde temel kazısı, hafriyat taşıma, dolgu. Lisanslı araç, 30 dk teklif.",
+      "Tekirdağ'da hafriyat firması: Çorlu, Çerkezköy, Kapaklı ve Ergene sanayi bölgelerinde temel kazısı, hafriyat taşıma, dolgu. Lisanslı araç, işe özel teklif.",
     keywords:
       "tekirdağ hafriyat firmaları, çorlu hafriyat firmaları, çerkezköy hafriyat firmaları, tekirdağ hafriyat döküm sahası, çorlu kepçe kiralama, çerkezköy hafriyat inşaat",
     intro: [
@@ -156,7 +156,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "Tekirdağ hafriyat fiyat teklifini nasıl alırım?",
-        a: "Sayfadaki formu doldurmanız yeterli; 30 dakika içinde arayıp Tekirdağ'a özel net fiyat veriyoruz.",
+        a: "Sayfadaki formu doldurmanız yeterli; değerlendirme sonrasında arayıp Tekirdağ'a özel net fiyat veriyoruz.",
       },
     ],
   },
@@ -167,7 +167,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Sakarya Hafriyat Firması | Adapazarı Kazı & Dolgu",
     h1: "Sakarya Hafriyat Firması — Adapazarı, Serdivan, Hendek",
     description:
-      "Sakarya'da hafriyat firması: Adapazarı, Serdivan, Hendek'te temel kazısı, hafriyat toprağı taşıma, dolgu ve kum-çakıl temini. 30 dakikada fiyat teklifi.",
+      "Sakarya'da hafriyat firması: Adapazarı, Serdivan, Hendek'te temel kazısı, hafriyat toprağı taşıma, dolgu ve kum-çakıl temini. İşinize özel fiyat teklifi.",
     keywords:
       "sakarya hafriyat firmaları, adapazarı hafriyat firmaları, sakarya hafriyat şirketleri, sakarya hafriyat döküm sahası, sakarya kepçe kiralama, sakarya hafriyat",
     intro: [
@@ -197,7 +197,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Yalova Hafriyat Firması | Villa Kazısı, Moloz, Dolgu",
     h1: "Yalova Hafriyat Firması — Çınarcık, Termal, Çiftlikköy",
     description:
-      "Yalova'da hafriyat firması: villa ve site projelerinde temel kazısı, moloz taşıma, dolgu. Dar alanlara küçük tonajlı araç. 30 dakikada fiyat teklifi.",
+      "Yalova'da hafriyat firması: villa ve site projelerinde temel kazısı, moloz taşıma, dolgu. Dar alanlara küçük tonajlı araç. İşinize özel fiyat teklifi.",
     keywords:
       "yalova hafriyat firmaları, yalova hafriyat döküm sahası, yalova kepçe kiralama, çınarcık hafriyat, yalova hafriyat",
     intro: [
@@ -216,7 +216,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "Yalova hafriyat fiyatı neye göre değişir?",
-        a: "Kazı hacmi, zemin eğimi, araç erişimi ve döküm mesafesi fiyatı belirler. Formu doldurun, Yalova'ya özel net teklifi 30 dakikada iletelim.",
+        a: "Kazı hacmi, zemin eğimi, araç erişimi ve döküm mesafesi fiyatı belirler. Formu doldurun, Yalova'ya özel net teklifi işinize özel iletelim.",
       },
     ],
   },
@@ -227,7 +227,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Balıkesir Hafriyat Firması | Bandırma, Edremit Kazı",
     h1: "Balıkesir Hafriyat Firması — Bandırma, Edremit, Ayvalık",
     description:
-      "Balıkesir'de hafriyat firması: Bandırma, Edremit, Ayvalık'ta temel kazısı, hafriyat taşıma, dolgu ve moloz. Lisanslı araç filosu, 30 dakikada teklif.",
+      "Balıkesir'de hafriyat firması: Bandırma, Edremit, Ayvalık'ta temel kazısı, hafriyat taşıma, dolgu ve moloz. Lisanslı araç filosu, işinize özel teklif.",
     keywords:
       "balıkesir hafriyat firmaları, bandırma hafriyat firmaları, bandırma hafriyat, balıkesir hafriyat, balıkesir hafriyat döküm sahası, balıkesir kepçe kiralama",
     intro: [
@@ -246,7 +246,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "Balıkesir'de fiyat teklifi için ne bilmeniz gerekiyor?",
-        a: "Konum, işin tipi ve tahmini hacim yeterli. Formu doldurduğunuzda 30 dakika içinde arayıp net fiyat veriyoruz.",
+        a: "Konum, işin tipi ve tahmini hacim yeterli. Formu doldurduğunuzda değerlendirme sonrasında arayıp net fiyat veriyoruz.",
       },
     ],
   },
@@ -257,7 +257,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Çanakkale Hafriyat Firması | Kazı, Moloz, Dolgu İşleri",
     h1: "Çanakkale Hafriyat Firması — Merkez, Biga, Gelibolu",
     description:
-      "Çanakkale'de hafriyat firması: Merkez, Biga, Gelibolu'da temel kazısı, hafriyat toprağı taşıma, moloz ve dolgu. Lisanslı araçlar, 30 dakikada teklif.",
+      "Çanakkale'de hafriyat firması: Merkez, Biga, Gelibolu'da temel kazısı, hafriyat toprağı taşıma, moloz ve dolgu. Lisanslı araçlar, işinize özel teklif.",
     keywords:
       "çanakkale hafriyat firmaları, çanakkale hafriyat, biga hafriyat, çanakkale moloz taşıma, gelibolu hafriyat",
     intro: [
@@ -276,7 +276,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "Çanakkale'de hafriyat fiyatı nasıl öğrenirim?",
-        a: "Formdan konum ve iş tipini iletin; 30 dakika içinde arayıp Çanakkale'ye özel net fiyat teklifi sunalım.",
+        a: "Formdan konum ve iş tipini iletin; değerlendirme sonrasında arayıp Çanakkale'ye özel net fiyat teklifi sunalım.",
       },
     ],
   },
@@ -287,7 +287,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Edirne Hafriyat Firması | Kazı, Moloz, Dolgu İşleri",
     h1: "Edirne Hafriyat Firması — Keşan, Uzunköprü, Merkez",
     description:
-      "Edirne'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz ve dolgu. Trakya genelinde lisanslı araçlar. 30 dakikada fiyat teklifi alın.",
+      "Edirne'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz ve dolgu. Trakya genelinde lisanslı araçlar. İşinize özel fiyat teklifi alın.",
     keywords:
       "edirne hafriyat firmaları, edirne hafriyat, edirne kepçe kiralama, kırklareli hafriyat firmaları, lüleburgaz hafriyat firmaları",
     intro: [
@@ -306,7 +306,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "Edirne hafriyat teklifi ne kadar sürede hazır olur?",
-        a: "Online formu doldurduktan sonra 30 dakika içinde telefonla net fiyat iletiyoruz; büyük işlerde ücretsiz keşif yapıyoruz.",
+        a: "Online formu doldurduktan sonra değerlendirme sonrasında telefonla net fiyat iletiyoruz; büyük işlerde ücretsiz keşif yapıyoruz.",
       },
     ],
   },
@@ -317,7 +317,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "Ankara Hafriyat Firması | Kazı, Moloz, Döküm Ücretleri",
     h1: "Ankara Hafriyat Firması — Kazı, Moloz Taşıma, Döküm",
     description:
-      "Ankara'da hafriyat firması: temel kazısı, hafriyat taşıma, moloz kaldırma. Ankara hafriyat döküm sahaları ve 2026 döküm ücretleri. 30 dakikada teklif alın.",
+      "Ankara'da hafriyat firması: temel kazısı, hafriyat taşıma, moloz kaldırma. Ankara hafriyat döküm sahaları ve 2026 döküm ücretleri. İşinize özel teklif alın.",
     keywords:
       "ankara hafriyat firmaları, hafriyat firmaları ankara, ankara hafriyat fiyatları, ankara hafriyat döküm sahaları, ankara moloz taşıma, ankara kepçe kiralama",
     intro: [
@@ -336,7 +336,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "Ankara hafriyat m³ fiyatını nasıl öğrenebilirim?",
-        a: "Formdan konumu, iş tipini ve tahmini hacmi iletin; zemin durumuna göre net birim fiyatı 30 dakika içinde telefonla bildirelim.",
+        a: "Formdan konumu, iş tipini ve tahmini hacmi iletin; zemin durumuna göre net birim fiyatı değerlendirme sonrasında telefonla bildirelim.",
       },
     ],
   },
@@ -347,7 +347,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
     title: "İzmir Hafriyat Firması | Kazı, Moloz, Hafriyat Taşıma",
     h1: "İzmir Hafriyat Firması — Kazı, Moloz ve Hafriyat Taşıma",
     description:
-      "İzmir'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu. Bornova, Torbalı, Menemen, Aliağa. 30 dakikada net fiyat teklifi.",
+      "İzmir'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu. Bornova, Torbalı, Menemen, Aliağa. İşinize özel net fiyat teklifi.",
     keywords:
       "izmir hafriyat firmaları, izmir hafriyat firması, hafriyat firmaları izmir, izmir hafriyat şirketleri, izmir hafriyat fiyatları, izmir moloz taşıma, izmir kepçe kiralama",
     intro: [
@@ -366,7 +366,7 @@ export const HAFRIYAT_ILLER: HafriyatLokasyon[] = [
       },
       {
         q: "İzmir hafriyat fiyat teklifini nasıl alırım?",
-        a: "Sayfadaki formu doldurun; işinize özel net fiyatı 30 dakika içinde telefonla iletelim. Büyük sahalarda ücretsiz keşif yapıyoruz.",
+        a: "Sayfadaki formu doldurun; işinize özel net fiyatı değerlendirme sonrasında telefonla iletelim. Büyük sahalarda ücretsiz keşif yapıyoruz.",
       },
     ],
   },
@@ -381,7 +381,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Esenyurt Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Esenyurt Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Esenyurt'ta hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Mahalle bazlı hızlı sevkiyat, lisanslı araç. 30 dakikada net teklif.",
+      "Esenyurt'ta hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Mahalle bazlı hızlı sevkiyat, lisanslı araç. İşinize özel net teklif.",
     keywords:
       "esenyurt hafriyat firmaları, esenyurt hafriyat, esenyurt kepçe kiralama, esenyurt hafriyat firması, esenyurt moloz taşıma",
     intro: [
@@ -408,7 +408,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Başakşehir Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Başakşehir Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Başakşehir'de hafriyat firması: temel kazısı, hafriyat taşıma, moloz kaldırma. Kayaşehir ve Bahçeşehir'e hızlı sevkiyat, lisanslı araç. 30 dakikada teklif.",
+      "Başakşehir'de hafriyat firması: temel kazısı, hafriyat taşıma, moloz kaldırma. Kayaşehir ve Bahçeşehir'e hızlı sevkiyat, lisanslı araç. İşinize özel teklif.",
     keywords:
       "başakşehir hafriyat firmaları, başakşehir hafriyat, başakşehir kepçe kiralama, bahçeşehir hafriyat, başakşehir hafriyat firması, başakşehir moloz taşıma",
     intro: [
@@ -435,7 +435,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Arnavutköy Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Arnavutköy Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Arnavutköy ve Hadımköy'de hafriyat firması: temel kazısı, hafriyat taşıma, moloz. Döküm sahalarına en yakın filo, lisanslı araç. 30 dakikada net teklif.",
+      "Arnavutköy ve Hadımköy'de hafriyat firması: temel kazısı, hafriyat taşıma, moloz. Döküm sahalarına en yakın filo, lisanslı araç. İşinize özel net teklif.",
     keywords:
       "arnavutköy hafriyat firmaları, arnavutköy hafriyat, hadımköy hafriyat firmaları, hadımköy hafriyat, arnavutköy hafriyat döküm sahası, arnavutköy hafriyat firması, arnavutköy moloz taşıma",
     intro: [
@@ -462,7 +462,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Tuzla Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Tuzla Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Tuzla'da hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Orhanlı ve OSB bölgesine hızlı sevkiyat, lisanslı araç. 30 dk teklif.",
+      "Tuzla'da hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Orhanlı ve OSB bölgesine hızlı sevkiyat, lisanslı araç. İşe özel teklif.",
     keywords:
       "tuzla hafriyat firmaları, tuzla hafriyat, tuzla hafriyat döküm sahası, tuzla kepçe kiralama, orhanlı hafriyat, tuzla hafriyat firması, tuzla moloz taşıma",
     intro: [
@@ -489,7 +489,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Pendik Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Pendik Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Pendik ve Kurtköy'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Mahalle bazlı hızlı sevkiyat, lisanslı araç. 30 dk teklif.",
+      "Pendik ve Kurtköy'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Mahalle bazlı hızlı sevkiyat, lisanslı araç. İşe özel teklif.",
     keywords:
       "pendik hafriyat firmaları, pendik hafriyat, kurtköy hafriyat firmaları, kurtköy hafriyat, pendik moloz taşıma, pendik hafriyat firması, pendik moloz taşıma",
     intro: [
@@ -504,7 +504,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
       },
       {
         q: "Kurtköy'de hafriyat fiyatı ne kadar?",
-        a: "Hacim, zemin ve döküm mesafesine göre değişir. Formdan bilgileri iletin; Kurtköy'e özel net fiyatı 30 dakikada bildirelim.",
+        a: "Hacim, zemin ve döküm mesafesine göre değişir. Formdan bilgileri iletin; Kurtköy'e özel net fiyatı işinize özel bildirelim.",
       },
     ],
   },
@@ -516,7 +516,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Sancaktepe Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Sancaktepe Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Sancaktepe'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Mahalle bazlı hızlı sevkiyat, lisanslı araç. 30 dakikada teklif.",
+      "Sancaktepe'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Mahalle bazlı hızlı sevkiyat, lisanslı araç. İşinize özel teklif.",
     keywords:
       "sancaktepe hafriyat firmaları, sancaktepe hafriyat, sancaktepe hafriyat firması, sancaktepe moloz taşıma",
     intro: [
@@ -531,7 +531,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
       },
       {
         q: "Sancaktepe'de hafriyat teklifi nasıl alırım?",
-        a: "Sayfadaki formu doldurmanız yeterli; 30 dakika içinde arayıp net fiyat iletiyoruz.",
+        a: "Sayfadaki formu doldurmanız yeterli; değerlendirme sonrasında arayıp net fiyat iletiyoruz.",
       },
     ],
   },
@@ -544,7 +544,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Beylikdüzü Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Beylikdüzü Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Beylikdüzü'nde hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Gürpınar dahil hızlı sevkiyat, lisanslı araç. 30 dakikada teklif.",
+      "Beylikdüzü'nde hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Gürpınar dahil hızlı sevkiyat, lisanslı araç. İşinize özel teklif.",
     keywords:
       "beylikdüzü hafriyat firmaları, beylikdüzü hafriyat, beylikdüzü kepçe kiralama, gürpınar hafriyat, beylikdüzü hafriyat firması, beylikdüzü moloz taşıma",
     intro: [
@@ -571,7 +571,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Ümraniye Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Ümraniye Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Ümraniye'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Dudullu dahil hızlı sevkiyat, lisanslı araç. 30 dakikada net teklif.",
+      "Ümraniye'de hafriyat firması: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma. Dudullu dahil hızlı sevkiyat, lisanslı araç. İşinize özel net teklif.",
     keywords:
       "ümraniye hafriyat firmaları, ümraniye hafriyat, ümraniye belediye moloz taşıma fiyatları, dudullu hafriyat, ümraniye hafriyat firması, ümraniye moloz taşıma",
     intro: [
@@ -598,7 +598,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Kartal Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Kartal Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Kartal'da hafriyat firması: kentsel dönüşüm yıkımlarında temel kazısı, moloz kaldırma, hafriyat taşıma. Lisanslı araç, aynı gün servis, 30 dk teklif.",
+      "Kartal'da hafriyat firması: kentsel dönüşüm yıkımlarında temel kazısı, moloz kaldırma, hafriyat taşıma. Lisanslı araç, aynı gün servis, işe özel teklif.",
     keywords:
       "kartal hafriyat firmaları, kartal hafriyat, kartal moloz taşıma, kartal temel kazısı, yakacık hafriyat, soğanlık hafriyat, kartal hafriyat firması",
     intro: [
@@ -625,7 +625,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Maltepe Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Maltepe Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Maltepe'de hafriyat firması: temel kazısı, moloz kaldırma, hafriyat toprağı taşıma. Başıbüyük ve Gülsuyu'nda eğimli arazi kazısı. 30 dakikada teklif.",
+      "Maltepe'de hafriyat firması: temel kazısı, moloz kaldırma, hafriyat toprağı taşıma. Başıbüyük ve Gülsuyu'nda eğimli arazi kazısı. İşinize özel teklif.",
     keywords:
       "maltepe hafriyat firmaları, maltepe hafriyat, maltepe moloz taşıma, maltepe temel kazısı, başıbüyük hafriyat, küçükyalı hafriyat, maltepe hafriyat firması",
     intro: [
@@ -652,7 +652,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Ataşehir Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Ataşehir Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Ataşehir'de hafriyat firması: ofis ve rezidans projelerinde derin bodrum kazısı, moloz kaldırma, hafriyat taşıma. Gece sevkiyatı, 30 dakikada teklif.",
+      "Ataşehir'de hafriyat firması: ofis ve rezidans projelerinde derin bodrum kazısı, moloz kaldırma, hafriyat taşıma. Gece sevkiyatı, işinize özel teklif.",
     keywords:
       "ataşehir hafriyat firmaları, ataşehir hafriyat, ataşehir moloz taşıma, ataşehir temel kazısı, küçükbakkalköy hafriyat, içerenköy hafriyat, ataşehir hafriyat firması",
     intro: [
@@ -679,7 +679,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Avcılar Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Avcılar Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Avcılar'da hafriyat firması: dönüşüm projelerinde temel kazısı, zemin iyileştirme kazısı, moloz kaldırma ve hafriyat taşıma. 30 dakikada fiyat teklifi.",
+      "Avcılar'da hafriyat firması: dönüşüm projelerinde temel kazısı, zemin iyileştirme kazısı, moloz kaldırma ve hafriyat taşıma. İşinize özel fiyat teklifi.",
     keywords:
       "avcılar hafriyat firmaları, avcılar hafriyat, avcılar moloz taşıma, avcılar temel kazısı, ambarlı hafriyat, firuzköy hafriyat, avcılar hafriyat firması",
     intro: [
@@ -706,7 +706,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Küçükçekmece Hafriyat Firması | Kazı, Moloz, Teklif",
     h1: "Küçükçekmece Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Küçükçekmece'de hafriyat firması: Halkalı, Sefaköy ve İkitelli'de temel kazısı, moloz kaldırma, hafriyat taşıma. Lisanslı araç, 30 dakikada teklif.",
+      "Küçükçekmece'de hafriyat firması: Halkalı, Sefaköy ve İkitelli'de temel kazısı, moloz kaldırma, hafriyat taşıma. Lisanslı araç, işinize özel teklif.",
     keywords:
       "küçükçekmece hafriyat firmaları, küçükçekmece hafriyat, küçükçekmece moloz taşıma, halkalı hafriyat, sefaköy hafriyat, ikitelli hafriyat, küçükçekmece temel kazısı",
     intro: [
@@ -733,7 +733,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Silivri Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Silivri Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Silivri'de hafriyat firması: villa, site ve depo projelerinde temel kazısı, dolgu, moloz taşıma. Döküm sahalarına yakınlık avantajı, 30 dk teklif.",
+      "Silivri'de hafriyat firması: villa, site ve depo projelerinde temel kazısı, dolgu, moloz taşıma. Döküm sahalarına yakınlık avantajı, işe özel teklif.",
     keywords:
       "silivri hafriyat firmaları, silivri hafriyat, silivri moloz taşıma, silivri temel kazısı, selimpaşa hafriyat, silivri hafriyat döküm sahası, silivri hafriyat firması",
     intro: [
@@ -760,7 +760,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Çatalca Hafriyat Firması | Kazı, Dolgu, Tesviye İşleri",
     h1: "Çatalca Hafriyat Firması — Kazı, Dolgu ve Arazi Tesviyesi",
     description:
-      "Çatalca'da hafriyat firması: arazi tesviyesi, temel kazısı, dolgu malzemesi ve hafriyat taşıma. Geniş arazi projelerinde çok araçlı sevkiyat, 30 dk teklif.",
+      "Çatalca'da hafriyat firması: arazi tesviyesi, temel kazısı, dolgu malzemesi ve hafriyat taşıma. Geniş arazi projelerinde çok araçlı sevkiyat, işe özel teklif.",
     keywords:
       "çatalca hafriyat firmaları, çatalca hafriyat, çatalca kazı, çatalca dolgu, çatalca arazi tesviye, çatalca hafriyat döküm sahası, çatalca hafriyat firması",
     intro: [
@@ -787,7 +787,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Büyükçekmece Hafriyat Firması | Kazı, Moloz, Teklif",
     h1: "Büyükçekmece Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Büyükçekmece'de hafriyat firması: villa ve site projelerinde temel kazısı, moloz kaldırma, dolgu ve hafriyat taşıma. Lisanslı araç, 30 dakikada teklif.",
+      "Büyükçekmece'de hafriyat firması: villa ve site projelerinde temel kazısı, moloz kaldırma, dolgu ve hafriyat taşıma. Lisanslı araç, işinize özel teklif.",
     keywords:
       "büyükçekmece hafriyat firmaları, büyükçekmece hafriyat, büyükçekmece moloz taşıma, mimarsinan hafriyat, kumburgaz hafriyat, büyükçekmece temel kazısı",
     intro: [
@@ -814,7 +814,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Eyüpsultan Hafriyat Firması | Kazı, Moloz, Teklif",
     h1: "Eyüpsultan Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Eyüpsultan'da hafriyat firması: temel kazısı, moloz kaldırma, hafriyat taşıma. Odayeri döküm sahasına yakınlık avantajı. 30 dakikada net teklif.",
+      "Eyüpsultan'da hafriyat firması: temel kazısı, moloz kaldırma, hafriyat taşıma. Odayeri döküm sahasına yakınlık avantajı. İşinize özel net teklif.",
     keywords:
       "eyüpsultan hafriyat, eyüpsultan hafriyat firmaları, alibeyköy hafriyat, göktürk hafriyat, kemerburgaz hafriyat, eyüpsultan moloz taşıma",
     intro: [
@@ -841,7 +841,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Sultanbeyli Hafriyat Firması | Kazı, Moloz, Teklif",
     h1: "Sultanbeyli Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Sultanbeyli'de hafriyat firması: kentsel dönüşüm projelerinde temel kazısı, yıkım molozu kaldırma ve hafriyat taşıma. 30 dakikada net fiyat teklifi.",
+      "Sultanbeyli'de hafriyat firması: kentsel dönüşüm projelerinde temel kazısı, yıkım molozu kaldırma ve hafriyat taşıma. İşinize özel net fiyat teklifi.",
     keywords:
       "sultanbeyli hafriyat, sultanbeyli hafriyat firmaları, sultanbeyli moloz taşıma, sultanbeyli temel kazısı, sultanbeyli hafriyat firması",
     intro: [
@@ -868,7 +868,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Çekmeköy Hafriyat Firması | Kazı, Moloz, Teklif",
     h1: "Çekmeköy Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Çekmeköy'de hafriyat firması: villa ve site projelerinde temel kazısı, moloz kaldırma, dolgu. Ömerli çevresine yakın filo, 30 dakikada teklif.",
+      "Çekmeköy'de hafriyat firması: villa ve site projelerinde temel kazısı, moloz kaldırma, dolgu. Ömerli çevresine yakın filo, işinize özel teklif.",
     keywords:
       "çekmeköy hafriyat, çekmeköy hafriyat firmaları, alemdağ hafriyat, taşdelen hafriyat, ömerli hafriyat, çekmeköy moloz taşıma",
     intro: [
@@ -895,7 +895,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Beykoz Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Beykoz Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Beykoz'da hafriyat firması: yamaç arazide temel kazısı, moloz kaldırma, hafriyat taşıma. Dar yollara küçük tonajlı araç. 30 dakikada teklif.",
+      "Beykoz'da hafriyat firması: yamaç arazide temel kazısı, moloz kaldırma, hafriyat taşıma. Dar yollara küçük tonajlı araç. İşinize özel teklif.",
     keywords:
       "beykoz hafriyat, beykoz hafriyat firmaları, kavacık hafriyat, paşabahçe hafriyat, beykoz moloz taşıma, beykoz temel kazısı",
     intro: [
@@ -922,7 +922,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Sarıyer Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Sarıyer Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Sarıyer'de hafriyat firması: villa ve site projelerinde temel kazısı, moloz kaldırma, istinatlı yamaç kazısı. 30 dakikada net fiyat teklifi.",
+      "Sarıyer'de hafriyat firması: villa ve site projelerinde temel kazısı, moloz kaldırma, istinatlı yamaç kazısı. İşinize özel net fiyat teklifi.",
     keywords:
       "sarıyer hafriyat, sarıyer hafriyat firmaları, zekeriyaköy hafriyat, istinye hafriyat, sarıyer moloz taşıma, sarıyer temel kazısı",
     intro: [
@@ -949,7 +949,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Sultangazi Hafriyat Firması | Kazı, Moloz, Teklif",
     h1: "Sultangazi Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Sultangazi'de hafriyat firması: kentsel dönüşümde temel kazısı, yıkım molozu kaldırma, hafriyat taşıma. Cebeci sanayi bölgesi. 30 dk teklif.",
+      "Sultangazi'de hafriyat firması: kentsel dönüşümde temel kazısı, yıkım molozu kaldırma, hafriyat taşıma. Cebeci sanayi bölgesi. İşe özel teklif.",
     keywords:
       "sultangazi hafriyat, sultangazi hafriyat firmaları, cebeci hafriyat, habibler hafriyat, sultangazi moloz taşıma, sultangazi temel kazısı",
     intro: [
@@ -976,7 +976,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Bağcılar Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Bağcılar Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Bağcılar'da hafriyat firması: dar sokaklarda temel kazısı, tadilat ve yıkım molozu kaldırma, hafriyat taşıma. 30 dakikada net fiyat teklifi.",
+      "Bağcılar'da hafriyat firması: dar sokaklarda temel kazısı, tadilat ve yıkım molozu kaldırma, hafriyat taşıma. İşinize özel net fiyat teklifi.",
     keywords:
       "bağcılar hafriyat, bağcılar hafriyat firmaları, güneşli hafriyat, mahmutbey hafriyat, bağcılar moloz taşıma, bağcılar temel kazısı",
     intro: [
@@ -1003,7 +1003,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Kağıthane Hafriyat Firması | Kazı, Moloz, Teklif",
     h1: "Kağıthane Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Kağıthane'de hafriyat firması: ofis ve dönüşüm projelerinde bodrum kazısı, moloz kaldırma, hafriyat taşıma. Gece sevkiyatı, 30 dk teklif.",
+      "Kağıthane'de hafriyat firması: ofis ve dönüşüm projelerinde bodrum kazısı, moloz kaldırma, hafriyat taşıma. Gece sevkiyatı, işe özel teklif.",
     keywords:
       "kağıthane hafriyat, kağıthane hafriyat firmaları, seyrantepe hafriyat, çağlayan hafriyat, kağıthane moloz taşıma, kağıthane temel kazısı",
     intro: [
@@ -1030,7 +1030,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Kadıköy Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
     h1: "Kadıköy Hafriyat ve Moloz Taşıma",
     description:
-      "Kadıköy'de hafriyat ve moloz taşıma: tadilat molozu, temel kazısı, hafriyat nakli. Fikirtepe dönüşüm bölgesi. Aynı gün servis, 30 dk teklif.",
+      "Kadıköy'de hafriyat ve moloz taşıma: tadilat molozu, temel kazısı, hafriyat nakli. Fikirtepe dönüşüm bölgesi. Aynı gün servis, işe özel teklif.",
     keywords:
       "kadıköy hafriyat, kadıköy hafriyat firmaları, kadıköy moloz taşıma, fikirtepe hafriyat, kadıköy tadilat molozu, kadıköy temel kazısı",
     intro: [
@@ -1057,7 +1057,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Üsküdar Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
     h1: "Üsküdar Hafriyat ve Moloz Taşıma",
     description:
-      "Üsküdar'da hafriyat ve moloz taşıma: tadilat molozu, temel kazısı, hafriyat nakli. Dar sokaklara küçük tonajlı araç. 30 dakikada teklif.",
+      "Üsküdar'da hafriyat ve moloz taşıma: tadilat molozu, temel kazısı, hafriyat nakli. Dar sokaklara küçük tonajlı araç. İşinize özel teklif.",
     keywords:
       "üsküdar hafriyat, üsküdar hafriyat firmaları, üsküdar moloz taşıma, kısıklı hafriyat, altunizade hafriyat, üsküdar tadilat molozu",
     intro: [
@@ -1084,7 +1084,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Şişli Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
     h1: "Şişli Hafriyat ve Moloz Taşıma",
     description:
-      "Şişli'de hafriyat ve moloz taşıma: ofis tadilat molozu, bodrum kazısı, hafriyat nakli. Gece sevkiyatı ile trafiksiz tahliye. 30 dk teklif.",
+      "Şişli'de hafriyat ve moloz taşıma: ofis tadilat molozu, bodrum kazısı, hafriyat nakli. Gece sevkiyatı ile trafiksiz tahliye. İşe özel teklif.",
     keywords:
       "şişli hafriyat, şişli hafriyat firmaları, şişli moloz taşıma, mecidiyeköy hafriyat, bomonti hafriyat, şişli tadilat molozu",
     intro: [
@@ -1111,7 +1111,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Beşiktaş Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
     h1: "Beşiktaş Hafriyat ve Moloz Taşıma",
     description:
-      "Beşiktaş'ta hafriyat ve moloz taşıma: daire ve ofis tadilat molozu, bodrum kazısı. Etiler, Levent, Ortaköy. Dar sokağa uygun araç, 30 dk teklif.",
+      "Beşiktaş'ta hafriyat ve moloz taşıma: daire ve ofis tadilat molozu, bodrum kazısı. Etiler, Levent, Ortaköy. Dar sokağa uygun araç, işe özel teklif.",
     keywords:
       "beşiktaş hafriyat, beşiktaş hafriyat firmaları, beşiktaş moloz taşıma, etiler hafriyat, levent hafriyat, beşiktaş tadilat molozu",
     intro: [
@@ -1138,7 +1138,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Zeytinburnu Hafriyat Firması | Moloz Taşıma, Teklif",
     h1: "Zeytinburnu Hafriyat ve Moloz Taşıma",
     description:
-      "Zeytinburnu'nda hafriyat ve moloz taşıma: dönüşüm projelerinde yıkım molozu, temel kazısı, hafriyat nakli. Lisanslı araç, 30 dakikada teklif.",
+      "Zeytinburnu'nda hafriyat ve moloz taşıma: dönüşüm projelerinde yıkım molozu, temel kazısı, hafriyat nakli. Lisanslı araç, işinize özel teklif.",
     keywords:
       "zeytinburnu hafriyat, zeytinburnu hafriyat firmaları, zeytinburnu moloz taşıma, kazlıçeşme hafriyat, zeytinburnu temel kazısı",
     intro: [
@@ -1165,7 +1165,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Bayrampaşa Hafriyat Firması | Moloz Taşıma, Teklif",
     h1: "Bayrampaşa Hafriyat ve Moloz Taşıma",
     description:
-      "Bayrampaşa'da hafriyat ve moloz taşıma: depo ve iş hanı söküm atığı, temel kazısı, yıkım molozu. E-5 aksına yakın filo, 30 dakikada teklif.",
+      "Bayrampaşa'da hafriyat ve moloz taşıma: depo ve iş hanı söküm atığı, temel kazısı, yıkım molozu. E-5 aksına yakın filo, işinize özel teklif.",
     keywords:
       "bayrampaşa hafriyat, bayrampaşa hafriyat firmaları, bayrampaşa moloz taşıma, bayrampaşa temel kazısı, bayrampaşa yıkım molozu",
     intro: [
@@ -1192,7 +1192,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Gaziosmanpaşa Hafriyat Firması | Moloz Taşıma, Teklif",
     h1: "Gaziosmanpaşa Hafriyat ve Moloz Taşıma",
     description:
-      "Gaziosmanpaşa'da hafriyat: kentsel dönüşümde yıkım molozu, temel kazısı, hafriyat nakli. Dar sokaklara uygun araç, 30 dakikada net teklif.",
+      "Gaziosmanpaşa'da hafriyat: kentsel dönüşümde yıkım molozu, temel kazısı, hafriyat nakli. Dar sokaklara uygun araç, işinize özel net teklif.",
     keywords:
       "gaziosmanpaşa hafriyat, gaziosmanpaşa hafriyat firmaları, gaziosmanpaşa moloz taşıma, gop hafriyat, gaziosmanpaşa temel kazısı",
     intro: [
@@ -1219,7 +1219,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Esenler Hafriyat Firması | Moloz Taşıma, Kazı, Teklif",
     h1: "Esenler Hafriyat ve Moloz Taşıma",
     description:
-      "Esenler'de hafriyat ve moloz taşıma: dönüşüm projelerinde yıkım molozu, temel kazısı, hafriyat nakli. Lisanslı araç, 30 dakikada teklif.",
+      "Esenler'de hafriyat ve moloz taşıma: dönüşüm projelerinde yıkım molozu, temel kazısı, hafriyat nakli. Lisanslı araç, işinize özel teklif.",
     keywords:
       "esenler hafriyat, esenler hafriyat firmaları, esenler moloz taşıma, atışalanı hafriyat, esenler temel kazısı, esenler yıkım molozu",
     intro: [
@@ -1246,7 +1246,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Bahçelievler Hafriyat Firması | Moloz Taşıma, Teklif",
     h1: "Bahçelievler Hafriyat ve Moloz Taşıma",
     description:
-      "Bahçelievler'de hafriyat ve moloz taşıma: daire tadilat molozu, dönüşüm kazıları, hafriyat nakli. Dar sokaklara uygun araç, 30 dk teklif.",
+      "Bahçelievler'de hafriyat ve moloz taşıma: daire tadilat molozu, dönüşüm kazıları, hafriyat nakli. Dar sokaklara uygun araç, işe özel teklif.",
     keywords:
       "bahçelievler hafriyat, bahçelievler hafriyat firmaları, bahçelievler moloz taşıma, şirinevler hafriyat, bahçelievler temel kazısı",
     intro: [
@@ -1273,7 +1273,7 @@ export const HAFRIYAT_ILCELER: HafriyatLokasyon[] = [
     title: "Şile Hafriyat Firması | Kazı, Moloz Taşıma, Teklif",
     h1: "Şile Hafriyat Firması — Temel Kazısı ve Moloz Taşıma",
     description:
-      "Şile'de hafriyat firması: villa ve yazlık projelerinde temel kazısı, moloz taşıma, dolgu. Kömürcüoda tesisine yakınlık avantajı, 30 dk teklif.",
+      "Şile'de hafriyat firması: villa ve yazlık projelerinde temel kazısı, moloz taşıma, dolgu. Kömürcüoda tesisine yakınlık avantajı, işe özel teklif.",
     keywords:
       "şile hafriyat, şile hafriyat firmaları, şile moloz taşıma, ağva hafriyat, şile hafriyat döküm sahası, şile temel kazısı",
     intro: [

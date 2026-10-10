@@ -14,10 +14,10 @@ import HeroGorsel from "@/components/HeroGorsel";
 const fiyat = getFiyatBySlug("kum")!;
 const canonical = "https://hammaddem.co/malzeme/kum";
 const title = "İnşaat Kumu Fiyatları 2026 | Ton Fiyatı 250–600 TL";
-const description = "İnşaat kumu ton fiyatı 250–600 TL (2026). Dere kumu, kırma ve yıkanmış kum; 1 kamyon kum fiyatı ve 11 ilde teslimat. 30 dakikada teklif.";
+const description = "İnşaat kumu ton fiyatı 250–600 TL (2026). Dere kumu, kırma ve yıkanmış kum; 1 kamyon kum fiyatı ve 11 ilde teslimat. İşinize özel teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Damperli araçlarla güvenli teslimat. Saha koşullarına uygun araç seçimi." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -123,7 +123,7 @@ const MalzemeKum = () => {
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
               <p>İnşaat kumu, beton ve harç üretiminin temel agrega malzemelerinden biridir. Granülometri ve yıkama durumuna göre dere kumu, kırma kum ve yıkanmış kum olarak sınıflandırılır. Beton üretiminde kullanılan kumun kil ve tuz oranının standartlara uygun olması, yapı dayanıklılığı için kritiktir.</p>
               <p>Hammaddem ile inşaat kumu tedariğini tek platformdan yönetebilirsiniz. Ton bazında kum fiyatları talep edebilir, 11 ilde güvenilir ve hızlı teslimat alabilirsiniz. Beton santralleri, inşaat şantiyeleri ve prefabrik tesisler için düzenli kum tedariki sağlıyoruz.</p>
-              <p>Online talep formundan kum türünü, miktarını ve teslimat adresinizi belirterek 30 dakika içinde size özel fiyat teklifi alın.</p>
+              <p>Online talep formundan kum türünü, miktarını ve teslimat adresinizi belirterek değerlendirme sonrasında size özel fiyat teklifi alın.</p>
             </div>
           </div>
         </section>
@@ -206,7 +206,7 @@ const MalzemeKum = () => {
               İnşaat Kumu İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, değerlendirme sonrasında size özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link

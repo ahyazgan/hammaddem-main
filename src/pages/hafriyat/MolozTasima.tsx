@@ -261,7 +261,7 @@ const MolozTasima = () => {
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
               Konum ve tahmini miktarı iletin; uygun araç tipini ve döküm dahil net fiyatı
-              30 dakika içinde telefonla verelim.
+              değerlendirme sonrasında telefonla verelim.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <a href="#teklif" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all">

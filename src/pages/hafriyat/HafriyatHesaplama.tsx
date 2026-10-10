@@ -18,7 +18,7 @@ import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hafriyat/hesaplama";
 const title = "Hafriyat Hesaplama | m³, Kamyon Sayısı ve Maliyet Aracı";
 const description =
-  "Hafriyat hesaplama aracı: alan × derinlik ile kazı hacmi (m³), kabarma katsayısı, kaç kamyon gerekir ve 2026 tahmini maliyet. 30 dakikada net teklif.";
+  "Hafriyat hesaplama aracı: alan × derinlik ile kazı hacmi (m³), kabarma katsayısı, kaç kamyon gerekir ve 2026 tahmini maliyet. İşinize özel net teklif.";
 
 const tl = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const say = (n: number) => (Math.round(n * 10) / 10).toString().replace(".", ",");
@@ -326,7 +326,7 @@ const HafriyatHesaplama = () => {
               </h2>
               <p className="text-sm text-txt-2 leading-[1.7] mb-4 max-w-[460px]">
                 Hesapladığınız <strong className="font-mono">{say(yerinde)} m³</strong> için işinize özel,
-                döküm dahil net fiyatı 30 dakika içinde telefonla iletelim. Kayıt gerekmez.
+                döküm dahil net fiyatı değerlendirme sonrasında telefonla iletelim. Kayıt gerekmez.
               </p>
               <a href="tel:+905393308617" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-foreground bg-transparent border-[1.5px] border-border2 no-underline hover:border-navy hover:text-navy transition-all">
                 <Phone className="w-4 h-4" /> 0539 330 86 17

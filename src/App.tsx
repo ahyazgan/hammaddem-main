@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { Analytics } from "@vercel/analytics/react";
+import SiteAnalytics from "@/components/SiteAnalytics";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -82,7 +82,6 @@ const PageLoader = () => (
 
 const queryClient = new QueryClient();
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -90,35 +89,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-const GoogleAnalytics = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    if (!GA_MEASUREMENT_ID) return;
-
-    const existingScript = document.querySelector(`script[src*="googletagmanager.com/gtag"]`);
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-      script.async = true;
-      document.head.appendChild(script);
-
-      window.gtag = function () {
-        // eslint-disable-next-line prefer-rest-params
-        (window.dataLayer = window.dataLayer || []).push(arguments);
-      };
-      window.gtag("js", new Date());
-      window.gtag("config", GA_MEASUREMENT_ID);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!GA_MEASUREMENT_ID || !window.gtag) return;
-    window.gtag("config", GA_MEASUREMENT_ID, { page_path: pathname });
-  }, [pathname]);
-
-  return null;
-};
 
 // Router hariç tüm uygulama ağacı — prerender (SSR) girişi de bunu kullanır.
 export const AppRoutes = () => (
@@ -127,7 +97,7 @@ export const AppRoutes = () => (
       <Toaster />
       <Sonner />
       <ScrollToTop />
-      <GoogleAnalytics />
+
       <AuthProvider>
         <Suspense fallback={<PageLoader />}>
           <Routes>
@@ -203,15 +173,13 @@ export const AppRoutes = () => (
   </ErrorBoundary>
 );
 
-// Analytics yalnızca burada: entry-server.tsx AppRoutes'u doğrudan render ettiği
-// için prerender çıktısına script sızmaz, script sadece tarayıcıda yüklenir.
-// (Vercel Analytics çerezsiz çalışır, KVKK açısından onay gerektirmez.)
+// Analytics is mounted only in the browser entry.
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <AppRoutes />
-        <Analytics />
+        <SiteAnalytics />
       </BrowserRouter>
     </QueryClientProvider>
   </HelmetProvider>

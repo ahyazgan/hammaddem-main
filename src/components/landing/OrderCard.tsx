@@ -1,3 +1,4 @@
+import { useQuoteAnalytics } from "@/hooks/use-quote-analytics";
 import { useEffect, useId, useRef, useState } from "react";
 import { Package, Info, Smartphone, Clock3, Check, AlertCircle } from "lucide-react";
 import { BulkTruckIcon } from "@/components/brand/BrandIcon";
@@ -47,6 +48,7 @@ const OrderCard = () => {
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [talepNo, setTalepNo] = useState("");
+  const analytics = useQuoteAnalytics("order", step);
 
   useEffect(() => {
     if (previousStep.current !== step) card.current?.scrollIntoView?.({ block: "start", behavior: "smooth" });
@@ -74,6 +76,7 @@ const OrderCard = () => {
     if (!validateStep2()) { setStep(2); return; }
     submitting.current = true;
     setLoading(true);
+    analytics.submit();
     try {
       const receipt = await submitGuestRequest({
         kategori: yukTipi,
@@ -89,11 +92,13 @@ const OrderCard = () => {
         not_text: not_,
         telefon: cleanPhone(telefon),
       });
+      analytics.success();
       setTalepNo(receipt);
       setShowSuccess(true);
       setStep(4);
       toast({ title: "Talep alındı!", description: `${receipt} numaralı talebiniz kaydedildi.` });
     } catch (err) {
+      analytics.error();
       const mesaj = err instanceof Error && err.message ? err.message : "Talep gönderilemedi.";
       toast({ title: "Hata", description: mesaj, variant: "destructive" });
     } finally {
@@ -103,6 +108,7 @@ const OrderCard = () => {
   };
 
   const resetForm = () => {
+    analytics.reset();
     setStep(1);
     setHizmetTipi("satin_alma");
     setYukTipi("");
@@ -129,7 +135,7 @@ const OrderCard = () => {
     : "bg-border";
 
   return (
-    <div ref={card} id="siparis-formu" className="scroll-mt-24 w-full max-w-[760px] bg-background border border-border rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-elevated overflow-hidden animate-fade-up" style={{ animationDelay: '.18s' }}>
+    <div onClickCapture={analytics.start} onChangeCapture={analytics.start} ref={card} id="siparis-formu" className="scroll-mt-24 w-full max-w-[760px] bg-background border border-border rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-elevated overflow-hidden animate-fade-up" style={{ animationDelay: '.18s' }}>
       {/* Top color bar */}
       <div className={`h-1 w-full transition-colors duration-400 ${topbarColor}`} />
 
@@ -525,7 +531,7 @@ const OrderCard = () => {
               colorClass === "orange" ? "bg-accent-light border border-accent-border" : "bg-navy-light border border-navy-border"
             }`}>
               <Clock3 size={18} className="shrink-0 text-primary" aria-hidden="true" />
-              Talebiniz iletildikten sonra 30 dakika içinde net fiyat teklifiniz hazırlanır ve sizi telefonla arayacağız.
+              Talebiniz kaydedildikten sonra ekibimiz malzeme, adres ve miktar bilgilerini değerlendirerek sizinle iletişime geçer.
             </div>
 
             <div className="flex gap-2.5">
@@ -555,8 +561,8 @@ const OrderCard = () => {
             </div>
             <h3 className="text-lg md:text-xl font-bold tracking-tight mb-2">Talebiniz Alındı!</h3>
             <p className="text-[12px] md:text-[13px] text-txt-2 mb-4 md:mb-[18px] leading-relaxed">
-              Ekibimiz en kısa sürede sizi arayacak ve<br />
-              30 dakika içinde net fiyat teklifinizi sunacaktır.
+              Ekibimiz talep detaylarını değerlendirecek ve<br />
+              işinize özel fiyat teklifi için sizinle iletişime geçecektir.
             </p>
 
             <div className="bg-off border border-border rounded-[10px] px-3 md:px-4 py-3 flex justify-between items-center mb-3.5">

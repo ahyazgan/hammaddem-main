@@ -14,7 +14,7 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone, Shovel, Building2
 const canonical = "https://hammaddem.co/hafriyat";
 const title = "Hafriyat Firması | Kazı, Moloz, Taşıma – 30 Dk Teklif";
 const description =
-  "Hafriyat firması arıyorsanız: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu. Marmara'da 11 il, lisanslı araçlar. 30 dakikada net fiyat.";
+  "Hafriyat firması arıyorsanız: temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu. Marmara'da 11 il, lisanslı araçlar. İşinize özel net fiyat.";
 
 const hizmetler = [
   {
@@ -57,13 +57,13 @@ const hizmetler = [
 
 const adimlar = [
   { step: "01", title: "İşinizi Bildirin", desc: "Formdan iş tipini, konumu ve tahmini hacmi girin. 2 dakika sürer, kayıt gerekmez." },
-  { step: "02", title: "30 Dakikada Teklif", desc: "Ekibimiz sizi arar; işinize özel net m³ / kamyon fiyatını iletir." },
+  { step: "02", title: "İşinize Özel Teklif", desc: "Ekibimiz sizi arar; işinize özel net m³ / kamyon fiyatını iletir." },
   { step: "03", title: "Keşif & Planlama", desc: "Gerekirse ücretsiz keşif yapılır, araç ve makine planı iş programınıza göre kurulur." },
   { step: "04", title: "İş Tamamlanır", desc: "Lisanslı araçlarla taşıma yapılır, döküm belgeleri tarafınıza iletilir." },
 ];
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Net Fiyat", desc: "Form doldurulduktan sonra 30 dakika içinde telefonla net fiyat teklifi." },
+  { icon: Clock, title: "İşinize Özel Net Fiyat", desc: "İşin kapsamı, konum ve miktara göre hazırlanan fiyat teklifi." },
   { icon: Shield, title: "Lisanslı Araç & Ruhsatlı Döküm", desc: "Tüm taşımalar lisanslı araçlarla, ruhsatlı döküm sahalarına yapılır; belgeler size iletilir." },
   { icon: Truck, title: "Her Ölçekte İş", desc: "Tek kamyonluk molozdan on binlerce m³'lük saha kazısına kadar kapasite." },
   { icon: CheckCircle, title: "Tek Muhatap", desc: "Kazı, nakliye, döküm ve dolgu tek elden; şantiyeniz tek numarayla yönetir." },
@@ -72,7 +72,7 @@ const avantajlar = [
 const faq = [
   {
     q: "Hafriyat fiyatları nasıl hesaplanır?",
-    a: "Hafriyat fiyatı genellikle m³ veya kamyon (sefer) başına verilir. Kazı hacmi, zemin türü (toprak, kil, kaya), döküm sahasına mesafe ve araç erişimi fiyatı belirleyen ana etkenlerdir. Formu doldurun; işinize özel net fiyatı 30 dakika içinde iletelim.",
+    a: "Hafriyat fiyatı genellikle m³ veya kamyon (sefer) başına verilir. Kazı hacmi, zemin türü (toprak, kil, kaya), döküm sahasına mesafe ve araç erişimi fiyatı belirleyen ana etkenlerdir. Formu doldurun; işinize özel net fiyatı değerlendirme sonrasında iletelim.",
   },
   {
     q: "Hafriyat toprağı dökümü için izin gerekir mi?",
@@ -145,7 +145,7 @@ const HafriyatHub = () => {
                 <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold tracking-tight leading-[1.1] mb-5">
                   Hafriyat Firması — Kazı, Moloz,
                   <br />
-                  Hafriyat Taşıma. <span className="text-navy">30 Dakikada</span> Teklif
+                  Hafriyat Taşıma. <span className="text-navy">İşinize Özel</span> Teklif
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-6 max-w-[500px]">
                   Temel kazısı, hafriyat toprağı taşıma, moloz kaldırma, dolgu…
@@ -295,7 +295,7 @@ const HafriyatHub = () => {
               Hafriyat İşinizi Şimdi Bildirin
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              2 dakikada formu doldurun; 30 dakika içinde net fiyat teklifiniz telefonunuzda olsun.
+              Formu doldurun; işin kapsamını birlikte netleştirip size özel teklif hazırlayalım.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <a href="#hafriyat-teklif" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-navy no-underline shadow-[0_2px_12px_rgba(15,35,71,.25)] hover:bg-navy-hover hover:-translate-y-px transition-all cursor-pointer">

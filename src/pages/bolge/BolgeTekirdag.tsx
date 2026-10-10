@@ -11,10 +11,10 @@ import { CheckCircle, Clock, Shield, Truck, ArrowRight, Phone } from "lucide-rea
 import HeroGorsel from "@/components/HeroGorsel";
 const canonical = "https://hammaddem.co/hizmet-bolgeleri/tekirdag";
 const title = "Tekirdağ Silobas Nakliye & Hammadde Teslimatı | Hammaddem";
-const description = "Tekirdağ'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Çerkezköy ve Çorlu OSB'ye hızlı teslimat, 30 dakikada teklif.";
+const description = "Tekirdağ'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Çerkezköy ve Çorlu OSB'ye hızlı teslimat, işinize özel teklif.";
 
 const avantajlar = [
-  { icon: Clock, title: "30 Dakikada Teklif", desc: "Online talep formunu doldur, 30 dakika içinde rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik silobas ve hafriyat araçlarıyla güvenli teslimat." },
   { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
   { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
@@ -82,7 +82,7 @@ const BolgeTekirdag = () => {
                   Tekirdağ Silobas Nakliye ve Hammadde Teslimatı
                 </h1>
                 <p className="text-base md:text-lg text-txt-2 leading-[1.7] mb-8 max-w-[500px]">
-                  Tekirdağ'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Çerkezköy ve Çorlu OSB'ye hızlı teslimat, 30 dakikada teklif.
+                  Tekirdağ'da silobas nakliye ve hammadde teslimatı: dökme çimento, kalsit, kum, çakıl, mıcır. Çerkezköy ve Çorlu OSB'ye hızlı teslimat, işinize özel teklif.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/teklif-al" className="px-6 py-3 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">

@@ -70,7 +70,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
   const faqSorular = kombo?.faq ?? [
     {
       q: `${sehirDe} ${malzemeAdi} teslimatı nasıl çalışır?`,
-      a: `Talep oluşturun; ${sehirAdi} bölgesindeki filomuz ${malzemeAdi.toLocaleLowerCase("tr-TR")} yükünü ${aracIle} taşır ve 30 dakika içinde size özel net fiyat teklifi sunar.`,
+      a: `Talep oluşturun; ${sehirAdi} bölgesindeki filomuz ${malzemeAdi.toLocaleLowerCase("tr-TR")} yükünü ${aracIle} taşır ve değerlendirme sonrasında size özel net fiyat teklifi sunar.`,
     },
   ];
 
@@ -188,7 +188,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
               {sehirDe} {malzemeAdi} Silobas Taşıma Nasıl Çalışır?
             </h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
-              <p>{kombo?.hizmetDetay ?? `${sehirDe} ${malzemeAdi} silobas taşıma için Hammaddem platformunu kullanın. Online talep formunu doldurarak 30 dakika içinde size özel fiyat teklifi alabilirsiniz.`}</p>
+              <p>{kombo?.hizmetDetay ?? `${sehirDe} ${malzemeAdi} silobas taşıma için Hammaddem platformunu kullanın. Online talep formunu doldurarak değerlendirme sonrasında size özel fiyat teklifi alabilirsiniz.`}</p>
             </div>
           </div>
         </section>
@@ -223,7 +223,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { icon: Clock, title: "30 Dk'da Teklif", desc: "Online talepten 30 dakika içinde fiyat teklifi." },
+                { icon: Clock, title: "30 Dk'da Teklif", desc: "Online talepten değerlendirme sonrasında fiyat teklifi." },
                 { icon: Shield, title: "Güvenli Teslimat", desc: "Pnömatik silobas, kapalı sistem taşıma." },
                 { icon: Truck, title: `${sehirAdi} Hizmet`, desc: `${kombo?.sehir.lojistik ?? `${sehirAdi} genelinde aktif araç filomuzla hızlı teslimat.`}` },
                 { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişi panelden anlık takip edin." },
@@ -241,7 +241,7 @@ const KombinasyonSayfasi = ({ malzemeSlug, sehirSlug, title, description, canoni
               {sehirAdi} {malzemeAdi} İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, 30 dakika içinde {sehirE} özel fiyat teklifi alın.
+              Üyelik gerekmeden talep formunu doldurun, değerlendirme sonrasında {sehirE} özel fiyat teklifi alın.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/teklif-al" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-primary-foreground bg-primary no-underline shadow-[0_2px_12px_rgba(232,98,10,.25)] hover:bg-accent-hover hover:-translate-y-px transition-all">
