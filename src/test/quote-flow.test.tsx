@@ -41,13 +41,20 @@ it("carries a guest request from the form through persistence, admin pricing and
 
   const record = { ...saved!, birim: "m³", id: "test-1", created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
   let price: number;
+  let details: unknown;
   const eq = vi.fn().mockReturnValue({ select: () => ({ single: async () => ({ data: { id: "test-1" }, error: null }) }) });
-  const update = vi.fn().mockImplementation(payload => { price = payload.teklif_fiyat; return { eq }; });
+  const update = vi.fn().mockImplementation(payload => { price = payload.teklif_fiyat; details = payload.teklif_detaylari; return { eq }; });
   mocks.from.mockReturnValue({ update });
   render(<AdminTalepler talepler={[]} misafirTalepler={[record]} profiles={{}} onRefresh={vi.fn()} />);
   fireEvent.click(screen.getByText("#HMD-2026-0001"));
   expect(screen.getByText("₺/m³")).toBeInTheDocument();
   fill(/Birim fiyat/, "1250");
+  fill(/^KDV$/, "excluded");
+  fill(/^Teklife dahil$/, "Malzeme ve nakliye");
+  fill(/^Kapsam dışı/, "Boşaltma dahil değil");
+  fill(/^Teslimat koşulları$/, "Tarih karşılıklı teyit edilecek");
+  fill(/^Ödeme koşulları$/, "Sevkiyat öncesi");
+  fill(/^Geçerlilik tarihi$/, "2099-12-31");
   fireEvent.click(screen.getByRole("button", { name: "Teklifi Kaydet" }));
   await waitFor(() => expect(eq).toHaveBeenCalledWith("id", "test-1"));
   expect(mocks.from).toHaveBeenCalledWith("misafir_talepler");
@@ -55,14 +62,16 @@ it("carries a guest request from the form through persistence, admin pricing and
   expect(mocks.invoke).toHaveBeenCalledTimes(1); // Guest pricing sends no email.
   cleanup();
 
-  mocks.rpc.mockResolvedValue({ data: [{ ...record, durum: "teklif", teklif_fiyat: price! }], error: null });
+  mocks.rpc.mockResolvedValue({ data: [{ ...record, durum: "teklif", teklif_fiyat: price!, teklif_detaylari: details }], error: null });
   render(<HelmetProvider><MemoryRouter initialEntries={["/talep-takip?talep=HMD-2026-0001"]}><TalepTakip /></MemoryRouter></HelmetProvider>);
   expect(screen.getByLabelText(/Talep Numarası/)).toHaveValue("HMD-2026-0001");
   fill(/Telefon Numarası/, "5551234567");
   fireEvent.click(screen.getByRole("button", { name: /Talep Sorgula/ }));
   expect(await screen.findByText("Teklif Verildi")).toBeInTheDocument();
+  expect(screen.getByText("Malzeme ve nakliye")).toBeInTheDocument();
+  expect(screen.getByText("Boşaltma dahil değil")).toBeInTheDocument();
   expect(screen.getByText("/ m³")).toBeInTheDocument();
-  expect(mocks.rpc).toHaveBeenCalledWith("talep_sorgula", { p_telefon: "05551234567", p_talep_no: "HMD-2026-0001" });
+  expect(mocks.rpc).toHaveBeenCalledWith("talep_sorgula_v2", { p_telefon: "05551234567", p_talep_no: "HMD-2026-0001" });
 });
 
 it("blocks blank address, zero quantity and past date before confirmation", () => {
@@ -105,4 +114,25 @@ it("includes the work address and pickup location for excavation requests", asyn
   expect(await screen.findByText("Talebiniz Alındı!")).toBeInTheDocument();
   expect(mocks.invoke).toHaveBeenCalledWith("misafir-talep", { body: expect.objectContaining({ adres: "Esenyurt, deneme şantiyesi", yuk_adres: "İstanbul / Esenyurt, deneme şantiyesi", birim: "m³" }) });
   expect(screen.getByRole("link", { name: /Talebimi Takip Et/ })).toHaveAttribute("href", "/talep-takip?talep=HMD-2026-0004");
+});
+
+
+it("requires both lookup fields and never sends a phone-only request", async () => {
+  render(<HelmetProvider><MemoryRouter><TalepTakip /></MemoryRouter></HelmetProvider>);
+  fill(/Telefon Numarası/, "5551234567");
+  fireEvent.click(screen.getByRole("button", { name: /Talep Sorgula/ }));
+  expect(await screen.findByRole("alert")).toHaveTextContent("Talep numaranızı girin");
+  expect(mocks.rpc).not.toHaveBeenCalled();
+});
+
+it("does not claim a quote saved when persistence fails", async () => {
+  mocks.from.mockReturnValue({ update: () => ({ eq: () => ({ select: () => ({ single: async () => ({ error: { message: "permission denied" } }) }) }) }) });
+  const record = { id: "test-2", talep_no: "HMD-2026-0002", kategori: "silobas", malzeme: "Çimento", miktar: 25, birim: "Ton", teslimat_ili: "İstanbul", teslimat_tarihi: null, not_text: null, durum: "bekliyor", created_at: "2026-10-10", updated_at: "2026-10-10", teklif_detaylari: { priceBasis: "unit", vat: "included", scope: "Nakliye", delivery: "Teyit edilecek", payment: "Peşin", validUntil: "2099-12-31" } };
+  render(<AdminTalepler talepler={[]} misafirTalepler={[record]} profiles={{}} onRefresh={vi.fn()} />);
+  fireEvent.click(screen.getByText("#HMD-2026-0002"));
+  fill(/Birim fiyat/, "1250");
+  fireEvent.click(screen.getByRole("button", { name: "Teklifi Kaydet" }));
+  await waitFor(() => expect(mocks.toast).toHaveBeenCalledWith(expect.objectContaining({ variant: "destructive", description: expect.stringContaining("permission denied") })));
+  expect(mocks.toast).not.toHaveBeenCalledWith(expect.objectContaining({ title: "Teklif kaydedildi" }));
+  expect(mocks.invoke).not.toHaveBeenCalled();
 });

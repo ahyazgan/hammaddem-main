@@ -96,6 +96,7 @@ export type Database = {
           miktar: number
           not_text: string | null
           talep_no: string
+          teklif_detaylari: Json | null
           teklif_fiyat: number | null
           telefon: string
           teslimat_ili: string | null
@@ -116,6 +117,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no: string
+          teklif_detaylari?: Json | null
           teklif_fiyat?: number | null
           telefon: string
           teslimat_ili?: string | null
@@ -136,6 +138,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no?: string
+          teklif_detaylari?: Json | null
           teklif_fiyat?: number | null
           telefon?: string
           teslimat_ili?: string | null
@@ -246,6 +249,7 @@ export type Database = {
           miktar: number
           not_text: string | null
           talep_no: string
+          teklif_detaylari: Json | null
           teklif_fiyat: number | null
           tekrarli: boolean
           teslimat_ili: string | null
@@ -266,6 +270,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no: string
+          teklif_detaylari?: Json | null
           teklif_fiyat?: number | null
           tekrarli?: boolean
           teslimat_ili?: string | null
@@ -286,6 +291,7 @@ export type Database = {
           miktar?: number
           not_text?: string | null
           talep_no?: string
+          teklif_detaylari?: Json | null
           teklif_fiyat?: number | null
           tekrarli?: boolean
           teslimat_ili?: string | null
@@ -318,6 +324,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      talep_sorgula_v2: { Args: { p_telefon: string; p_talep_no: string }; Returns: Json }
       generate_misafir_talep_no: { Args: never; Returns: string }
       generate_talep_no: { Args: never; Returns: string }
       has_role: {

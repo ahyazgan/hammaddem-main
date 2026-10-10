@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import QuoteTermsFields from "@/components/quotes/QuoteTermsFields";
+import { emptyQuoteTerms, readQuoteTerms, quoteTermsError, type QuoteTerms } from "@/lib/quote-terms";
 import { Search, Filter } from "lucide-react";
 
 export interface Talep {
@@ -23,6 +25,7 @@ export interface Talep {
   adres?: string | null;
   yuk_adres?: string | null;
   teklif_fiyat?: number | null;
+  teklif_detaylari?: unknown;
 }
 
 interface Profile {
@@ -44,6 +47,7 @@ const durumOptions = [
   { value: "onaylandi", label: "Onaylandı", cls: "text-[#22c55e]" },
   { value: "yolda", label: "Yolda", cls: "text-[#e8620a]" },
   { value: "teslim", label: "Teslim", cls: "text-[#22c55e]" },
+  { value: "iptal", label: "İptal", cls: "text-red-400" },
 ];
 
 const kategoriLabels: Record<string, string> = {
@@ -59,6 +63,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
   const [updating, setUpdating] = useState(false);
   const [teklifMesaj, setTeklifMesaj] = useState("");
   const [teklifFiyat, setTeklifFiyat] = useState("");
+  const [terms, setTerms] = useState<QuoteTerms>({ ...emptyQuoteTerms });
   const [search, setSearch] = useState("");
   const [filterDurum, setFilterDurum] = useState<string>("all");
   const [filterType, setFilterType] = useState<"all" | "kayitli" | "misafir">("all");
@@ -113,13 +118,16 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
     if (updating) return;
     if (talep._type === "kayitli" && (!teklifMesaj.trim() || !talep.user_id)) return;
     const fiyat = teklifFiyat.trim() ? Number(teklifFiyat) : null;
-    if ((talep._type === "misafir" && fiyat === null) || (fiyat !== null && (!Number.isFinite(fiyat) || fiyat <= 0))) {
-      toast({ title: "Geçerli bir fiyat girin", description: "Birim fiyat sıfırdan büyük olmalıdır.", variant: "destructive" });
+    if ((fiyat === null) || (fiyat !== null && (!Number.isFinite(fiyat) || fiyat <= 0))) {
+      toast({ title: "Geçerli bir fiyat girin", description: "Teklif fiyatı sıfırdan büyük olmalıdır.", variant: "destructive" });
       return;
     }
+    const termsError = quoteTermsError(terms);
+    if (termsError) { toast({ title: "Teklif koşullarını tamamlayın", description: termsError, variant: "destructive" }); return; }
     setUpdating(true);
     try {
-      const updateData: { durum: string; updated_at: string; teklif_fiyat?: number } = {
+      const updateData: { durum: string; updated_at: string; teklif_fiyat?: number; teklif_detaylari: QuoteTerms } = {
+        teklif_detaylari: terms,
         durum: "teklif",
         updated_at: new Date().toISOString(),
       };
@@ -130,7 +138,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
       if (updateError) throw new Error(`Talep güncellenemedi: ${updateError.message}`);
 
       if (talep._type === "misafir") {
-        toast({ title: "Teklif kaydedildi", description: "Fiyat, müşterinin Talep Takip sayfasında görünecek." });
+        toast({ title: "Teklif kaydedildi", description: "Fiyat ve koşullar, müşterinin Talep Takip sayfasında görünecek." });
         return;
       }
 
@@ -226,7 +234,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
               return (
                 <div
                   key={t.id}
-                  onClick={() => { setSelectedId(t.id); setTeklifFiyat(t.teklif_fiyat?.toString() || ""); setTeklifMesaj(""); }}
+                  onClick={() => { if (updating) return; setSelectedId(t.id); setTeklifFiyat(t.teklif_fiyat?.toString() || ""); setTeklifMesaj(""); setTerms(readQuoteTerms(t.teklif_detaylari)); }}
                   className={`flex items-center gap-3 px-4 lg:px-6 py-3 border-b border-[#1c2133] cursor-pointer transition-all ${
                     t.id === selectedId ? "bg-[rgba(232,98,10,0.06)] border-l-2 border-l-[#e8620a]" : "hover:bg-[#0d1017]"
                   }`}
@@ -335,17 +343,18 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
                   <div className="flex-1">
                     <input
                       type="number"
-                      aria-label="Birim fiyat" min="0" step="0.01"
+                      aria-label={terms.priceBasis === "unit" ? "Birim fiyat" : "Toplam fiyat"} min="0" step="0.01"
                       value={teklifFiyat}
                       onChange={e => setTeklifFiyat(e.target.value)}
-                      placeholder={selected._type === "misafir" ? "Birim fiyat (₺)" : "Birim fiyat (₺) — opsiyonel"}
+                      placeholder="Teklif fiyatı (₺)"
                       className="w-full bg-[#111520] border border-[#1c2133] rounded-md px-3 py-2 text-[12px] text-[#e8eaf0] placeholder:text-[#5a6278] focus:outline-none focus:border-[#e8620a] transition-colors"
                     />
                   </div>
                   <div className="flex items-center px-2.5 bg-[#111520] border border-[#1c2133] rounded-md text-[12px] text-[#5a6278] shrink-0">
-                    ₺/{selected.birim}
+                    {terms.priceBasis === "unit" ? `₺/${selected.birim}` : "₺ toplam"}
                   </div>
                 </div>
+                <QuoteTermsFields value={terms} onChange={setTerms} disabled={updating} />
                 {selected._type === "kayitli" && <textarea
                   value={teklifMesaj}
                   onChange={e => setTeklifMesaj(e.target.value)}
@@ -354,7 +363,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
                 />}
                 {selected._type === "misafir" && <p className="text-[11px] text-[#9aa3b8]">Kaydedilen fiyat Talep Takip sayfasında görünür. Telefon görüşmesini ayrıca yapabilirsiniz.</p>}
                 <button
-                  disabled={updating || (selected._type === "kayitli" ? !teklifMesaj.trim() : !teklifFiyat.trim())}
+                  disabled={updating || !teklifFiyat.trim() || (selected._type === "kayitli" && !teklifMesaj.trim())}
                   onClick={() => sendTeklif(selected)}
                   className="mt-2 w-full py-2 rounded-md bg-[#e8620a] text-white text-[12px] font-semibold hover:bg-[#c0520a] disabled:opacity-40 transition-colors"
                 >

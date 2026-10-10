@@ -1,3 +1,4 @@
+import ServicePreparation from "@/components/services/ServicePreparation";
 import BrandIcon from "@/components/brand/BrandIcon";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -27,19 +28,19 @@ const malzemeler = [
 const avantajlar = [
   { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi hammadde fiyat teklifi al." },
   { icon: MapPinned, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş lojistik ağımızla hızlı ve güvenilir hammadde teslimatı." },
-  { icon: Shield, title: "Kalite Garantisi", desc: "Standartlara uygun hammadde tedariki. Her teslimat kalite kontrollüdür." },
-  { icon: CheckCircle, title: "Dijital Takip", desc: "Hammadde siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
+  { icon: Shield, title: "Teknik Özellikler", desc: "İstenen ürün sınıfını ve belge ihtiyacını teklif aşamasında netleştirin." },
+  { icon: CheckCircle, title: "Dijital Takip", desc: "Talebinizin ve sevkiyatınızın güncellenen durumunu panelden görün." },
 ];
 
 const faq = [
   { q: "Hammadde nedir?", a: "Hammadde, bir ürünün üretiminde kullanılan işlenmemiş veya az işlenmiş doğal malzemeye verilen addır. İnşaat sektöründe çimento, kum, çakıl, kalsit, mıcır, kireç gibi malzemeler hammadde olarak kullanılır." },
-  { q: "Hammadde tedariki nasıl çalışır?", a: "Hammaddem platformunda ihtiyaç duyduğunuz hammaddeyi ve miktarı belirterek talep oluşturursunuz. Sistem, bölgenizdeki uygun tedarikçileri eşleştirir ve değerlendirme sonrasında fiyat teklifi alırsınız." },
+  { q: "Hammadde tedariki nasıl çalışır?", a: "Hammaddem platformunda ihtiyaç duyduğunuz hammaddeyi ve miktarı belirterek talep oluşturursunuz. Ekibimiz ürün, miktar ve teslimat koşullarını değerlendirerek fiyat teklifini hazırlar." },
   { q: "Hangi hammaddeleri tedarik edebilirsiniz?", a: "Çimento, kum, çakıl, kalsit, mıcır, kireç, alçı, mermer tozu, uçucu kül ve stabilize gibi inşaat ve endüstriyel hammaddeleri tedarik ediyoruz." },
   { q: "Hammadde silobas ile nasıl taşınır?", a: "Toz ve granül hammaddeler (çimento, kalsit, kireç, alçı, uçucu kül) pnömatik silobas araçlarıyla taşınır. Kum, çakıl ve mıcır gibi agrega hammaddeleri ise damperli kamyonlarla nakledilir." },
   { q: "Hammadde fiyatları nasıl belirlenir?", a: "Hammadde fiyatları; malzeme türü, miktar, teslimat bölgesi ve piyasa koşullarına göre değişir. Güncel hammadde fiyatı için online teklif almanızı öneririz." },
-  { q: "Minimum sipariş miktarı ne kadar?", a: "Hammadde türüne göre değişmekle birlikte, genellikle 10 ton ve üzeri siparişleri kabul ediyoruz. Özel durumlar için bize ulaşın." },
+  { q: "Minimum sipariş miktarı ne kadar?", a: "Uygun miktar; ürün, tedarik noktası ve nakliye planına göre değişir. İhtiyaç duyduğunuz miktarı talebinizde belirtin; uygunluğu birlikte değerlendirelim." },
   { q: "Hangi illerde hammadde teslimatı yapıyorsunuz?", a: "İstanbul, Ankara, İzmir, Bursa, Kocaeli başta olmak üzere Türkiye genelinde 11 ilde hammadde teslimatı gerçekleştiriyoruz." },
-  { q: "Hammadde kalitesi nasıl garanti altına alınıyor?", a: "Tedarik ettiğimiz tüm hammaddeler ilgili Türk Standartları (TS) ve Avrupa Standartları (EN) normlarına uygundur. Taşıyıcı firmalar platform standartlarımızı karşılamak zorundadır." },
+  { q: "Hammadde kalitesi nasıl garanti altına alınıyor?", a: "İstenen ürün sınıfını, kullanım amacını ve varsa şartnamenizi paylaşın. Analiz raporu veya uygunluk belgesi ihtiyacını teklif aşamasında belirtin; sağlanabilecek belgeler ve kabul koşulları ürün bazında teyit edilir." },
 ];
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -170,6 +171,8 @@ const Hammadde = () => {
           </div>
         </section>
 
+        <ServicePreparation service="hammadde" />
+
         {/* Avantajlar */}
         <section className="py-16 px-4 md:px-10">
           <div className="max-w-[1100px] mx-auto">
@@ -251,7 +254,7 @@ const Hammadde = () => {
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Hammadde Siparişinizi Hemen Oluşturun</h2>
             <p className="text-txt-2 text-sm md:text-base mb-6">
-              değerlendirme sonrasında fiyat teklifi alın, ihtiyaç duyduğunuz hammaddeyi en uygun koşullarda tedarik edin.
+              Değerlendirme sonrasında fiyat teklifi alın, ihtiyaç duyduğunuz hammaddeyi en uygun koşullarda tedarik edin.
             </p>
             <Link
               to="/teklif-al"

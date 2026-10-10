@@ -1,3 +1,4 @@
+import ServicePreparation from "@/components/services/ServicePreparation";
 import BrandIcon, { TipperTruckIcon } from "@/components/brand/BrandIcon";
 import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
@@ -270,6 +271,8 @@ const HafriyatHub = () => {
         </section>
 
         <HafriyatKaynaklar haric="/hafriyat" koyu />
+
+        <ServicePreparation service="hafriyat" />
 
         {/* FAQ */}
         <section className="py-16 px-4 md:px-10">

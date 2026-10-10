@@ -1,3 +1,4 @@
+import ServicePreparation from "@/components/services/ServicePreparation";
 import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -13,24 +14,24 @@ const malzemeler = [
 ];
 
 const avantajlar = [
-  { icon: Clock, title: "İşinize Özel Teklif", desc: "Online talep formunu doldur, değerlendirme sonrasında rekabetçi fiyat teklifi al." },
+  { icon: Clock, title: "İşinize Özel Teklif", desc: "Talebinizi iletin; yük, güzergâh ve teslimat koşullarına göre teklif hazırlayalım." },
   { icon: Shield, title: "Güvenli Taşıma", desc: "Pnömatik boşaltma sistemi ile tozlanma ve fire riski minimuma iner." },
-  { icon: Truck, title: "11 İlde Teslimat", desc: "Türkiye genelinde geniş araç filomuz ile hızlı ve güvenilir teslimat." },
-  { icon: CheckCircle, title: "Dijital Takip", desc: "Siparişinizi anlık takip edin, teslimat durumunu panelden görün." },
+  { icon: Truck, title: "11 İlde Teslimat", desc: "Hizmet bölgelerimizde güzergâh ve araç uygunluğuna göre sevkiyat planı." },
+  { icon: CheckCircle, title: "Dijital Takip", desc: "Talebinizin ve sevkiyatınızın güncellenen durumunu panelden görün." },
 ];
 
 const nasılCalısır = [
   { step: "01", title: "Talep Oluştur", desc: "Malzeme türü, miktar ve teslimat adresini girin." },
-  { step: "02", title: "Teklif Alın", desc: "En uygun fiyat teklifini dakikalar içinde alın." },
+  { step: "02", title: "Teklif Alın", desc: "Fiyatı, kapsamı ve teslimat koşullarını birlikte inceleyin." },
   { step: "03", title: "Onaylayın", desc: "Teklifi onaylayın, taşıma planlanır." },
   { step: "04", title: "Teslimat", desc: "Silobas aracı ile güvenli teslimat yapılır." },
 ];
 
 const faq = [
-  { q: "Silobas taşımacılığı yapan firmalar nasıl seçilir?", a: "Silobas taşımacılığı yapan firmalar arasında seçim yaparken; araç filosunun pnömatik boşaltma donanımı, gıda/kimyasal uyumluluğu, sigorta kapsamı ve düzenli sefer kapasitesine bakılmalıdır. Hammaddem, 11 ilde çalışan silobas firmalarının kapasitesini tek platformda birleştirir." },
-  { q: "Silobas kiralama nasıl çalışır, ücreti nedir?", a: "Silobas kiralama; sefer bazlı, günlük veya aylık sözleşmeyle yapılabilir. Ücret; mesafe, malzeme türü, sefer sayısı ve bekleme süresine göre belirlenir. Düzenli sevkiyatlarda sefer başı maliyet belirgin şekilde düşer — ihtiyacınızı iletin, aynı gün kiralama teklifi alın." },
+  { q: "Silobas taşımacılığı yapan firmalar nasıl seçilir?", a: "Silobas taşımacılığı yapan firmalar arasında seçim yaparken; araç filosunun pnömatik boşaltma donanımı, gıda/kimyasal uyumluluğu, sigorta kapsamı ve düzenli sefer kapasitesine bakılmalıdır. Araç ve ürün uygunluğu, sevkiyat planı kesinleşmeden değerlendirilmelidir." },
+  { q: "Silobas kiralama nasıl çalışır, ücreti nedir?", a: "Tek sefer veya düzenli sevkiyat ihtiyacınızı iletebilirsiniz. Çalışma modeli ve araç uygunluğu talebinize göre değerlendirilir. Mesafe, ürün, sefer sıklığı, boşaltma ve bekleme koşulları fiyatlandırmayı etkiler." },
   { q: "Hangi yükler silobas ile taşınır?", a: "Silobas yalnızca toz ve ince granül dökme yükler için uygundur: çimento, uçucu kül, kireç, kalsit, alçı, mermer tozu, silis kumu, talk, barit gibi. Kum, çakıl ve mıcır gibi iri agregalar silobasla değil damperli araçla taşınır." },
-  { q: "Silobas aracı nasıl boşaltma yapar?", a: "Silobas, kompresör yardımıyla ürünü basınçlı hava ile alıcı silosuna aktarır (pnömatik boşaltma). Boşaltma süresi yükün türüne göre 30-90 dakika arasındadır ve ürün hava ile temas etmeden aktarılır." },
+  { q: "Silobas aracı nasıl boşaltma yapar?", a: "Silobas, kompresör yardımıyla ürünü basınçlı hava ile alıcı silosuna aktarır (pnömatik boşaltma). Basınçlı hava, ürünü hortum hattından alıcı siloya taşır. Süre; ürün, ekipman, hat mesafesi ve tesis koşullarına bağlıdır." },
 ];
 
 const HizmetSilobas = () => {
@@ -142,7 +143,7 @@ const HizmetSilobas = () => {
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Taşıdığımız Malzemeler</h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[520px]">
-              Toz ve granül yapıdaki tüm sanayi hammaddelerini silobas araçlarımızla güvenle taşıyoruz.
+              Aşağıdaki ürünler için talep oluşturabilirsiniz. Araç uygunluğu ürün özelliklerine ve tesis koşullarına göre teyit edilir.
             </p>
             <div className="flex flex-wrap gap-2.5">
               {malzemeler.map((m) => (
@@ -156,6 +157,8 @@ const HizmetSilobas = () => {
             </div>
           </div>
         </section>
+
+        <ServicePreparation service="silobas" />
 
         {/* Nasıl Çalışır */}
         <section className="py-16 md:py-24 px-4 md:px-10">
@@ -183,8 +186,8 @@ const HizmetSilobas = () => {
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">Silobas Kiralama</h2>
             <div className="prose prose-sm max-w-none text-txt-2 leading-[1.8] space-y-4">
-              <p>Tek seferlik taşımanın yanında <strong>silobas kiralama</strong> hizmeti de sunuyoruz: düzenli sevkiyatı olan beton santralleri, çimento bayileri ve sanayi tesisleri için günlük veya aylık silobas kiralama sözleşmesi yapılır; araç ve şoför belirlenen program dahilinde tesise tahsis edilir. Sefer bazlı çalışmaya göre ton başı maliyet belirgin şekilde düşer.</p>
-              <p>Silobas taşımacılığı yapan firmalar arasından kapasite, güzergâh ve fiyat karşılaştırması yapmakla vakit kaybetmeyin — ihtiyacınızı tek formla iletin, 11 ildeki filo kapasitemizden aynı gün kiralama teklifi alın.</p>
+              <p>Tek seferlik taşıma veya düzenli sevkiyat ihtiyacınızı iletin. Beton santrali, üretim tesisi ya da şantiye için yükleme ve boşaltma programını birlikte değerlendirelim.</p>
+              <p>Çalışma süresi, sefer sıklığı, güzergâh ve bekleme koşulları teklif kapsamına yazılır. Araç tahsisi ve başlangıç tarihi, uygunluk kontrolü ve karşılıklı teyit sonrasında kesinleşir.</p>
             </div>
           </div>
         </section>
@@ -223,7 +226,7 @@ const HizmetSilobas = () => {
               Silobas Taşımacılığı İçin Teklif Alın
             </h2>
             <p className="text-sm text-txt-2 mb-8 max-w-[460px] mx-auto">
-              Üyelik gerekmeden talep formunu doldurun, dakikalar içinde size özel fiyat teklifi alın.
+              Üyelik gerekmeden talebinizi iletin; yükünüz ve güzergâhınız için fiyat ve teslimat koşullarını birlikte değerlendirelim.
             </p>
             <Link
               to="/teklif-al"
