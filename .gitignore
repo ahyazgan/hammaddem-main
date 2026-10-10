@@ -37,3 +37,6 @@ dist-server
 
 # Supabase CLI gecici dosyalari
 supabase/.temp
+
+# Generated photography originals, previews and local release backups
+output/

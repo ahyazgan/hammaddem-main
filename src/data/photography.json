@@ -1,0 +1,260 @@
+{
+  "/images/hero-filo.webp": {
+    "alt": "Avrupa tipi araçlarla hammadde taşımacılığı — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hero-filo-800.webp 800w, /images/hero-filo.webp 1600w"
+  },
+  "/images/hero-filo-mobil.webp": {
+    "alt": "Gebze benzeri lojistik sahada Avrupa tipi silobas çekici — temsili görsel",
+    "width": 941,
+    "height": 1672,
+    "srcSet": "/images/responsive/hero-filo-mobil-800.webp 800w, /images/hero-filo-mobil.webp 941w"
+  },
+  "/images/hizmet-silobas.webp": {
+    "alt": "Beton santralinde pnömatik boşaltıma hazır Volvo FM silobas — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hizmet-silobas-800.webp 800w, /images/hizmet-silobas.webp 1600w"
+  },
+  "/images/hizmet-hafriyat.webp": {
+    "alt": "Tahkimatlı şantiyede Arocs damperli kamyona hafriyat yüklenmesi — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hizmet-hafriyat-800.webp 800w, /images/hizmet-hafriyat.webp 1600w"
+  },
+  "/images/hizmet-silobas-yol.webp": {
+    "alt": "Marmara bağlantı yolunda Volvo FH silobas çekici — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hizmet-silobas-yol-800.webp 800w, /images/hizmet-silobas-yol.webp 1600w"
+  },
+  "/images/hizmet-kamyon-kiralama.webp": {
+    "alt": "Ekipman sahasında MAN TGS 8×4 damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hizmet-kamyon-kiralama-800.webp 800w, /images/hizmet-kamyon-kiralama.webp 1600w"
+  },
+  "/images/hakkimizda-filo.webp": {
+    "alt": "Silobas ve saha çalışanının bulunduğu tesis — temsili görsel",
+    "width": 1122,
+    "height": 1402,
+    "srcSet": "/images/responsive/hakkimizda-filo-800.webp 800w, /images/hakkimizda-filo.webp 1122w"
+  },
+  "/images/fiyatlar-silobas.webp": {
+    "alt": "Çimento terminalinde yükleme körüğü altındaki Volvo FM silobas — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/fiyatlar-silobas-800.webp 800w, /images/fiyatlar-silobas.webp 1600w"
+  },
+  "/images/hafriyat-hub.webp": {
+    "alt": "Düzenli kazı sahasında Volvo FMX ve ekskavatör — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hafriyat-hub-800.webp 800w, /images/hafriyat-hub.webp 1600w"
+  },
+  "/images/hafriyat-temel-kazisi.webp": {
+    "alt": "İksa sistemi bulunan temel kazısında ekskavatör ve damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hafriyat-temel-kazisi-800.webp 800w, /images/hafriyat-temel-kazisi.webp 1600w"
+  },
+  "/images/hafriyat-moloz-tasima.webp": {
+    "alt": "Ayrıştırılmış tuğla ve beton molozunu taşıyan MAN TGS — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hafriyat-moloz-tasima-800.webp 800w, /images/hafriyat-moloz-tasima.webp 1600w"
+  },
+  "/images/hafriyat-yikim-sonrasi.webp": {
+    "alt": "Yıkım sonrası moloz ayrıştırma ve taşıma sahası — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hafriyat-yikim-sonrasi-800.webp 800w, /images/hafriyat-yikim-sonrasi.webp 1600w"
+  },
+  "/images/hafriyat-dolgu-malzemesi.webp": {
+    "alt": "Yol altyapısında dolgu malzemesi teslimatı — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hafriyat-dolgu-malzemesi-800.webp 800w, /images/hafriyat-dolgu-malzemesi.webp 1600w"
+  },
+  "/images/hafriyat-fiyatlar.webp": {
+    "alt": "Hafriyat kabul sahası kantarında brandalı MAN TGS — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hafriyat-fiyatlar-800.webp 800w, /images/hafriyat-fiyatlar.webp 1600w"
+  },
+  "/images/hafriyat-hesaplama.webp": {
+    "alt": "Hafriyat hacmini gösteren kısmen dolu damper kasası — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/hafriyat-hesaplama-800.webp 800w, /images/hafriyat-hesaplama.webp 1600w"
+  },
+  "/images/il-istanbul.webp": {
+    "alt": "İstanbul çevresindeki sanayi yolunda Arocs damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-istanbul-800.webp 800w, /images/il-istanbul.webp 1600w"
+  },
+  "/images/il-kocaeli.webp": {
+    "alt": "Kocaeli sanayi çevresinde Volvo FMX damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-kocaeli-800.webp 800w, /images/il-kocaeli.webp 1600w"
+  },
+  "/images/il-bursa.webp": {
+    "alt": "Bursa sanayi çevresinde MAN TGS damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-bursa-800.webp 800w, /images/il-bursa.webp 1600w"
+  },
+  "/images/il-tekirdag.webp": {
+    "alt": "Tekirdağ liman çevresindeki servis yolunda damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-tekirdag-800.webp 800w, /images/il-tekirdag.webp 1600w"
+  },
+  "/images/il-sakarya.webp": {
+    "alt": "Sakarya sanayi çevresinde Volvo FMX damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-sakarya-800.webp 800w, /images/il-sakarya.webp 1600w"
+  },
+  "/images/il-yalova.webp": {
+    "alt": "Yalova sanayi çevresindeki malzeme sahasında MAN TGS — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-yalova-800.webp 800w, /images/il-yalova.webp 1600w"
+  },
+  "/images/il-balikesir.webp": {
+    "alt": "Balıkesir çevresindeki agrega sahasında Arocs damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-balikesir-800.webp 800w, /images/il-balikesir.webp 1600w"
+  },
+  "/images/il-canakkale.webp": {
+    "alt": "Çanakkale çevresindeki agrega sahasında Volvo FMX — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-canakkale-800.webp 800w, /images/il-canakkale.webp 1600w"
+  },
+  "/images/il-edirne.webp": {
+    "alt": "Edirne ovasındaki sanayi bağlantı yolunda MAN TGS — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-edirne-800.webp 800w, /images/il-edirne.webp 1600w"
+  },
+  "/images/il-ankara.webp": {
+    "alt": "Ankara sanayi çevresinde Arocs damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-ankara-800.webp 800w, /images/il-ankara.webp 1600w"
+  },
+  "/images/il-izmir.webp": {
+    "alt": "İzmir Aliağa benzeri sanayi çevresinde Volvo FMX — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/il-izmir-800.webp 800w, /images/il-izmir.webp 1600w"
+  },
+  "/images/malzeme-cimento.webp": {
+    "alt": "Çimento tesisinde kapalı sistemle yüklenen silobas — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-cimento-800.webp 800w, /images/malzeme-cimento.webp 1600w"
+  },
+  "/images/malzeme-alci.webp": {
+    "alt": "Alçı üretim tesisinde pnömatik silobas — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-alci-800.webp 800w, /images/malzeme-alci.webp 1600w"
+  },
+  "/images/malzeme-kirec.webp": {
+    "alt": "Kireç tesisinde yüklemeye hazır Avrupa tipi silobas — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-kirec-800.webp 800w, /images/malzeme-kirec.webp 1600w"
+  },
+  "/images/malzeme-kalsit.webp": {
+    "alt": "Kalsit öğütme tesisinde silobas çekici — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-kalsit-800.webp 800w, /images/malzeme-kalsit.webp 1600w"
+  },
+  "/images/malzeme-mermer-tozu.webp": {
+    "alt": "Mermer tozu işleme tesisinde silobas — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-mermer-tozu-800.webp 800w, /images/malzeme-mermer-tozu.webp 1600w"
+  },
+  "/images/malzeme-ucucu-kul.webp": {
+    "alt": "Uçucu kül terminalinde kapalı sistem silobas yüklemesi — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-ucucu-kul-800.webp 800w, /images/malzeme-ucucu-kul.webp 1600w"
+  },
+  "/images/malzeme-kum.webp": {
+    "alt": "Kum sahasında MAN TGS damperli kamyona yükleme — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-kum-800.webp 800w, /images/malzeme-kum.webp 1600w"
+  },
+  "/images/malzeme-cakil.webp": {
+    "alt": "Yıkanmış yuvarlak çakıl yüklenen Arocs damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-cakil-800.webp 800w, /images/malzeme-cakil.webp 1600w"
+  },
+  "/images/malzeme-micir.webp": {
+    "alt": "Kırma eleme tesisinde mıcır yüklü Volvo FMX — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-micir-800.webp 800w, /images/malzeme-micir.webp 1600w"
+  },
+  "/images/malzeme-stabilize.webp": {
+    "alt": "Yol altyapısında stabilize teslimatı ve sıkıştırma çalışması — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/malzeme-stabilize-800.webp 800w, /images/malzeme-stabilize.webp 1600w"
+  },
+  "/images/rehber-hafriyat-nedir.webp": {
+    "alt": "Kazı, yükleme ve taşıma düzenini gösteren hafriyat sahası — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/rehber-hafriyat-nedir-800.webp 800w, /images/rehber-hafriyat-nedir.webp 1600w"
+  },
+  "/images/rehber-kamyon-kac-m3.webp": {
+    "alt": "Dört akslı damperli kamyonun yandan görünümü — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/rehber-kamyon-kac-m3-800.webp 800w, /images/rehber-kamyon-kac-m3.webp 1600w"
+  },
+  "/images/rehber-dokum-ucretleri.webp": {
+    "alt": "Düzenli toprak kabul sahasında damper boşaltımı — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/rehber-dokum-ucretleri-800.webp 800w, /images/rehber-dokum-ucretleri.webp 1600w"
+  },
+  "/images/rehber-moloz-nereye-dokulur.webp": {
+    "alt": "Moloz kabul tesisi girişinde brandalı damperli kamyon — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/rehber-moloz-nereye-dokulur-800.webp 800w, /images/rehber-moloz-nereye-dokulur.webp 1600w"
+  },
+  "/images/rehber-tasima-izin-belgesi.webp": {
+    "alt": "Park halindeki kamyon yanında sevk evrakı kontrolü — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/rehber-tasima-izin-belgesi-800.webp 800w, /images/rehber-tasima-izin-belgesi.webp 1600w"
+  },
+  "/images/rehber-teklif-ornegi.webp": {
+    "alt": "Şantiye ofisinde teklif hazırlığı — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/rehber-teklif-ornegi-800.webp 800w, /images/rehber-teklif-ornegi.webp 1600w"
+  },
+  "/images/rehber-yonetmelik.webp": {
+    "alt": "Tekerlek yıkama ünitesindeki brandalı hafriyat kamyonu — temsili görsel",
+    "width": 1600,
+    "height": 900,
+    "srcSet": "/images/responsive/rehber-yonetmelik-800.webp 800w, /images/rehber-yonetmelik.webp 1600w"
+  }
+}

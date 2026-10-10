@@ -26,7 +26,7 @@ export const whatsappUrl = (pathname: string): string => {
 // Masaüstü yüzen balon. Mobilde gizli: orada WhatsApp, CallBar'ın içinde.
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
-  const hiddenPaths = ["/dashboard", "/giris", "/kayit", "/yazgan", "/sifre-sifirla"];
+  const hiddenPaths = ["/admin", "/dashboard", "/giris", "/kayit", "/yazgan", "/sifre-sifirla"];
   if (hiddenPaths.some(p => pathname.startsWith(p))) return null;
 
   const url = whatsappUrl(pathname);

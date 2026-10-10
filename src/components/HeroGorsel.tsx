@@ -1,3 +1,5 @@
+import SitePhoto from "@/components/SitePhoto";
+
 interface Props {
   src: string;
   alt: string;
@@ -11,18 +13,16 @@ interface Props {
 }
 
 /** Sayfa hero alanlarında kullanılan fotoğraf bloğu. */
-const HeroGorsel = ({ src, alt, caption, width = 1200, height = 800, className = "", priority = false }: Props) => (
+const HeroGorsel = ({ src, alt, caption, width, height, className = "", priority = false }: Props) => (
   <figure className={`rounded-2xl overflow-hidden border border-border shadow-card bg-off ${className}`}>
-    <img
+    <SitePhoto
       src={src}
       alt={alt}
       width={width}
       height={height}
-      loading={priority ? "eager" : "lazy"}
-      {...(priority ? { fetchpriority: "high" } : {})}
-      decoding="async"
-      style={{ aspectRatio: `${width} / ${height}` }}
-      className="w-full object-cover"
+      priority={priority}
+      sizes={width ? "(min-width: 1200px) 1100px, calc(100vw - 32px)" : undefined}
+      className="w-full h-auto object-cover"
     />
     {caption && (
       <figcaption className="px-4 py-2.5 text-xs text-txt-3 border-t border-border">{caption}</figcaption>

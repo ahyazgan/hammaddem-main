@@ -25,24 +25,34 @@ const AdminPanel = () => {
   const [profiles, setProfiles] = useState<Record<string, Profile>>({});
   const [userCount, setUserCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
   const [siteSettings, setSiteSettings] = useState<{ key: string; value: string; label: string | null }[]>([]);
   const [savingSettings, setSavingSettings] = useState(false);
 
   const fetchAll = useCallback(async () => {
-    const [{ data: talepData }, { data: misafirData }, { data: profileData }] = await Promise.all([
-      supabase.from("talepler").select("*").order("created_at", { ascending: false }),
-      supabase.from("misafir_talepler").select("*").order("created_at", { ascending: false }),
-      supabase.from("profiles").select("user_id, firma_adi, email"),
-    ]);
-    if (talepData) setTalepler(talepData as unknown as Talep[]);
-    if (misafirData) setMisafirTalepler(misafirData as unknown as Talep[]);
-    if (profileData) {
-      const map: Record<string, Profile> = {};
-      (profileData as unknown as Profile[]).forEach(p => { map[p.user_id] = p; });
-      setProfiles(map);
-      setUserCount(profileData.length);
+    setLoading(true);
+    setLoadError("");
+    try {
+      const results = await Promise.all([
+        supabase.from("talepler").select("*").order("created_at", { ascending: false }),
+        supabase.from("misafir_talepler").select("*").order("created_at", { ascending: false }),
+        supabase.from("profiles").select("user_id, firma_adi, email"),
+      ]);
+      if (results.some(result => result.error)) throw new Error("Talepler yüklenemedi. Bağlantınızı ve yönetici oturumunuzu kontrol edip yenileyin.");
+      const [{ data: talepData }, { data: misafirData }, { data: profileData }] = results;
+      if (talepData) setTalepler(talepData as unknown as Talep[]);
+      if (misafirData) setMisafirTalepler(misafirData as unknown as Talep[]);
+      if (profileData) {
+        const map: Record<string, Profile> = {};
+        (profileData as unknown as Profile[]).forEach(p => { map[p.user_id] = p; });
+        setProfiles(map);
+        setUserCount(profileData.length);
+      }
+    } catch (error) {
+      setLoadError(error instanceof Error ? error.message : "Talepler yüklenemedi.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }, []);
 
   const fetchSettings = async () => {
@@ -99,10 +109,14 @@ const AdminPanel = () => {
         </span>
       </div>
 
+      <div className="px-4 py-2 flex items-center gap-3 border-b border-[#1c2133]">
+        {loadError && <p role="alert" className="text-xs text-red-400">{loadError}</p>}
+        <button onClick={fetchAll} disabled={loading} className="ml-auto shrink-0 text-xs text-[#e8eaf0] disabled:opacity-40">Talepleri Yenile</button>
+      </div>
       {/* Content */}
       {loading ? (
         <div className="flex-1 flex items-center justify-center text-[#5a6278] text-[11px]">Yükleniyor...</div>
-      ) : (
+      ) : loadError ? null : (
         <>
           {activeTab === "stats" && (
             <AdminStats talepler={talepler} misafirTalepler={misafirTalepler} userCount={userCount} />

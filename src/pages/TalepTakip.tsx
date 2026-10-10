@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { formatPhone, cleanPhone, isValidPhone } from "@/utils/phone";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
@@ -33,16 +35,18 @@ const formatDate = (d: string) =>
   new Date(d).toLocaleDateString("tr-TR", { day: "2-digit", month: "short", year: "numeric" });
 
 const TalepTakip = () => {
+  const [searchParams] = useSearchParams();
   const [telefon, setTelefon] = useState("");
-  const [talepNo, setTalepNo] = useState("");
+  const [talepNo, setTalepNo] = useState(() => (searchParams.get("talep") || "").slice(0,40));
   const [sonuclar, setSonuclar] = useState<TalepSonuc[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [hata, setHata] = useState("");
 
   const sorgula = async () => {
-    const temizTelefon = telefon.replace(/\D/g, "");
-    if (temizTelefon.length < 10) {
-      setHata("Geçerli bir telefon numarası girin (10 hane).");
+    if (loading) return;
+    const temizTelefon = cleanPhone(telefon);
+    if (!isValidPhone(telefon)) {
+      setHata("Geçerli bir cep telefonu numarası girin (05XX XXX XXXX).");
       return;
     }
     setLoading(true);
@@ -103,25 +107,25 @@ const TalepTakip = () => {
             <div className="border border-border rounded-2xl p-6 bg-background mb-6">
               <div className="space-y-4">
                 <div>
-                  <label className="text-[12px] font-semibold text-foreground block mb-1.5">
+                  <label htmlFor="takip-telefon" className="text-[12px] font-semibold text-foreground block mb-1.5">
                     Telefon Numarası <span className="text-red-500">*</span>
                   </label>
                   <input
-                    type="tel"
+                    type="tel" id="takip-telefon" maxLength={25} autoComplete="tel"
                     value={telefon}
-                    onChange={e => setTelefon(e.target.value)}
+                    onChange={e => setTelefon(formatPhone(e.target.value))}
                     onKeyDown={e => e.key === "Enter" && sorgula()}
                     placeholder="05XX XXX XX XX"
                     className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-[12px] font-semibold text-foreground block mb-1.5">
+                  <label htmlFor="takip-no" className="text-[12px] font-semibold text-foreground block mb-1.5">
                     Talep Numarası <span className="text-txt-2 font-normal">(opsiyonel)</span>
                   </label>
                   <input
                     type="text"
-                    value={talepNo}
+                    id="takip-no" maxLength={40} value={talepNo}
                     onChange={e => setTalepNo(e.target.value)}
                     onKeyDown={e => e.key === "Enter" && sorgula()}
                     placeholder="HMD-2026-0001"
@@ -204,7 +208,7 @@ const TalepTakip = () => {
                           <div className="mt-3 p-3 rounded-xl bg-green-50 border border-green-200">
                             <span className="text-[10px] text-green-600 uppercase font-semibold tracking-wide block mb-0.5">Teklif Fiyatı</span>
                             <p className="text-lg font-bold text-green-700">
-                              {talep.teklif_fiyat.toLocaleString("tr-TR")} ₺<span className="text-sm font-normal text-green-600 ml-1">/ ton</span>
+                              {talep.teklif_fiyat.toLocaleString("tr-TR")} ₺<span className="text-sm font-normal text-green-600 ml-1">/ {talep.birim}</span>
                             </p>
                             <p className="text-xs text-green-600 mt-0.5">
                               Tahmini toplam: {(talep.teklif_fiyat * talep.miktar).toLocaleString("tr-TR")} ₺

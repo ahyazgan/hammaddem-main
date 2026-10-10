@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { useEffect, useId, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { submitGuestRequest, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
 import { useToast } from "@/hooks/use-toast";
 import { iller } from "@/constants/iller";
 import { formatPhone, isValidPhone, cleanPhone } from "@/utils/phone";
@@ -24,11 +25,13 @@ const HafriyatTeklifForm = ({
   defaultMiktar = 100,
   defaultBirim = "m³",
 }: Props) => {
+  const fieldId = useId();
+  const submitting = useRef(false);
   const { toast } = useToast();
   const [isTipi, setIsTipi] = useState("");
   const [il, setIl] = useState(defaultIl);
   const [konum, setKonum] = useState("");
-  const [miktar, setMiktar] = useState(defaultMiktar);
+  const [miktar, setMiktar] = useState<number | string>(defaultMiktar);
   const [birim, setBirim] = useState(defaultBirim);
   const [tarih, setTarih] = useState("");
   const [telefon, setTelefon] = useState("");
@@ -48,38 +51,39 @@ const HafriyatTeklifForm = ({
     if (!isTipi) errs.isTipi = true;
     if (!il) errs.il = true;
     if (!telefon || !isValidPhone(telefon)) errs.telefon = true;
+    if (!konum.trim()) errs.konum = true;
+    if (!isValidQuantity(miktar)) errs.miktar = true;
+    if (!isValidDeliveryDate(tarih)) errs.tarih = true;
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
 
   const handleSubmit = async () => {
-    if (!validate()) return;
+    if (submitting.current || !validate()) return;
+    submitting.current = true;
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke("misafir-talep", {
-        body: {
-          kategori: "hafriyat",
-          malzeme: isTipi,
-          miktar,
-          birim,
-          teslimat_ili: il,
-          adres: konum ? `${il} / ${konum}` : il,
-          teslimat_tarihi: tarih || null,
-          aciliyet: "normal",
-          hizmet_tipi: "nakliye",
-          not_text: [`Hafriyat işi talebi (${isTipi})`, not_].filter(Boolean).join(" — "),
-          telefon: cleanPhone(telefon),
-        },
+      const receipt = await submitGuestRequest({
+        kategori: "hafriyat",
+        malzeme: isTipi,
+        miktar: Number(miktar),
+        birim,
+        teslimat_ili: il,
+        adres: konum.trim(),
+        yuk_adres: il + " / " + konum.trim(),
+        teslimat_tarihi: tarih || null,
+        aciliyet: "normal",
+        hizmet_tipi: "nakliye",
+        not_text: [`Hafriyat işi talebi (${isTipi})`, not_].filter(Boolean).join(" — "),
+        telefon: cleanPhone(telefon),
       });
-
-      if (error) throw error;
-
-      setTalepNo(data.talep_no);
-      toast({ title: "Talebiniz alındı!", description: `${data.talep_no} numaralı talebiniz kaydedildi.` });
+      setTalepNo(receipt);
+      toast({ title: "Talebiniz alındı!", description: `${receipt} numaralı talebiniz kaydedildi.` });
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Talep gönderilemedi.";
       toast({ title: "Hata", description: message, variant: "destructive" });
     } finally {
+      submitting.current = false;
       setLoading(false);
     }
   };
@@ -98,8 +102,9 @@ const HafriyatTeklifForm = ({
           </p>
           <div className="bg-off border border-border rounded-[10px] px-4 py-3 flex justify-between items-center">
             <span className="text-[13px] text-txt-2 font-medium">Takip Numaranız</span>
-            <span className="font-mono font-bold text-navy text-sm">#{talepNo}</span>
+            <span className="font-mono font-bold text-navy text-sm break-all">#{talepNo}</span>
           </div>
+          <Link to={"/talep-takip?talep=" + encodeURIComponent(talepNo)} className="block mt-4 py-3 rounded-lg bg-navy text-white font-semibold">Talebimi Takip Et →</Link>
         </div>
       </div>
     );
@@ -139,13 +144,14 @@ const HafriyatTeklifForm = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 mb-3">
           {/* İl */}
           <div className="flex flex-col gap-[5px]">
-            <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
+            <label htmlFor={fieldId + "-il"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
               İl <span className="text-destructive">*</span>
             </label>
             <select
+              id={fieldId + "-il"} aria-invalid={!!errors.il}
               value={il}
               onChange={(e) => { setIl(e.target.value); setErrors((er) => ({ ...er, il: false })); }}
-              className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all appearance-none cursor-pointer focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)] ${errors.il ? "border-destructive bg-destructive/5" : ""}`}
+              className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all appearance-none cursor-pointer focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)] ${errors.il ? "border-destructive bg-destructive/5" : ""}`}
             >
               <option value="">Seçiniz…</option>
               {iller.map((i) => <option key={i} value={i}>{i}</option>)}
@@ -155,30 +161,33 @@ const HafriyatTeklifForm = ({
 
           {/* İlçe / konum */}
           <div className="flex flex-col gap-[5px]">
-            <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">İlçe / Konum</label>
+            <label htmlFor={fieldId + "-konum"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">İlçe / İş Adresi <span className="text-destructive">*</span></label>
             <input
               type="text"
+              id={fieldId + "-konum"} aria-invalid={!!errors.konum}
               value={konum}
-              onChange={(e) => setKonum(e.target.value)}
+              maxLength={400} onChange={(e) => { setKonum(e.target.value); setErrors(er => ({ ...er, konum: false })); }}
               placeholder="Örn: Esenyurt, şantiye adresi"
-              className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)]"
+              className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)]"
             />
           </div>
 
+          {errors.konum && <p className="text-xs text-destructive">Lütfen iş adresini girin.</p>}
           {/* Miktar */}
           <div className="flex flex-col gap-[5px]">
-            <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Tahmini Miktar</label>
+            <label htmlFor={fieldId + "-miktar"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Tahmini Miktar</label>
             <div className="flex border-[1.5px] border-border rounded-[9px] overflow-hidden bg-off transition-all focus-within:bg-background focus-within:border-navy focus-within:shadow-[0_0_0_3px_rgba(15,35,71,.08)]">
-              <button type="button" onClick={() => { setMiktarElle(true); setMiktar(Math.max(1, miktar - 25)); }} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">−</button>
+              <button type="button" onClick={() => { setMiktarElle(true); setMiktar(Math.max(1, Number(miktar) - 25)); }} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">−</button>
               <input
-                type="number"
-                value={miktar}
-                onChange={(e) => { setMiktarElle(true); setMiktar(Math.max(1, Number(e.target.value) || 1)); }}
-                className="flex-1 min-w-0 border-none bg-transparent text-center text-sm font-semibold text-foreground font-mono outline-none"
+                type="number" min="0" step="any" inputMode="decimal"
+                id={fieldId + "-miktar"} aria-invalid={!!errors.miktar}
+              value={miktar}
+                onChange={(e) => { setMiktarElle(true); setMiktar(e.target.value); setErrors(er => ({ ...er, miktar: false })); }}
+                className="flex-1 min-w-0 border-none bg-transparent text-center text-base sm:text-sm font-semibold text-foreground font-mono outline-none"
               />
-              <button type="button" onClick={() => { setMiktarElle(true); setMiktar(miktar + 25); }} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">+</button>
+              <button type="button" onClick={() => { setMiktarElle(true); setMiktar(Number(miktar) + 25); }} className="w-[38px] h-10 border-none bg-transparent text-txt-2 cursor-pointer text-lg flex items-center justify-center hover:bg-border">+</button>
               <select
-                value={birim}
+                aria-label="Miktar birimi" value={birim}
                 onChange={(e) => setBirim(e.target.value)}
                 className="px-3 text-xs text-txt-3 border-l-[1.5px] border-border cursor-pointer whitespace-nowrap font-medium bg-off hover:bg-off2 hover:text-foreground transition-all appearance-none text-center"
               >
@@ -187,43 +196,47 @@ const HafriyatTeklifForm = ({
             </div>
           </div>
 
+          {errors.miktar && <p className="text-xs text-destructive">Miktar sıfırdan büyük olmalıdır.</p>}
           {/* Tarih */}
           <div className="flex flex-col gap-[5px]">
-            <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Başlangıç Tarihi</label>
+            <label htmlFor={fieldId + "-tarih"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">Başlangıç Tarihi</label>
             <input
               type="date"
+              id={fieldId + "-tarih"} aria-invalid={!!errors.tarih}
               value={tarih}
-              min={new Date().toISOString().split("T")[0]}
-              onChange={(e) => setTarih(e.target.value)}
-              className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)]"
+              min={todayInTurkey()}
+              onChange={(e) => { setTarih(e.target.value); setErrors(er => ({ ...er, tarih: false })); }}
+              className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)]"
             />
           </div>
 
+          {errors.tarih && <p className="text-xs text-destructive">Bugün veya sonraki bir tarih seçin.</p>}
           {/* Telefon */}
           <div className="flex flex-col gap-[5px] sm:col-span-2">
-            <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
+            <label htmlFor={fieldId + "-telefon"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">
               Telefon <span className="text-destructive">*</span>
             </label>
             <input
               type="tel"
+              id={fieldId + "-telefon"} aria-invalid={!!errors.telefon}
               value={telefon}
               onChange={(e) => { setTelefon(formatPhone(e.target.value)); setErrors((er) => ({ ...er, telefon: false })); }}
               placeholder="05XX XXX XXXX"
-              maxLength={13}
-              className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)] ${errors.telefon ? "border-destructive bg-destructive/5" : ""}`}
+              maxLength={25} autoComplete="tel"
+              className={`py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)] ${errors.telefon ? "border-destructive bg-destructive/5" : ""}`}
             />
             {errors.telefon && <div className="text-[11px] text-destructive font-medium">⚠ Geçerli bir telefon numarası girin (05XX XXX XXXX)</div>}
           </div>
 
           {/* Not */}
           <div className="flex flex-col gap-[5px] sm:col-span-2">
-            <label className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">İş Detayı / Not</label>
+            <label htmlFor={fieldId + "-not"} className="text-[11px] font-semibold text-txt-2 tracking-wider uppercase">İş Detayı / Not</label>
             <textarea
-              value={not_}
+              id={fieldId + "-not"} maxLength={1900} value={not_}
               onChange={(e) => setNot(e.target.value)}
               placeholder="Örn: 3 katlı bina temel kazısı, zemin killi, döküm dahil fiyat istiyorum…"
               rows={2}
-              className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)] resize-none"
+              className="py-2.5 px-3.5 bg-off border-[1.5px] border-border rounded-[9px] text-base sm:text-[13px] text-foreground outline-none transition-all placeholder:text-txt-3 focus:border-navy focus:bg-background focus:shadow-[0_0_0_3px_rgba(15,35,71,.08)] resize-none"
             />
           </div>
         </div>

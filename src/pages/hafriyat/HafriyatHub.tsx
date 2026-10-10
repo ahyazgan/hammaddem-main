@@ -171,7 +171,7 @@ const HafriyatHub = () => {
                 <HafriyatHeroGorsel
                   src="/images/hafriyat-hub.webp"
                   alt="Şantiyede ekskavatör hafriyat toprağını Avrupa tipi damperli kamyonlara yüklüyor, arkada bekleyen kamyon konvoyu"
-                  caption="Lisanslı damperli filo ve deneyimli ekip"
+                  caption="Hafriyat yükleme ve taşıma · Temsili görsel"
                 />
               </div>
 

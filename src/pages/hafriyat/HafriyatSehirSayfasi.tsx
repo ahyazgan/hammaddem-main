@@ -125,7 +125,7 @@ const HafriyatSehirSayfasi = ({ lokasyon }: Props) => {
                 <HafriyatHeroGorsel
                   src={`/images/il-${lokasyon.parent ?? lokasyon.slug}.webp`}
                   alt={`${lokatif} hafriyat taşıma: Avrupa tipi damperli kamyon, ${ilAdi} manzarasıyla`}
-                  caption={`${ilAdi} genelinde lisanslı hafriyat filosu`}
+                  caption={`${ilAdi} için hafriyat taşımacılığı · Temsili görsel`}
                 />
               </div>
 
