@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { supabase } from "@/integrations/supabase/client";
+import QuoteSummary from "@/components/quotes/QuoteSummary";
 import { Search, Package, Clock, CheckCircle, Truck, X } from "lucide-react";
 
 interface TalepSonuc {
@@ -18,6 +19,7 @@ interface TalepSonuc {
   teslimat_tarihi: string | null;
   durum: string;
   teklif_fiyat: number | null;
+  teklif_detaylari?: unknown;
   created_at: string;
   updated_at: string;
 }
@@ -49,23 +51,23 @@ const TalepTakip = () => {
       setHata("Geçerli bir cep telefonu numarası girin (05XX XXX XXXX).");
       return;
     }
+    if (!talepNo.trim()) { setHata("Talep numaranızı girin. Numaranızı bulamıyorsanız bizi arayın: 0539 330 86 17"); return; }
     setLoading(true);
     setHata("");
     setSonuclar(null);
 
     try {
-      // Anonim istemci talepler tablolarını RLS nedeniyle okuyamaz; SECURITY DEFINER RPC
-      // yalnızca telefonu eşleşen kayıtların sınırlı alanlarını döner (bkz. migration 20260825000001).
-      const { data, error } = await supabase.rpc("talep_sorgula", {
+      // Both phone and request number must match; no private address or internal notes are returned.
+      const { data, error } = await supabase.rpc("talep_sorgula_v2", {
         p_telefon: temizTelefon,
-        p_talep_no: talepNo.trim() ? talepNo.trim().toUpperCase() : null,
+        p_talep_no: talepNo.trim().toUpperCase(),
       });
 
       if (error) throw error;
 
-      const bulunan = (data ?? []) as TalepSonuc[];
+      const bulunan = (data ?? []) as unknown as TalepSonuc[];
       if (bulunan.length === 0) {
-        setHata("Bu telefon numarasına ait talep bulunamadı. Talep numarası ekleyerek tekrar deneyin.");
+        setHata("Telefon ve talep numarası eşleşen kayıt bulunamadı. Bilgileri kontrol ederek tekrar deneyin.");
       } else {
         setSonuclar(bulunan);
       }
@@ -99,7 +101,7 @@ const TalepTakip = () => {
                 Talep Durumunu Sorgula
               </h1>
               <p className="text-sm text-txt-2 leading-relaxed">
-                Kayıt olmadan verdiğiniz talebinizin durumunu telefon numaranızla sorgulayabilirsiniz.
+                Kayıt olmadan verdiğiniz talebinizin durumunu telefon ve talep numaranızla sorgulayabilirsiniz.
               </p>
             </div>
 
@@ -116,12 +118,12 @@ const TalepTakip = () => {
                     onChange={e => setTelefon(formatPhone(e.target.value))}
                     onKeyDown={e => e.key === "Enter" && sorgula()}
                     placeholder="05XX XXX XX XX"
-                    className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:border-primary transition-colors"
+                    className="w-full border border-border rounded-xl px-4 py-3 text-base bg-background focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
                 <div>
                   <label htmlFor="takip-no" className="text-[12px] font-semibold text-foreground block mb-1.5">
-                    Talep Numarası <span className="text-txt-2 font-normal">(opsiyonel)</span>
+                    Talep Numarası <span className="text-txt-2 font-normal">(zorunlu)</span>
                   </label>
                   <input
                     type="text"
@@ -129,12 +131,12 @@ const TalepTakip = () => {
                     onChange={e => setTalepNo(e.target.value)}
                     onKeyDown={e => e.key === "Enter" && sorgula()}
                     placeholder="HMD-2026-0001"
-                    className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:border-primary transition-colors uppercase"
+                    className="w-full border border-border rounded-xl px-4 py-3 text-base bg-background focus:outline-none focus:border-primary transition-colors uppercase"
                   />
                 </div>
 
                 {hata && (
-                  <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{hata}</p>
+                  <p role="alert" className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{hata}</p>
                 )}
 
                 <button
@@ -203,18 +205,7 @@ const TalepTakip = () => {
                           )}
                         </div>
 
-                        {/* Teklif fiyatı varsa göster */}
-                        {talep.teklif_fiyat && (
-                          <div className="mt-3 p-3 rounded-xl bg-green-50 border border-green-200">
-                            <span className="text-[10px] text-green-600 uppercase font-semibold tracking-wide block mb-0.5">Teklif Fiyatı</span>
-                            <p className="text-lg font-bold text-green-700">
-                              {talep.teklif_fiyat.toLocaleString("tr-TR")} ₺<span className="text-sm font-normal text-green-600 ml-1">/ {talep.birim}</span>
-                            </p>
-                            <p className="text-xs text-green-600 mt-0.5">
-                              Tahmini toplam: {(talep.teklif_fiyat * talep.miktar).toLocaleString("tr-TR")} ₺
-                            </p>
-                          </div>
-                        )}
+                        <QuoteSummary request={talep} />
                       </div>
                     </div>
                   );

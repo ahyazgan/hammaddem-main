@@ -1,0 +1,55 @@
+HAMMADDEM — İŞ ÖRNEKLERİ VE ÖLÇÜM
+10 Ekim 2026
+
+GERÇEK İŞ ÖRNEĞİ EKLEME
+docs/real-job-content-template.json dosyasını her iş için doldurun.
+title: Yapılan işi anlatan kısa başlık.
+service: silobas, hafriyat veya hammadde.
+city: İl adı; özel müşteri adresini yazmayın.
+completedMonth: İşin tamamlandığı ay, YYYY-MM.
+work: İhtiyaç, taşınan/tedarik edilen malzeme, kullanılan araç ve yapılan iş.
+outcome: Kayıtlarla doğrulanabilen sonuç. Ölçülmeyen hız, tasarruf veya memnuniyet oranı eklemeyin.
+photo: Gerçek saha fotoğrafı. Orijinali arşivleyin; web için WebP kopyasını public/images/references altında hazırlayın.
+alt: Fotoğraftaki işi ve aracı anlatan kısa metin.
+
+Fotoğraf ve iş bilgisinin yayın iznini özel işletme arşivinde saklayın.
+Bu dosyalara müşteri telefonu, tam adres, özel belgeler veya kişisel bilgi koymayın.
+Fotoğraflardaki kişiler, plakalar ve müşteri isimleri izin kapsamına uygun olmalı.
+Yapay zekâyla üretilen görseller gerçek iş fotoğrafı yerine kullanılmaz.
+
+Editör, içeriği src/data/caseStudies.ts içindeki caseStudies dizisine aktarır.
+status: draft iken yayınlanmaz. Gerçek fotoğraf, izin ve içerik kontrolü tamamlanınca
+permissionConfirmed, isRealSitePhoto, publicationApproved true ve status published yapılır.
+Fotoğraf yolu /images/references/ ile başlamalıdır.
+Ana sayfa bölümü yalnızca eksiksiz ve onaylı en az bir kayıt varsa görünür.
+Fotoğraf eklenince mobil ve masaüstünde kırpma, okunabilirlik ve yükleme kontrol edilir.
+Şu anda örnek iş uydurulmadı; kayıt listesi boş.
+
+GA4 — İLK DURUM
+Mülk: Hammaddem (558361363), ölçüm kimliği: G-NDQJTB20SX.
+Rapor: https://analytics.google.com/analytics/web/#/a351554809p558361363/realtime/overview
+10 Ekim kurulum kontrolünde quote_success olayı ve form_name parametresi görüldü.
+HMD-2026-0007 kurulum testidir; gerçek müşteri kazanımı sayılmaz.
+Kurulum gününün düşük hacimli ve test içeren verisiyle dönüşüm performansı yorumlanmaz.
+Search Console mevcut arama görünürlüğü ve dizin raporları için korunur.
+
+İZLENECEK AKIŞ
+quote_cta_click -> quote_form_start -> quote_form_step -> quote_submit -> quote_success
+quote_error: Başarısız form gönderimi; başarılı talep değildir.
+contact_phone_click / contact_whatsapp_click: İletişim bağlantısının açılmasıdır;
+tamamlanmış görüşme veya satış değildir.
+Boyutlar: form_name (order/hafriyat), form_step (1/2/3), placement (header/footer/content).
+İlk değerlendirmede kurulum/test günü ayrılır; aynı tarih aralığı ve form türü karşılaştırılır.
+Gerçek talepler ve test işaretli talepler yönetim panelinden ayrıca kontrol edilir.
+GA4'te kullanıcı/oturum temelli huni kullanın; farklı olayların toplam sayısını bölmek
+tekrarlı denemeler nedeniyle müşteri dönüşüm oranı vermez.
+Çerez izni vermeyen ziyaretçiler ölçüme dahil olmadığından GA4 tüm talep kayıtlarının yerini tutmaz.
+Öncelik: mobilde hangi adımda ayrılma var, hangi hizmet sayfası talep getiriyor,
+hata oluşuyor mu, telefon/WhatsApp ile form tercihleri nasıl değişiyor?
+Anlamlı trafik oluşmadan tasarım kazananı veya reklam bütçesi sonucu ilan etmeyin.
+
+ARAÇ İÇERİĞİ İÇİN ÜRETİCİ KAYNAKLARI
+Feldbinder kuru dökme yük araçları: https://www.feldbinder.com/en/road.html
+Schmitz Cargobull damperli yarı römorklar: https://www.cargobull.com/uk/products/tipper
+MEILLER inşaat uygulamaları: https://www.meiller.com/en/segments-and-applications/construction-industry/
+Kaynaklar araç türü ayrımı içindir; Hammaddem filosu veya kapasitesi için kanıt değildir.

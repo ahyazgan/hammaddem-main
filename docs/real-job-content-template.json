@@ -1,0 +1,17 @@
+{
+  "id": "",
+  "status": "draft",
+  "title": "",
+  "service": "silobas",
+  "city": "",
+  "completedMonth": "",
+  "work": "",
+  "outcome": "",
+  "photo": {
+    "src": "",
+    "alt": "",
+    "permissionConfirmed": false,
+    "isRealSitePhoto": false
+  },
+  "publicationApproved": false
+}

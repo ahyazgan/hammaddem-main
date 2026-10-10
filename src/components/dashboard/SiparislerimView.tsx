@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import QuoteSummary from "@/components/quotes/QuoteSummary";
+import { toast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 
 interface Talep {
@@ -13,6 +15,7 @@ interface Talep {
   teslimat_tarihi: string | null;
   not_text: string | null;
   teklif_fiyat: number | null;
+  teklif_detaylari?: unknown;
   durum: string;
   hizmet_tipi: string;
   created_at: string;
@@ -65,10 +68,14 @@ const SiparislerimView = ({ kategoriFilter, initialFilter }: SiparislerimViewPro
     if (!user) return;
     if (!confirm("Bu talebi iptal etmek istediğinizden emin misiniz?")) return;
     setIptalLoading(true);
-    await supabase.from("talepler").update({ durum: "iptal", updated_at: new Date().toISOString() }).eq("id", id).eq("user_id", user.id);
-    setIptalLoading(false);
-    setSelectedId(null);
-    fetchTalepler();
+    try {
+      const { error } = await supabase.from("talepler").update({ durum: "iptal", updated_at: new Date().toISOString() }).eq("id", id).eq("user_id", user.id).in("durum", ["bekliyor", "teklif"]).select("id").single();
+      if (error) throw error;
+      setSelectedId(null);
+      await fetchTalepler();
+    } catch {
+      toast({ title: "Talep iptal edilemedi", description: "Talep durumu değişmiş olabilir. Sayfayı yenileyin veya bizimle iletişime geçin.", variant: "destructive" });
+    } finally { setIptalLoading(false); }
   };
 
   const fetchTalepler = async () => {
@@ -226,13 +233,7 @@ const SiparislerimView = ({ kategoriFilter, initialFilter }: SiparislerimViewPro
                 </div>
               ))}
 
-              {selected.teklif_fiyat && (
-                <div className="px-4 py-3 border-t border-border bg-green-50 dark:bg-green-950/20">
-                  <span className="text-[10px] font-semibold tracking-[.5px] text-green-600 uppercase block mb-1">TEKLİF FİYATI</span>
-                  <p className="text-[18px] font-bold text-green-700">{selected.teklif_fiyat.toLocaleString("tr-TR")} ₺<span className="text-[11px] font-normal text-green-600 ml-1">/ {selected.birim}</span></p>
-                  <p className="text-[10px] text-green-600 mt-0.5">Toplam tahmini: {(selected.teklif_fiyat * selected.miktar).toLocaleString("tr-TR")} ₺</p>
-                </div>
-              )}
+              <QuoteSummary request={selected} />
               {selected.not_text && (
                 <div className="mt-2 pt-2 border-t border-border">
                   <span className="text-[10px] font-semibold tracking-[.5px] text-muted-foreground uppercase block mb-1">Not</span>
@@ -242,7 +243,7 @@ const SiparislerimView = ({ kategoriFilter, initialFilter }: SiparislerimViewPro
             </div>
 
             <div className="px-4 py-3 border-t border-border">
-              <span className="text-[10px] font-semibold tracking-[.5px] text-muted-foreground uppercase block mb-3">DURUM GEÇMİŞİ</span>
+              <span className="text-[10px] font-semibold tracking-[.5px] text-muted-foreground uppercase block mb-3">TALEP KAYDI</span>
               <div className="flex gap-2.5 pb-2 relative">
                 <div className={`w-[11px] h-[11px] rounded-full shrink-0 mt-0.5 ${
                   selected.durum === "bekliyor" ? "bg-primary shadow-[0_0_6px_rgba(232,98,10,0.4)] animate-pulse" : "bg-green-500"

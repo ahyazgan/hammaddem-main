@@ -1,3 +1,4 @@
+import CaseStudies from "@/components/landing/CaseStudies";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
@@ -12,7 +13,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>Hammaddem | Hafriyat İşleri ve Hammadde Nakliyesi</title>
-        <meta name="description" content="Hafriyat işleri ve hammadde nakliyesinde tek adres: temel kazısı, hafriyat taşıma, moloz; silobas ile çimento, kum, çakıl. 11 il, işinize özel teklif." />
+        <meta name="description" content="Hafriyat işleri ve hammadde nakliyesinde tek adres: temel kazısı, hafriyat taşıma, moloz; silobas ile çimento; damperli araçla kum, çakıl. 11 il, işinize özel teklif." />
         <meta name="keywords" content="hammaddem, hafriyat işleri, hafriyat nakliye, hammadde tedarik, silobas nakliye, temel kazısı, moloz taşıma, kum çakıl fiyatları" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
@@ -20,7 +21,7 @@ const Index = () => {
         <meta name="author" content="Hammaddem" />
         <link rel="canonical" href="https://hammaddem.co/" />
         <meta property="og:title" content="Hammaddem | Hafriyat İşleri ve Hammadde Nakliyesi" />
-        <meta property="og:description" content="Hafriyat işleri ve hammadde nakliyesinde tek adres: temel kazısı, hafriyat taşıma, moloz; silobas ile çimento, kum, çakıl. 11 il, işinize özel teklif." />
+        <meta property="og:description" content="Hafriyat işleri ve hammadde nakliyesinde tek adres: temel kazısı, hafriyat taşıma, moloz; silobas ile çimento; damperli araçla kum, çakıl. 11 il, işinize özel teklif." />
         <meta property="og:url" content="https://hammaddem.co/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://hammaddem.co/og-image.png" />
@@ -73,6 +74,7 @@ const Index = () => {
         <HowItWorks />
         <Hizmetler />
         <Neden />
+        <CaseStudies />
         <ProjectResources />
         <Footer />
       </div>

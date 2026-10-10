@@ -1,3 +1,4 @@
+import ServicePreparation from "@/components/services/ServicePreparation";
 import BrandBenefitCard from "@/components/brand/BrandBenefitCard";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -46,9 +47,9 @@ const fiyatModelleri = [
 ];
 
 const adimlar = [
-  { step: "01", title: "İşi bildirin", desc: "Yük tipi, konum, tahmini hacim ve tarih; 2 dakika sürer." },
+  { step: "01", title: "İşi bildirin", desc: "Yük tipini, konumu, tahmini hacmi ve tercih ettiğiniz tarihi paylaşın." },
   { step: "02", title: "Araç planı", desc: "Hacme ve erişime göre kamyon tipi ve sefer sayısı çıkarılır." },
-  { step: "03", title: "Net fiyat", desc: "değerlendirme sonrasında telefonla sefer/gün fiyatı iletilir." },
+  { step: "03", title: "Net fiyat", desc: "Fiyat, KDV ve dahil olan hizmetler birlikte belirtilir." },
   { step: "04", title: "Sevkiyat", desc: "Lisanslı araç görevlendirilir, döküm belgesi teslim edilir." },
 ];
 
@@ -74,7 +75,7 @@ const faq = [
   },
   {
     q: "Şoför ve yakıt fiyata dahil mi?",
-    a: "Evet. Sefer ve günlük fiyatlarımız araç, şoför ve yakıtı kapsar. Yükleme için ekskavatör gerekiyorsa ayrıca planlanır ve teklifte kalem olarak gösterilir.",
+    a: "Araç, şoför, yakıt, yükleme ve döküm bedellerinin kapsamı işe özel teklifte belirtilir. Ekskavatör ihtiyacınızı ayrıca paylaşın; dahil olmayan kalemleri onay öncesinde teyit edin.",
   },
   {
     q: "Aylık kamyon kiralama yapıyor musunuz?",
@@ -295,6 +296,8 @@ const HizmetHafriyat = () => {
             </div>
           </div>
         </section>
+
+        <ServicePreparation service="hafriyat" />
 
         {/* SSS */}
         <section className="py-14 px-4 md:px-10">
