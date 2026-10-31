@@ -45,14 +45,17 @@ const Kayit = () => {
       return;
     }
     setLoading(true);
-    const { error } = await signUp(email, password, { firma_adi: firmaAdi, telefon: cleanPhone(telefon) });
+    const { error, needsConfirmation } = await signUp(email, password, { firma_adi: firmaAdi, telefon: cleanPhone(telefon) });
     setLoading(false);
 
     if (error) {
       toast({ title: "Kayıt başarısız", description: error.message, variant: "destructive" });
-    } else {
+    } else if (needsConfirmation) {
       toast({ title: "Kayıt başarılı", description: "E-posta adresinize doğrulama linki gönderildi." });
       navigate("/giris");
+    } else {
+      toast({ title: "Kayıt başarılı", description: "Hesabınız oluşturuldu." });
+      navigate("/dashboard");
     }
   };
 
