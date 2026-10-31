@@ -1,8 +1,9 @@
-import { useState, ReactNode } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { iller } from "@/constants/iller";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
+import { cleanPhone, formatPhone, isValidPhone } from "@/utils/phone";
 import SilobasIcon from "@/components/SilobasIcon";
 import HafriyatIcon from "@/components/HafriyatIcon";
 
@@ -42,9 +43,21 @@ const NewRequestWizard = () => {
   const [aciliyet, setAciliyet] = useState("normal");
   const [tekrarli, setTekrarli] = useState(false);
   const [note, setNote] = useState("");
+  const [telefon, setTelefon] = useState("");
+  const [savedPhone, setSavedPhone] = useState("");
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [talepNo, setTalepNo] = useState("");
+
+  // Google ile girenlerin profilinde telefon olmayabilir; ekip müşteriyi telefonla arıyor.
+  useEffect(() => {
+    if (!user) return;
+    supabase.from("profiles").select("telefon").eq("user_id", user.id).maybeSingle().then(({ data }) => {
+      const phone = data?.telefon || "";
+      setSavedPhone(phone);
+      if (phone) setTelefon(current => current || formatPhone(phone));
+    });
+  }, [user]);
 
   const reset = () => {
     setStep(0); setSelectedCat(""); setHizmetTipi("satin_alma"); setMaterial(""); setCustomMaterial(""); setQuantity("100"); setBirim("Ton");
@@ -52,13 +65,24 @@ const NewRequestWizard = () => {
   };
 
   const handleSubmit = async () => {
-    if (!user) return;
+    if (!user || !isValidPhone(telefon)) return;
     setLoading(true);
+
+    const phone = cleanPhone(telefon);
+    if (phone !== savedPhone) {
+      const { error: phoneError } = await supabase.from("profiles").update({ telefon: phone }).eq("user_id", user.id);
+      if (phoneError) {
+        setLoading(false);
+        toast({ title: "Telefon kaydedilemedi", description: phoneError.message, variant: "destructive" });
+        return;
+      }
+      setSavedPhone(phone);
+    }
 
     const { data: noData } = await supabase.rpc("generate_talep_no");
     const generatedNo = (noData as string) || `HMD-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 9999)).padStart(4, "0")}`;
 
-    const { error } = await supabase.from("talepler").insert({
+    const { data: inserted, error } = await supabase.from("talepler").insert({
       user_id: user.id,
       talep_no: generatedNo,
       kategori: selectedCat,
@@ -73,7 +97,10 @@ const NewRequestWizard = () => {
       not_text: note || null,
       durum: "bekliyor",
       hizmet_tipi: hizmetTipi,
-    });
+    }).select("id").single();
+
+    // Ekibe mail gitmezse talep yine kayıtlı; müşteriyi bekletmeyelim.
+    if (!error && inserted) void supabase.functions.invoke("talep-bildirim", { body: { talepId: inserted.id } });
 
     if (!error && tekrarli) {
       // Tekrarlı talep için bildirim: bir ay sonraki tarih hesapla
@@ -224,6 +251,24 @@ const NewRequestWizard = () => {
                 </div>
 
                 <div className="col-span-2">
+                  <label htmlFor="talep-telefon" className={labelClass}>TELEFON</label>
+                  <input
+                    id="talep-telefon"
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    value={telefon}
+                    onChange={(e) => setTelefon(formatPhone(e.target.value))}
+                    placeholder="05XX XXX XXXX"
+                    aria-invalid={telefon !== "" && !isValidPhone(telefon)}
+                    className={inputClass}
+                  />
+                  {telefon !== "" && !isValidPhone(telefon) && (
+                    <p className="text-[10px] text-destructive mt-1">Geçerli bir cep telefonu girin (05XX XXX XXXX).</p>
+                  )}
+                </div>
+
+                <div className="col-span-2">
                   <label className={labelClass}>ACİLİYET</label>
                   <div className="grid grid-cols-3 gap-1.5">
                     {aciliyetler.map((a) => (
@@ -263,7 +308,7 @@ const NewRequestWizard = () => {
               </div>
               <div className="flex gap-1.5">
                 <button onClick={() => setStep(0)} className="px-3 h-[30px] rounded-[6px] bg-transparent border border-border text-muted-foreground text-[11px] hover:border-primary hover:text-foreground transition-all">←</button>
-                <button onClick={() => setStep(2)} disabled={!material || (material === "Diğer" && !customMaterial) || !city} className="flex-1 h-[30px] rounded-[6px] bg-primary text-primary-foreground text-[11px] font-semibold hover:opacity-90 transition-all shadow-[0_0_16px_rgba(232,98,10,0.15)] disabled:opacity-30 disabled:cursor-not-allowed">
+                <button onClick={() => setStep(2)} disabled={!material || (material === "Diğer" && !customMaterial) || !city || !isValidPhone(telefon)} className="flex-1 h-[30px] rounded-[6px] bg-primary text-primary-foreground text-[11px] font-semibold hover:opacity-90 transition-all shadow-[0_0_16px_rgba(232,98,10,0.15)] disabled:opacity-30 disabled:cursor-not-allowed">
                   Özet →
                 </button>
               </div>
@@ -282,6 +327,7 @@ const NewRequestWizard = () => {
                   { k: "Konum", v: city ? (adres ? `${city}, ${adres}` : city) : "—" },
                   { k: "Tarih", v: date || "—" },
                   { k: "Aciliyet", v: aciliyetler.find(a => a.id === aciliyet)?.label || "Normal" },
+                  { k: "Telefon", v: formatPhone(telefon) },
                   ...(tekrarli ? [{ k: "Tekrar", v: "🔄 Aylık" }] : []),
                   { k: "Teklif", v: "Ücretsiz", orange: true },
                 ].map((item, idx) => (
@@ -295,7 +341,7 @@ const NewRequestWizard = () => {
                 <button onClick={() => setStep(1)} className="px-3 h-[30px] rounded-[6px] bg-transparent border border-border text-muted-foreground text-[11px] hover:border-primary hover:text-foreground transition-all">←</button>
                 <button
                   onClick={handleSubmit}
-                  disabled={loading}
+                  disabled={loading || !isValidPhone(telefon)}
                   className="flex-1 h-[30px] rounded-[6px] bg-primary text-primary-foreground text-[11px] font-semibold hover:opacity-90 transition-all shadow-[0_0_16px_rgba(232,98,10,0.15)] disabled:opacity-50"
                 >
                   {loading ? "Gönderiliyor..." : "✓ Gönder"}

@@ -32,6 +32,7 @@ interface Profile {
   user_id: string;
   firma_adi: string | null;
   email: string | null;
+  telefon?: string | null;
 }
 
 interface Props {
@@ -89,6 +90,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
         (t.teslimat_ili?.toLowerCase().includes(q)) ||
         (p?.firma_adi?.toLowerCase().includes(q)) ||
         (p?.email?.toLowerCase().includes(q)) ||
+        (p?.telefon?.includes(q)) ||
         (t.telefon?.includes(q))
       );
     }
@@ -282,6 +284,7 @@ const AdminTalepler = ({ talepler, misafirTalepler, profiles, onRefresh }: Props
                 <>
                   <div className="text-[12px] font-medium text-[#e8eaf0]">{profile.firma_adi || "—"}</div>
                   <div className="text-[10px] text-[#5a6278]">{profile.email || "—"}</div>
+                  <div className="text-[12px] font-medium text-[#e8eaf0] mt-1">📞 {profile.telefon || "—"}</div>
                 </>
               ) : (
                 <div className="text-[12px] font-medium text-[#e8eaf0]">📞 {selected.telefon || "—"}</div>
