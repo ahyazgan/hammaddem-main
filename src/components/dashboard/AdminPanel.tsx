@@ -9,6 +9,7 @@ interface Profile {
   user_id: string;
   firma_adi: string | null;
   email: string | null;
+  telefon: string | null;
 }
 
 const tabs = [
@@ -37,7 +38,7 @@ const AdminPanel = () => {
       const results = await Promise.all([
         supabase.from("talepler").select("*").order("created_at", { ascending: false }),
         supabase.from("misafir_talepler").select("*").order("created_at", { ascending: false }),
-        supabase.from("profiles").select("user_id, firma_adi, email"),
+        supabase.from("profiles").select("user_id, firma_adi, email, telefon"),
       ]);
       if (results.some(result => result.error)) throw new Error("Talepler yüklenemedi. Bağlantınızı ve yönetici oturumunuzu kontrol edip yenileyin.");
       const [{ data: talepData }, { data: misafirData }, { data: profileData }] = results;

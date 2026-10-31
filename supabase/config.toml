@@ -4,6 +4,10 @@ project_id = "vcoogvrudvzsxfmrodov"
 [functions.misafir-talep]
 verify_jwt = false
 
+# Üye talebi bildirimi: oturum token'ı handler'da doğrulanır, yalnızca kendi yeni talebi için mail gider.
+[functions.talep-bildirim]
+verify_jwt = true
+
 # Teklif maili yalnızca admin panelinden tetiklenir; JWT + admin rolü kontrolü şart.
 [functions.send-teklif-email]
 verify_jwt = true
