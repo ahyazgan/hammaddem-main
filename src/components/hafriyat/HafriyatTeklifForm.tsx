@@ -1,7 +1,8 @@
 import { useQuoteAnalytics } from "@/hooks/use-quote-analytics";
 import { useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { submitGuestRequest, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
+import { submitGuestRequest, guestRequestWhatsappUrl, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
+import QuoteFallback from "@/components/quotes/QuoteFallback";
 import { useToast } from "@/hooks/use-toast";
 import { iller } from "@/constants/iller";
 import { formatPhone, isValidPhone, cleanPhone } from "@/utils/phone";
@@ -40,6 +41,7 @@ const HafriyatTeklifForm = ({
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [talepNo, setTalepNo] = useState("");
+  const [failed, setFailed] = useState(false);
   const analytics = useQuoteAnalytics("hafriyat");
   // Hesaplama aracı sayfasında kullanıcı ölçüleri değiştirdikçe miktar güncel kalsın;
   // ama kullanıcı miktarı kendi elle değiştirdiyse üzerine yazma.
@@ -60,31 +62,35 @@ const HafriyatTeklifForm = ({
     return Object.keys(errs).length === 0;
   };
 
+  const requestBody = () => ({
+    kategori: "hafriyat",
+    malzeme: isTipi,
+    miktar: Number(miktar),
+    birim,
+    teslimat_ili: il,
+    adres: konum.trim(),
+    yuk_adres: il + " / " + konum.trim(),
+    teslimat_tarihi: tarih || null,
+    aciliyet: "normal",
+    hizmet_tipi: "nakliye",
+    not_text: [`Hafriyat işi talebi (${isTipi})`, not_].filter(Boolean).join(" — "),
+    telefon: cleanPhone(telefon),
+  });
+
   const handleSubmit = async () => {
     if (submitting.current || !validate()) return;
     submitting.current = true;
     setLoading(true);
+    setFailed(false);
     analytics.submit();
     try {
-      const receipt = await submitGuestRequest({
-        kategori: "hafriyat",
-        malzeme: isTipi,
-        miktar: Number(miktar),
-        birim,
-        teslimat_ili: il,
-        adres: konum.trim(),
-        yuk_adres: il + " / " + konum.trim(),
-        teslimat_tarihi: tarih || null,
-        aciliyet: "normal",
-        hizmet_tipi: "nakliye",
-        not_text: [`Hafriyat işi talebi (${isTipi})`, not_].filter(Boolean).join(" — "),
-        telefon: cleanPhone(telefon),
-      });
+      const receipt = await submitGuestRequest(requestBody());
       analytics.success();
       setTalepNo(receipt);
       toast({ title: "Talebiniz alındı!", description: `${receipt} numaralı talebiniz kaydedildi.` });
     } catch (err: unknown) {
       analytics.error();
+      setFailed(true);
       const message = err instanceof Error ? err.message : "Talep gönderilemedi.";
       toast({ title: "Hata", description: message, variant: "destructive" });
     } finally {
@@ -254,6 +260,7 @@ const HafriyatTeklifForm = ({
         >
           {loading ? "Gönderiliyor..." : "✓ Ücretsiz Fiyat Teklifi Al"}
         </button>
+        {failed && <QuoteFallback whatsappUrl={guestRequestWhatsappUrl(requestBody())} />}
         <p className="text-[11px] text-txt-3 text-center mt-2.5">
           İş detaylarına göre size özel fiyat teklifi · Kayıt gerekmez
         </p>

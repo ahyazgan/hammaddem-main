@@ -18,3 +18,28 @@ export async function submitGuestRequest(input: unknown): Promise<string> {
   }
   return data.talep_no;
 }
+
+const aciliyetEtiketi = { normal: "Normal", acil: "Acil", cok_acil: "Çok acil" };
+
+// Kayıt başarısız olursa talep kaybolmasın: aynı bilgiler hazır WhatsApp mesajı olur.
+export function guestRequestWhatsappUrl(input: unknown): string {
+  let lines = ["Merhaba, siteden teklif talebi gönderemedim. Fiyat almak istiyorum."];
+  try {
+    const q = validateGuestQuote(input);
+    lines = [
+      "Merhaba, siteden teklif talebi gönderemedim. Talep bilgilerim:",
+      `Hizmet: ${q.hizmet_tipi === "nakliye" ? "Sadece nakliye" : "Malzeme satın alma"}`,
+      `Yük tipi: ${q.kategori === "silobas" ? "Silobas" : "Hafriyat & inşaat"}`,
+      `Malzeme: ${q.malzeme}`,
+      `Miktar: ${q.miktar} ${q.birim}`,
+      ...(q.yuk_adres ? [`Yükleme adresi: ${q.yuk_adres}`] : []),
+      `Teslimat ili: ${q.teslimat_ili}`,
+      `Teslimat adresi: ${q.adres}`,
+      ...(q.teslimat_tarihi ? [`İstenen tarih: ${q.teslimat_tarihi.split("-").reverse().join(".")}`] : []),
+      `Aciliyet: ${aciliyetEtiketi[q.aciliyet]}`,
+      ...(q.not_text ? [`Not: ${q.not_text.slice(0, 500)}`] : []),
+      `Telefon: ${q.telefon}`,
+    ];
+  } catch { /* Eksik bilgiyle bile WhatsApp'a yönlendir. */ }
+  return `https://wa.me/905393308617?text=${encodeURIComponent(lines.join("\n"))}`;
+}

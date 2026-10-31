@@ -94,6 +94,27 @@ it("keeps the summary on an invalid receipt, then permits a successful retry", a
   expect(await screen.findByText("#HMD-2026-0002")).toBeInTheDocument();
 });
 
+it("offers the filled request over WhatsApp when the request service is unreachable", async () => {
+  mocks.invoke.mockResolvedValue({ data: null, error: new Error("Failed to send a request to the Edge Function") });
+  renderForm(); fillOrder(); fireEvent.click(screen.getByRole("button", { name: /Özete Git/ }));
+  expect(screen.queryByRole("link", { name: /WhatsApp ile gönder/ })).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: /Talebi Gönder/ }));
+  const link = await screen.findByRole("link", { name: /WhatsApp ile gönder/ });
+  const text = new URL(link.getAttribute("href")!).searchParams.get("text");
+  expect(text).toContain("Malzeme: Çimento\nMiktar: 25.5 Ton");
+  expect(text).toContain("Teslimat adresi: Beykoz, deneme şantiyesi");
+  expect(text).toContain("Telefon: 05551234567");
+  expect(screen.getByText("Beykoz, deneme şantiyesi")).toBeInTheDocument();
+  cleanup();
+
+  render(<MemoryRouter><HafriyatTeklifForm defaultIl="İstanbul" /></MemoryRouter>);
+  fireEvent.click(screen.getByRole("button", { name: /Temel Kazısı/i }));
+  fill(/İlçe \/ İş Adresi/, "Esenyurt, deneme şantiyesi"); fill(/^Telefon/, "05551234567");
+  fireEvent.click(screen.getByRole("button", { name: /Ücretsiz Fiyat Teklifi Al/ }));
+  const hafriyatLink = await screen.findByRole("link", { name: /WhatsApp ile gönder/ });
+  expect(new URL(hafriyatLink.getAttribute("href")!).searchParams.get("text")).toContain("Teslimat adresi: Esenyurt, deneme şantiyesi");
+});
+
 it("allows only one pending submission", async () => {
   let resolve: (value: unknown) => void;
   mocks.invoke.mockImplementation(() => new Promise(r => { resolve = r; }));

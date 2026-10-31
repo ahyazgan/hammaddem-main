@@ -3,7 +3,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import { Package, Info, Smartphone, Clock3, Check, AlertCircle } from "lucide-react";
 import { BulkTruckIcon } from "@/components/brand/BrandIcon";
 import { useNavigate } from "react-router-dom";
-import { submitGuestRequest, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
+import { submitGuestRequest, guestRequestWhatsappUrl, isValidQuantity, isValidDeliveryDate, todayInTurkey } from "@/lib/guest-request";
+import QuoteFallback from "@/components/quotes/QuoteFallback";
 import { useToast } from "@/hooks/use-toast";
 import { iller } from "@/constants/iller";
 import { formatPhone, isValidPhone, cleanPhone } from "@/utils/phone";
@@ -48,6 +49,7 @@ const OrderCard = () => {
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [talepNo, setTalepNo] = useState("");
+  const [failed, setFailed] = useState(false);
   const analytics = useQuoteAnalytics("order", step);
 
   useEffect(() => {
@@ -71,27 +73,30 @@ const OrderCard = () => {
     return Object.keys(errs).length === 0;
   };
 
+  const requestBody = () => ({
+    kategori: yukTipi,
+    malzeme,
+    miktar: Number(miktar),
+    birim,
+    teslimat_ili: il,
+    adres: adres.trim(),
+    yuk_adres: hizmetTipi === "nakliye" ? yukAdres.trim() : null,
+    teslimat_tarihi: tarih || null,
+    aciliyet,
+    hizmet_tipi: hizmetTipi,
+    not_text: not_,
+    telefon: cleanPhone(telefon),
+  });
+
   const handleSubmit = async () => {
     if (submitting.current) return;
     if (!validateStep2()) { setStep(2); return; }
     submitting.current = true;
     setLoading(true);
+    setFailed(false);
     analytics.submit();
     try {
-      const receipt = await submitGuestRequest({
-        kategori: yukTipi,
-        malzeme,
-        miktar: Number(miktar),
-        birim,
-        teslimat_ili: il,
-        adres: adres.trim(),
-        yuk_adres: hizmetTipi === "nakliye" ? yukAdres.trim() : null,
-        teslimat_tarihi: tarih || null,
-        aciliyet,
-        hizmet_tipi: hizmetTipi,
-        not_text: not_,
-        telefon: cleanPhone(telefon),
-      });
+      const receipt = await submitGuestRequest(requestBody());
       analytics.success();
       setTalepNo(receipt);
       setShowSuccess(true);
@@ -99,6 +104,7 @@ const OrderCard = () => {
       toast({ title: "Talep alındı!", description: `${receipt} numaralı talebiniz kaydedildi.` });
     } catch (err) {
       analytics.error();
+      setFailed(true);
       const mesaj = err instanceof Error && err.message ? err.message : "Talep gönderilemedi.";
       toast({ title: "Hata", description: mesaj, variant: "destructive" });
     } finally {
@@ -126,6 +132,7 @@ const OrderCard = () => {
     setErrors({});
     setLoading(false);
     setTalepNo("");
+    setFailed(false);
   };
 
   const topbarColor = colorClass === "orange"
@@ -550,6 +557,7 @@ const OrderCard = () => {
                 {!loading && <Check size={16} aria-hidden="true" />}{loading ? "Gönderiliyor..." : "Talebi Gönder"}
               </button>
             </div>
+            {failed && <QuoteFallback whatsappUrl={guestRequestWhatsappUrl(requestBody())} />}
           </div>
         )}
 
