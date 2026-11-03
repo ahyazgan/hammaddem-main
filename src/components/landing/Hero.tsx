@@ -54,10 +54,6 @@ const Hero = () => {
                 className="block w-full h-[280px] object-cover object-[center_60%] md:h-auto"
               />
             </picture>
-            <figcaption className="flex items-center justify-between gap-4 px-4 py-3 text-[11px] text-txt-2">
-              <span>Silobas ve hafriyat lojistiği</span>
-              <span className="text-txt-3">Temsili görsel</span>
-            </figcaption>
           </figure>
         </div>
 

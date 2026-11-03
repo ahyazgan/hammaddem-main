@@ -125,7 +125,6 @@ const YikimSonrasiHafriyat = () => {
                 <HafriyatHeroGorsel
                   src="/images/hafriyat-yikim-sonrasi.webp"
                   alt="Yıkım sonrası enkaz sahasında kırıcı ataşmanlı ekskavatör molozu damperli kamyona yüklüyor, toz bastırma için su püskürtülüyor"
-                  caption="Yıkım sonrası enkaz kaldırma"
                 />
               </div>
               <HafriyatTeklifForm baslik="Yıkım Molozu İçin Teklif" defaultMiktar={1} defaultBirim="Kamyon" />

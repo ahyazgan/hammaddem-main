@@ -168,7 +168,6 @@ const HizmetHafriyat = () => {
                 <HafriyatHeroGorsel
                   src="/images/hizmet-kamyon-kiralama.webp"
                   alt="Kiralamaya hazır, sıralı beş adet Avrupa tipi damperli hafriyat kamyonu ve sevkiyat sorumlusu"
-                  caption="Sefer ve günlük kiralamaya hazır damperli filo"
                 />
               </div>
               <HafriyatTeklifForm baslik="Kamyon Kiralama Teklifi" defaultMiktar={1} defaultBirim="Kamyon" />

@@ -116,7 +116,6 @@ const TemelKazisi = () => {
                 <HafriyatHeroGorsel
                   src="/images/hafriyat-temel-kazisi.webp"
                   alt="İksa perdeli derin temel çukurunda kazı yapan ekskavatör ve rampada bekleyen damperli kamyon, kenarda ölçüm yapan mühendis"
-                  caption="İksa ile koordineli etaplı temel kazısı"
                 />
               </div>
               <HafriyatTeklifForm baslik="Temel Kazısı Fiyat Teklifi" />

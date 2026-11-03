@@ -108,7 +108,6 @@ const DolguMalzemesi = () => {
                 <HafriyatHeroGorsel
                   src="/images/hafriyat-dolgu-malzemesi.webp"
                   alt="Kum, çakıl, mıcır ve stabilize yığınlarının bulunduğu sahada yükleyici damperli kamyonu dolduruyor"
-                  caption="Kum, çakıl, mıcır ve stabilize tedariği"
                 />
               </div>
               <HafriyatTeklifForm baslik="Dolgu ve Tesviye Teklifi" />
