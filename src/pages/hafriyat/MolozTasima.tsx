@@ -103,7 +103,6 @@ const MolozTasima = () => {
                 <HafriyatHeroGorsel
                   src="/images/hafriyat-moloz-tasima.webp"
                   alt="Şehir sokağında lastikli ekskavatör inşaat molozunu damperli kamyona yüklüyor"
-                  caption="Şehir içi moloz yükleme ve nakliye"
                 />
               </div>
               <HafriyatTeklifForm baslik="Moloz Taşıma Teklifi Alın" defaultMiktar={1} defaultBirim="Kamyon" />
